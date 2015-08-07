@@ -37,7 +37,7 @@ load_view("Template/navbarnew.php");
               </div>
               <ul class="collapsible" data-collapsible="accordion">
                      <li>
-                      <div class="collapsible-header">Chouse Your Tuition Type</div>
+                      <div class="collapsible-header">Home/Online Tuition</div>
                       <div class="collapsible-body" style="padding:6px;">
                         <div class="row">
                           <div class="col s10">
