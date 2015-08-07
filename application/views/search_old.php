@@ -17,7 +17,10 @@ load_view("Template/navbarnew.php");
           <h3 class="blue-grey-text text-darken-1">Filter<i class="material-icons right">filter_list</i></h5>
             <form method="post" id="searchform">
               <?php
-              hidinp("search",htmlspecialchars($search));
+/* comment by yogy*/             
+              //hidinp("search",htmlspecialchars($search));
+/*new line by yogy*/
+              hidinp("search","");
               ?>
               <div class="form-group">
                   <select name="class" class="browser-default form-control" onchange='topicssubtopic_t2(this);' id="selectclass" data-condition="simple">

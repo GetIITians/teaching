@@ -13,7 +13,7 @@ $(function() {
 		}
 	);
 
-	$('.rating-system span').on('click', function() {
+	$('body').on('click','.rating-system span', function() {
 		var rating_system 		= 	$(this).parent();	//specific
 		var rating_value_div	= 	rating_system.next('.rating-value');	//specific
 		var user_id				= 	rating_system.data('uid');
