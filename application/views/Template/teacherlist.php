@@ -1,6 +1,9 @@
 <?php
 //fb($qresult,'row',FirePHP::LOG);
+$searchPageRows = 0;
 foreach($qresult as $row) {
+  echo ($searchPageRows%4===0) ? '<div class="row">' : FALSE;
+  $searchPageRows++;
 //fb($row,'row',FirePHP::LOG);
 ?>
 
@@ -51,11 +54,13 @@ foreach($qresult as $row) {
             }
           ?>
         </p>
+      <?php else: ?>
+        <p class="grey-text text-darken-2">Rating : Not rated yet.</p>
       <?php endif; ?>
       <p class="lastp">
         <?php if(!$row["isdonedemo"]) { //fb($row,'$qresult as $row',FirePHP::LOG); ?>
         <a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
-          <button type="button" class="btn waves-effect waves-light btn-small" >Free Demo</button>
+          <button type="button" class="btn waves-effect waves-light btn-small" >Free Class</button>
         </a>
         <?php } ?>
         <span class="activator"><i class="material-icons right">toc</i></span>
@@ -159,4 +164,6 @@ foreach($qresult as $row) {
     </div>
   </div>
 </div>
-<?php } ?>
+<?php 
+echo ($searchPageRows%4===0) ? '</div>' : FALSE;
+} ?>
