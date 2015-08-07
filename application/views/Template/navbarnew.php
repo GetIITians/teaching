@@ -26,7 +26,7 @@
           ?>
           <li class="<?php pit('active', $page==='login');?>"><a href="<?php echo BASE."login"; ?>">Login</a></li>
           <li>
-            <a class="dropdown-button" href="#" data-beloworigin="true" data-activates="dropdownaccount">
+            <a class="dropdown-button" href="" data-beloworigin="true" data-activates="dropdownaccount">
               Create Account <i class="material-icons right">arrow_drop_down</i>
             </a>
           </li>

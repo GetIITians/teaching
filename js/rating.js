@@ -1,19 +1,19 @@
 $(function() {
 
-	$('.rating-system span').hover(
+	$(document).on({
 		// Handles the mouseover
-		function() {
+		mouseenter: function() {
 			$(this).prevAll().andSelf().removeClass('glyphicon-star-empty');
 			$(this).prevAll().andSelf().addClass('glyphicon-star');
 		},
 		// Handles the mouseout
-		function() {
+		mouseleave: function() {
 			$(this).nextAll().andSelf().removeClass('glyphicon-star'); 
 			$(this).nextAll().andSelf().addClass('glyphicon-star-empty');
 		}
-	);
+	},'.rating-system span');
 
-	$('body').on('click','.rating-system span', function() {
+	$(document).on('click','.rating-system span', function() {
 		var rating_system 		= 	$(this).parent();	//specific
 		var rating_value_div	= 	rating_system.next('.rating-value');	//specific
 		var user_id				= 	rating_system.data('uid');
@@ -36,7 +36,7 @@ $(function() {
 						rating_id 		: 	rating_id
 			},
 			success: function(msg){
-				update_data(msg);
+				update_card_reveal(msg);
 			} 
 		})
 	});
@@ -52,21 +52,33 @@ $(function() {
 		return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
 	};
 
-	function update_data(msg){
+	function update_card_reveal(msg){
 		var info = JSON.parse(msg);
 		var father = $('.rating[data-tid="'+info.tid+'"]');
 		father.find('.rating-system').attr('previousRating',info.previous_rating);
 		father.find('.rating-system').attr('ratingId',info.rating_id);
 		father.find('.rating-value').attr('count',info.rating_count);
 		father.find('.rating-value').attr('value',info.rating_avg);
-		if (father.find('.rating-value').find('p').length !== 0) {
-			father.find('.rating-value').html('<p>'+info.rating_avg+'</p>');
-		}else if (info.previous_rating != 0) {
-			father.find('.rating-value').html('<p>'+info.rating_avg+'</p>');
-		};
+		var plural = (info.rating_count == 1) ? 'rating' : 'ratings';
+		father.find('.rating-value').html('<p>'+info.rating_avg+'<span>('+info.rating_count+plural+')</span>'+'</p>');
+		update_card_content(msg);
 	};
 
-	$( ".rating-system" ).mouseout(function() {
+	function update_card_content(msg){
+		var info = JSON.parse(msg);
+		var father = $('.rating[data-tid="'+info.tid+'"]').parent().prev().find('.contentrating');
+
+		var updateHTML = 'Rating: ';
+		for (var i = 1; i < 6; i++) {
+			if(i <= info.previous_rating)
+				updateHTML += '<span class="glyphicon glyphicon-star rated-star" aria-hidden="true"></span>';
+			else
+				updateHTML += '<span class="glyphicon glyphicon-star-empty rating-star" aria-hidden="true"></span>';
+		};
+		father.html(updateHTML);
+	};
+
+	$(document).on({mouseleave:function() {
 		var current_rating = parseInt($(this).attr('previousRating'),10);
 		$(this).find('span').each(function(index){
 			$(this).removeClass();
@@ -76,12 +88,12 @@ $(function() {
 				$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 			}
 		});
-	});
+	}},'.rating-system');
 
-	$( ".rating-system" ).mouseenter(function() {
+	$(document).on({mouseenter: function() {
 		$(this).find('span').each(function(index){
 			$(this).removeClass();
 			$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 		});
-	});
+	}},'.rating-system');
 });

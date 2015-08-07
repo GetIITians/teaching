@@ -42,7 +42,7 @@ foreach($qresult as $row) {
         <?php echo $degree." | IIT ".convchars($joinus_data->{'college'}); ?>
       </p>
       <?php if($row['rating_total']>0) : ?>
-        <p class="grey-text text-darken-2">
+        <p class="grey-text text-darken-2 contentrating">
           Rating : <?php //echo round($row['rating'],2); ?>
           <?php
             for ($i=1; $i < 6; $i++)
