@@ -178,7 +178,7 @@ var button={
 	sendreq_v2_t4:function(obj,call_back_data,call_back_html,adata){ 
 		var allattrs=this.attrs(obj);  
 		if(!button.hasattr(allattrs,"data-params")) { 
-			var params=this.tosendattrs(obj,allattrs); console.log(params); 
+			var params=this.tosendattrs(obj,allattrs); 
 		}
 		else{
 			eval("var params="+allattrs["data-params"]);
