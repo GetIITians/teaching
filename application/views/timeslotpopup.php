@@ -1,4 +1,4 @@
-<div class="row" >
+<div class="row calendarpopup">
 	<div id="disppopupslots" >
 	<?php
 		$slotid=1;
@@ -40,18 +40,12 @@
 	?>
 	</div>
 	<div class='clear' ></div>
-	<?php
-		if(!$isguest){
-			if($isself){
-	?>
+
+	<?php if(!$isguest) : ?>
+		<?php if($isself) : ?>
 			<button class='btn btn-default' type="button" data-datets="<?php echo $datets; ?>" data-eparams="{'slots':$('#popuptimecheckbox').val()}" data-action="teacherModifySlots" onclick="ms.f2();button.sendreq_v2(this);" data-waittext="Saving.." data-res='ms.calreq($("#calhomebutton")[0]);success.push("Timeslot Saved ! ");mohit.popup_close("timeslot");' >Save</button>
-	<?php
-			}
-			else if($isstudent){
-	?>
+		<?php elseif($isstudent) : ?>
 			<button class='btn btn-default' type="button" data-datets="<?php echo $datets; ?>" data-eparams="{'slots':$('#popuptimecheckbox').val()}" data-tid="<?php echo $tid; ?>" data-action="studentBookSlots" onclick="ms.studentbookslot(this);" data-waittext="Booking.." data-res='Materialize.toast("Slots Booked ! ", 4000);mohit.popup_close("timeslot");' >Book</button>
-	<?php
-			}
-		}
-	?>
+		<?php endif; ?>
+	<?php endif; ?>
 </div>

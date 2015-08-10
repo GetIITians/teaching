@@ -7,7 +7,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 ?> 
 	<main class="profile">
 		<div class="container">
-			<ul class="row" role="tablist">
+			<ul id="profiletabs" class="row" role="tablist">
 				<li role="presentation" class="active col-md-2 col-xs-4">
 					<a href="#profile" aria-controls="home" role="tab" data-toggle="tab">
 						Profile

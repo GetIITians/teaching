@@ -261,24 +261,35 @@ main.profile .container{
   background-color: white;
 }
 
-main.profile li.col-md-2{
+#profiletabs li{
   background-color: #e6e6e6;
   text-align: center;
   padding: 10px 0;
   border: 1px solid white;
 }
 
-main.profile li.col-md-2:hover{
+#profiletabs li:hover{
   background-color: #d4d4d4;
   cursor: pointer;
 }
 
-main.profile li.col-md-2 a{
+#profiletabs li.active{
+  background-color: #d4d4d4;
+  color: #717171;
+}
+
+#profiletabs li a{
+  padding: 10px 25px;
   color: #808080;
   font-size: 1rem;
 }
 
-main.profile li.col-md-2 a:hover, a:active{
+#profiletabs li a:hover, a:active, a:focus{
   text-decoration: none;
   color: #717171;
+}
+
+.calendarpopup{
+  margin-right: 0;
+  margin-left: 0;
 }

@@ -1,6 +1,6 @@
 <?php if ($tid == User::loginId()) : ?>
 	<div class="row">
-		<div class="col s12">
+		<div class="col-xs-12">
 			<a onclick="$('#fillalltsform').slideToggle(500);">Click here</a> to book slots for multiple days.
 			<div id="fillalltsform" style="display:none;padding:30px;">
 				<?php load_view("Template/uploadslotform.php",$inp); ?>

@@ -59,7 +59,6 @@ class Actiondisp{
 		//load that view that shows the uploaded files
 	}
 	function daytspopup($data){
-		
 		$need=array('datets','tid');
 		$ec=1;
 		$odata = 0;
