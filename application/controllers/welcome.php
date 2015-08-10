@@ -11,6 +11,8 @@ class Welcome extends CI_Controller {
 		$pageinfo=array();
 		Fun::issetlogout();
 		load_view('index.php',$pageinfo);
+		//$arr=array("action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
+		//Actiondisp::search($arr);
 		}
 	
 	public function joinus(){ 
@@ -206,9 +208,9 @@ class Welcome extends CI_Controller {
 	}
 	
 		public function profile($tid=0,$tabid=1) { 
-			//$this->load->library('uri'); 
-			//$tid = $this->uri->segment(2);
-			//$tabid = $this->uri->segment(3);
+			$this->load->library('uri'); 
+			$tid = $this->uri->segment(2);
+			$tabid = $this->uri->segment(3);
 			$numtabs=5;
 			global $_ginfo;
 			$tid=Funs::gettid($tid);

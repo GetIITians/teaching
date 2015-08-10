@@ -34,16 +34,16 @@ function topicssubtopic_t2(obj){
 	var cstval=[];
 	for(var i=0;i<ids.length;i++){
 		cstval[i]=$("#"+ids[i]).val();
-	}
-	function getslist(inp,stext){
+	} 
+	function getslist(inp,stext){ 
 		outp=[];
 		if(stext!=null)
 			outp.push(['', stext]);
 		for(var i in inp){
 			outp.push([i,inp[i].name]);
-		}
+		} 
 		return outp;
-	}
+	} 
 	if(obj.id=="selectclass" && typeof(topics[obj.value])!='undefined'){
 		var selectedHTML=selects.arr2opt(getslist(topics[obj.value]['children'],"Select Subject"));
 		$("#selectsubject").html(selectedHTML);
@@ -253,7 +253,11 @@ var ms={
 		}, function() {
 				ms.refinecallafter();
 		}, "#searchloadingimg");
-	},
+	}, // function by yogy 
+	orderrefine: function(obj) {
+		($(obj).attr("data-action")=="refinesearch" ? $("input[name=search][type=hidden]").attr("value","") : false);
+		this.refinesearch();
+	}, //function by yogy
 	searchloadmore: function(obj){
 		var sdiv = $("#searchresultdiv");
 		var maxl = parseInt(sdiv.attr("data-maxl"));
@@ -302,14 +306,10 @@ function setinputselects(hidinp,cbselector){
 }
 
 function searchform(){ 
-	var leftform=readform($("#searchform"));
-	mergeifunset(leftform, {'orderby':$("select[name=orderby]").val()});
+	var leftform=readform($("#searchform")); 
+	mergeifunset(leftform, {'orderby':$("select[name=orderby]").val()}); 
 	return leftform;
 }
-
-
-
-
 $(document).ready(function(){
 	mylib();
 });

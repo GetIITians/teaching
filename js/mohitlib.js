@@ -185,7 +185,7 @@ var button={
 		} 
 		if(button.hasattr(allattrs,"data-eparams")){ 
 			eval("var eparams="+allattrs["data-eparams"]); 
-			params=others.mergeifunset(params,eparams); 
+			params=others.mergeifunset(params,eparams);
 		}
 		params['action']=allattrs["data-action"]; 
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);

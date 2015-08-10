@@ -17,10 +17,7 @@ load_view("Template/navbarnew.php");
           <h3 class="blue-grey-text text-darken-1">Filter<i class="material-icons right">filter_list</i></h5>
             <form method="post" id="searchform">
               <?php
-/* comment by yogy*/             
-              //hidinp("search",htmlspecialchars($search));
-/*new line by yogy*/
-              hidinp("search","");
+              hidinp("search",htmlspecialchars($search));
               ?>
               <div class="form-group">
                   <select name="class" class="browser-default form-control" onchange='topicssubtopic_t2(this);' id="selectclass" data-condition="simple">
@@ -142,7 +139,7 @@ load_view("Template/navbarnew.php");
                       }
                     ?>
                   </ul>
-              <button type="button" class="btn waves-effect waves-light" onclick="ms.refinesearch();">
+              <button type="button" class="btn waves-effect waves-light" data-action="refinesearch" onclick="ms.orderrefine(this);">
                 Refine Search
               </button>
             </form>
@@ -160,15 +157,13 @@ load_view("Template/navbarnew.php");
          <img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>
         </div>
         <form method="post" class="col-xs-4 mt20">
-									<select name="orderby" class="browser-default">
+									<select name="orderby" class="browser-default" data-action="orderby" onchange="ms.orderrefine(this)" >
 										<option value="" >Sort By</option>
-										<!--
+										
 										<option value="1">Experience</option>
 										<option value="2">Fees/hr (High to Low)</option>
-										-->
 										<option value="3">Fees/hr (Low to High)</option>
-										<!--
-										<option value="4">Rating</option>
+										<!--<option value="4">Rating</option>
 										-->
 									</select>
         </form>
