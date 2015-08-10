@@ -208,9 +208,9 @@ class Welcome extends CI_Controller {
 	}
 	
 		public function profile($tid=0,$tabid=1) { 
-			$this->load->library('uri'); 
-			$tid = $this->uri->segment(2);
-			$tabid = $this->uri->segment(3);
+			//$this->load->library('uri'); 
+			//$tid = $this->uri->segment(2);
+			//$tabid = $this->uri->segment(3);
 			$numtabs=5;
 			global $_ginfo;
 			$tid=Funs::gettid($tid);
