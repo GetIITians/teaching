@@ -344,11 +344,12 @@ abstract class Funs{
 
 	public static function tejpal_output($data){ 
 
-	//$data have keys => {class, subject, topic, price, timer, lang, timeslot, orderby, search}
-//		$hisoutput=array("select tid from teachers",array());
-		$hisoutput = Funs::mssearch($data); 
+//	$data have keys => {class, subject, topic, price, timer, lang, timeslot, orderby, search}
+//	$hisoutput=array("select tid from teachers",array());
+		$hisoutput = Funs::mssearch($data);
 		$hisoutput[1]["uid"] = (0+User::loginId());
-		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid where teachers.isselected='a' order by pricelist.minprice desc";
+		$setorderby=Funs::setorderby($data['orderby']);
+		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid where teachers.isselected='a' order by ".$setorderby;
 		return $hisoutput;
 	}
 	public static function get_teacher_classes($tid) {
@@ -432,6 +433,21 @@ abstract class Funs{
 		return getifn($outpurl, "");
 	}
 //Search modules
+//function by yogy 
+	public static function setorderby($orderval) {
+		if($orderval==1) {
+			return "teachers.teachingexp desc";
+		} else if($orderval==2) {
+			return "pricelist.maxprice desc";
+		} else if($orderval==3) {
+			return "pricelist.minprice asc";
+		} else if($orderval==4) {
+			return "teachers.rating desc";
+		} else {
+			return "pricelist.maxprice desc";
+		}
+
+	}	
 	public static function mssearch($data) { 
 		$keys = replacekeys(searchkeysplit($data["search"]),array('6'=>'vi','7'=>'vii','8'=>'viii','9'=>'ix','10'=>'x','11'=>'xi','12'=>'xii',"maths"=>"math"));
 		$params=array();
