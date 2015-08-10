@@ -131,7 +131,7 @@ class Actiondisp{
 
 		load_view('timeslotpopup.php',$pageinfo);
 	}
-	function search($data,$printjson=true){ 
+	function search($data,$printjson=true){
 		global $_ginfo;
 //		$need=array('class', 'subject', 'topic', 'price', 'timer', 'lang', 'timeslot', 'orderby', 'search', 'max', 'maxl');
 		$need=array('class', 'subject', 'topic', 'orderby', 'search', 'max', 'maxl');
@@ -145,6 +145,8 @@ class Actiondisp{
 			list($query,$param)=Funs::tejpal_output($data);
 			mergeifunset($param, array('max'=>$data['max'], 'maxl'=>$data["maxl"], 'minl'=>0, 'min'=>0));
 			$qoutput=Sqle::autoscroll($query, $param, null, '', true, null, $_ginfo["numsearchr"]["loadadd"]);
+			//fb($qoutput,'row',FirePHP::LOG);
+			
 			$odata=Fun::getflds(array("max", "maxl", "qresultlen"), $qoutput); 
 //changes by narayan			
 			$rating_result = array();		
@@ -160,7 +162,6 @@ class Actiondisp{
 		}
 		if($ec<0)
 			return; 
-
 		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result));
 	}
 	function disptopics($data, $printjson = true) {

@@ -1,6 +1,6 @@
 <?php
 //fb($qresult,'row',FirePHP::LOG);
-$searchPageRows = 0;
+$searchPageRows = 0; 
 foreach($qresult as $row) {
   echo ($searchPageRows%4===0) ? '<div class="row">' : FALSE;
   $searchPageRows++;
@@ -57,6 +57,7 @@ foreach($qresult as $row) {
       <?php else: ?>
         <p class="grey-text text-darken-2">Rating : Not rated yet.</p>
       <?php endif; ?>
+
       <p class="lastp">
         <?php if(!$row["isdonedemo"]) { //fb($row,'$qresult as $row',FirePHP::LOG); ?>
         <a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
@@ -112,6 +113,7 @@ foreach($qresult as $row) {
       <p class="grey-text text-darken-2">
         City : <?php echo $joinus_data->{'city'}; ?>
       </p>
+      <p class="black-text text-darken-1"><?php echo ($row['ttl_avlsolts']==null?"No timeslots avalible":""); ?></p>
       <div class="divider"></div>
       <!--
         ########################## 
