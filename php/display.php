@@ -383,4 +383,13 @@
 	function msprint($inp) {
 		echo msvalprint($inp);
 	}
+
+	function profile_tabs($id=NULL,$tabid=NULL,$section='')
+	{
+		if ($section==='tablist')
+			return ($id == $tabid) ? 'class="active col-md-2 col-xs-4"' : 'class="col-md-2 col-xs-4"' ;
+		elseif($section==='tabpanel')
+			return ($id == $tabid) ? 'class="tab-pane active col-md-12"' : 'class="tab-pane col-md-12"' ;
+	}
+
 ?>
