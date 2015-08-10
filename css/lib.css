@@ -138,8 +138,22 @@ a.default{
   border:solid red 1px;
 }
 
-
-
 .pointer{
   cursor: pointer;
+}
+
+hr.lightscale{
+  border-top: 1px solid #d0d0d0;
+  margin: 15px 0;
+}
+
+hr.underlined{
+  border-top: 1px solid #d0d0d0;
+  margin: 0 0 10px 0;
+}
+
+.centralize {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
 }
