@@ -1,28 +1,17 @@
-<br><br>
 <div class="row">
-	<div class="col s12 l10 offset-l1">
-		<h5 class="teal-text text-darken-1">Your Account Details</h5>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col s12 l10 offset-l1">
-		<div class="card-panel blue-grey">
-			<h5 class="white-text">&#8377;&nbsp;<?php echo $mymoney; ?></h5>
-			<h6 class="white-text">Current Balance</h6>
+	<div class="col-xs-12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<span class="card-title">Current Balance</span>
+				<p>&#8377;&nbsp;<?php echo $mymoney; ?></p>
+			</div>
 		</div>
-	</div>
+	</div>	
 </div>
 
 <div class="row">
-	<div class="col s12 l10 offset-l1">
-		<h5 class="teal-text text-darken-1">Transaction History</h5>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col s12 l10 offset-l1">
-		<table class="hoverable">
+	<div class="col-xs-12 table-responsive">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Money Transferred</th>

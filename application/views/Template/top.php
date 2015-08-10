@@ -6,7 +6,7 @@
   opent("base",array("href"=>HOST));
   /*      Narayan Waraich       */
   ocloset("title",$title['index']);
-  if (strpos(uri_string(),'search') !== false)
+  if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
   {
     array_push($css, "css/bootstrap.min.css");
   }

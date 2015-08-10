@@ -5,51 +5,70 @@ load_view("Template/navbarnew.php");
 if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) { 
 
 ?> 
-	<main>
+	<main class="profile">
 		<div class="container">
-		<br>
-			<div class="card-panel">
-				<div class="row">
-					<div class="col s12">
-						<ul class="tabs"  >
-							<li class="tab col s2"><a id="profiletabs1" <?php pit('class="active"', $tabid==1); ?> href="#tab_profile">Profile</a></li>
-							<li class="tab col s2"><a id="profiletabs5" <?php pit('class="active"', $tabid==5); ?>  href="#tab_topics">Topics</a></li>
-							<li class="tab col s2"><a id="profiletabs2" <?php pit('class="active"', $tabid==2); ?> href="#tab_calendar">Calendar</a></li>
-							<li class="tab col s2"><a id="profiletabs4" <?php pit('class="active"', $tabid==4); ?> href="#tab_reviews">Reviews</a></li>
-							<li class="tab col s2" style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>" ><a id="profiletabs3" <?php pit('class="active"', $tabid==3); ?> href="#tab_classes">Classes</a></li>
-							<li class="tab col s2" style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>" ><a id="profiletabs5" <?php pit('class="active"', $tabid==5); ?> href="#tab_account">Account</a></li>
-						</ul>
-					</div>
-					<div id="tab_profile" class="col s12 offset-l1">
-					<?php 
-						load_view("Template/profile_about.php", $inp);
-					?>
-					</div>
-					<div id="tab_calendar" class="col s12">
-					<?php
-						load_view("Template/profile_calendar.php",Fun::mergeifunset($calinfo,array("tid"=>$tid)) );
-					?>
-					</div>
-					<div id="tab_classes" class="col s12">
-					<?php
-						load_view("Template/profile_classes.php", $myclasses);
-					?>
-					</div>
-					<div id="tab_reviews" class="col s12">
-					<?php
-						load_view("Template/profile_reviews.php", Fun::mergeifunset($inp, array("reviewname" => "studentname")));
-					?>
-					</div>
-					<div id="tab_topics" class="col s12">
-					<?php
-						load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,array("tid"=>$tid,'minfees'=>$jsonArray['minfees'])));
-					?>
-					</div>
-					<div id="tab_account" class="col s12">
-					<?php
-						load_view("Template/moneyaccount.php", Fun::mergeifunset($inp, array("tid"=>$tid)));
-					?>
-					</div>
+			<ul class="row" role="tablist">
+				<li role="presentation" class="active col-md-2 col-xs-4">
+					<a href="#profile" aria-controls="home" role="tab" data-toggle="tab">
+						Profile
+					</a>
+				</li>
+				<li role="presentation" class="col-md-2 col-xs-4">
+					<a href="#topics" aria-controls="topics" role="tab" data-toggle="tab">
+						Topics
+					</a>
+				</li>
+				<li role="presentation" class="col-md-2 col-xs-4">
+					<a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">
+						Calendar
+					</a>
+				</li>
+				<li role="presentation" class="col-md-2 col-xs-4">
+					<a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+						Reviews
+					</a>
+				</li>
+				<li role="presentation" class="col-md-2 col-xs-4" style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
+					<a href="#classes" aria-controls="classes" role="tab" data-toggle="tab">
+						Classes
+					</a>
+				</li>
+				<li role="presentation" class="col-md-2 col-xs-4" style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
+					<a href="#account" aria-controls="account" role="tab" data-toggle="tab">
+						Account
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content row">
+				<div id="profile" class="tab-pane active col-md-12" role="tabpanel">
+				<?php 
+					load_view("Template/profile_about.php", $inp);
+				?>
+				</div>
+				<div id="calendar" class="tab-pane col-md-12" role="tabpanel">
+				<?php
+					load_view("Template/profile_calendar.php",Fun::mergeifunset($calinfo,array("tid"=>$tid)) );
+				?>
+				</div>
+				<div id="classes" class="tab-pane col-md-12" role="tabpanel">
+				<?php
+					load_view("Template/profile_classes.php", $myclasses);
+				?>
+				</div>
+				<div id="reviews" class="tab-pane col-md-12" role="tabpanel">
+				<?php
+					load_view("Template/profile_reviews.php", Fun::mergeifunset($inp, array("reviewname" => "studentname")));
+				?>
+				</div>
+				<div id="topics" class="tab-pane col-md-12" role="tabpanel">
+				<?php
+					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,array("tid"=>$tid,'minfees'=>$jsonArray['minfees'])));
+				?>
+				</div>
+				<div id="account" class="tab-pane col-md-12" role="tabpanel">
+				<?php
+					load_view("Template/moneyaccount.php", Fun::mergeifunset($inp, array("tid"=>$tid)));
+				?>
 				</div>
 			</div>
 		</div>
@@ -77,5 +96,6 @@ load_view("Template/bottom.php",array("needbody"=>false));
 	}
 	</script>
 	<script src="js/profile.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

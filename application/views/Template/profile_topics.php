@@ -1,68 +1,59 @@
-<script>
-var topics=<?php echo json_encode($cst_tree); ?>;
-</script>
+<script>	var topics=<?php echo json_encode($cst_tree); ?>;	</script>
 
-<br><br>
-<div>
 <?php 
 if(!$isdonedemo) {
 ?>
+<div class="alert alert-success alert-dismissible fade in" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
 	Choose a course for free demo.
+</div>
 <?php
 }
 ?>
-</div>
 <div class="row">
-		<?php
-		if(User::loginId()==$tid){
-		?>
-	<div class="col s12 l3">
-		<div class="card-panel">
-			<span class="grey-text text-darken-2">Please add your topics</span>
-			<br>
-			<div class="row">
-				<form method="post" class="col s12" onsubmit='if(submitForm(this)){ form.req(this) };return false;' data-action="addtopics" data-res='div.reload($("#teacherdisptopics")[0]);' >
-					<div class="row">
-						<div class="input-field col s12">
-							<select name='class' class="browser-default" onchange='topicssubtopic(this);' id="selectclass" data-condition='simple' style='' >
-								<?php
-									 disp_olist($class_olist,array('selectalltext'=>"Select Grade"));
-								?>
-							</select>
-						</div>
-						<div class="input-field col s12">
-							<select name='subject'  class="browser-default" id='selectsubject' onchange='topicssubtopic(this);' data-condition='simple' >
-								<option value="" >Please select grade first</option>
-							</select>
-						</div>
-						<div class="input-field col s12">
-							<select name='topic' class="browser-default" id='selecttopic' data-condition='simple' >
-								<option value="" >Please select subject first</option>
-							</select>
-						</div>
-						<div class="input-field col s12" style="display:none">
-							<input id="duration" type="text" class="validate" name="timer">
-							<label for="duration">Class duration (in hrs)</label>
-						</div>
-						<div class="input-field col s12">
-							<input id="fees" type="text" class="validate" name="price" data-condition='simple' value='<?php echo $minfees; ?>' >
-							<label for="fees">Fees per hour (in &#8377;)</label>
-						</div>
-						<div class="input-field col s12">
-							<button type="submit" class="btn waves-effect waves-light blue"><i class="material-icons left">add_circle_outline</i>Add</button>
-						</div>
-
+	<?php if(User::loginId()==$tid) : ?>
+	<div class="col-md-3 col-xs-12">
+		<h5 class="grey-text text-darken-2">Please add your topics</h5>
+		<hr class="underlined">
+		<div class="row">
+			<form method="post" class="col s12" onsubmit='if(submitForm(this)){ form.req(this) };return false;' data-action="addtopics" data-res='div.reload($("#teacherdisptopics")[0]);' >
+					<div class="form-group">
+						<select name='class' class="browser-default form-control" onchange='topicssubtopic(this);' id="selectclass" data-condition='simple' style='' >
+							<?php
+								 disp_olist($class_olist,array('selectalltext'=>"Select Grade"));
+							?>
+						</select>
 					</div>
-				</form>
-			</div>
+					<div class="form-group">
+						<select name='subject'  class="browser-default form-control" id='selectsubject' onchange='topicssubtopic(this);' data-condition='simple' >
+							<option value="" >Please select grade first</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select name='topic' class="browser-default form-control" id='selecttopic' data-condition='simple' >
+							<option value="" >Please select subject first</option>
+						</select>
+					</div>
+					<div class="form-group" style="display:none">
+						<input id="duration" type="text" class="validate form-control" name="timer">
+						<label for="duration">Class duration (in hrs)</label>
+					</div>
+					<div class="form-group">
+						<input id="fees" type="text" class="validate form-control" name="price" data-condition='simple' value='<?php echo $minfees; ?>' >
+						<label for="fees">Fees per hour (in &#8377;)</label>
+					</div>
+					<div class="input-field">
+						<button type="submit" class="btn waves-effect waves-light blue"><i class="material-icons left">add_circle_outline</i>Add</button>
+					</div>
+			</form>
 		</div>
 	</div>
-	<?php
-	}
-	?>
-	<div class="col s12 l9">
-		<div class="card-panel">
-			<table class="striped responsive-table">
+	<?php endif; ?>
+	<div class="col-md-9 col-xs-12">
+		<div class="table-responsive">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th data-field="class">Grade</th>
