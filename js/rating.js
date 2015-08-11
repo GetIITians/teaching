@@ -112,4 +112,30 @@ $(function() {
 		}
 	});
 
+	$('#ratingBigBox').hide();
+	$(document).on({
+		// Handles the mouseover
+		mouseenter: function() {
+			//console.log('hovered bitch!');
+			var ratingLeft   = $(this).position().left + $(this).outerWidth();
+			var ratingTop    = $(this).position().top + Math.floor($(this).outerHeight()/2);
+			var ratingBigBox = $(this).closest('.teacherlistelm').next('#ratingBigBox');
+			var netHeight 	 = ratingTop-Math.floor(ratingBigBox.outerHeight()/2)
+
+			if ($(document).outerWidth() < ($(this).offset().left+$(this).outerWidth()+400))
+				{
+					ratingLeft = -(ratingBigBox.outerWidth());
+				};
+			ratingBigBox.css({top: netHeight, left: ratingLeft});
+			ratingBigBox.show(200);
+			console.log($(this).offset().left);
+		},
+		// Handles the mouseout
+		mouseleave: function() {
+			var ratingBigBox = $(this).closest('.teacherlistelm').next('#ratingBigBox');
+			ratingBigBox.hide(100);
+		}
+	},'.contentrating');
+
+
 });

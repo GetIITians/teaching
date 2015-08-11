@@ -150,7 +150,6 @@ html{
 .teacherlistelm{
   font-family: arial,tahoma,verdana,sans-serif;
   box-shadow: none;
-  margin-top: 20px;
 }
 
 .teacherlistelm .card-content{
@@ -250,9 +249,9 @@ html{
   color: #FFC925;
 }
 
-/*
-Profile Page
-*/
+/*--------------
+  Profile Page
+--------------*/
 #biodisp span.glyphicon{
   cursor: pointer;
 }
@@ -298,4 +297,77 @@ a#top_arrow {
   position: fixed;
   bottom: 25px;
   right: 25px;
+}
+
+/*-----------------
+  Rating Detail Box
+-----------------*/
+
+#ratingBigBox{
+  display: none;
+  position: absolute;
+  z-index: 200;
+  width: 400px;
+  padding: 0;
+  padding-left: 35px;
+}
+
+#ratingBigBox>.row{
+  padding: 5px;
+  background-color: #F5F5F5;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0 10px 6px -6px #777;
+  border-radius: 5px 5px 0 0;
+  font-family: 'Roboto';
+  margin-bottom: 0;
+}
+
+#ratingBigBox>.row h4{
+  text-decoration: underline;
+}
+
+#ratingBigBox>.row h2{
+  font-size: 3rem;
+  margin-top: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+#ratingBigBox .detail{
+  padding: 0;
+}
+
+#ratingBigBox .progress{
+  margin-bottom: 0;
+  margin-top: 5px;
+  width: 100%;
+}
+
+#ratingBigBox .progress .progress-bar{
+  background-color: #FFC925;
+}
+
+#ratingBigBox>.row .row{
+  margin-bottom: 0;
+  margin: 0;
+}
+
+#ratingBigBox>.row .row h6{
+  margin: 0;
+  margin-top: 8px;
+}
+
+#ratingBigBox hr{
+  margin: 5px 0;
+}
+
+#ratingBigBox blockquote{
+  border-left: 5px solid #EE6E73;
+  font-size: 1rem;
+  padding: 0 10px;
+  margin: 5px 0;
+}
+
+.contentrating{
+  cursor: pointer;
 }

@@ -281,6 +281,17 @@ var ms={
 		$("#profiletabs2").click();
 		Materialize.toast($(obj).attr("data-topictext")+' is selected, now select the time.', 10000);
 		Materialize.toast('You can book your class from tomorrow.',12000);
+		/*	Narayan Waraich
+			Code for redirection from booking a class to the calendar tab
+		*/
+		//var hRef = window.location.href;
+		//if (hRef.match(/\/\d+\//)) {
+			//var profileID = ((hRef.match(/\/\d+\//))[0].split('/'))[1];
+			//hRef = hRef.replace(/\/\d+\/\d*/,'');
+			//hRef = hRef+'/'+profileID;
+		//};
+		//window.location = hRef+'/2';
+		/* -------------------------------------------------------------- */
 	},
 	openreviewform: function(obj, tid, starttime) {
 		mohit.popup('writereview');

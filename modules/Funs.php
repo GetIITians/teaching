@@ -572,5 +572,32 @@ cmnt by yogy */
 		return $row;
 	}
 
+		public static function ratingBigBox($qresult=[])
+	{
+		if (!empty($qresult))
+		{
+			$tid = [];
+			foreach ($qresult as $detail)
+			{
+				$tid[] = $detail['tid'];
+			}
+			$teachers = implode(',', $tid);
+
+			$rating = [];
+			$rating_query = "select rating,teacher_id from rating WHERE teacher_id IN (".$teachers.")";
+			$rating = sql::getArray($rating_query);
+
+			//echo "<pre>";print_r($result);echo "</pre><br>";
+
+			$review = [];
+			$review_query = "select feedback,tid from booked WHERE tid IN (".$teachers.")";
+			$review = sql::getArray($review_query);
+
+			return [$rating,$review];
+		}
+
+		return [];
+	}
+
 }
 ?>
