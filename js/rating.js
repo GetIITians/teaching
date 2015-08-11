@@ -96,4 +96,20 @@ $(function() {
 			$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 		});
 	}},'.rating-system');
+
+	/* Top Floating Button */
+	var scroll_offset = 0;
+	var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
+	$('#top_arrow').hide();
+	$(document).scroll(function() {
+		scroll_offset = $(this).scrollTop();
+		//console.log('you scrolled ' + scroll_offset + 'px & the sidebar is at ' + sideBar + 'px');
+		if (scroll_offset > sideBar) {
+			$('#top_arrow').show();
+		}
+		else if (scroll_offset <= sideBar) {
+			$('#top_arrow').hide();
+		}
+	});
+
 });

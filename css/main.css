@@ -293,3 +293,9 @@ main.profile .container{
   margin-right: 0;
   margin-left: 0;
 }
+
+a#top_arrow {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
