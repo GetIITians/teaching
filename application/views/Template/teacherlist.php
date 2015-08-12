@@ -94,7 +94,11 @@ data-tooltip="<?php echo $subject_list; ?>"
 </a>
 </p>
 <p class="grey-text text-darken-2">Fees: <?php echo $fees; ?>/hr</p>
-<p class="grey-text text-darken-2">Taught Time: <?php echo ($row['teachduration']==null?"None":($row['teachduration']/3600)." hr"); ?></p>
+<!--
+<p class="grey-text text-darken-2">
+	Taught Time: <?php /* echo ($row['teachduration']==null?"None":($row['teachduration']/3600)." hr"); */ ?>
+</p>
+-->
 <p class="grey-text text-darken-2">
 <?php echo $degree." | IIT ".convchars($joinus_data->{'college'}); ?>
 </p>
