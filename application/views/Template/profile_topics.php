@@ -7,7 +7,7 @@ if(!$isdonedemo) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-	Choose a course for free demo.
+	Choose a course for free class.
 </div>
 <?php
 }
