@@ -209,10 +209,10 @@ class Welcome extends CI_Controller {
 	
 		public function profile($tid=0,$tabid=1) { 
 			$this->load->library('uri'); 
-			if (is_int($this->uri->segment(2))) {
+			if (!empty($this->uri->segment(2))) {
 				$tid = $this->uri->segment(2);	
 			}
-			if(is_int($this->uri->segment(3))) {
+			if(!empty($this->uri->segment(3))) {
 				$tabid = $this->uri->segment(3);
 			}
 			$numtabs=5;
