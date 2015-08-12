@@ -112,6 +112,7 @@ $(function() {
 		}
 	});
 
+/*
 	$('#ratingBigBox').hide();
 	$(document).on({
 		// Handles the mouseover
@@ -136,6 +137,6 @@ $(function() {
 			ratingBigBox.hide(100);
 		}
 	},'.contentrating');
-
+*/
 
 });
