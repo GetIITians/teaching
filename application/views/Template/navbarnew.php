@@ -9,7 +9,7 @@
   <div class="navbar-fixed">
     <nav class="teal darken-3" role="navigation">
       <div class="nav-wrapper">
-        <a href="<?php echo BASE.'index'; ?>" class="brand-logo">getIITians</a>
+        <a href="<?php echo BASE; ?>" class="brand-logo">getIITians</a>
         <a data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li class="<?php pit('active', $page==='aboutus');?>"><a href="<?php echo BASE."aboutus"; ?>">About Us</a></li>
