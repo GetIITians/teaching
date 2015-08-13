@@ -33,7 +33,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 						Classes
 					</a>
 				</li>
-				<li role="presentation" <?php echo profile_tabs(5,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
+				<li role="presentation" <?php echo profile_tabs(6,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
 					<a href="#account" aria-controls="account" role="tab" data-toggle="tab">
 						Account
 					</a>
@@ -65,7 +65,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,array("tid"=>$tid,'minfees'=>$jsonArray['minfees'])));
 				?>
 				</div>
-				<div id="account" <?php echo profile_tabs(5,$tabid,'tabpanel'); ?> role="tabpanel">
+				<div id="account" <?php echo profile_tabs(6,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php
 					load_view("Template/moneyaccount.php", Fun::mergeifunset($inp, array("tid"=>$tid)));
 				?>

@@ -215,7 +215,7 @@ class Welcome extends CI_Controller {
 			if(!empty($this->uri->segment(3))) {
 				$tabid = $this->uri->segment(3);
 			}
-			$numtabs=5;
+			$numtabs=6;
 			global $_ginfo;
 			$tid=Funs::gettid($tid);
 			$tabid=max(min($numtabs,(0+$tabid)),1);
