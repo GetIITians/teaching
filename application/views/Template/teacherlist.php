@@ -33,11 +33,12 @@ foreach($qresult as $row) {
           data-position="right"
           data-delay="30"
           data-tooltip="<?php echo $subject_list; ?>"
-        >
+        
           <i class="tiny material-icons">label</i>
         </a>
       </p>
       <p class="grey-text text-darken-2">Fees: <?php echo $fees; ?>/hr</p>
+      <p class="grey-text text-darken-2">Taught Time: <?php echo ($row['teachduration']==null?"None":($row['teachduration']/3600)." hr"); ?></p>
       <p class="grey-text text-darken-2">
         <?php echo $degree." | IIT ".convchars($joinus_data->{'college'}); ?>
       </p>
@@ -113,7 +114,7 @@ foreach($qresult as $row) {
       <p class="grey-text text-darken-2">
         City : <?php echo $joinus_data->{'city'}; ?>
       </p>
-      <p class="black-text text-darken-1"><?php echo ($row['ttl_avlsolts']==null?"No timeslots avalible":""); ?></p>
+      <p class="black-text text-darken-1"><?php echo ($row['ttl_avlsolts']==null?"No timeslots avalible":"Avalible timeslots :".$row['ttl_avlsolts']/2)." hr"; ?></p>
       <div class="divider"></div>
       <!--
         ########################## 

@@ -48,5 +48,7 @@ $_ginfo["query"]["takendemo"] = "select teachers.tid, (donefreedemo.uid is not n
 
 /// query by yogy
 $_ginfo["query"]["teachersubjectlist"]="select teachers.tid,subjectlist.* from teachers left join (select subjects.id,subjects.tid as otid,subjects.c_id,subjects.s_id,subjects.t_id,subjects.timer,subjects.price, all_classes.classname, all_subjects.subjectname, all_topics.topicname from subjects left join all_classes on all_classes.id = subjects.c_id left join all_subjects on all_subjects.id = subjects.s_id left join all_topics on all_topics.id = subjects.t_id) subjectlist on teachers.tid=subjectlist.otid";
-$_ginfo["query"]["avlsolts"]="select tid,count(starttime) as ttl_avlsolts from timeslot where starttime>".time()." group by tid";
+$_ginfo["query"]["avlsolts"]="select tid,count(starttime) as ttl_avlsolts from timeslot where starttime>".time()." and sid is null group by tid";
+$_ginfo["query"]["tteachtime"]="select tid,sum(duration) as teachduration from booked where starttime<".time()." group by tid";
+
 ?>
