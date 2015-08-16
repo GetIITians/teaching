@@ -267,11 +267,16 @@ var ms={
 			}
 		}, null, "#loadmoreloadingimg");
 	},
-	studentbookslot: function(obj) { 
+	studentbookslot: function(obj) {
 		if(selectedtopic != "") {
-			ms.cbautofill("disppopupslots");
-			$(obj).attr("data-cst", selectedtopic);
-			button.sendreq_v2(obj);
+			var total = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
+			if (total <= 1) {
+				ms.cbautofill("disppopupslots");
+				$(obj).attr("data-cst", selectedtopic);
+				button.sendreq_v2(obj);
+			} else{
+				Materialize.toast('Maximum duration of free class can be one hour', 4000);
+			}
 		} else {
 			Materialize.toast('Please select the topic first', 4000);
 		} 
@@ -279,6 +284,7 @@ var ms={
 	booktopic: function(obj, cst) {
 		selectedtopic=cst;
 		$("#profiletabs2").click();
+		landingPageTab.profileTabContent();
 		Materialize.toast($(obj).attr("data-topictext")+' is selected, now select the time.', 10000);
 		Materialize.toast('You can book your class from tomorrow.',12000);
 	},

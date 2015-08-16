@@ -361,6 +361,9 @@ class Welcome extends CI_Controller {
 	}    
 
 	public function search(){
+
+		if (isset($_GET['referrer']))
+			$_SESSION['referrer'] = TRUE;
 		global $_ginfo;
 		$cst_tree=Funs::cst_tree();
 		$class_olist=Funs::cst_tree2classlist($cst_tree);

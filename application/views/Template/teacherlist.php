@@ -227,12 +227,11 @@ Not rated yet.
 </div>
 </div>
 </div>
-<!--
 <div id="ratingBigBox" class="col-md-4">
-	<div class="row">
+	<div class="row arrow">
 		<div class="col-md-3">
 			<h4>RATING</h4>
-			<h2><?php /* echo round($row['rating'],1); ?></h2>
+			<h2><?php  echo round($row['rating'],1); ?></h2>
 		</div>
 		<div class="col-md-9">
 			<?php 
@@ -274,10 +273,9 @@ Not rated yet.
 			}
 			?>
 		</div>
-		<?php endif; */?>
+		<?php endif; ?>
 	</div>
 </div>
--->
 </div>
 <?php 
 echo ($searchPageRows%4===0) ? '</div>' : FALSE;

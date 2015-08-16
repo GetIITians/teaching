@@ -1,6 +1,7 @@
 <?php
 class Admin{
 	function acceptrej($data){
+		//fb($data,'row',FirePHP::LOG);
 		$odata = array('ec'=>1, 'data'=>0);
 		$odata = Sqle::updateVal("teachers", array("isselected"=>$data["isselected"]), array("tid"=>$data["tid"]));
 		$t_cntr=array();

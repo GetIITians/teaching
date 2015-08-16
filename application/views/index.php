@@ -10,9 +10,20 @@ Shivam Mamgain
 <body>
   <a id="top"></a>
   <!-- TOP button -->
-  <a href="<?php echo BASE.'index'; ?>#top" class="btn-large btn-floating waves-effect waves-light yellow darken-2" id="top_arrow" title="TOP">
+  <a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light yellow darken-2" id="top_arrow" title="TOP">
     <i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
   </a>
+
+<div id="landingPageTab">
+  <div class="closeIcon">
+    <i class="material-icons">clear</i>
+  </div>
+  
+  <div class="content right">
+    <span>Attend a free class by an IITian</span>
+    <a href="<?php echo BASE; ?>search?referrer=index" class="glyphicon glyphicon-play"></a>
+  </div>
+</div>
 
   <div id="index-banner" class="parallax-container">
     <?php
