@@ -40,6 +40,7 @@ ul#dropdownaccount {
 #index-banner {
   min-height: 450px;
   overflow: visible;
+  background-color: rgba(0, 0, 0, 0.69);
 }
 
 /* Tagline animation */
@@ -201,14 +202,14 @@ ul#dropdownaccount {
   font-size: 13px;
   padding: 2px;
   border-radius: 8px;
-  background: #546e7a;
+  background: #424242;
   color: #ffffff;
 }
 
 /* Why us */
 ul#whyus_list li {
   font-family: 'Open Sans';
-  color: #607d8b;
+  color: #424242;
   font-size: 18px;
   list-style-type: circle;
   padding-left: 20px;
@@ -219,13 +220,13 @@ ul.slides li {
   background-color: transparent;
 }
 .review-comment {
-  border: 1px solid #263238;
+  border: 1px solid #d2d2d2;
   border-radius: 3px;
   padding: 15px;
   font-size: 18px;
-  color: #ffffff;
+  color: #323232;
   font-family: 'Open Sans';
-  background-color: #455a64;
+  background-color: #fff;
 }
 .reviewer {
   padding: 15px;
@@ -242,19 +243,16 @@ ul.slides li {
   height: 60px;
   font-size: 18px;
   color: #ffffff;
-  font-family: 'Open Sans';
   padding: 20px;
   font-weight: bold;
 }
 .courses-list {
   background-color: #ffffff;
   height: 140px;
-  font-size: 12px;
-  color: #78909c;
-  font-family: 'Open Sans';
+  font-size: 1rem;
+  color: #696969;
   padding-top: 10px;
   padding-left: 30px;
-  font-weight: bold;
 }
 ul.courses-list-ul li {
   list-style-type: disc;
@@ -277,6 +275,7 @@ ul.courses-list-ul li {
   transition: all 500ms ease;
   color: #ffffff;
   background-color: #009688;
+  text-decoration: none;
 }
 .course-link-label {
   font-size: 12px;
@@ -288,8 +287,7 @@ ul.courses-list-ul li {
   color: #fafafa;
   font-size: 25px;
   font-family: 'Raleway';
-  padding-top: 30px;
-  padding-bottom: 30px; 
+  padding: 30px 10%;
 }
 a.attention-joinus {
   font-family:'Raleway';

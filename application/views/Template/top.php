@@ -10,6 +10,9 @@
   {
     array_push($css, "css/bootstrap.min.css");
   }
+  if (strpos($_SERVER['PHP_SELF'], 'index.php') !== false) {
+    array_push($css, "css/bootstrap.min.css");
+  }
   array_push($css, "css/glyphicon.css");
   array_push($css, "css/google-icons.css");
   /*----------------------------*/

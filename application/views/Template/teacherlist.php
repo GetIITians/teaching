@@ -121,10 +121,10 @@ data-tooltip="<?php echo $subject_list; ?>"
   <?php endif; ?>
 
 <p class="lastp">
-<?php if(!$row["isdonedemo"]) { //fb($row,'$qresult as $row',FirePHP::LOG); ?>
-<a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
-<button type="button" class="btn waves-effect waves-light btn-small" >Free Class</button>
-</a>
+<?php if(!$row["isdonedemo"]) { ?>
+	<a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
+		<button type="button" class="btn waves-effect waves-light btn-small" >Free Class</button>
+	</a>
 <?php } ?>
 <span class="activator"><i class="material-icons right">toc</i></span>
 </p>

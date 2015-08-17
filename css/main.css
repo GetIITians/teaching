@@ -411,12 +411,13 @@ a#top_arrow {
   width: auto;
   color: #F5F5F5;
   z-index: 50;
+  display: none;
 }
 
 #landingPageTab .closeIcon{
   cursor: pointer;
   float: left;
-  background-color: #0071CE;
+  background-color: #ff5252;
   margin-bottom: -6.25px;
 }
 
@@ -429,17 +430,17 @@ a#top_arrow {
 }
 
 #landingPageTab .closeIcon:hover{
-  background-color: rgb(179, 42, 42);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #landingPageTab .content{
-  background-color: #008CFF;
+  background-color: #ff5252;
 }
 
 
 #landingPageTab .content a{
   font-size: 1.5rem;
-  background-color: rgb(1, 140, 255);
+  background-color: #ff5252;
   padding: 10px 30px;
   float: right;
   color: #fff;
@@ -457,4 +458,107 @@ a#top_arrow {
 
 #landingPageTab .content a:hover{
   box-shadow: inset 0 0 20px 1px rgba(0, 0, 0, 0.24);
+  text-decoration: none;
+}
+
+.toast.warning{
+  background-color: #e53935;
+}
+
+.toast.info{
+  background-color: #00695C;
+}
+
+/*-------------------
+      Home Page
+-------------------*/
+
+#homepage{
+  font-size: 15px;
+  font-family: "Roboto",sans-serif;
+  background-image: none;
+}
+
+#homepage h1{
+  font-size: 4.2rem;
+}
+
+#homepage h5{
+  font-size: 2rem;
+line-height: 110%;
+margin: 0.82rem 0px 0.656rem;
+}
+
+#homepage h3{
+  font-size: 2.92rem;
+  line-height: 110%;
+  margin: 1.46rem 0px 1.168rem;
+}
+
+#homepage .header{
+}
+
+#homepage .sub-title{
+  font-weight: normal;
+  text-align: center;
+  color: #d7d7d7;
+}
+
+#homepage nav .brand-logo{
+  font-size: 2.5rem;
+}
+
+#homepage #nav-mobile>li{
+  border-bottom: 3px solid transparent;
+}
+
+#homepage #nav-mobile>li:hover{
+  border-bottom: 3px solid #00695C;
+}
+
+#homepage #nav-mobile>li:last-of-type:hover,#homepage #nav-mobile>li:first-of-type:hover{
+  border-bottom: 3px solid transparent;
+}
+
+/*-------------------
+    Media Queries
+-------------------*/
+
+@media (max-width: 767px) {
+  /* xs */
+  #homepage h1{
+    font-size: 3rem;
+  }
+
+  #homepage .sub-title{
+    font-size: 1.2rem;
+  }
+
+  #homepage h3{
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* sm */
+
+  #homepage h5{
+    font-size: 1.5rem;
+  }
+
+  ul#whyus_list li{
+    font-size: 15px;
+  }
+
+  .review-comment{
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* md */
+}
+
+@media (min-width: 1200px) {
+  /* lg */
 }

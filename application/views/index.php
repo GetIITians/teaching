@@ -7,10 +7,10 @@ Shivam Mamgain
 -->
 <link rel="stylesheet" href="css/custom-homestyle-v2.css">
 
-<body>
+<body id="homepage">
   <a id="top"></a>
   <!-- TOP button -->
-  <a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light yellow darken-2" id="top_arrow" title="TOP">
+  <a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP">
     <i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
   </a>
 
@@ -21,7 +21,7 @@ Shivam Mamgain
   
   <div class="content right">
     <span>Attend a free class by an IITian</span>
-    <a href="<?php echo BASE; ?>search?referrer=index" class="glyphicon glyphicon-play"></a>
+    <a href="<?php echo BASE."search"; ?>" class="glyphicon glyphicon-play"></a>
   </div>
 </div>
 
@@ -32,15 +32,11 @@ Shivam Mamgain
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row ">
-          <div class="col s12">
-            <h1 class="header center white-text raleway-font">Tuition by IITians</h1>
+          <div class="col-xs-12">
+            <h1 class="header center white-text">Tuition by IITians</h1>
           </div>
-          <div class="col s12">
-            <div class="rw-words-1 raleway-font" style="height:40px;">
-              <h5 style="animation:none;opacity:1">Get an IITian tutor for Any Subject! Any Class!</h5>
-              <h5 style="display:none">Get the best tutor for your child.</h5>
-              <h5 style="display:none">Be one among us, better than us.</h5>
-            </div>
+          <div class="col-xs-12">
+              <h5 class="sub-title">Get an IITian tutor for Any Subject! Any Class!</h5>
           </div>
         </div><br>
 
@@ -133,11 +129,11 @@ Shivam Mamgain
     <div class="parallax" height="100%"><img src="images/banner.png" width="85%" alt="Banner" ></div>
   </div>
 
-  <div class="container" id="container">
+  <div class="container">
     <div class="section">
       <div class="row">
-        <div class="col s12">
-          <h3 class="header center teal-text text-darken-4 opensans-font">How it Works</h3>
+        <div class="col-xs-12">
+          <h3 class="header center grey-text text-darken-4">How it Works</h3>
         </div>
       </div>
       <div class="row">
@@ -150,32 +146,32 @@ Shivam Mamgain
           </div>
         </div>
       -->
-        <div class="col s6 l2 offset-l2">
+        <div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-12">
           <div class="card-panel center hoverable" style="height:200px;padding:10px;">
             <div class="work-step-number">1</div>
-            <div><i class="material-icons blue-grey-text text-darken-3" style="font-size:5rem;">search</i></div>
-            <div class="opensans-font blue-grey-text" style="font-size:18px;">Search for <br><b>Tutors</b></div>
+            <div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">search</i></div>
+            <div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Search for <br><b>Tutors</b></div>
           </div>
         </div>
-        <div class="col s6 l2">
+        <div class="col-md-2 col-sm-3 col-xs-12">
           <div class="card-panel center hoverable" style="height:200px;padding:10px;">
             <div class="work-step-number">2</div>
-            <div><i class="material-icons blue-grey-text text-darken-3" style="font-size:4.5rem;">filter_list</i></div>
-            <div class="opensans-font blue-grey-text" style="font-size:18px;margin-top:6px;">Shortlist your <br><b>Tutor</b></div>
+            <div><i class="material-icons grey-text text-darken-4" style="font-size:4.5rem;">filter_list</i></div>
+            <div class="opensans-font grey-text text-darken-3" style="font-size:18px;margin-top:6px;">Shortlist your <br><b>Tutor</b></div>
           </div>
         </div>
-        <div class="col s6 l2">
+        <div class="col-md-2 col-sm-3 col-xs-12">
           <div class="card-panel center hoverable" style="height:200px;padding:10px;">
             <div class="work-step-number">3</div>
-            <div><i class="material-icons blue-grey-text text-darken-3" style="font-size:5rem;">event</i></div>
-            <div class="opensans-font blue-grey-text" style="font-size:18px;">Book his <br><b>Slot</b></div>
+            <div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">event</i></div>
+            <div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Book his <br><b>Slot</b></div>
           </div>
         </div>
-        <div class="col s12 l2">
+        <div class="col-md-2 col-sm-3 col-xs-12">
           <div class="card-panel center hoverable" style="height:200px;padding:10px;">
             <div class="work-step-number">4</div>
-            <div><i class="material-icons blue-grey-text text-darken-3" style="font-size:5rem;">desktop_windows</i></div>
-            <div class="opensans-font blue-grey-text" style="font-size:18px;">Start <br><b>Free Demo  </b></div>
+            <div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">desktop_windows</i></div>
+            <div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Start <br><b>Free Demo  </b></div>
           </div>
         </div>
       </div>
@@ -187,16 +183,16 @@ Shivam Mamgain
     </div>
   </div>
 
-  <div class="container" id="container">
+  <div class="container">
     <div class="row">
-      <div class="col s12 l6">
+      <div class="col-xs-12 col-sm-6">
         <div class="row">
-          <div class="col s12">
-            <h5 class="header center teal-text text-darken-4 opensans-font">Why choose us</h5>
+          <div class="col-xs-12">
+            <h5 class="header grey-text text-darken-4 opensans-font">Why choose us</h5>
           </div>
         </div>
         <div class="row">
-          <div class="col s12">
+          <div class="col-xs-12">
             <ul id="whyus_list" style="margin-top:0px;">
               <li>770+ Topics and 57+ Subjects to choose from</li>
               <li>Learn only from IITian Tutors</li>
@@ -207,10 +203,10 @@ Shivam Mamgain
           </div>
         </div>
       </div>
-      <div class="col s12 l5">
+      <div class="col-xs-12 col-sm-6">
         <div class="row">
-          <div class="col s12">
-            <h5 class="header center teal-text text-darken-4 opensans-font">Students and Tutors love us</h5>
+          <div class="col-xs-12">
+            <h5 class="header grey-text text-darken-4 opensans-font">Students and Tutors love us</h5>
           </div>
         </div>
         <div>
@@ -229,7 +225,7 @@ Shivam Mamgain
                         </div>
                         <div class="col s9">
                           <a href="#">Shujaul Haque</a><br>
-                          <div class="grey-text">Student</div>
+                          <div class="grey-text text-darken-3">Student</div>
                         </div>
                       </div>
                     </div>
@@ -291,9 +287,9 @@ Shivam Mamgain
   <div class="container">
     <div class="section">
       <div class="row">
-        <div class="col s12 l3">
+        <div class="col-sm-6 col-md-3 col-xs-12">
           <div class="card-panel" style="padding:0px;">
-            <div class="courses-grade orange darken-3">
+            <div class="courses-grade teal darken-3">
               6<sup>th</sup> - 8<sup>th</sup> Grade
             </div>
             <div class="courses-list">
@@ -302,14 +298,14 @@ Shivam Mamgain
                 <li>Algebra</li>
                 <li>Light</li>
                 <li>Urban Livelihoods</li>
-                <li><a href="<?php echo BASE.'search'; ?>">+View More</a></li>
+                <li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col s12 l3">
+        <div class="col-sm-6 col-md-3 col-xs-12">
           <div class="card-panel" style="padding:0px;">
-            <div class="courses-grade green darken-3">
+            <div class="courses-grade teal darken-3">
               9<sup>th</sup> - 10<sup>th</sup> Grade
             </div>
             <div class="courses-list">
@@ -318,14 +314,14 @@ Shivam Mamgain
                 <li>Practical Geometry</li>
                 <li>The Indian Subcontinent</li>
                 <li>Heat and Thermodynamics</li>
-                <li><a href="<?php echo BASE.'search'; ?>">+View More</a></li>
+                <li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col s12 l3">
+        <div class="col-sm-6 col-md-3 col-xs-12">
           <div class="card-panel" style="padding:0px;">
-            <div class="courses-grade brown darken-3">
+            <div class="courses-grade teal darken-3">
               11<sup>th</sup> - 12<sup>th</sup> Grade
             </div>
             <div class="courses-list">
@@ -334,15 +330,15 @@ Shivam Mamgain
                 <li>Semiconductors</li>
                 <li>Plane Equations</li>
                 <li>French</li>
-                <li><a href="<?php echo BASE.'search'; ?>">+View More</a></li>
+                <li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col s12 l3">
+        <div class="col-sm-6 col-md-3 col-xs-12">
           <div class="card-panel" style="padding:0px;">
-            <div class="courses-grade light-blue darken-3" style="font-size:15px;">
-              JEE Mains & Advanced
+            <div class="courses-grade teal darken-3" style="font-size:15px;">
+              JEE Mains &amp; Advanced
             </div>
             <div class="courses-list">
               Topics
@@ -350,7 +346,7 @@ Shivam Mamgain
                 <li>Optics</li>
                 <li>Kinematics</li>
                 <li>In-Organics Chemistry</li>
-                <li><a href="<?php echo BASE.'search'; ?>">+View More</a></li>
+                <li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
               </ul>
             </div>
           </div>
@@ -443,10 +439,10 @@ Shivam Mamgain
 
   <div style="width:100%;" class="attention">
     <div class="row">
-      <div class="col s12 l5 offset-l2">
+      <div class="col-xs-12 col-sm-7">
         Are you an IITian?<br>Do you like tutoring students?<br>If yes, then be a part of our community. 
       </div>
-      <div class="col s12 l5">
+      <div class="col-xs-12 col-sm-5">
         <br>
         <a class="valign btn-large waves-effect waves-light attention-joinus" href="<?php echo BASE.'joinus'; ?>">Join Us</a>
         <br>
