@@ -10,6 +10,14 @@ class Welcome extends CI_Controller {
 	public function index(){ 
 		$pageinfo=array();
 		Fun::issetlogout();
+		$total_users = sql::getArray("select type from users where type !='a'");
+		$pageinfo['teachers'] = $pageinfo['students'] = 0;
+		foreach ($total_users as $value) {
+			if ($value['type'] == 't')
+				$pageinfo['teachers']++;
+			if ($value['type'] == 's')
+				$pageinfo['students']++;
+		}
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
 		//Actiondisp::search($arr);
