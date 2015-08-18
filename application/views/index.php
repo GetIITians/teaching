@@ -186,6 +186,11 @@ Shivam Mamgain
   </div>
 
   <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="divider"></div>
+      </div>
+    </div>
     <div class="rows" id="numbers">
       <div class="col-sm-4">
         Registered Tutors
@@ -240,22 +245,28 @@ Shivam Mamgain
         <div>
           <div class="slider">
             <ul class="slides" id="review_slider">
+              <?php
+                $total = count($reviews); // 4
+                $show = 3;
+                $rand = [];
+                while (count($rand) < $show) {
+                  $random = mt_rand(0,$total-1);
+                  if (!in_array($random, $rand))
+                    $rand[] = $random;
+                }
+                for ($i=0; $i < $show; $i++) {
+                  echo "<li><div class=\"row left-align\"><div class=\"col-xs-12\"><div class=\"review-comment\"><blockquote>";
+                    echo "<p>".$reviews[$rand[$i]]['feedback']."</p>";
+                    echo "<footer><cite>".$reviews[$rand[$i]]['name']."</cite></footer>";
+                  echo "</blockquote></div></div></div></li>";
+                }
+              ?>
+              <!--
               <li>
                 <div class="row left-align">
                   <div class="col s12">
                     <div class="review-comment">
                       Getting the best tutors at one click.<br><a href="#">#WayToGo</a> <a href="#">@getIITians</a>
-                    </div>
-                    <div class="reviewer">
-                      <div class="row">
-                        <div class="col s3 right-align">
-                          <img class="img-responsive circle" src="images/review1.png" style="max-width:60px;">   
-                        </div>
-                        <div class="col s9">
-                          <a href="#">Shujaul Haque</a><br>
-                          <div class="grey-text text-darken-3">Student</div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -266,6 +277,8 @@ Shivam Mamgain
                     <div class="review-comment">
                       <a href="#">@getiitians</a> Excellent tutoring service.<br>The best I have seen so far.<br><a href="#">#FTW #getIITians</a>
                     </div>
+                    -->
+                    <!--
                     <div class="reviewer">
                       <div class="row">
                         <div class="col s3 right-align">
@@ -277,6 +290,8 @@ Shivam Mamgain
                         </div>
                       </div>
                     </div>
+                    -->
+                    <!--
                   </div>
                 </div>
               </li>
@@ -286,20 +301,10 @@ Shivam Mamgain
                     <div class="review-comment">
                       website is user friendly and very intuitive. <a href="#">#keepitup</a>
                     </div>
-                    <div class="reviewer">
-                      <div class="row">
-                        <div class="col s3 right-align">
-                          <img class="img-responsive circle" src="images/review3.png" style="max-width:60px;">
-                        </div>
-                        <div class="col s9">
-                          <a href="#">Prof. Mike Corleone</a><br>
-                          <div class="grey-text">Sicily University</div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </li>
+              -->
             </ul>
           </div>
         </div>

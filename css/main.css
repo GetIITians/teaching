@@ -550,6 +550,10 @@ margin: 0.82rem 0px 0.656rem;
   padding: 3px 15px;
 }
 
+#homepage blockquote{
+  border-left-color: #FF5252;
+}
+
 /*-------------------
     Media Queries
 -------------------*/

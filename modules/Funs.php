@@ -587,8 +587,6 @@ cmnt by yogy */
 			$rating_query = "select rating,teacher_id from rating WHERE teacher_id IN (".$teachers.")";
 			$rating = sql::getArray($rating_query);
 
-			//echo "<pre>";print_r($result);echo "</pre><br>";
-
 			$review = [];
 			$review_query = "select feedback,tid from booked WHERE tid IN (".$teachers.")";
 			$review = sql::getArray($review_query);
