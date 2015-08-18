@@ -157,3 +157,23 @@ hr.underlined{
   margin-left: 0;
   margin-right: 0;
 }
+
+/*----------------------
+  Central Link Styling
+-----------------------*/
+
+a{
+  color: #FF5252;
+}
+
+a:hover{
+  color: #e53935;
+}
+
+a:active{
+  color: #e53935;
+}
+
+a:focus{
+  color: #e53935;
+}

@@ -269,24 +269,26 @@ var ms={
 	},
 	studentbookslot: function(obj) {
 		if(selectedtopic != "") {
-			var total = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
-			if (total <= 1) {
+			var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
+			if (totalHours <= 1) {
 				ms.cbautofill("disppopupslots");
 				$(obj).attr("data-cst", selectedtopic);
 				button.sendreq_v2(obj);
+				landingPageTab.demo.done = true;
+				helpers.setStorage('demo',landingPageTab.demo)
 			} else{
-				Materialize.toast('Maximum duration of free class can be one hour', 4000);
+				Materialize.toast('Maximum duration of free class can be one hour', 4000, 'warning');
 			}
 		} else {
-			Materialize.toast('Please select the topic first', 4000);
+			Materialize.toast('Please select the topic first', 4000, 'warning');
 		} 
 	},
 	booktopic: function(obj, cst) {
 		selectedtopic=cst;
 		$("#profiletabs2").click();
 		landingPageTab.profileTabContent();
-		Materialize.toast($(obj).attr("data-topictext")+' is selected, now select the time.', 10000);
-		Materialize.toast('You can book your class from tomorrow.',12000);
+		Materialize.toast($(obj).attr("data-topictext")+' is selected, now select the time.', 7000, 'info');
+		Materialize.toast('You can book your class from tomorrow.', 7000, 'info');
 	},
 	openreviewform: function(obj, tid, starttime) {
 		mohit.popup('writereview');

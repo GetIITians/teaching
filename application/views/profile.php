@@ -5,7 +5,6 @@ load_view("Template/navbarnew.php");
 if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 
 ?> 
-<?php if(isset($_SESSION['referrer'])&&$_SESSION['referrer']) : ?>
 <div id="landingPageTab">
   <div class="closeIcon">
     <i class="material-icons">clear</i>
@@ -15,7 +14,6 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
     <span>Step 2&nbsp;:&nbsp;Select a topic for the free class</span>
   </div>
 </div>
-<?php endif; ?>
 
 	<main class="profile">
 		<div class="container">

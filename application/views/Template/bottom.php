@@ -11,7 +11,7 @@ if($needpopup){
   <script src="js/custom-script.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.raty.js"></script>
-  <script src="js/landing-page-tab.js"></script>
+  <script src="js/narayan.js"></script>
 <?php
 addmyjs();
 
