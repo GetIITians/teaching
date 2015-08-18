@@ -495,9 +495,6 @@ margin: 0.82rem 0px 0.656rem;
 	margin: 1.46rem 0px 1.168rem;
 }
 
-#homepage .header{
-}
-
 #homepage .sub-title{
 	font-weight: normal;
 	text-align: center;
@@ -554,6 +551,13 @@ margin: 0.82rem 0px 0.656rem;
 	border-left-color: #FF5252;
 }
 
+.icon-panel .opensans-font{
+	font-size: 18px;
+}
+
+.icon-panel i{
+	font-size: 5rem;
+}
 /*-------------------
 		Media Queries
 -------------------*/
@@ -595,6 +599,41 @@ margin: 0.82rem 0px 0.656rem;
 
 	#landingPageTab .content a {
 		padding: 2px 10px;
+	}
+
+	#numbers ul {
+		border-right: none;
+		margin-bottom: 2rem;
+	}
+
+	.icon-panel i{
+		font-size: 3rem;
+	}
+
+	.icon-panel .work-step-number{
+		height: 16px;
+		width: 16px;
+		font-size: .7rem;
+		border-radius: 2px;
+		padding: 0;
+	}
+
+	.icon-panel .opensans-font{
+		font-size: .9rem;
+	}
+
+	#numbers > div {
+		font-size: 1.5rem;
+	}
+
+	#numbers ul li {
+		font-size: 2rem;
+		padding: 0 10px;
+		border-radius: 2px;
+	}
+
+	#homepage .header{
+		font-size: 1.8rem;
 	}
 }
 

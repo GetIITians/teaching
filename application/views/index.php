@@ -146,32 +146,32 @@ Shivam Mamgain
 					</div>
 				</div>
 			-->
-				<div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-12">
-					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
+				<div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-6">
+					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
 						<div class="work-step-number">1</div>
-						<div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">search</i></div>
-						<div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Search for <br><b class="red-text text-accent-2">Tutors</b></div>
+						<div><i class="material-icons grey-text text-darken-4" >search</i></div>
+						<div class="opensans-font grey-text text-darken-3" >Search for <br><b class="red-text text-accent-2">Tutors</b></div>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-3 col-xs-12">
-					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
+				<div class="col-md-2 col-sm-3 col-xs-6">
+					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
 						<div class="work-step-number">2</div>
-						<div><i class="material-icons grey-text text-darken-4" style="font-size:4.5rem;">filter_list</i></div>
-						<div class="opensans-font grey-text text-darken-3" style="font-size:18px;margin-top:6px;">Shortlist your <br><b class="red-text text-accent-2">Tutor</b></div>
+						<div><i class="material-icons grey-text text-darken-4" >filter_list</i></div>
+						<div class="opensans-font grey-text text-darken-3" >Shortlist your <br><b class="red-text text-accent-2">Tutor</b></div>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-3 col-xs-12">
-					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
+				<div class="col-md-2 col-sm-3 col-xs-6">
+					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
 						<div class="work-step-number">3</div>
-						<div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">event</i></div>
-						<div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Book his <br><b class="red-text text-accent-2">Slot</b></div>
+						<div><i class="material-icons grey-text text-darken-4" >event</i></div>
+						<div class="opensans-font grey-text text-darken-3" >Book his <br><b class="red-text text-accent-2">Slot</b></div>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-3 col-xs-12">
-					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
+				<div class="col-md-2 col-sm-3 col-xs-6">
+					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
 						<div class="work-step-number">4</div>
-						<div><i class="material-icons grey-text text-darken-4" style="font-size:5rem;">desktop_windows</i></div>
-						<div class="opensans-font grey-text text-darken-3" style="font-size:18px;">Start <br><b class="red-text text-accent-2">Free Class  </b></div>
+						<div><i class="material-icons grey-text text-darken-4" >desktop_windows</i></div>
+						<div class="opensans-font grey-text text-darken-3" >Start <br><b class="red-text text-accent-2">Free Class  </b></div>
 					</div>
 				</div>
 			</div>
@@ -239,7 +239,7 @@ Shivam Mamgain
 			<div class="col-xs-12 col-sm-6">
 				<div class="row">
 					<div class="col-xs-12">
-						<h5 class="header grey-text text-darken-4 opensans-font">Students and Tutors love us</h5>
+						<h5 class="header grey-text text-darken-4 opensans-font">Students feedback</h5>
 					</div>
 				</div>
 				<div>
