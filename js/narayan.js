@@ -10,6 +10,12 @@ var helpers = {
 var landingPageTab = {
 	icon     : $('#landingPageTab .closeIcon i'),
 	demo     : { state : true, done  : false },
+	fontSize : function(){
+		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		if (width < 767)
+			return '2rem';
+		return '3rem';
+	},
 	//state = current state of Landing Page Tab {true:open,false:close}
 	toggleState : function(e){
 		$(this).next('.content').toggle(100);
@@ -19,7 +25,7 @@ var landingPageTab = {
 			$(this).find('i').css({'transform': 'rotate(45deg)'});
 		}else{
 			//opening
-			$(this).find('i').animate({'font-size': '3rem'}, 100);
+			$(this).find('i').animate({'font-size': landingPageTab.fontSize()}, 100);
 			$(this).find('i').css({'transform': 'rotate(90deg)'});
 		}
 		landingPageTab.demo.state = !landingPageTab.demo.state;
@@ -204,5 +210,7 @@ $(function() {
 			$('#landingPageTab').show();
 		};
 	};
+
+	
 
 });
