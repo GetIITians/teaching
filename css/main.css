@@ -520,6 +520,11 @@ margin: 0.82rem 0px 0.656rem;
   border-bottom: 3px solid transparent;
 }
 
+#homepage a.attention-joinus:hover{
+  color: white;
+  text-decoration: none;
+}
+
 /*-------------------
     Media Queries
 -------------------*/
