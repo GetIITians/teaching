@@ -10,10 +10,8 @@ foreach($qresult as $row) {
 //echo "<pre>";print_r($ratingBigBox);echo "</pre><br>";
 $allRatings = [];
 foreach ($ratingBigBox[0] as $bigBoxRating) {
-  if ($bigBoxRating['teacher_id'] == $row['tid'])
-  {
-    $allRatings[] = $bigBoxRating['rating'];
-  }
+	if ($bigBoxRating['teacher_id'] == $row['tid'])
+		$allRatings[] = $bigBoxRating['rating'];
 }
 
 $arrangedRatings = ['5'=>0,'4'=>0,'3'=>0,'2'=>0,'1'=>0,];
@@ -35,7 +33,6 @@ foreach ($allRatings as $value) {
       $arrangedRatings['1']++;
       break;
     default:
-      # code...
       break;
   }
 }

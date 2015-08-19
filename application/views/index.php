@@ -194,26 +194,21 @@ Shivam Mamgain
 		<div class="rows" id="numbers">
 			<div class="col-sm-4">
 				Registered Tutors
-				<ul>
-				<?php foreach(str_split(strval($teachers)) as $number) : ?>
-					<li><?php echo $number; ?></li>
-				<?php endforeach; ?>
+				<ul class="count" data-count="<?php echo $teachers; ?>">
 				</ul>
 			</div>
 			<div class="col-sm-4">
 				Registered Students
-				<ul>
-				<?php foreach(str_split(strval($students)) as $number) : ?>
-					<li><?php echo $number; ?></li>
-				<?php endforeach; ?>
+				<ul class="count" data-count="<?php echo $students; ?>">
+
+				<?php // foreach(str_split(strval($students)) as $number) : ?>
+				<!--	<li><?php //echo $number; ?></li> -->
+				<?php // endforeach; ?>
 				</ul>
 			</div>
 			<div class="col-sm-4">
 				Topics
-				<ul>
-					<li>7</li>
-					<li>7</li>
-					<li>0</li>
+				<ul class="count" data-count="770">
 				</ul>
 			</div>
 		</div>

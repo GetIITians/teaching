@@ -4,6 +4,20 @@ var helpers = {
 	},
 	getStorage : function(key){
 		return JSON.parse(localStorage.getItem(key));
+	},
+	isElementInViewport : function(elem){
+		var $elem = $(elem);
+
+		// Get the scroll position of the page.
+		var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+		var viewportTop = $(scrollElem).scrollTop();
+		var viewportBottom = viewportTop + $(window).height();
+
+		// Get the position of the element on the page.
+		var elemTop = Math.round( $elem.offset().top );
+		var elemBottom = elemTop + $elem.height();
+
+		return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
 	}
 }
 
@@ -40,6 +54,36 @@ var landingPageTab = {
 	profileTabContent : function(){
 		// This function is called @ main.js::287, in the function booktopic
 		landingPageTab.icon.parent().next('.content').find('span').html('Step 3&nbsp;:&nbsp;Select a time slot for your free class of 1 Hour');
+	}
+}
+
+var homePage = {
+	done : false,
+	checkAnimation : function(){
+		var $elem = $('#numbers');
+
+		if (helpers.isElementInViewport($elem)) {
+			// Start the animation
+			$elem.find('.count').each(function () {
+				$(this).prop('Counter',0).animate({
+						Counter: $(this).data('count')
+					}, {
+						duration: 2000,
+						easing: 'swing',
+						step: function (now) {
+							var numbers = Math.ceil(now).toString().split('');
+							var html = '';
+							for (var i = 0; i < numbers.length; i++) {
+								html += '<li>'+numbers[i]+'</li>';
+							}
+							$(this).html(html);
+						},
+						done: function (){
+							homePage.done = true;
+						}
+					});
+			});
+		}
 	}
 }
 
@@ -211,6 +255,28 @@ $(function() {
 		};
 	};
 
-	
+	$('.count').each(function () {
+		$(this).prop('Counter',0).animate({
+			Counter: $(this).data('count')
+		}, {
+			duration: 2000,
+			easing: 'swing',
+			step: function (now) {
+				var numbers = Math.ceil(now).toString().split('');
+				var html = '';
+				for (var i = 0; i < numbers.length; i++) {
+					html += '<li>'+numbers[i]+'</li>';
+				}
+				$(this).html(html);
+			}
+		});
+	});
+
+
+
+	$(window).scroll(function(){
+		if (!homePage.done)
+			homePage.checkAnimation();
+	});
 
 });
