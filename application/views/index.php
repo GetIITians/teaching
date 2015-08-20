@@ -242,10 +242,11 @@ Shivam Mamgain
 						<ul class="slides" id="review_slider">
 							<?php
 								$total = count($reviews); // 4
-								$show = 3; // $show should be less than $total
+								$show = ($total > 3) ? 3 : $total; // $show should be less than $total
 								$rand = [];
+								$max = ($total !=0 ) ? ($total-1) : 0 ;
 								while (count($rand) < $show) {
-									$random = mt_rand(0,$total-1);
+									$random = mt_rand(0,$max);
 									if (!in_array($random, $rand))
 										$rand[] = $random;
 								}
