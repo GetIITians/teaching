@@ -30,7 +30,7 @@ class Welcome extends CI_Controller {
 		$pageinfo['reviews'] = $reviews;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
-		//$arr=array("action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
+		//$arr=array("pincode"=>"asd","action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
 		//Actiondisp::search($arr);
 		}
 	

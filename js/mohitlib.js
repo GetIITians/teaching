@@ -149,7 +149,7 @@ var button={
 			
 		}});
 	},
-	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){  
+	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){
 		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d.split("\n")[0]); 
 			if(respo){

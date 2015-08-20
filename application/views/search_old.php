@@ -113,6 +113,19 @@ load_view("Template/navbarnew.php");
 											</div>
 										</li>
 										<li>
+											<div class="collapsible-header">Pin Code</div>
+											<div class="collapsible-body" style="padding:6px;">
+												<div class="row">
+												
+													<div class="col s12">
+														<input placeholder="Leave empty if search all" type="text" class="validate" name="pincode" data-condition="simple"   />
+													</div>
+												
+												</div>
+											</div>
+										</li>
+										
+										<li>
 											<div class="collapsible-header" style="display:none">Duration</div>
 											<div class="collapsible-body" style="padding:10px;">
 												<?php
@@ -189,7 +202,7 @@ load_view("Template/navbarnew.php");
 							<div class="row">
 								<div id="searchresultdiv" data-action='search' data-max='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>' data-maxl='<?php echo $_ginfo["numsearchr"]["loadadd"]; ?>' data-eparams='searchform()' data-ignoreloadonce='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>'>
 								<?php
-									handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2'), "search");
+									handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>''), "search");
 								?>
 							</div>
 							</div>
