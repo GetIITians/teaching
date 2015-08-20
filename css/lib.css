@@ -163,17 +163,17 @@ hr.underlined{
 -----------------------*/
 
 a{
-  color: #FF5252;
+  color: #009688;
 }
 
 a:hover{
-  color: #e53935;
+  color: #00897b;
 }
 
 a:active{
-  color: #e53935;
+  color: #00897b;
 }
 
 a:focus{
-  color: #e53935;
+  color: #00897b;
 }

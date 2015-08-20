@@ -6,15 +6,14 @@
   opent("base",array("href"=>HOST));
   /*      Narayan Waraich       */
   ocloset("title",$title['index']);
-  if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
+/*  if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
   {
     array_push($css, "css/bootstrap.min.css");
   }
   if (strpos($_SERVER['PHP_SELF'], 'index.php') !== false) {
     array_push($css, "css/bootstrap.min.css");
   }
-  array_push($css, "css/glyphicon.css");
-  array_push($css, "css/google-icons.css");
+*/
   /*----------------------------*/
   addall_css($css);
   addmycss();
