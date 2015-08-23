@@ -612,8 +612,78 @@ a.attention-joinus {
 a.attention-joinus:hover {
 	background-color: #00796b;
 }
+
 /*-------------------
-		Media Queries
+		Navbar
+-------------------*/
+#index-banner {
+	overflow: visible;
+	background: url("../images/banner.png") no-repeat scroll center center;
+}
+
+#index-banner nav{
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	height: auto;
+	margin-bottom: 70px;
+	box-shadow: unset;
+}
+
+.navbar-nav li:hover{
+	background-color: transparent;
+}
+
+.navbar-nav > li > a{
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    border-bottom: 5px solid transparent;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+	background-color: transparent;
+	border-bottom: 5px solid #00695c;
+	color: white;
+}
+
+.navbar-default .navbar-brand{
+	font-size: 2rem;
+	color: white;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    color: white;
+    background-color: transparent;
+}
+
+.open .dropdown-menu{
+	border-radius: 0px;
+	background-color: transparent;
+	box-shadow: unset;
+	border: 0;
+}
+
+.open .dropdown-menu > li {
+	float: none;
+
+}
+
+.open .dropdown-menu > li > a {
+	color: white;
+	float: left;
+	padding: 3px 10px;
+}
+
+.open .dropdown-menu > li > span{
+	font-size: .7rem;
+	float: right;
+	line-height: 20px;
+}
+/*-------------------
+	Media Queries
 -------------------*/
 
 @media (max-width: 767px) {

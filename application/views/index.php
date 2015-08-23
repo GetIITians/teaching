@@ -25,7 +25,7 @@ Shivam Mamgain
 	</div>
 </div>
 
-	<div id="index-banner" class="parallax-container">
+	<div id="index-banner">
 		<?php
 		load_view("Template/navbarhome.php",$inp);
 		?>
@@ -52,7 +52,7 @@ Shivam Mamgain
 					</div>
 				</form>
 
-				<!-- DROPDOWN BEGIN -->
+				<!-- DROPDOWN BEGIN
 				<div id="dropdownnav" class="row" style="display:none;">
 					<nav class="transparent col s12">
 						<ul class="nav">
@@ -119,10 +119,9 @@ Shivam Mamgain
 						</ul>
 					</nav>
 				</div>
-				<!-- DROPDOWN END -->
+				DROPDOWN END -->
 			</div>
 		</div>
-		<div class="parallax" height="100%"><img src="images/banner.png" width="85%" alt="Banner" ></div>
 	</div>
 
 	<div class="container">

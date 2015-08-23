@@ -5,44 +5,6 @@ a#top_arrow {
 	right: 25px;
 }
 
-.parallax-container {
-	height: 400px;
-	max-height: 400px;
-}
-#index-banner {
-	height: 400px;
-	max-height: 400px;
-}
-
-/* Navbar */
-#navbar, #dropdownnav nav{
-	box-shadow: none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-}
-ul#dropdownaccount li a {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size:15px;
-	color: #ffffff;
-}
-ul#dropdownaccount li:hover a{
-	color: #e0e0e0;
-}
-ul#dropdownaccount li:hover{
-	background: none;
-}
-ul#dropdownaccount {
-	box-shadow: none;
-}
-
-/* parallax */
-#index-banner {
-	min-height: 450px;
-	overflow: visible;
-	background-color: rgba(0, 0, 0, 0.23);
-}
-
 /* Tagline animation */
 .rw-words-1 h5{
 	position: absolute;
@@ -287,91 +249,6 @@ ul.courses-list-ul li {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
-/* DROPDOWN BEGIN */
-/* banner dropdown satish*/
-.nav {
-	display: inline-block;
-	position: relative;
-	cursor: default;
-	z-index: 100;
-}
-
-.nav > li {
-	display: block;
-}
-
-.nav > li > a,.nav2 > li > a {
-	display: block;
-	z-index: 110;
-	height: 40px;
-	padding: 0 35px;
-	line-height: 40px;
-	cursor:pointer;
-}
-
-.nav2 > li > a {
-	padding: 0 6px;
-	color:teal;
-}
-
-.nav2 > li > a:hover{
-	color:#004d40;
-}
-
-.nav > li:hover > a {
-	background: #fff;
-	color:#000;
-}
-
-.nav > li > div,.nav2 > li > div {
-	position: absolute;
-	display: block;
-	width: 100%;
-	top: 40px;
-	left: 0;
-	opacity: 0;
-	visibility: hidden;
-	overflow: hidden;
-	background: #ffffff;
-}
-
-.nav2 > li > div {
-	border-radius: 0 0 3px 3px;
-}
-
-.nav > li:hover > div {
-	opacity: 1;
-	visibility: visible;
-	overflow: visible;
-}
-
-.nav2 > li:hover > div {
-	opacity: 1;
-	visibility: visible;
-	overflow: visible;
-}
-
-.nav2 .nav-column {
-	width: 100%;
-	padding: 2%;
-	column-count:4;
-	-webkit-column-count:4;
-	-moz-column-count:4;
-	min-height:220px;
-	height: 90px;
-}
-
-.nav .nav-column li a{
-	display:block;
-	line-height: 25px;
-	font-weight: bold;
-	font-size: 13px;
-	color: #888888;
-	text-align: left;
-}
-/* DROPDOWN END */
-
 
 /*-------------------
 		Media Queries
