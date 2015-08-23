@@ -545,7 +545,7 @@
      <input placeholder="e.g. Electrical Engineering" type="text" class="validate" name="branch" data-condition="simple" length="30" />
     </div>
    </div>
-   <div class="row" style="display:none" >
+   <div class="row"  >
     <div class="col s12 l4">
      <span class="grey-text text-darken-1">
       College Verification

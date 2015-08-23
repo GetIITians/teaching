@@ -36,29 +36,7 @@ load_view("Template/navbarnew.php");
                     <option value="">Select class first</option>
                   </select>
               </div>
-              <ul class="collapsible" data-collapsible="accordion">
-                     <li>
-                      <div class="collapsible-header">Home/Online Tuition</div>
-                      <div class="collapsible-body" style="padding:6px;">
-                        <div class="row">
-                          <div class="col s10">
-                            <input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
-                            <label style="padding-left:23px;" for="home1" >
-                            Home Tuition
-                            </label>
-                          </div>
-                          <div class="col s10">
-                          <input id="home2" type="checkbox" class="filled-in" name="home" value='2' checked />
-                            <label style="padding-left:23px;" for="home2" >
-                            Online Classes
-                            </label>
-                          </div>
-                        
-                        </div>
-                      </div>
-                    </li>
-                   </ul>
-                  <ul class="collapsible" data-collapsible="accordion" style="display:none">
+                  <ul class="collapsible" data-collapsible="accordion">
                     <li>
                       <div class="collapsible-header">Topics</div>
                       <div class="collapsible-body" id="selecttopic" style="padding:10px;">
@@ -143,6 +121,28 @@ load_view("Template/navbarnew.php");
                       }
                     ?>
                   </ul>
+              <ul class="collapsible" data-collapsible="accordion">
+                     <li>
+                      <div class="collapsible-header">Home/Online Tuition</div>
+                      <div class="collapsible-body" style="padding:6px;">
+                        <div class="row">
+                          <div class="col s10">
+                            <input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
+                            <label style="padding-left:23px;" for="home1" >
+                            Home Tuition
+                            </label>
+                          </div>
+                          <div class="col s10">
+                          <input id="home2" type="checkbox" class="filled-in" name="home" value='2' checked />
+                            <label style="padding-left:23px;" for="home2" >
+                            Online Classes
+                            </label>
+                          </div>
+                        
+                        </div>
+                      </div>
+                    </li>
+                   </ul>
               <button type="button" class="btn waves-effect waves-light" data-action="refinesearch" onclick="ms.orderrefine(this);">
                 Refine Search
               </button>
