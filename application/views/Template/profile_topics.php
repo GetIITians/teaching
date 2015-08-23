@@ -4,14 +4,15 @@
 if(!$isdonedemo) {
 ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
 	Choose a course for free class.
 </div>
 <?php
 }
 ?>
+
 <div class="row">
 	<?php if(User::loginId()==$tid) : ?>
 	<div class="col-md-3 col-xs-12">

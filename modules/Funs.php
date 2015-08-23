@@ -349,7 +349,7 @@ abstract class Funs{
 		$hisoutput = Funs::mssearch($data);
 		$hisoutput[1]["uid"] = (0+User::loginId());
 		$setorderby=Funs::setorderby($data['orderby']);
-		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;
+		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;		
 		return $hisoutput;
 	}
 	public static function get_teacher_classes($tid) {
@@ -570,6 +570,31 @@ cmnt by yogy */
 		}
 		unset($row['jsoninfo']);
 		return $row;
+	}
+
+		public static function ratingBigBox($qresult=[])
+	{
+		if (!empty($qresult))
+		{
+			$tid = [];
+			foreach ($qresult as $detail)
+			{
+				$tid[] = $detail['tid'];
+			}
+			$teachers = implode(',', $tid);
+
+			$rating = [];
+			$rating_query = "select rating,teacher_id from rating WHERE teacher_id IN (".$teachers.")";
+			$rating = sql::getArray($rating_query);
+
+			$review = [];
+			$review_query = "select feedback,tid from booked WHERE tid IN (".$teachers.")";
+			$review = sql::getArray($review_query);
+
+			return [$rating,$review];
+		}
+
+		return [];
 	}
 
 }

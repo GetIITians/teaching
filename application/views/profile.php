@@ -5,36 +5,46 @@ load_view("Template/navbarnew.php");
 if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 
 ?> 
+<div id="landingPageTab">
+  <div class="closeIcon">
+    <i class="material-icons">clear</i>
+  </div>
+  
+  <div class="content right">
+    <span>Step 2&nbsp;:&nbsp;Select a topic for the free class</span>
+  </div>
+</div>
+
 	<main class="profile">
 		<div class="container">
 			<ul id="profiletabs" class="row" role="tablist">
 				<li role="presentation" <?php echo profile_tabs(1,$tabid,'tablist'); ?>>
-					<a href="#profile" aria-controls="home" role="tab" data-toggle="tab">
+					<a  id="profiletabs1" href="#profile" aria-controls="home" role="tab" data-toggle="tab">
 						Profile
 					</a>
 				</li>
 				<li role="presentation" <?php echo profile_tabs(5,$tabid,'tablist'); ?>>
-					<a href="#topics" aria-controls="topics" role="tab" data-toggle="tab">
+					<a  id="profiletabs5" href="#topics" aria-controls="topics" role="tab" data-toggle="tab">
 						Topics
 					</a>
 				</li>
 				<li role="presentation" <?php echo profile_tabs(2,$tabid,'tablist'); ?>>
-					<a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">
+					<a id="profiletabs2" href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">
 						Calendar
 					</a>
 				</li>
 				<li role="presentation" <?php echo profile_tabs(4,$tabid,'tablist'); ?>>
-					<a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+					<a id="profiletabs4" href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
 						Reviews
 					</a>
 				</li>
 				<li role="presentation" <?php echo profile_tabs(3,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
-					<a href="#classes" aria-controls="classes" role="tab" data-toggle="tab">
+					<a id="profiletabs3" href="#classes" aria-controls="classes" role="tab" data-toggle="tab">
 						Classes
 					</a>
 				</li>
 				<li role="presentation" <?php echo profile_tabs(6,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
-					<a href="#account" aria-controls="account" role="tab" data-toggle="tab">
+					<a id="profiletabs6" href="#account" aria-controls="account" role="tab" data-toggle="tab">
 						Account
 					</a>
 				</li>

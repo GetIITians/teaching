@@ -1,6 +1,6 @@
 <?php
-require_once('FirePHPCore/fb.php');
-ob_start();
+//var_dump(isset($_SESSION));
+//var_dump($_SESSION);
 include "includes/app.php";
 
 /*

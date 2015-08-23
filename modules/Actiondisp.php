@@ -148,7 +148,11 @@ class Actiondisp{
 			//fb($qoutput,'row',FirePHP::LOG);
 			
 			$odata=Fun::getflds(array("max", "maxl", "qresultlen"), $qoutput); 
-//changes by narayan			
+			/* Narayan Waraich */
+			//echo "<pre>";	print_r($qoutput['qresult'])	;echo "<pre>";
+			$ratingBigBox = Funs::ratingBigBox($qoutput['qresult']);
+
+
 			$rating_result = array();		
 			if (User::islogin())
 			{
@@ -156,13 +160,13 @@ class Actiondisp{
 				$rating_result = sql::getArray($rating_query);
 			}
 		}
-//changes by narayan		
+			/* #################*/		
 		if($printjson){
 			echo json_encode(array('ec'=>$ec,'data'=>$odata))."\n";
 		}
 		if($ec<0)
 			return; 
-		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result));
+		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox));
 	}
 	function disptopics($data, $printjson = true) {
 		$outp = array("ec" => 1, "data" => 0);

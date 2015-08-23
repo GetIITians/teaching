@@ -8,9 +8,18 @@ load_view("Template/navbarnew.php");
   var topics=<?php echo json_encode($cst_tree); ?>;
 </script>
   <a id="top"></a>
-  <a href="<?php echo BASE.'search'; ?>#top" class="btn-large btn-floating waves-effect waves-light yellow darken-2" id="top_arrow" title="TOP" style="display:none;">
+  <a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP" style="display:none;">
     <i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
   </a>
+<div id="landingPageTab">
+  <div class="closeIcon">
+    <i class="material-icons">clear</i>
+  </div>
+  
+  <div class="content right">
+    <span>Step 1&nbsp;:&nbsp;Select a teacher</span>
+  </div>
+</div>
 
 <main class="whitebg">
   <div class="container">
@@ -202,6 +211,5 @@ load_view("Template/footer.php",$inp);
 load_view("Template/bottom.php",Fun::mergeifunset($inp,array("needbody"=>false)));
 ?>
   <script src="js/search.js"></script>
-  <script src="js/rating.js"></script>
 </body>
 </html>

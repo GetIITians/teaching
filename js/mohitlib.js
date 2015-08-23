@@ -75,6 +75,7 @@ var button={
 		}
 		if(button.hasattr(allattrs,"data-eparams")){
 			eval("var eparams="+allattrs["data-eparams"]);
+			console.log(eparams);
 			params=others.mergeifunset(params,eparams);
 		}
 		params['action']=allattrs["data-action"];

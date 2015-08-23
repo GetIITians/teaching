@@ -1,3 +1,48 @@
+var helpers = {
+	setStorage : function(key,value){
+		localStorage.setItem(key,JSON.stringify(value));
+	},
+	getStorage : function(key){
+		return JSON.parse(localStorage.getItem(key));
+	}
+}
+
+var landingPageTab = {
+	icon     : $('#landingPageTab .closeIcon i'),
+	demo     : { state : true, done  : false },
+	fontSize : function(){
+		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		if (width < 767)
+			return '2rem';
+		return '3rem';
+	},
+	//state = current state of Landing Page Tab {true:open,false:close}
+	toggleState : function(e){
+		$(this).next('.content').toggle(100);
+		if(helpers.getStorage('demo').state){
+			//closing
+			$(this).find('i').animate({'font-size': '2rem'}, 100);
+			$(this).find('i').css({'transform': 'rotate(45deg)'});
+		}else{
+			//opening
+			$(this).find('i').animate({'font-size': landingPageTab.fontSize()}, 100);
+			$(this).find('i').css({'transform': 'rotate(90deg)'});
+		}
+		landingPageTab.demo.state = !landingPageTab.demo.state;
+		helpers.setStorage('demo',landingPageTab.demo);
+	},
+	siteWide : function(){
+		landingPageTab.icon.parent().next('.content').hide();
+		landingPageTab.icon.css({'transform': 'rotate(45deg)','font-size': '2rem'});
+		landingPageTab.demo.state = false;
+		helpers.setStorage('demo',landingPageTab.demo);
+	},
+	profileTabContent : function(){
+		// This function is called @ main.js::287, in the function booktopic
+		landingPageTab.icon.parent().next('.content').find('span').html('Step 3&nbsp;:&nbsp;Select a time slot for your free class of 1 Hour');
+	}
+}
+
 $(function() {
 
 	$(document).on({
@@ -97,21 +142,24 @@ $(function() {
 		});
 	}},'.rating-system');
 
-	/* Top Floating Button */
-	var scroll_offset = 0;
-	var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
-	$('#top_arrow').hide();
-	$(document).scroll(function() {
-		scroll_offset = $(this).scrollTop();
-		//console.log('you scrolled ' + scroll_offset + 'px & the sidebar is at ' + sideBar + 'px');
-		if (scroll_offset > sideBar) {
-			$('#top_arrow').show();
-		}
-		else if (scroll_offset <= sideBar) {
-			$('#top_arrow').hide();
-		}
-	});
+	/* Top Floating Button on search page */
+	if (window.location.href.indexOf("/search") > -1) {
+		var scroll_offset = 0;
+		var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
+		$('#top_arrow').hide();
+		$(document).scroll(function() {
+			scroll_offset = $(this).scrollTop();
+			//console.log('you scrolled ' + scroll_offset + 'px & the sidebar is at ' + sideBar + 'px');
+			if (scroll_offset > sideBar) {
+				$('#top_arrow').show();
+			}
+			else if (scroll_offset <= sideBar) {
+				$('#top_arrow').hide();
+			}
+		});
+	};
 
+	/* Teacher Rating detail box on search page */
 	$('#ratingBigBox').hide();
 	$(document).on({
 		// Handles the mouseover
@@ -133,7 +181,6 @@ $(function() {
 			}
 			ratingBigBox.css({top: netHeight, left: ratingLeft});
 			ratingBigBox.show(200);
-			console.log($(this).offset().left);
 		},
 		// Handles the mouseout
 		mouseleave: function() {
@@ -142,5 +189,28 @@ $(function() {
 			ratingBigBox.hide(100);
 		}
 	},'.contentrating');
+
+
+	var demo = helpers.getStorage('demo');
+	// if(first time user)
+	if (demo === null) {
+		helpers.setStorage('demo',landingPageTab.demo);
+		$(document).on('click','#landingPageTab .closeIcon', landingPageTab.toggleState);
+		$('#landingPageTab').show();
+	}
+	// else if (repeat user)
+	else {
+		// if(Not taken demo class)
+		if (!demo.done) {
+			$(document).on('click','#landingPageTab .closeIcon', landingPageTab.toggleState);
+			// If (user has hidden the demo popup)
+			if (!demo.state) {
+				landingPageTab.siteWide();
+			}
+			$('#landingPageTab').show();
+		};
+	};
+
+	
 
 });
