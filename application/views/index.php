@@ -341,7 +341,7 @@ Shivam Mamgain
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<h5 class="center grey-text text-darken-4">Choose from a myriad of Topics</h5>
+					<h5 class="center grey-text text-darken-4 topics">Choose from a myriad of Topics</h5>
 				</div>
 			</div>
 			<div class="row center">
@@ -383,7 +383,7 @@ Shivam Mamgain
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Combinations</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Gases</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Liquid State</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link" style="background-color:#00796b;color:#ffffff;">
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link" style="background-color:#00796b;color:#ffffff;border-color:#00796b;">
 						And Many More +
 					</a>
 				</div>

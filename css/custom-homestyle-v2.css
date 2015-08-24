@@ -212,18 +212,16 @@ ul.courses-list-ul li {
 	display: inline-block;
 	margin-bottom: .5rem;
 }
+
 .course-link:hover {
-	-webkit-transition: all 300ms ease;
-	-moz-transition: all 300ms ease;
-	-ms-transition: all 300ms ease;
-	-o-transition: all 300ms ease;
-	transition: all 300ms ease;
-	color: #000000;
-	text-decoration: none;
-	background-color: rgba(220, 220, 220, 0.12);
-	box-shadow: 0 0 5px 1px rgba(152, 152, 152, 0.33);
-	border-color: #BBBBBB;
+    transition: all 250ms ease 0s;
+    color: white;
+    text-decoration: none;
+    background-color: #00695c;
+    box-shadow: 0px 0px 5px 1px rgba(152, 152, 152, 0.33);
+    border-color: #00695c;
 }
+
 .course-link-label {
 	font-size: 12px;
 }
@@ -242,7 +240,6 @@ ul.courses-list-ul li {
 
 /* Feel Free */
 .feel-free {
-	font-family: 'Open Sans';
 	color: #607d8b;
 	font-size: 15px;
 	background-color: #ffffff;

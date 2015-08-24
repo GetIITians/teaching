@@ -25,8 +25,8 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create Account <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li class="<?php pit('active', $page==='signup');?>"><a href="<?php echo BASE."signup" ;?>">Signup</a><span>STUDENT</span></li>
-							<li class="<?php pit('active', $page==='joinus');?>"><a href="<?php echo BASE."joinus" ;?>">Joinus</a><span>TUTOR</span></li>
+							<li class="<?php pit('active', $page==='signup');?>"><a href="<?php echo BASE."signup" ;?>">Signup<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STUDENT</span></a></li>
+							<li class="<?php pit('active', $page==='joinus');?>"><a href="<?php echo BASE."joinus" ;?>">Joinus<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TUTOR</span></a></li>
 						</ul>
 					</li>
 				<?php endif; ?>

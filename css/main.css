@@ -502,7 +502,7 @@ margin: 0.82rem 0px 0.656rem;
 #homepage h3{
 	font-size: 2.92rem;
 	line-height: 110%;
-	margin: 1.46rem 0px 1.168rem;
+	margin: 5rem 0px 2rem;
 }
 
 #homepage .sub-title{
@@ -530,6 +530,11 @@ margin: 0.82rem 0px 0.656rem;
 #homepage a.attention-joinus:hover{
 	color: white;
 	text-decoration: none;
+}
+
+#numbers{
+	margin-bottom: 3rem;
+	margin-top: 3rem;
 }
 
 #numbers > div{
@@ -572,12 +577,24 @@ margin: 0.82rem 0px 0.656rem;
 	font-size: 5rem;
 }
 
+.icon-panel i:hover{
+	color: #000 !important;
+}
+
 .icon-panel b{
 	letter-spacing: .5px;
 }
 
+.grades{
+	margin-top: 5rem;
+}
+
 .grades .card-panel{
 	padding: 0;
+}
+
+#homepage .topics{
+	margin: 3rem 0;
 }
 
 #main_search_bar{
@@ -591,7 +608,7 @@ margin: 0.82rem 0px 0.656rem;
 }
 
 #homepage .divider {
-	margin: 3rem 0;
+	margin: 3rem 0 1rem;
 }
 
 #homepage .jumbotron{
@@ -626,7 +643,7 @@ a.attention-joinus:hover {
 	border-radius: 0;
 	background-color: transparent;
 	height: auto;
-	margin-bottom: 70px;
+	margin-bottom: 30px;
 	box-shadow: unset;
 }
 
@@ -649,8 +666,14 @@ a.attention-joinus:hover {
 	color: white;
 }
 
-.navbar-default .navbar-brand{
-	font-size: 2rem;
+.navbar > .container-fluid .navbar-brand {
+	margin-left: 3rem;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+	font-size: 2.5rem;
 	color: white;
 }
 
@@ -659,28 +682,38 @@ a.attention-joinus:hover {
     background-color: transparent;
 }
 
-.open .dropdown-menu{
+.navbar-nav > li > .dropdown-menu {
 	border-radius: 0px;
 	background-color: transparent;
 	box-shadow: unset;
 	border: 0;
 }
 
-.open .dropdown-menu > li {
-	float: none;
-
+#index-banner .dropdown-menu > li {
+	width: 100%;
 }
 
-.open .dropdown-menu > li > a {
+#index-banner .dropdown-menu > li > a {
 	color: white;
 	float: left;
 	padding: 3px 10px;
+	width: 100%;
+	border-bottom: 5px solid transparent;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 
-.open .dropdown-menu > li > span{
+#index-banner .dropdown-menu > li > a > span{
 	font-size: .7rem;
-	float: right;
-	line-height: 20px;
+}
+
+#index-banner .no-pad-bot form{
+	margin-bottom: 85px;
+}
+
+#index-banner .dropdown-menu > li > a:focus, #index-banner .dropdown-menu > li > a:hover {
+	    border-bottom: 5px solid #00695c;
+	    background-color: transparent;
 }
 /*-------------------
 	Media Queries
@@ -743,6 +776,7 @@ a.attention-joinus:hover {
 
 	#numbers{
 		margin-top: 2rem;
+		margin-bottom: 3rem;
 	}
 
 	#numbers ul {
