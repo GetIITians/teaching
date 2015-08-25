@@ -11,7 +11,7 @@ foreach ($temp as $key => $value) {
 <td>
 <form method="post" enctype="multipart/form-data">
 	<div class="row">
-		<div class="col s12 l8">
+		<div class="col-xs-12 col-md-8">
 		  <div class="file-field input-field">
 		      <input type="file" name="timeslot_upload[]" multiple>
 		  </div>
@@ -32,7 +32,7 @@ foreach ($temp as $key => $value) {
 </td><td>
 <form method="post" enctype="multipart/form-data">
 	<div class="row">
-		<div class="col s12 l8">
+		<div class="col-xs-12 col-md-8">
 		  <div class="file-field input-field">
 		      <input type="file" name="timeslot_uploadsoln[]" multiple>
 		  </div>

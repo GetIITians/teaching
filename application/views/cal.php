@@ -4,7 +4,7 @@
     if($tid==User::loginId()){
     ?>
     <div class="row">
-      <div class="col s12 l12">
+      <div class="col-xs-12">
         <div class="card-panel">
           <div class="row">
             <nav class="teal">
@@ -24,8 +24,8 @@
     ?>
 
     <div class='row' >
-      <div class="col s12 l12">
-      <div class="col s12 l12"  id="divforcalender" >
+      <div class="col-xs-12">
+      <div class="col-xs-12"  id="divforcalender" >
         <?php
           load_view("dispcal.php",$inp);
         ?>

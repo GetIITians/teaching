@@ -7,21 +7,21 @@ load_view("Template/navbarnew.php");
 <main>
   <div class="container">
     <div class="row">
-      <div class="col s12">
+      <div class="col-xs-12">
         <div class="card-panel">
           <h4 class="teal-text text-darken-1 center">Edit profile</h4>
           <br>
           <div class="row">
-            <div class="col s12">
-            <form class="col s12 l10 offset-l1" enctype="multipart/form-data"  method="post" onsubmit="return submitForm_t2(this);">
+            <div class="col-xs-12">
+            <form class="col-xs-12 col-md-10 col-md-offset-1" enctype="multipart/form-data"  method="post" onsubmit="return submitForm_t2(this);">
               <div class="row">
               <div id="errorReport"></div>
-                <div class="col s12">
+                <div class="col-xs-12">
                   <div class="center grey-text text-darken-1"></div>
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Name<span class="red-text">*</span></span>
                 </div>
                  <?php
@@ -33,20 +33,20 @@ load_view("Template/navbarnew.php");
                    $a=$value['jsoninfo'];
                    $b=str2json($a);
                 ?>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <input placeholder="First Name"   type="text" class="validate" name="fname"  data-condition="simple" length="35" value="<?php echo $array[0];?>">
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <input placeholder="Last Name" type="text" class="validate" name="lname" data-condition="simple" length=35 value="<?php echo $array[1];?>">
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Subjects<span class="red-text">*</span></span>
                   <br>
                   <span class="grey-text text-lighten-1" style="font-size: 13px;">You would love to teach</span>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <?php 
                        $temp2=explode('-',$b['sub']); ?>
@@ -70,7 +70,7 @@ load_view("Template/navbarnew.php");
                     <label for="chemistry">Chemistry</label>
                   </div>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <input id="biology" type="checkbox" name="sub4" data-condition="checkbox" data-group="sub" <?php if(in_array(4, $temp2)){?>  
                            checked="checked" <?php } ?>
@@ -92,7 +92,7 @@ load_view("Template/navbarnew.php");
                 </div>
               </div>
               <div class="row" id="otherType1">
-                <div class="col s12 l8 offset-l4">
+                <div class="col-xs-12 col-md-8 col-md-offset-4">
 
                   <input placeholder="Specify if Others" type="text" class="validate" name="subother" length=20 value="<?php if(in_array('other', $temp2)) echo $b['subother'];?>">
             
@@ -102,10 +102,10 @@ load_view("Template/navbarnew.php");
               $temp1=explode('-',$b['sub']); ?>
                
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Grade<span class="red-text">*</span></span>
                   </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <input id="6to8" type="checkbox" name="grade1" data-condition="checkbox" data-group="grade" <?php if(in_array(1, $temp1)){?> 
                                     checked="checked" <?php } 
@@ -119,7 +119,7 @@ load_view("Template/navbarnew.php");
                     <label for="9to10">9<sup>th</sup> to 10<sup>th</sup></label>
                   </div>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <input id="11to12" type="checkbox" name="grade3" data-condition="checkbox" data-group="grade" <?php if(in_array(3, $temp1)){?> 
                                     checked="checked" <?php } 
@@ -135,12 +135,12 @@ load_view("Template/navbarnew.php");
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Mininum Fees<span class="red-text">*</span></span><br>
                     <span class="grey-text text-lighten-1" style="font-size: 13px;">Minimun tution fees per hour</span>
                 </div>
                 
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <select data-condition="simple"  class="browser-default" onchange="f(this);" name="minfees" id="minfees">
                     <option value="<?php echo $b['minfees']; ?>" selected><?php echo 'Rs.'.$b['minfees']; ?></option>
                     <!-- <option value="" disabled selected>Min.Fees</option> -->
@@ -161,18 +161,18 @@ load_view("Template/navbarnew.php");
           </select>
 
               </div>
-            <div class="col s12 l4">
-              <div id="sada" class="col s8 l2"></div>
-                <div class="col s4 l2">USD</div>
+            <div class="col-xs-12 col-md-4">
+              <div id="sada" class="col-xs-8 col-md-2"></div>
+                <div class="col-xs-4 col-md-2">USD</div>
                   </div>
                 </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Teaching Experience<span class="red-text">*</span></span>
                   <br>
                   <span class="grey-text text-lighten-1" style="font-size: 13px;">In years<br>Both offline and online</span>
                 </div>
-                <div class="col s8 l4">
+                <div class="col-xs-8 col-md-4">
                   
                     <select data-condition="simple" class="browser-default" name="teachingexp" id="experience">
                     <option value="<?php echo $value['teachingexp'];?>" selected><?php echo $value['teachingexp'];?></option>
@@ -212,17 +212,17 @@ load_view("Template/navbarnew.php");
                     
           </select>
                 </div>
-                  <div class="col s4 l2">
+                  <div class="col-xs-4 col-md-2">
                       Yrs.
                   </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Languages<span class="red-text">*</span></span>
                   <br>
                   <span class="grey-text text-lighten-1" style="font-size: 13px;">You are comfortable to teach in</span>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <?php 
                       //print_r($value['lang']);
@@ -270,7 +270,7 @@ load_view("Template/navbarnew.php");
                     <label for="lang8">Tamil</label>
                   </div>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <input id="lang9" type="checkbox" name="lang8" data-condition="checkbox" data-group="lang" <?php if( in_array(8, $temp)){?> 
                                     checked="checked" <?php } 
@@ -316,92 +316,92 @@ load_view("Template/navbarnew.php");
                 </div>
               </div>
                 <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">College<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <label class="pad"><?php echo 'IIT '.$b['college'];?></label>
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Degree<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <label class="pad"><?php echo $b['degree'];?></label>
                       
                 </div>
               </div>
               
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">branch<span class="red-text">*</span></span>
                   <br>
                   <span class="grey-text text-lighten-1" style="font-size: 13px;">You specialize in</span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <label class="pad"><?php echo $b['branch'];?></label>
                 </div>
               </div>
               
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Email<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                  <label class="pad"><?php echo $val['email'];?></label>
                 </div>
               </div>
                 
              
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Phone Number<span class="red-text">*</span></span>
                     <br>
                     <span class="grey-text text-lighten-1" style="font-size: 13px;">Your mobile no.</span>
                 </div>
-                <div class="col s6 l4">
+                <div class="col-xs-6 col-md-4">
                   <label class="pad"><?php echo $val['phone'];?></label>
                     
                 </div>
-                 <div class="col s6 l3">
+                 <div class="col-xs-6 col-md-3">
                     
                   </div>
                 </div>
              
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Gender<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <label class="pad"><?php if($val['gender']=='f')
                                            echo 'female';
                                            else echo 'male'; ?> </label>
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Date of Birth<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l6">
+                <div class="col-xs-12 col-md-6">
                   <input type="date" class="datepicker" name="dob" data-condition="simple"  onchange="ageToTime(this);" style="margin-bottom: 0px;" value="<?php echo date('jS \ F Y',$val['dob']);?>">
                 </div>
-                  <div class="col s12 l2">
-                <div class="col s12 l1"  id="times">
+                  <div class="col-xs-12 col-md-2">
+                <div class="col-xs-12 col-md-1"  id="times">
                       
                       </div>
-                      <div class="col s12 l1">
+                      <div class="col-xs-12 col-md-1">
                       Yrs.
                       </div>
                   </div>
                 </div>
                 <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Are you Ok with home tuition?<span class="red-text">*</span></span>
                   <br>
                   
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <div>
                     <input id="home1" type="radio"  name="home1" 
                                     <?php if($b['home']==1){?> 
@@ -419,15 +419,15 @@ load_view("Template/navbarnew.php");
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Address<span class="red-text">*</span></span>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                                             
                     <div><input placeholder="City" type="text" class="validate" name="city" data-condition="simple" length=17 value="<?php echo $b['city'];?>"></div>
                     <div><input placeholder="Postal/Zip Code" type="text" class="validate" name="zipcode" data-condition="simple" length=6 value="<?php echo $b['zipcode'];?>" ></div>
                 </div>
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                     <div><input placeholder="State/Province" type="text" class="validate" name="state" data-condition="simple" length=20 value="<?php echo $b['state'];?>"></div>
                   <select name="country"  class="browser-default" data-condition="simple">
                     <option value="<?php echo $b['country'];?>" selected ><?php echo $b['country'];?></option>
@@ -684,12 +684,12 @@ load_view("Template/navbarnew.php");
               }}
                 ?>                
                 <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Resume<span class="red-text">*</span></span>
                     <br>
                     <span class="grey-text text-lighten-1" style="font-size: 13px;">Please upload your updated resume in PDF format</span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <div class="file-field input-field">
                   <input class="file-path validate" type="text">
                     <div class="btn">
@@ -701,18 +701,18 @@ load_view("Template/navbarnew.php");
                 </div>
               </div>
               <div class="row">
-                <div class="col s12 l4">
+                <div class="col-xs-12 col-md-4">
                   <span class="grey-text text-darken-1">Linkedin Profile</span>
                   <br>
                   <span class="grey-text text-lighten-1" style="font-size: 13px;">Enter full URL</span>
                 </div>
-                <div class="col s12 l8">
+                <div class="col-xs-12 col-md-8">
                   <input placeholder="https://" type="url" class="validate" name="linkprofile" length=55 value="<?php echo $b['linkprofile'];?>">
                 </div>
               </div>
               
               <div class="row">
-                <div class="col s12 l8 offset-l4">
+                <div class="col-xs-12 col-md-8 col-md-offset-4">
                   <button class="btn waves-effect waves-light" type="submit" name="action" data-target="modal1" >Submit
                     <i class="mdi-content-send right"></i> 
                   </button>
@@ -730,7 +730,7 @@ load_view("Template/navbarnew.php");
     </div>
   </div>
               <div class="row">
-                <div class="col 12 s12">
+                <div class="col-xs-12">
                   <span class="red-text">* marked fields are mandatory</span>
                 </div>
               </div>

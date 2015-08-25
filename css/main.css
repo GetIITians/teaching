@@ -6,8 +6,8 @@ html{
 
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-
 }
+
 .PopupWrapper {
 	position: fixed; 
 	background: rgba(0,0,0,0.8); 
@@ -715,6 +715,35 @@ a.attention-joinus:hover {
 	    border-bottom: 5px solid #00695c;
 	    background-color: transparent;
 }
+/*-------------------
+	Fixed Navbar
+-------------------*/
+
+.navbar-fixed-top{
+	background-color: #00695c;
+	border: 0;
+}
+
+/*-------------------
+		About Us
+-------------------*/
+
+#aboutus > .row {
+	background: url("../images/about.png") center center no-repeat;
+	height: 787px;
+}
+
+#aboutus > .row h3 {
+	position: absolute;
+	top: 355px;
+	left: 38%;
+	background-color: #00695c;
+	padding: .3rem 1rem;
+	font-size: 2rem;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.48);
+}
+
 /*-------------------
 	Media Queries
 -------------------*/
