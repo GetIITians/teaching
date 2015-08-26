@@ -2,10 +2,10 @@
 <html lang="en_US">
 <head>
 
-  <?php
+  <?php  
   opent("base",array("href"=>HOST));
   /*      Narayan Waraich       */
-  ocloset("title",$title['index']);
+  ocloset("title",$title[getNameFromUrl(Fun::getcururl())]);
   if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
   {
     array_push($css, "css/bootstrap.min.css");

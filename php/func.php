@@ -96,7 +96,7 @@
 		return getval($key,$_SESSION,$default);
 	}
 
-	function load_view($view, $inp = array()) {
+	function load_view($view, $inp = array()) { 
 	/*Used to load/include required file in the given page.
 		Arguments: $view: Name of the page to be loaded.
 							 $inp:  Variables to be passed to that page
@@ -557,8 +557,8 @@
 	}
 
 	function getNameFromUrl($url) {
-		$arr=Fun::myexplode('/',$url);
-		$index=array_search('welcome', $arr)+1;
+		$arr=Fun::myexplode('/',$url); 
+		$index=array_search('index.php', $arr)+1;
 		if(!(isset($arr[$index])) || $arr[$index]=='' || $arr[$index]=='#')
 			return 'index';
 		else if(strpos($arr[$index],'?')!==false) {
