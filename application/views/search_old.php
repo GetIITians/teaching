@@ -8,7 +8,7 @@ load_view("Template/navbarnew.php");
 	var topics=<?php echo json_encode($cst_tree); ?>;
 </script>
 	<a id="top"></a>
-	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP" style="display:none;">
+	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP" style="display:none;">
 		<i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
 	</a>
 <div id="landingPageTab">

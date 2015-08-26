@@ -10,7 +10,7 @@ Shivam Mamgain
 <body id="homepage">
 	<a id="top"></a>
 	<!-- TOP button -->
-	<a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP">
+	<a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP">
 		<i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
 	</a>
 

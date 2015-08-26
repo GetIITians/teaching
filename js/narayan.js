@@ -186,22 +186,26 @@ $(function() {
 		});
 	}},'.rating-system');
 
-	/* Top Floating Button on search page */
+	/* Scroll to top Button on search page */
 	if (window.location.href.indexOf("/search") > -1) {
+		$('#top_arrow').hide();
 		var scroll_offset = 0;
 		var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
-		$('#top_arrow').hide();
-		$(document).scroll(function() {
-			scroll_offset = $(this).scrollTop();
-			//console.log('you scrolled ' + scroll_offset + 'px & the sidebar is at ' + sideBar + 'px');
-			if (scroll_offset > sideBar) {
-				$('#top_arrow').show();
-			}
-			else if (scroll_offset <= sideBar) {
-				$('#top_arrow').hide();
+		$(document).scroll(function () {
+			if ($(this).scrollTop() > sideBar) {
+				$('#top_arrow').fadeIn();
+			} else {
+				$('#top_arrow').fadeOut();
 			}
 		});
-	};
+
+		$('#top_arrow').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	}
 
 	/* Teacher Rating detail box on search page */
 	$('#ratingBigBox').hide();
