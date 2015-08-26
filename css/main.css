@@ -112,9 +112,10 @@ html{
 #nav-mobile a.phoneno{
 	margin-top: -2px;
 }
-/*
-	search_old.php
-*/
+/*-------------------
+		Search
+-------------------*/
+
 
 div#sideBar {
 }
@@ -233,9 +234,10 @@ html{
 	margin-top: 1rem;
 }
 
-/*
-	Rating System
-*/
+/*-------------------------------
+	Search Page Rating System
+-------------------------------*/
+
 
 .rating-system span.glyphicon{
 	cursor: pointer;
@@ -259,9 +261,9 @@ html{
 	color: #FFC925;
 }
 
-/*--------------
+/*------------------
 	Profile Page
---------------*/
+-------------------*/
 #biodisp span.glyphicon{
 	cursor: pointer;
 }
@@ -309,9 +311,9 @@ a#top_arrow {
 	right: 25px;
 }
 
-/*-----------------
-	Rating Detail Box
------------------*/
+/*------------------------------------
+	Search Page Rating Detail Box
+------------------------------------*/
 
 #ratingBigBox{
 	display: none;
@@ -410,9 +412,9 @@ a#top_arrow {
 	border-left:8px solid #d4d4d4;
 }
 
-/*-------------------
-	Landing Page Tab
--------------------*/
+/*----------------------------
+	Landing Page Popup Tab
+-----------------------------*/
 
 #landingPageTab{
 	position: fixed;
@@ -479,9 +481,9 @@ a#top_arrow {
 	background-color: #00695C;
 }
 
-/*-------------------
-			Home Page
--------------------*/
+/*---------------
+	Home Page
+----------------*/
 
 #homepage{
 	font-size: 15px;
@@ -657,12 +659,17 @@ a.attention-joinus:hover {
 
 .navbar-default .navbar-nav > li > a {
     color: white;
-    border-bottom: 5px solid transparent;
+    letter-spacing: 0.8px;
 }
 
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+	transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+	background-color: white;
+	color: #00695c;
+}
+
+.navbar-default .navbar-nav > li:first-of-type > a:focus, .navbar-default .navbar-nav > li:first-of-type > a:hover {
 	background-color: transparent;
-	border-bottom: 5px solid #00695c;
 	color: white;
 }
 
@@ -683,10 +690,9 @@ a.attention-joinus:hover {
 }
 
 .navbar-nav > li > .dropdown-menu {
-	border-radius: 0px;
-	background-color: transparent;
 	box-shadow: unset;
 	border: 0;
+	padding: 0;
 }
 
 #index-banner .dropdown-menu > li {
@@ -694,13 +700,16 @@ a.attention-joinus:hover {
 }
 
 #index-banner .dropdown-menu > li > a {
-	color: white;
+	color: #333;
 	float: left;
-	padding: 3px 10px;
+	padding: .5rem 1rem;
 	width: 100%;
-	border-bottom: 5px solid transparent;
-	margin-bottom: 0.5rem;
 	padding-bottom: 0.5rem;
+}
+
+#index-banner .dropdown-menu > li > a:focus, #index-banner .dropdown-menu > li > a:hover {
+	background-color: #00695C;
+	color: white;
 }
 
 #index-banner .dropdown-menu > li > a > span{
@@ -711,32 +720,129 @@ a.attention-joinus:hover {
 	margin-bottom: 85px;
 }
 
-#index-banner .dropdown-menu > li > a:focus, #index-banner .dropdown-menu > li > a:hover {
-	    border-bottom: 5px solid #00695c;
-	    background-color: transparent;
-}
+
 /*-------------------
 	Fixed Navbar
 -------------------*/
 
-.navbar-fixed-top{
+nav.navbar-fixed-top{
 	background-color: #00695c;
 	border: 0;
+	height: auto;
+	min-height: auto;
+	line-height: normal;
+	font-family: Roboto;
 }
+
+nav.navbar-fixed-top #navbar{
+
+}
+
+nav.navbar-fixed-top .navbar-form{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+nav.navbar-fixed-top > .container-fluid .navbar-brand {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 3rem;
+}
+
+nav.navbar-fixed-top .navbar-brand,
+nav.navbar-fixed-top .navbar-brand:hover,
+nav.navbar-fixed-top .navbar-brand:focus{
+    font-size: 2rem;
+}
+
+nav.navbar-fixed-top .navbar-nav > li > a,
+nav.navbar-fixed-top .navbar-nav > li > a:hover,
+nav.navbar-fixed-top .navbar-nav > li > a:focus {
+	line-height: 1rem;
+}
+
+nav.navbar-fixed-top .navbar-nav > li:first-of-type > a:focus,
+nav.navbar-fixed-top .navbar-nav > li:first-of-type > a:hover {
+	background-color: white;
+	color: #00695C;
+}
+
+
+nav.navbar-fixed-top .input-group-addon{
+	height: 3rem;
+	padding: 0 10px 0 0;
+	background-color: transparent;
+	color: #ccc;
+	border: 0;
+}
+
+nav.navbar-fixed-top input ::-webkit-input-placeholder,
+nav.navbar-fixed-top input :-moz-placeholder,
+nav.navbar-fixed-top input ::-moz-placeholder,
+nav.navbar-fixed-top input :-ms-input-placeholder {  
+   color: #ccc;
+}
+
+nav.navbar-fixed-top input{
+	height: 3rem;
+	color: #fff;
+	border: 0;
+	padding-left: 5px;
+	font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+nav.navbar-fixed-top input:focus{
+	border: 0;
+	background-color: white;
+	color: #333;
+}
+
+nav.navbar-fixed-top .dropdown-menu > li {
+	width: 100%;
+}
+
+nav.navbar-fixed-top .dropdown-menu > li > a {
+	color: white;
+	float: left;
+	padding: .5rem 1rem;
+	width: 100%;
+	padding-bottom: 0.5rem;
+	background-color: #00695C;
+}
+
+nav.navbar-fixed-top .dropdown-menu > li:first-of-type > a {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+nav.navbar-fixed-top .dropdown-menu > li > a:focus, nav.navbar-fixed-top .dropdown-menu > li > a:hover {
+	background-color: white;
+	color: #00695C;
+}
+
+nav.navbar-fixed-top .dropdown-menu > li > a > span{
+	font-size: .7rem;
+}
+
 
 /*-------------------
 		About Us
 -------------------*/
+#aboutus {
+	background-color: white;
+	font-family: Roboto;
+}
 
-#aboutus > .row {
+#aboutus > .row > .col-xs-12 {
 	background: url("../images/about.png") center center no-repeat;
+	background-size: cover;
 	height: 787px;
 }
 
 #aboutus > .row h3 {
 	position: absolute;
-	top: 355px;
-	left: 38%;
+	top: 45%;
+	left: 33%;
 	background-color: #00695c;
 	padding: .3rem 1rem;
 	font-size: 2rem;
@@ -744,6 +850,9 @@ a.attention-joinus:hover {
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.48);
 }
 
+#aboutus .divider{
+	margin: 3rem 0;
+}
 /*-------------------
 	Media Queries
 -------------------*/

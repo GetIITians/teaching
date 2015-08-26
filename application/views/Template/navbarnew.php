@@ -1,4 +1,4 @@
-<body style="padding-top:64px;">
+<body style="padding-top:45px;">
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -16,7 +16,10 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<form class="navbar-form navbar-right" action="<?php echo BASE."search"; ?>" role="search" >
 				<div class="form-group">
-					<input id="search" type="search" placeholder="Search Tutors" autocomplete="off" name="q" class="form-control">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="material-icons" >search</i></div>
+						<input id="search" type="search" placeholder="Search Tutors" autocomplete="off" name="q" class="form-control">
+					</div>
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
