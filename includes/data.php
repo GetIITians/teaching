@@ -7,14 +7,14 @@ $view_default=array(
 			"http://fonts.googleapis.com/css?family=Open+Sans"),
 		"title"=>array(
 					'index'		=>	'Get IITians',
-					'aboutus'	=>	'Get IITians',
-					'contactus'	=>	'Get IITians',
-					'joinus'	=>	'Get IITians',
-					'signup'	=>	'Get IITians',
-					'login'		=>	'Get IITians',
-					'reset'		=>	'Get IITians',
-					'profile'	=>	'Get IITians',
-					'search'	=>	'Get IITians',
+					'aboutus'	=>	'About Us :: Get IITians',
+					'contactus'	=>	'Contact Us :: Get IITians',
+					'joinus'	=>	'Join Us :: Get IITians',
+					'signup'	=>	'Sign Up :: Get IITians',
+					'login'		=>	'Login :: Get IITians',
+					'reset'		=>	'Reset :: Get IITians',
+					'profile'	=>	'Profile :: Get IITians',
+					'search'	=>	'Search :: Get IITians',
 				)
 		),
 	'Template/bottom.php'=>array(

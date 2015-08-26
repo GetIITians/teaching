@@ -270,14 +270,22 @@ var ms={
 	studentbookslot: function(obj) {
 		if(selectedtopic != "") {
 			var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
-			if (totalHours <= 1) {
+			if ($(obj).attr("data-demo") === "1") {
+				//Demo already Done
 				ms.cbautofill("disppopupslots");
 				$(obj).attr("data-cst", selectedtopic);
 				button.sendreq_v2(obj);
-				landingPageTab.demo.done = true;
-				helpers.setStorage('demo',landingPageTab.demo)
-			} else{
-				Materialize.toast('Maximum duration of free class can be one hour', 4000, 'warning');
+			} else {
+				//Demo not done
+				if (totalHours <= 1) {
+					ms.cbautofill("disppopupslots");
+					$(obj).attr("data-cst", selectedtopic);
+					button.sendreq_v2(obj);
+					landingPageTab.demo.done = true;
+					helpers.setStorage('demo',landingPageTab.demo)
+				} else{
+					Materialize.toast('Maximum duration of free class can be one hour', 4000, 'warning');
+				}
 			}
 		} else {
 			Materialize.toast('Please select the topic first', 4000, 'warning');
