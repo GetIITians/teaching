@@ -60,7 +60,7 @@ echo ($searchPageRows%4===0) ? '<div class="row">' : FALSE;
 $searchPageRows++;
 ?>
 
-<div class="col-md-3">
+<div class="col-md-3 col-xs-6">
 <div class="card teacherlistelm">
 <?php
 $joinus_data  = json_decode($row['jsoninfo']);

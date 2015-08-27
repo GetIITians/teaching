@@ -649,6 +649,10 @@ a.attention-joinus:hover {
 	box-shadow: unset;
 }
 
+#index-banner nav .navbar-header{
+	background-color: #00695C;
+}
+
 .navbar-nav li:hover{
 	background-color: transparent;
 }
@@ -720,6 +724,18 @@ a.attention-joinus:hover {
 	margin-bottom: 85px;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #FFF;
+    cursor: pointer;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgb(0, 95, 83);
+}
 
 /*-------------------
 	Fixed Navbar
@@ -829,29 +845,41 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 		About Us
 -------------------*/
 #aboutus {
-	background-color: white;
 	font-family: Roboto;
 }
 
-#aboutus > .row > .col-xs-12 {
-	background: url("../images/about.png") center center no-repeat;
-	background-size: cover;
-	height: 787px;
+#aboutus > .jumbotron {
+	padding: 0;
 }
 
-#aboutus > .row h3 {
-	position: absolute;
-	top: 45%;
-	left: 33%;
-	background-color: #00695c;
+#aboutus > .jumbotron span {
+	margin-bottom: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: rgba(0,0,0,0.6);
+	color: white;
 	padding: .3rem 1rem;
 	font-size: 2rem;
-	border-radius: 3px;
-	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.48);
+	position: absolute;
+	bottom: 10%;
 }
 
 #aboutus .divider{
 	margin: 3rem 0;
+}
+
+#aboutus p{
+	text-align: justify;
+}
+
+#aboutus > .container .col-sm-6{
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+	#aboutus > .jumbotron span {
+		font-size: 1rem;
+		bottom: 65%;
+	}
 }
 /*-------------------
 	Media Queries
@@ -945,7 +973,8 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 		padding-left: 5px;
 	}
 
-	#homepage .header{
+	#index-banner nav.navbar-default .navbar-collapse{
+		background-color: #00695C;
 	}
 }
 

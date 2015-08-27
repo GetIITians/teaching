@@ -61,11 +61,11 @@ var homePage = {
 	animationDone : false,
 	checkAnimation : function(){
 		var $elem = $('#numbers');
-
-		if (helpers.isElementInViewport($elem.find('ul'))) {
-			// Start the animation
-			$elem.find('.count').each(function () {
-				$(this).prop('Counter',0).animate({
+		if ($elem.length !== 0) {
+			if (helpers.isElementInViewport($elem.find('ul'))) {
+				// Start the animation
+				$elem.find('.count').each(function () {
+					$(this).prop('Counter',0).animate({
 						Counter: $(this).data('count')
 					}, {
 						duration: 2000,
@@ -82,8 +82,10 @@ var homePage = {
 							homePage.animationDone = true;
 						}
 					});
-			});
+				});
+			}
 		}
+
 	}
 }
 
