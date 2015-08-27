@@ -142,14 +142,14 @@
 				?>
 			</span>
 		</div>
-		<?php if(User::islogin()) : ?>
+		<?php /* if(User::islogin()) : ?>
 		<div>
 			Resume :
 			<span class="grey-text text-darken-1">
 				<a href="<?php echo $ejsoninfo["resume"] ; ?>">Click to see</a>
 			</span>
 		</div>
-		<?php endif; ?>
+		<?php endif; */ ?>
 	</div>
 	<div class="col-md-4 col-xs-12 mb25">
 	<?php if($cansee) : ?>

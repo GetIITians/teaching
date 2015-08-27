@@ -227,33 +227,43 @@ Shivam Mamgain
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
-				<div class="row">
-					<div class="col-xs-12">
-						<h5 class="header grey-text text-darken-4">Students feedback</h5>
-					</div>
-				</div>
-				<div>
-					<div class="slider">
-						<ul class="slides" id="review_slider">
-							<?php
-								$total = count($reviews); // 5 [0-4]
-								$show = ($total > 3) ? 3 : $total; // 3
-								$rand = [];
-								$max = ($total !=0 ) ? ($total-1) : 0 ;
-								while (count($rand) < $show) {
-									$random = mt_rand(0,$max);
-									if (!in_array($random, $rand))
-										$rand[] = $random;
-								}
-								for ($i=0; $i < $show; $i++) {
-									echo "<li><div class=\"row left-align\"><div class=\"col-xs-12\"><div class=\"review-comment\"><blockquote>";
-										echo "<p>".$reviews[$rand[$i]]['feedback']."</p>";
-										echo "<footer><cite>".$reviews[$rand[$i]]['name']."</cite></footer>";
-									echo "</blockquote></div></div></div></li>";
-								}
-							?>
-						</ul>
-					</div>
+				<h5 class="header grey-text text-darken-4">Students feedback</h5>
+				<div class="slider">
+					<ul class="slides" id="review_slider">
+						<?php
+							$total = count($reviews); // 5 [0-4]
+							$show = ($total > 3) ? 3 : $total; // 3
+							$rand = [];
+							$max = ($total !=0 ) ? ($total-1) : 0 ;
+							while (count($rand) < $show) {
+								$random = mt_rand(0,$max);
+								if (!in_array($random, $rand))
+									$rand[] = $random;
+							}
+							for ($i=0; $i < $show; $i++) { ?>
+								<li>
+									<div class="row">
+										<div class="col-xs-8">
+											<div class="review">
+												<p class="grey-text text-darken-4">
+													<?php echo $reviews[$rand[$i]]['feedback']; ?>
+												</p>
+												<p class="grey-text text-darken-2">
+													&#45;
+													<i>
+														<?php echo ucwords($reviews[$rand[$i]]['name']); ?>
+													</i>
+												</p>
+											</div>
+										</div>
+										<div class="col-xs-4 teacher">
+											<img class="img-responsive circle" src="<?php echo $reviews[$rand[$i]]['profilepic']; ?>">
+											<span class="grey-text text-darken-2"><?php echo ucwords($reviews[$rand[$i]]['tname']); ?></span>
+										</div>
+									</div>
+								</li>
+							<?php }	?>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -458,7 +468,7 @@ Shivam Mamgain
 		<div class="container">
 			<div class="row" style="margin-bottom:0px;">
 				<div class="col-xs-12 col-sm-3">
-					Feel free to <a href="#">Contact Us</a>
+					Feel free to <a href="<?php echo BASE.'contactus'; ?>">Contact Us</a>
 				</div>
 			</div>
 		</div>

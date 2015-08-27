@@ -19,7 +19,7 @@ if(!$isdonedemo) {
 		<h5 class="grey-text text-darken-2">Please add your topics</h5>
 		<hr class="underlined">
 		<div class="row">
-			<form method="post" class="col s12" onsubmit='if(submitForm(this)){ form.req(this) };return false;' data-action="addtopics" data-res='div.reload($("#teacherdisptopics")[0]);' >
+			<form method="post" class="col-xs-12" onsubmit='if(submitForm(this)){ form.req(this) };return false;' data-action="addtopics" data-res='div.reload($("#teacherdisptopics")[0]);' >
 					<div class="form-group">
 						<select name='class' class="browser-default form-control" onchange='topicssubtopic(this);' id="selectclass" data-condition='simple' style='' >
 							<?php
@@ -52,7 +52,7 @@ if(!$isdonedemo) {
 		</div>
 	</div>
 	<?php endif; ?>
-	<div class="col-md-9 col-xs-12">
+	<div class="col-md-9 col-xs-12" style="margin-top:1rem;">
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>

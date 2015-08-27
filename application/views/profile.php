@@ -91,7 +91,8 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 ?>
 
 <?php
-load_view("Template/footernew.php");
+load_view("Template/footer.php",$inp);
+//load_view("Template/footernew.php");
 load_view("popup.php",array("name"=>"timeslot", "title" => "Please select your free slots"));
 load_view("Template/bottom.php",array("needbody"=>false));
 ?>

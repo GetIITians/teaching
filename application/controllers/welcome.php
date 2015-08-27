@@ -21,13 +21,20 @@ class Welcome extends CI_Controller {
 		}
 
 		$reviews = $this->db
-				 ->select('name,feedback')
+				 ->select('name,feedback,tid')
 				 ->from('booked')
 				 ->join('users', 'booked.sid = users.id')
 				 ->where('booked.feedback !=', 'NULL')
 				 ->get()
 				 ->result_array();
-		$pageinfo['reviews'] = $reviews;
+		$complete = [];
+		foreach ($reviews as $review) {
+			$profilepic = $this->db->select('profilepic,name')->from('users')->where('id',$review['tid'])->get()->result_array();
+			$review['profilepic'] = $profilepic['0']['profilepic'];
+			$review['tname'] = $profilepic['0']['name'];
+			$complete[] = $review;
+		}
+		$pageinfo['reviews'] = $complete;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
@@ -704,7 +711,26 @@ class Welcome extends CI_Controller {
 				);
 			echo json_encode($reply);
 		}
-	}     
+	}
+
+	public function narayan(){
+		$reviews = $this->db
+				 ->select('name,feedback,tid')
+				 ->from('booked')
+				 ->join('users', 'booked.sid = users.id')
+				 ->where('booked.feedback !=', 'NULL')
+				 ->get()
+				 ->result_array();
+		echo "<pre>";print_r($reviews);echo "</pre>";
+//		echo "<pre>".$this->db->last_query()."</pre>";
+		$complete = [];
+		foreach ($reviews as $review) {
+			$profilepic = $this->db->select('profilepic')->from('users')->where('id',$review['tid'])->get()->result_array();
+			$review['profilepic'] = $profilepic['0']['profilepic'];
+			$complete[] = $review;
+		}
+		echo "<pre>";print_r($complete);echo "</pre>";
+	}
 }
 
 ?>

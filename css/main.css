@@ -567,8 +567,27 @@ margin: 0.82rem 0px 0.656rem;
     /*box-shadow: inset 0px 0px 6px 1px rgba(51, 51, 51, 0.15);*/
 }
 
-#homepage blockquote{
-	border-left-color: #009688;
+#review_slider .review{
+	border-left: 5px solid #00695C;
+	padding-left: 1rem;
+}
+
+#review_slider .review p:first-of-type{
+	font-size: 1.1rem;
+}
+
+#review_slider .review p:last-of-type{
+	font-size: 0.9rem;
+}
+
+#review_slider .teacher{
+	text-align: center;
+}
+
+#review_slider .teacher img{
+	width : 40px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .icon-panel div.grey-text{
@@ -647,10 +666,6 @@ a.attention-joinus:hover {
 	height: auto;
 	margin-bottom: 30px;
 	box-shadow: unset;
-}
-
-#index-banner nav .navbar-header{
-	background-color: #00695C;
 }
 
 .navbar-nav li:hover{
@@ -840,7 +855,39 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	font-size: .7rem;
 }
 
+/*-------------------
+		Footer
+-------------------*/
 
+footer{
+	color: white;
+}
+
+footer li > a{
+	color: white;
+}
+
+footer li > a:focus, footer li > a:hover{
+	color: white
+}
+
+footer #images {
+	margin-top:-26px;
+}
+
+footer .footer-copyright{
+	font-size: 0.8rem;
+}
+
+@media (max-width: 767px) {
+	footer {
+		text-align: left;
+	}
+
+	footer #images {
+		margin-top:0;
+	}
+}
 /*-------------------
 		About Us
 -------------------*/
@@ -976,6 +1023,12 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	#index-banner nav.navbar-default .navbar-collapse{
 		background-color: #00695C;
 	}
+
+
+	#index-banner nav .navbar-header{
+		background-color: #00695C;
+	}
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
