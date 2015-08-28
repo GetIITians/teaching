@@ -116,6 +116,7 @@ $_ginfo["error"]=array(
 	"-27"=>"Wiziq Error",
 	"-28"=>"No Such CST exist",
 	"-29"=>"You don't have sufficient money in your account.",
+	"-30"=>"Another class has been booked for one of your selected time slot",
 
 	"1"=>"Positive"
 );

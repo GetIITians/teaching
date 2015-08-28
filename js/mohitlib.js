@@ -40,7 +40,7 @@ var button={
 		}
 		params['action']=allattrs["data-action"];
 		obj.disabled=true;
-		var prvvalue=obj.innerHTML;
+		var prvvalue=obj.innerHTML; 
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
@@ -67,15 +67,15 @@ var button={
 		}});
 	},
 	sendreq_v2:function(obj){ 
-		var allattrs=this.attrs(obj);
+		var allattrs=this.attrs(obj); 
 		if(!button.hasattr(allattrs,"data-params"))
-			var params=this.tosendattrs(obj,allattrs);
+			var params=this.tosendattrs(obj,allattrs);  
 		else{
 			eval("var params="+allattrs["data-params"]);
 		}
 		if(button.hasattr(allattrs,"data-eparams")){
 			eval("var eparams="+allattrs["data-eparams"]);
-			console.log(eparams);
+			
 			params=others.mergeifunset(params,eparams);
 		}
 		params['action']=allattrs["data-action"];
@@ -84,9 +84,9 @@ var button={
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
-			var respo=button.parse(d);
+			var respo=button.parse(d); 
 			obj.innerHTML=prvvalue;
-			if(respo){
+			if(respo){ 
 				if(respo.ec<0){
 					if(button.hasattr(allattrs,"data-error")){
 						var ec=respo.ec;
@@ -94,8 +94,9 @@ var button={
 					}
 					else
 						mohit.alert(ecn[respo.ec]);
+
 				}
-				else{
+				else{ 
 					obj.innerHTML=(typeof(allattrs["data-restext"])=='undefined')?prvvalue:allattrs["data-restext"];
 					if(button.hasattr(allattrs,"data-res")){
 						var data=respo.data;
@@ -104,7 +105,7 @@ var button={
 				}
 			}
 			
-		}});
+		}}); 
 	},
 	sendreq_v2_t2:function(obj){
 		var allattrs=this.attrs(obj);
@@ -124,11 +125,11 @@ var button={
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
 			var respo=button.parse(d.split("\n")[0]);
-			obj.innerHTML=prvvalue;
+			obj.innerHTML=prvvalue; 
 			if(respo){
-				if(respo.ec<0){
+				if(respo.ec<0){ 
 					if(button.hasattr(allattrs,"data-error")){
-						var ec=respo.ec;
+						var ec=respo.ec; 
 						eval(allattrs["data-error"]);
 					}
 					else
@@ -192,9 +193,9 @@ var button={
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);
 	},
 	sendreq1:function (params,call_back,adata){
-		$.post("actionv2.php",params,function(d,s){if(s=='success'){
+		$.post("actionv2.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d);
-			if(respo){
+			if(respo){ 
 				if(respo.ec<0){
 					if(button.hasattr(adata,"data-error")) {
 						var ec=respo.ec;

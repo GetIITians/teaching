@@ -267,9 +267,13 @@ var ms={
 			}
 		}, null, "#loadmoreloadingimg");
 	},
-	studentbookslot: function(obj) {
+	studentbookslot: function(obj) { 
 		if(selectedtopic != "") {
 			var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
+			if($('#popuptimecheckbox').val().length===0){
+				Materialize.toast('Please select atleast one time slot', 4000, 'warning');
+				return false;
+			}
 			if ($(obj).attr("data-demo") === "1") {
 				//Demo already Done
 				ms.cbautofill("disppopupslots");

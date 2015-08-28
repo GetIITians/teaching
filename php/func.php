@@ -216,7 +216,7 @@
 		return $_ginfo["action_constrain"][$fname]["need"];
 	}
 
-	function handle_request($post_data) {
+	function handle_request($post_data) { 
 		global $_ginfo;
 		$b=new Actions();
 		if(User::isloginas('s'))
