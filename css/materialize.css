@@ -5020,6 +5020,7 @@ span.badge {
 .mdi-toggle-star:before {
   content: "\e8f5"; }
 
+/*
 .container {
   margin: 0 auto;
   max-width: 1280px;
@@ -5036,7 +5037,7 @@ span.badge {
 .container .row {
   margin-left: -0.75rem;
   margin-right: -0.75rem; }
-
+*/
 .section {
   padding-top: 1rem;
   padding-bottom: 1rem; }
@@ -5046,7 +5047,7 @@ span.badge {
     padding-bottom: 0; }
   .section.no-pad-top {
     padding-top: 0; }
-
+/*
 .row {
   margin-left: auto;
   margin-right: auto;
@@ -5243,7 +5244,7 @@ span.badge {
         margin-left: 91.66667%; }
       .row .col.offset-l12 {
         margin-left: 100%; } }
-
+*/
 nav {
   color: #fff;
   background-color: #ee6e73;

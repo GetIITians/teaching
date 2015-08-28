@@ -10,7 +10,7 @@ Shivam Mamgain
 <body id="homepage">
 	<a id="top"></a>
 	<!-- TOP button -->
-	<a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP">
+	<a href="<?php echo BASE; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP">
 		<i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
 	</a>
 
@@ -25,7 +25,7 @@ Shivam Mamgain
 	</div>
 </div>
 
-	<div id="index-banner" class="parallax-container">
+	<div id="index-banner">
 		<?php
 		load_view("Template/navbarhome.php",$inp);
 		?>
@@ -40,23 +40,19 @@ Shivam Mamgain
 					</div>
 				</div><br>
 
-				<div class="row center">
-					<form class="col-xs-12" action="<?php echo BASE."search"; ?>" >
-						<!-- Main Search Bar -->
-						<div class="row center">
-							<div class="col-xs-12 col-sm-8 col-sm-offset-1" style="padding-left:0px;padding-right:0px;margin-bottom:10px;">
-								<input placeholder="Search Tutors: Mathematics, Physics, Science etc." type="search" autocomplete="off" name="q" id="main_search_bar">
-							</div>
-							<div class="col-xs-12 col-sm-2" style="padding-left:0px;">
-								<button type="submit" class="btn waves-effect waves-light teal darken-3" id="main_search_button">
-									Search
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
+				<form class="row center" action="<?php echo BASE."search"; ?>" >
+					<!-- Main Search Bar -->
+					<div class="col-xs-12 col-sm-8 col-sm-offset-1" style="margin-bottom:10px;">
+						<input placeholder="Search Tutors: Mathematics, Physics, Science etc." type="search" autocomplete="off" name="q" id="main_search_bar">
+					</div>
+					<div class="col-xs-12 col-sm-2">
+						<button type="submit" class="btn waves-effect waves-light teal darken-3" id="main_search_button">
+							Search
+						</button>
+					</div>
+				</form>
 
-				<!-- DROPDOWN BEGIN -->
+				<!-- DROPDOWN BEGIN
 				<div id="dropdownnav" class="row" style="display:none;">
 					<nav class="transparent col s12">
 						<ul class="nav">
@@ -123,10 +119,9 @@ Shivam Mamgain
 						</ul>
 					</nav>
 				</div>
-				<!-- DROPDOWN END -->
+				DROPDOWN END -->
 			</div>
 		</div>
-		<div class="parallax" height="100%"><img src="images/banner.png" width="85%" alt="Banner" ></div>
 	</div>
 
 	<div class="container">
@@ -142,36 +137,36 @@ Shivam Mamgain
 					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
 						<div class="work-step-number">1</div>
 						<div><i class="material-icons blue-grey-text text-darken-3" style="font-size:5rem;">list</i></div>
-						<div class="opensans-font blue-grey-text" style="font-size:18px;">Select <br><b>Topics</b></div>
+						<div class="blue-grey-text" style="font-size:18px;">Select <br><b>Topics</b></div>
 					</div>
 				</div>
 			-->
 				<div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-6">
-					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
+					<div class="card-panel center hoverable icon-panel">
 						<div class="work-step-number">1</div>
-						<div><i class="material-icons grey-text text-darken-4" >search</i></div>
-						<div class="opensans-font grey-text text-darken-3" >Search for <br><b class="red-text text-accent-2">Tutors</b></div>
+						<div><i class="material-icons grey-text text-darken-3" >search</i></div>
+						<div class="grey-text text-darken-3" >Search for <br><b class="teal-text">Tutors</b></div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-3 col-xs-6">
-					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
+					<div class="card-panel center hoverable icon-panel">
 						<div class="work-step-number">2</div>
-						<div><i class="material-icons grey-text text-darken-4" >filter_list</i></div>
-						<div class="opensans-font grey-text text-darken-3" >Shortlist your <br><b class="red-text text-accent-2">Tutor</b></div>
+						<div><i class="material-icons grey-text text-darken-3" >filter_list</i></div>
+						<div class="grey-text text-darken-3" >Shortlist your <br><b class="teal-text">Tutor</b></div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-3 col-xs-6">
-					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
+					<div class="card-panel center hoverable icon-panel">
 						<div class="work-step-number">3</div>
-						<div><i class="material-icons grey-text text-darken-4" >event</i></div>
-						<div class="opensans-font grey-text text-darken-3" >Book his <br><b class="red-text text-accent-2">Slot</b></div>
+						<div><i class="material-icons grey-text text-darken-3" >event</i></div>
+						<div class="grey-text text-darken-3" >Book his <br><b class="teal-text">Slot</b></div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-3 col-xs-6">
-					<div class="card-panel center hoverable icon-panel" style="padding:10px;">
+					<div class="card-panel center hoverable icon-panel">
 						<div class="work-step-number">4</div>
-						<div><i class="material-icons grey-text text-darken-4" >desktop_windows</i></div>
-						<div class="opensans-font grey-text text-darken-3" >Start <br><b class="red-text text-accent-2">Free Class  </b></div>
+						<div><i class="material-icons grey-text text-darken-3" >desktop_windows</i></div>
+						<div class="grey-text text-darken-3" >Start <br><b class="teal-text">Free Class  </b></div>
 					</div>
 				</div>
 			</div>
@@ -191,14 +186,14 @@ Shivam Mamgain
 				<div class="divider"></div>
 			</div>
 		</div>
-		<div class="rows" id="numbers">
-			<div class="col-sm-4">
-				Registered Tutors
+		<div class="row center" id="numbers">
+			<div class="col-xs-4">
+				Teachers
 				<ul class="count" data-count="<?php echo $teachers; ?>">
 				</ul>
 			</div>
-			<div class="col-sm-4">
-				Registered Students
+			<div class="col-xs-4">
+				Students
 				<ul class="count" data-count="<?php echo $students; ?>">
 
 				<?php // foreach(str_split(strval($students)) as $number) : ?>
@@ -206,7 +201,7 @@ Shivam Mamgain
 				<?php // endforeach; ?>
 				</ul>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-xs-4">
 				Topics
 				<ul class="count" data-count="770">
 				</ul>
@@ -216,7 +211,7 @@ Shivam Mamgain
 			<div class="col-xs-12 col-sm-6">
 				<div class="row">
 					<div class="col-xs-12">
-						<h5 class="header grey-text text-darken-4 opensans-font">Why choose us</h5>
+						<h5 class="header grey-text text-darken-4">Why choose us</h5>
 					</div>
 				</div>
 				<div class="row">
@@ -232,93 +227,54 @@ Shivam Mamgain
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
-				<div class="row">
-					<div class="col-xs-12">
-						<h5 class="header grey-text text-darken-4 opensans-font">Students feedback</h5>
-					</div>
+				<h5 class="header grey-text text-darken-4">Students feedback</h5>
+				<div class="slider">
+					<ul class="slides" id="review_slider">
+					<?php
+					$total = count($reviews); // 5 [0-4]
+					$show = ($total > 3) ? 3 : $total; // 3
+					$rand = [];
+					$max = ($total !=0 ) ? ($total-1) : 0 ;
+					while (count($rand) < $show) {
+						$random = mt_rand(0,$max);
+						if (!in_array($random, $rand))
+							$rand[] = $random;
+					}
+					for ($i=0; $i < $show; $i++) { ?>
+						<li>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="review">
+										<p class="grey-text text-darken-4">
+											<?php echo $reviews[$rand[$i]]['feedback']; ?>
+										</p>
+										<p class="grey-text text-darken-2">
+											&#45;
+											<i>
+												<?php echo ucwords($reviews[$rand[$i]]['name']); ?>
+											</i>
+										</p>
+									</div>
+								</div>
+								<div class="col-xs-4 teacher">
+									<img class="img-responsive circle" src="<?php echo $reviews[$rand[$i]]['profilepic']; ?>">
+									<span class="grey-text text-darken-2"><?php echo ucwords($reviews[$rand[$i]]['tname']); ?></span>
+								</div>
+							</div>
+						</li>
+					<?php }	?>
+					</ul>
 				</div>
-				<div>
-					<div class="slider">
-						<ul class="slides" id="review_slider">
-							<?php
-								$total = count($reviews); // 1
-								$show = ($total > 3) ? 3 : $total; // 1 $show should be less than $total
-								$rand = [];
-								$max = ($total !=0 ) ? ($total-1) : 0 ; // 0
-								while (count($rand) < $show) {
-									$random = mt_rand(0,$max);
-									if (!in_array($random, $rand))
-										$rand[] = $random;
-								}
-								for ($i=0; $i < $show; $i++) {
-									echo "<li><div class=\"row left-align\"><div class=\"col-xs-12\"><div class=\"review-comment\"><blockquote>";
-										echo "<p>".$reviews[$rand[$i]]['feedback']."</p>";
-										echo "<footer><cite>".$reviews[$rand[$i]]['name']."</cite></footer>";
-									echo "</blockquote></div></div></div></li>";
-								}
-							?>
-							<!--
-							<li>
-								<div class="row left-align">
-									<div class="col s12">
-										<div class="review-comment">
-											Getting the best tutors at one click.<br><a href="#">#WayToGo</a> <a href="#">@getIITians</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="row left-align">
-									<div class="col s12">
-										<div class="review-comment">
-											<a href="#">@getiitians</a> Excellent tutoring service.<br>The best I have seen so far.<br><a href="#">#FTW #getIITians</a>
-										</div>
-										-->
-										<!--
-										<div class="reviewer">
-											<div class="row">
-												<div class="col s3 right-align">
-													<img class="img-responsive circle" src="images/review2.jpg" style="max-width:60px;">
-												</div>
-												<div class="col s9">
-													<a href="#">Rajiv Air</a><br>
-													<div class="grey-text">CEO, Malvo.com</div>
-												</div>
-											</div>
-										</div>
-										-->
-										<!--
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="row left-align">
-									<div class="col s12">
-										<div class="review-comment">
-											website is user friendly and very intuitive. <a href="#">#keepitup</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							-->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<div class="divider"></div>
 			</div>
 		</div>
 	</div>
 	
 	<div class="container">
 		<div class="section">
-			<div class="row">
+			<div class="row grades">
 				<div class="col-sm-6 col-md-3 col-xs-12">
-					<div class="card-panel" style="padding:0px;">
-						<div class="courses-grade teal darken-3">
+					<div class="card-panel">
+						<div class="courses-grade">
 							6<sup>th</sup> - 8<sup>th</sup> Grade
 						</div>
 						<div class="courses-list">
@@ -333,8 +289,8 @@ Shivam Mamgain
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-xs-12">
-					<div class="card-panel" style="padding:0px;">
-						<div class="courses-grade teal darken-3">
+					<div class="card-panel">
+						<div class="courses-grade">
 							9<sup>th</sup> - 10<sup>th</sup> Grade
 						</div>
 						<div class="courses-list">
@@ -349,8 +305,8 @@ Shivam Mamgain
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-xs-12">
-					<div class="card-panel" style="padding:0px;">
-						<div class="courses-grade teal darken-3">
+					<div class="card-panel">
+						<div class="courses-grade">
 							11<sup>th</sup> - 12<sup>th</sup> Grade
 						</div>
 						<div class="courses-list">
@@ -365,8 +321,8 @@ Shivam Mamgain
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-xs-12">
-					<div class="card-panel" style="padding:0px;">
-						<div class="courses-grade teal darken-3" style="font-size:15px;">
+					<div class="card-panel">
+						<div class="courses-grade">
 							JEE Mains &amp; Advanced
 						</div>
 						<div class="courses-list">
@@ -386,95 +342,76 @@ Shivam Mamgain
 
 
 
-	<div style="width:100%;background:#ffffff;">
-		<div class="section">
+	<div class="jumbotron">
+		<div class="container">
 			<div class="row">
-				<div class="col s12">
-					<h5 class="center teal-text text-darken-4 opensans-font">Choose from a myriad of Topics</h5>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s12">
+				<div class="col-xs-12">
 					<div class="divider"></div>
 				</div>
 			</div>
-			<div class="row center" style="margin-bottom:0px">
-				<div class="col s12" style="line-height:250%;">
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Chemical Reaction and Equatio</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Acides</a>
+			<div class="row">
+				<div class="col-xs-12">
+					<h5 class="center grey-text text-darken-4 topics">Choose from a myriad of Topics</h5>
+				</div>
+			</div>
+			<div class="row center">
+				<div class="col-xs-12">
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Chemical Reaction &amp; Equations</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Acids</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Bases</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Salts</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Metals</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Non-metals</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Real Number</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Polynomials</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Pair of Linear Eqations in Tw</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Pair of Linear Eqations</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Sets</a>
-				</div>
-			</div>
-			<div class="row center" style="margin-bottom:0px">
-				<div class="col s12" style="line-height:250%;">
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Functions</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Relations</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Trigometric Functions</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Trignometric Functions</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Our Earth</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Some Basic Concepts of Chemist</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Some Basic Concepts of Chemistry</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Structure of Atom</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Classification of Elements</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Physical World</a>
-				</div>
-			</div>
-			<div class="row center" style="margin-bottom:0px">
-				<div class="col s12" style="line-height:250%;">
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Units and Measurement</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Units &amp; Measurement</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Motion in a straight Line</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Matrices</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">The Solid State</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Solutions</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Electrochemistry</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Electric Charges and Fields</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Electrostatic potential and Cs</a>
-				</div>
-			</div>
-			<div class="row center" style="margin-bottom:0px">
-				<div class="col s12" style="line-height:250%;">
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Current Electricity</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Complex Number</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Deteerminants</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Electrostatic potential and Charge</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Current &amp; Electricity</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Complex Numbers</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Determinants</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">States of Matter</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Physics and Measurement</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Physics &amp; Measurement</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Kinematics</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Lawn of Motion</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Laws of Motion</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Permutations</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Combinations</a>
-				</div>
-			</div>
-			<div class="row center" style="margin-bottom:0px">
-				<div class="col s12" style="line-height:250%;">
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Gaseous</a>
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Gases</a>
 					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link">Liquid State</a>
-					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link" style="background-color:#00796b;color:#ffffff;">
+					<a href="<?php echo BASE.'search'; ?>" class="hoverable course-link" style="background-color:#00796b;color:#ffffff;border-color:#00796b;">
 						And Many More +
 					</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s12">
-					<br><br>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div style="width:100%;" class="attention">
-		<div class="row">
-			<div class="col-xs-12 col-sm-7">
-				Are you an IITian?<br>Do you like tutoring students?<br>If yes, then be a part of our community. 
-			</div>
-			<div class="col-xs-12 col-sm-5">
-				<br>
-				<a class="valign btn-large waves-effect waves-light attention-joinus" href="<?php echo BASE.'joinus'; ?>">Join Us</a>
-				<br>
+	<div class="jumbotron attention">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-7">
+					Are you an IITian?<br>Do you like tutoring students?<br>If yes, then be a part of our community. 
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<br>
+					<a class="valign btn-large waves-effect waves-light attention-joinus" href="<?php echo BASE.'joinus'; ?>">Join Us</a>
+					<br>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -527,11 +464,11 @@ Shivam Mamgain
 	</div>
 
 
-	<div style="width:100%;margin-bottom:-20px;" class="feel-free">
+	<div style="margin-bottom:-20px;" class="feel-free">
 		<div class="container">
 			<div class="row" style="margin-bottom:0px;">
-				<div class="col s12 l3">
-					Feel free to <a href="#">Contact Us</a>
+				<div class="col-xs-12 col-sm-3">
+					Feel free to <a href="<?php echo BASE.'contactus'; ?>">Contact Us</a>
 				</div>
 			</div>
 		</div>

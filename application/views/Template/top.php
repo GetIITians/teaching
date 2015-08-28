@@ -1,21 +1,10 @@
-<!doctype html>
+  <!doctype html>
 <html lang="en_US">
 <head>
 
   <?php  
   opent("base",array("href"=>HOST));
-  /*      Narayan Waraich       */
   ocloset("title",(getNameFromUrl(Fun::getcururl())!='search'?$title[getNameFromUrl(Fun::getcururl())]:($_REQUEST['q']!=''?'Search :: '.$_REQUEST['q']:$title[getNameFromUrl(Fun::getcururl())])));
-  if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
-  {
-    array_push($css, "css/bootstrap.min.css");
-  }
-  if (strpos($_SERVER['PHP_SELF'], 'index.php') !== false) {
-    array_push($css, "css/bootstrap.min.css");
-  }
-  array_push($css, "css/glyphicon.css");
-  array_push($css, "css/google-icons.css");
-  /*----------------------------*/
   addall_css($css);
   addmycss();
   ?>

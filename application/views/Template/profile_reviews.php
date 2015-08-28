@@ -1,6 +1,6 @@
 <br><br>
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
     <h5 class="teal-text text-darken-1">Student reviews</h5>
   </div>
 </div>

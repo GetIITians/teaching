@@ -58,14 +58,14 @@ var landingPageTab = {
 }
 
 var homePage = {
-	done : false,
+	animationDone : false,
 	checkAnimation : function(){
 		var $elem = $('#numbers');
-
-		if (helpers.isElementInViewport($elem)) {
-			// Start the animation
-			$elem.find('.count').each(function () {
-				$(this).prop('Counter',0).animate({
+		if ($elem.length !== 0) {
+			if (helpers.isElementInViewport($elem.find('ul'))) {
+				// Start the animation
+				$elem.find('.count').each(function () {
+					$(this).prop('Counter',0).animate({
 						Counter: $(this).data('count')
 					}, {
 						duration: 2000,
@@ -79,11 +79,13 @@ var homePage = {
 							$(this).html(html);
 						},
 						done: function (){
-							homePage.done = true;
+							homePage.animationDone = true;
 						}
 					});
-			});
+				});
+			}
 		}
+
 	}
 }
 
@@ -186,22 +188,26 @@ $(function() {
 		});
 	}},'.rating-system');
 
-	/* Top Floating Button on search page */
+	/* Scroll to top Button on search page */
 	if (window.location.href.indexOf("/search") > -1) {
+		$('#top_arrow').hide();
 		var scroll_offset = 0;
 		var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
-		$('#top_arrow').hide();
-		$(document).scroll(function() {
-			scroll_offset = $(this).scrollTop();
-			//console.log('you scrolled ' + scroll_offset + 'px & the sidebar is at ' + sideBar + 'px');
-			if (scroll_offset > sideBar) {
-				$('#top_arrow').show();
-			}
-			else if (scroll_offset <= sideBar) {
-				$('#top_arrow').hide();
+		$(document).scroll(function () {
+			if ($(this).scrollTop() > sideBar) {
+				$('#top_arrow').fadeIn();
+			} else {
+				$('#top_arrow').fadeOut();
 			}
 		});
-	};
+
+		$('#top_arrow').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	}
 
 	/* Teacher Rating detail box on search page */
 	$('#ratingBigBox').hide();
@@ -255,27 +261,8 @@ $(function() {
 		};
 	};
 
-	$('.count').each(function () {
-		$(this).prop('Counter',0).animate({
-			Counter: $(this).data('count')
-		}, {
-			duration: 2000,
-			easing: 'swing',
-			step: function (now) {
-				var numbers = Math.ceil(now).toString().split('');
-				var html = '';
-				for (var i = 0; i < numbers.length; i++) {
-					html += '<li>'+numbers[i]+'</li>';
-				}
-				$(this).html(html);
-			}
-		});
-	});
-
-
-
 	$(window).scroll(function(){
-		if (!homePage.done)
+		if (!homePage.animationDone)
 			homePage.checkAnimation();
 	});
 

@@ -5,44 +5,6 @@ a#top_arrow {
 	right: 25px;
 }
 
-.parallax-container {
-	height: 400px;
-	max-height: 400px;
-}
-#index-banner {
-	height: 400px;
-	max-height: 400px;
-}
-
-/* Navbar */
-#navbar, #dropdownnav nav{
-	box-shadow: none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-}
-ul#dropdownaccount li a {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size:15px;
-	color: #ffffff;
-}
-ul#dropdownaccount li:hover a{
-	color: #e0e0e0;
-}
-ul#dropdownaccount li:hover{
-	background: none;
-}
-ul#dropdownaccount {
-	box-shadow: none;
-}
-
-/* parallax */
-#index-banner {
-	min-height: 450px;
-	overflow: visible;
-	background-color: rgba(0, 0, 0, 0.23);
-}
-
 /* Tagline animation */
 .rw-words-1 h5{
 	position: absolute;
@@ -165,32 +127,18 @@ ul#dropdownaccount {
 /* Main Search Bar and Button */
 #main_search_bar {
 	background-color: #f5f5f5;
-	box-shadow: 0 0 0 0 #ffffff;
-
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-bottom: 0px;
-
-	margin: 0px;
-	padding-left: 15px;
-
-	font-size: 16px;
-	font-family: 'Open Sans';
+	box-shadow:inset 0 0 0 0 #ffffff;
+	font-size: 1rem;
 	color: #263238;
-
 	height: 40px;  
 	width: 100%;
+	padding: 5px;
 }
 #main_search_bar:focus {
 	background-color: #fafafa;
 }
 
 #main_search_button {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
-
 	height: 40px;
 	width: 100%;
 }
@@ -201,18 +149,18 @@ ul#dropdownaccount {
 	width: 22px;
 	font-size: 13px;
 	padding: 2px;
-	border-radius: 8px;
+	border-radius: 22px;
 	background: #424242;
 	color: #ffffff;
 }
 
 /* Why us */
 ul#whyus_list li {
-	font-family: 'Open Sans';
-	color: #424242;
 	font-size: 18px;
-	list-style-type: circle;
-	padding-left: 20px;
+	list-style-type: none;
+	padding-left: 10px;
+	border-left: 5px solid #009688;
+	margin-bottom: .1rem;
 }
 
 /* Reviews */
@@ -221,10 +169,8 @@ ul.slides li {
 }
 .review-comment {
 	border-radius: 3px;
-	padding: 15px;
 	font-size: 18px;
 	color: #323232;
-	font-family: 'Open Sans';
 	background-color: #fff;
 }
 .reviewer {
@@ -238,12 +184,13 @@ ul.slides li {
 
 /* Explore Courses */
 .courses-grade {
-	background-color: #e65100;
-	height: 60px;
-	font-size: 18px;
-	color: #ffffff;
-	padding: 20px;
-	font-weight: bold;
+	font-size: 1.3em;
+	text-align: center;
+	color: #333;
+	padding: 10px;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+	border-top: 1px solid rgba(204,204,204,0.41);
 }
 .courses-list {
 	background-color: #ffffff;
@@ -257,44 +204,28 @@ ul.courses-list-ul li {
 	list-style-type: disc;
 }
 .course-link {
-	padding: 5px;
-	padding-left: 8px;
-	padding-right: 8px;
-	font-size: 15px;
-	color: #00796b;
-	border: 1px solid #00897b;
-	font-family: 'Open Sans';
-	border-radius: 3px;
+	padding: 5px 10px;
+	font-size: 1rem;
+	color: #545454;
+	border: 1px solid #D6D6D6;
+	border-radius: 1px;
+	display: inline-block;
+	margin-bottom: .5rem;
 }
+
 .course-link:hover {
-	-webkit-transition: all 500ms ease;
-	-moz-transition: all 500ms ease;
-	-ms-transition: all 500ms ease;
-	-o-transition: all 500ms ease;
-	transition: all 500ms ease;
-	color: #ffffff;
-	background-color: #009688;
-	text-decoration: none;
+    transition: all 250ms ease 0s;
+    color: white;
+    text-decoration: none;
+    background-color: #00695c;
+    box-shadow: 0px 0px 5px 1px rgba(152, 152, 152, 0.33);
+    border-color: #00695c;
 }
+
 .course-link-label {
 	font-size: 12px;
 }
 
-/* Attention */
-.attention {
-	background-color: #263238;
-	color: #fafafa;
-	font-size: 25px;
-	font-family: 'Raleway';
-	padding: 30px 10%;
-}
-a.attention-joinus {
-	font-family:'Raleway';
-	background-color: #00695c;
-}
-a.attention-joinus:hover {
-	background-color: #00796b;
-}
 
 /* IITians */
 .iit-logo-container {
@@ -309,98 +240,12 @@ a.attention-joinus:hover {
 
 /* Feel Free */
 .feel-free {
-	font-family: 'Open Sans';
 	color: #607d8b;
 	font-size: 15px;
 	background-color: #ffffff;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
-/* DROPDOWN BEGIN */
-/* banner dropdown satish*/
-.nav {
-	display: inline-block;
-	position: relative;
-	cursor: default;
-	z-index: 100;
-}
-
-.nav > li {
-	display: block;
-}
-
-.nav > li > a,.nav2 > li > a {
-	display: block;
-	z-index: 110;
-	height: 40px;
-	padding: 0 35px;
-	line-height: 40px;
-	cursor:pointer;
-}
-
-.nav2 > li > a {
-	padding: 0 6px;
-	color:teal;
-}
-
-.nav2 > li > a:hover{
-	color:#004d40;
-}
-
-.nav > li:hover > a {
-	background: #fff;
-	color:#000;
-}
-
-.nav > li > div,.nav2 > li > div {
-	position: absolute;
-	display: block;
-	width: 100%;
-	top: 40px;
-	left: 0;
-	opacity: 0;
-	visibility: hidden;
-	overflow: hidden;
-	background: #ffffff;
-}
-
-.nav2 > li > div {
-	border-radius: 0 0 3px 3px;
-}
-
-.nav > li:hover > div {
-	opacity: 1;
-	visibility: visible;
-	overflow: visible;
-}
-
-.nav2 > li:hover > div {
-	opacity: 1;
-	visibility: visible;
-	overflow: visible;
-}
-
-.nav2 .nav-column {
-	width: 100%;
-	padding: 2%;
-	column-count:4;
-	-webkit-column-count:4;
-	-moz-column-count:4;
-	min-height:220px;
-	height: 90px;
-}
-
-.nav .nav-column li a{
-	display:block;
-	line-height: 25px;
-	font-weight: bold;
-	font-size: 13px;
-	color: #888888;
-	text-align: left;
-}
-/* DROPDOWN END */
-
 
 /*-------------------
 		Media Queries
@@ -410,12 +255,9 @@ a.attention-joinus:hover {
 	/* xs */
 	#main_search_button{
 		border-radius: 5px;
-		margin-right: -15px;
 	}
 	ul#whyus_list li {
-		font-size: 1rem;
-		list-style-type: "-";
-		padding-left: 5px;
+		font-size: 1.1rem;
 	}
 }
 

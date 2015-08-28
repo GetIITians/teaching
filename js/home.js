@@ -32,7 +32,7 @@ Materialize.scrollFire(whyus_list_options);
 
 $('.slider').slider({
   indicators: false,
-  height: 200,
+  height: 100,
   transition: 500,
   interval: 8000
 });

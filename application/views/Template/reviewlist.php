@@ -3,7 +3,7 @@
   foreach($rlist as $i => $row) {
 ?>
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <div class="card white">
       <div class="card-content grey-text">
         <h6>

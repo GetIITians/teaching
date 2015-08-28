@@ -8,7 +8,7 @@ load_view("Template/navbarnew.php");
 	var topics=<?php echo json_encode($cst_tree); ?>;
 </script>
 	<a id="top"></a>
-	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light red accent-2" id="top_arrow" title="TOP" style="display:none;">
+	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP" style="display:none;">
 		<i class="material-icons" style="font-size:3rem;">keyboard_arrow_up</i>
 	</a>
 <div id="landingPageTab">
@@ -64,7 +64,7 @@ load_view("Template/navbarnew.php");
 													foreach($allts as $i=>$val) {
 														foreach($val as $j=>$val1) {
 												?>
-													<div class="col s6">
+													<div class="col-xs-6">
 														<input id="timesearch<?php echo $i."-".$j; ?>" type="checkbox" name="timeslot" class="filled-in" value="<?php echo $val1[1]; ?>" checked/>
 														<label style="padding-left:23px;" for="timesearch<?php echo $i."-".$j; ?>"><?php echo $val1[0]; ?></label>
 													</div>
@@ -84,7 +84,7 @@ load_view("Template/navbarnew.php");
 													foreach($lang as $i=>$val1) {
 														foreach($val1 as $j=>$val2) {
 												?>
-													<div class="col s6">
+													<div class="col-xs-6">
 														<input id="lang<?php echo $count; ?>" type="checkbox" class="filled-in" name="lang" value='<?php echo $count; ?>' checked />
 														<label style="padding-left:23px;" for="lang<?php echo $count; ?>" >
 															<?php echo $val2; ?>
@@ -148,13 +148,13 @@ load_view("Template/navbarnew.php");
 											<div class="collapsible-header">Home/Online Tuition</div>
 											<div class="collapsible-body" style="padding:6px;">
 												<div class="row">
-													<div class="col s10">
+													<div class="col-xs-12">
 														<input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
 														<label style="padding-left:23px;" for="home1" >
 														Home Tuition
 														</label>
 													</div>
-													<div class="col s10">
+													<div class="col-xs-12">
 													<input id="home2" type="checkbox" class="filled-in" name="home" value='2' checked />
 														<label style="padding-left:23px;" for="home2" >
 														Online Classes
@@ -176,26 +176,26 @@ load_view("Template/navbarnew.php");
 			<!-- Begin Search Panel -->
 			<div id="mainContent" class="col-md-9">
 					<div class="row">
-							<div class="col-xs-5">
+						<div class="col-sm-5 col-xs-7">
 							<h3 class="blue-grey-text text-darken-1">Search Results</h3>
-							</div>
-				<div class="col-xs-3">
-				 <img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>
-				</div>
-				<form method="post" class="col-xs-4 mt20">
-									<select name="orderby" class="browser-default" data-action="orderby" onchange="ms.orderrefine(this)" >
-										<option value="" >Sort By</option>
-										<option value="1">Experience</option>
-										<option value="2">Fees/hr (High to Low)</option>
-										<!-- <option value="3">Fees/hr (Low to High)</option>
-										--><option value="4">Rating</option>
-										
-									</select>
-				</form>
+						</div>
+						<div class="col-sm-3 col-xs-1">
+							 <img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>
+						</div>
+						<form method="post" class="col-sm-4 col-xs-4 mt20">
+							<select name="orderby" class="browser-default" data-action="orderby" onchange="ms.orderrefine(this)" >
+								<option value="" >Sort By</option>
+								<option value="1">Experience</option>
+								<option value="2">Fees/hr (High to Low)</option>
+								<!-- <option value="3">Fees/hr (Low to High)</option>
+								--><option value="4">Rating</option>
+								
+							</select>
+						</form>
 					</div>
 		<div class="divider"></div>
 						<div class="row" id="dispnoresult" style='display:none;' >
-							<div class="col s12 red-text text-lighten-1">
+							<div class="col-xs-12 red-text text-lighten-1">
 								Sorry. No results found.
 							</div>
 						</div>
@@ -207,7 +207,7 @@ load_view("Template/navbarnew.php");
 							</div>
 							</div>
 							<div class="row">
-								<div class="col s12">
+								<div class="col-xs-12">
 									<img src='photo/icons/loading2.gif' id="loadmoreloadingimg" style='visibility:hidden;' /><br>
 									<a onclick='ms.searchloadmore(this);' style="cursor:pointer;" id="loadmorebutton" >View More</a>
 								</div>

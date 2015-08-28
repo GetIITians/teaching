@@ -9,16 +9,16 @@ load_view("Template/navbarnew.php");
   <div class="container">
   <br>
     <div class="row">
-      <div class="col s12">
+      <div class="col-xs-12">
         <div class="card-panel"  >
 
           <div class="row">
-            <div class="col s12 l3 offset-l1">
+            <div class="col-xs-12 col-md-3 col-md-offset-1">
               <h3 class="teal-text text-darken-1 center">Join Us</h3>
             </div>
-            <div class="col s12 l8">
+            <div class="col-xs-12 col-md-8">
               <div class="row grey-text">
-                <div class="col s12">
+                <div class="col-xs-12">
                   <ul>
                     <li><i class="material-icons left tiny">keyboard_arrow_right</i>
                       This form is meant only for tutors.
@@ -38,7 +38,7 @@ load_view("Template/navbarnew.php");
             </div>
           </div>
           <div class="row" >
-            <form class="col s12 l10 offset-l1" enctype="multipart/form-data"  method="post" <?php if($_ginfo["needotp"]){?> data-action='signupotp' data-param='{"phone":$("#main_form_section").find("input[name=phone]").val(), "type":"t","email":$("#main_form_section").find("input[name=email]").val()}' <?php } else {?> <?php } ?> onsubmit="return ms.joinusform(this, <?php echo tf($_ginfo["needotp"]); ?>);" data-res="openOtpSection();"  >
+            <form class="col-xs-12 col-md-10 col-md-offset-1" enctype="multipart/form-data"  method="post" <?php if($_ginfo["needotp"]){?> data-action='signupotp' data-param='{"phone":$("#main_form_section").find("input[name=phone]").val(), "type":"t","email":$("#main_form_section").find("input[name=email]").val()}' <?php } else {?> <?php } ?> onsubmit="return ms.joinusform(this, <?php echo tf($_ginfo["needotp"]); ?>);" data-res="openOtpSection();"  >
               <?php
                 load_view("Template/joinus_otp.php");
                 load_view("Template/joinus_main.php");
@@ -59,13 +59,13 @@ else{
   <div class="container">
   <br>
     <div class="row">
-      <div class="col s12">
+      <div class="col-xs-12">
         <div class="card-panel"  >
 
           <div class="row">
-            <div class="col s12 l8">
+            <div class="col-xs-12 l8">
               <div class="row grey-text">
-                <div class="col s12">
+                <div class="col-xs-12">
                   <?php
                     echo $msg;
                   ?>

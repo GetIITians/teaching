@@ -1,12 +1,12 @@
 <br><br>
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <h5 class="teal-text text-darken-1">Your Account Details</h5>
   </div>
 </div>
 
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <div class="card-panel blue-grey">
       <h5 class="white-text">&#8377;&nbsp;15000</h5>
       <h6 class="white-text">Current Balance</h6>
@@ -15,13 +15,13 @@
 </div>
 
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <h5 class="teal-text text-darken-1">Transaction History</h5>
   </div>
 </div>
 
 <div class="row">
-  <div class="col s12 l10 offset-l1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <table class="hoverable">
       <thead>
         <tr>

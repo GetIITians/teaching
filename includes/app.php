@@ -1,6 +1,6 @@
 <?php
-	//require_once('FirePHPCore/fb.php');
-	//ob_start();
+	require_once('FirePHPCore/fb.php');
+	ob_start();
 	include_once( 'includes/setting.php' ) ;
 	include_once( 'includes/data.php' ) ;
 	include_once( 'includes/password.php' ) ;

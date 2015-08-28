@@ -7,19 +7,19 @@ load_view("Template/navbarnew.php",$inp);
     <div class="container">
     <br>
       <div class="row">
-        <div class="col s12 l6">
+        <div class="col-xs-12 col-sm-6">
           <div class="card-panel">
             <?php
               load_view('Template/form_errors.php',array("msg"=>$loginmsg));
             ?>
 
             <div class="row no-margin-bottom">
-              <div class="col s12 l4 offset-l1">
+              <div class="col-xs-12 col-sm-4 col-sm-offset-1">
                 <h3 class="teal-text text-darken-1">Login</h3>
               </div>
-              <div class="col s12 l7">
+              <div class="col-xs-12 col-sm-7">
                 <div class="row grey-text">
-                  <div class="col s12">
+                  <div class="col-xs-12">
                     <ul>
                       <li>Login for Students and Tutors.</li>
                       <li>Don't have an account?</li>
@@ -37,21 +37,21 @@ load_view("Template/navbarnew.php",$inp);
             
             <div id="login_section">
               <div class="row no-margin-bottom">
-                <form class="col s12 offset-l1" method="post">
+                <form class="col-xs-12 col-sm-offset-1" method="post">
                   <div class="row no-margin-bottom">
-                    <div class="input-field col s12 l10">
+                    <div class="input-field col-xs-12 col-sm-10">
                       <input id="email" name="email" type="email" class="validate" required>
                       <label for="email">Email</label>
                     </div>
                   </div>
                   <div class="row no-margin-bottom">
-                    <div class="input-field col s12 l10">
+                    <div class="input-field col-xs-12 col-sm-10">
                       <input id="password" name="password" type="password" class="validate" required>
                       <label for="password">Password</label>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="input-field col s12 l10">
+                    <div class="input-field col-xs-12 col-sm-10">
                       <button class="btn waves-effect waves-light" type="submit">Login
                         <i class="material-icons right">send</i>
                       </button>
@@ -62,28 +62,28 @@ load_view("Template/navbarnew.php",$inp);
             </div>
 
             <div class="row">
-              <div class="col s12 l10 offset-l1">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <h6>
                   <a onclick="forgotPass();" style="cursor:pointer;">
                     <span id="forgot_prefix_arrow"><i class="material-icons tiny">keyboard_arrow_up</i></span>&nbsp;Forgot Password
                   </a>
                 </h6>
               </div>
-              <form class="col s12 l10 offset-l1" id="forgot_pass_section" onsubmit='form.req(this);return false;' data-action="forgotpass" data-res='success.push("Password reseting link is sent. check your mail.");' >
+              <form class="col-xs-12 col-sm-10 col-sm-offset-1" id="forgot_pass_section" onsubmit='form.req(this);return false;' data-action="forgotpass" data-res='success.push("Password reseting link is sent. check your mail.");' >
                 <div class="row">
-                  <div class="col s12">
+                  <div class="col-xs-12">
                     <h6 class="grey-text text-darken-1">Reset password for getIITians</h6>
                     <p class="grey-text">Enter your email to send verification link.</p>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col-xs-12">
                     <input id="email_forgot_pass" name="email" type="email" class="validate" required>
                     <label for="email_forgot_pass">Email</label>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col-xs-12">
                     <button class="btn waves-effect waves-light" type="submit"  >Send</button>
                   </div>
                 </div>
@@ -92,28 +92,29 @@ load_view("Template/navbarnew.php",$inp);
           </div>
         </div>
 
-        <div class="col s12 l6" style='' >
+        <div class="col-xs-12 col-sm-6" style='' >
           <div class="card-panel">
           <br>
             <div class="row">
-              <div class="col s12 l10 offset-l1">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <h5 class="teal-text">Log in with other platforms</h5>
               </div>
             </div>
             <div class="row">
-              <div class="col s12 l10 offset-l1">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <h6 class="grey-text"><i class="material-icons tiny left">chevron_right</i>Only Students can sign up from this section.</h6>
               </div>
             </div>
             <div class="row">
-              <div class="col s12 l10 offset-l1">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <a href="<?php echo HOST.'fb2.php'; ?>" class="btn-large waves-effect waves-light blue darken-3" style="width:100%;">
                   <img src="images/facebook-login-icon.png" width="30" height="35" class="left" style="margin-top:9px;">&nbsp;&nbsp;&nbsp;Log In with facebook
                 </a>
               </div>
             </div>
+            <br>
             <div class="row">
-              <div class="col s12 l10 offset-l1">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <a href="<?php echo HOST.'gplus.php'; ?>" class="btn-large waves-effect waves-light red darken-1" style="width:100%;">
                   <img src="images/googleplus-login-icon.png" width="35" height="40" class="left" style="margin-top:9px;">Log In with google+
                 </a>

@@ -21,13 +21,20 @@ class Welcome extends CI_Controller {
 		}
 
 		$reviews = $this->db
-				 ->select('name,feedback')
+				 ->select('name,feedback,tid')
 				 ->from('booked')
 				 ->join('users', 'booked.sid = users.id')
 				 ->where('booked.feedback !=', 'NULL')
 				 ->get()
 				 ->result_array();
-		$pageinfo['reviews'] = $reviews;
+		$complete = [];
+		foreach ($reviews as $review) {
+			$profilepic = $this->db->select('profilepic,name')->from('users')->where('id',$review['tid'])->get()->result_array();
+			$review['profilepic'] = $profilepic['0']['profilepic'];
+			$review['tname'] = $profilepic['0']['name'];
+			$complete[] = $review;
+		}
+		$pageinfo['reviews'] = $complete;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");
@@ -706,7 +713,10 @@ class Welcome extends CI_Controller {
 				);
 			echo json_encode($reply);
 		}
-	}     
+	}
+
+	public function narayan(){
+	}
 }
 
 ?>

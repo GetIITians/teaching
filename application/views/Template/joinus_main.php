@@ -1,17 +1,17 @@
 <div id="main_form_section">
  <div class="row">
-  <div class="col s12">
+  <div class="col-xs-12">
 
    <div class="row">
     <div id="errorReport">
     </div>
-    <div class="col s12">
+    <div class="col-xs-12">
      <div class="center grey-text text-darken-1">
      </div>
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Name
       <span class="red-text">
@@ -19,15 +19,15 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <input placeholder="First Name" type="text" class="validate" name="fname" data-condition="simple" length="30"   />
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <input placeholder="Last Name" type="text" class="validate" name="lname" data-condition="simple" length="30"  />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Subjects
       <span class="red-text">
@@ -39,7 +39,7 @@
       You would like to teach
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="math" type="checkbox" name="sub1" data-condition="checkbox" data-group="sub"   />
       <label for="math">
@@ -59,7 +59,7 @@
       </label>
      </div>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="biology" type="checkbox" name="sub4" data-condition="checkbox" data-group="sub" />
       <label for="biology">
@@ -81,12 +81,12 @@
     </div>
    </div>
    <div class="row" id="specify_sub_other">
-    <div class="col s12 l8 offset-l4">
+    <div class="col-xs-12 col-md-8 col-md-offset-4">
      <input placeholder="Please specify if other" type="text" class="validate" name="subother" />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Grade
       <span class="red-text">
@@ -94,7 +94,7 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="6to8" type="checkbox" name="grade1" data-condition="checkbox" data-group="grade"   />
       <label for="6to8">
@@ -122,7 +122,7 @@
       </label>
      </div>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="11to12" type="checkbox" name="grade3" data-condition="checkbox" data-group="grade" />
       <label for="11to12">
@@ -145,7 +145,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Mininum Fees
       <span class="red-text">
@@ -157,7 +157,7 @@
       Minimun tution fees per hour
      </span>
     </div>
-    <div class="col s12 l3">
+    <div class="col-xs-12 col-md-3">
      <select data-condition="simple" class="browser-default" name="minfees" id="minfees">
       <option value="" disabled="disabled" selected="selected">
        Select
@@ -205,7 +205,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Teaching Experience
       <span class="red-text">
@@ -219,7 +219,7 @@
       Both offline and online
      </span>
     </div>
-    <div class="col s12 l3">
+    <div class="col-xs-12 col-md-3">
      <select data-condition="simple" class="browser-default" name="teachingexp" id="experience">
       <option value="" disabled="disabled" selected="selected">
        Select
@@ -321,7 +321,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Languages
       <span class="red-text">
@@ -333,7 +333,7 @@
       You are comfortable to teach in
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="lang1" type="checkbox" name="lang1" data-condition="checkbox" data-group="lang"   />
       <label for="lang1">
@@ -377,7 +377,7 @@
       </label>
      </div>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="lang9" type="checkbox" name="lang8" data-condition="checkbox" data-group="lang" />
       <label for="lang9">
@@ -423,7 +423,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       College
       <span class="red-text">
@@ -431,7 +431,7 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <select name="college" class="browser-default" data-condition="simple">
       <option value="" disabled="disabled" selected="selected">
        Select your IIT
@@ -488,7 +488,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Degree
       <span class="red-text">
@@ -496,7 +496,7 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <select name="degree" id="degree" class="browser-default" onchange="specifyDegOther()" data-condition="simple">
       <option value="" disabled="disabled" selected="selected">
        Select Degree
@@ -529,7 +529,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Branch
       <span class="red-text">
@@ -541,12 +541,12 @@
       You specialize in
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <input placeholder="e.g. Electrical Engineering" type="text" class="validate" name="branch" data-condition="simple" length="30" />
     </div>
    </div>
    <div class="row"  >
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       College Verification
       <span class="red-text">
@@ -558,7 +558,7 @@
       Upload a snapshot of your College Degree or Student ID<br>Max. file size: 2MB
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <div class="file-field input-field">
       <input class="file-path validate" type="text" placeholder="Click to upload file"/>
       <div>
@@ -568,7 +568,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Email
       <span class="red-text">
@@ -576,12 +576,12 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <input placeholder="e.g. example@example.com" type="email" class="validate" name="email" data-condition="email"    />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Password
       <span class="red-text">
@@ -592,12 +592,12 @@
        </span>
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <input placeholder="Password" type="password" class="validate" id="password" name="password" data-condition="simple" pattern="(?=.*\d)(?=.*[A-Z])^\D.{6,}" title="Must contain 6 or more characters, an uppercase letter and a digit"  />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Confirm Password
       <span class="red-text">
@@ -605,12 +605,12 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <input placeholder="Re-enter Password" type="password" class="validate" name="cpassword" data-condition="password" pattern="(?=.*\d)(?=.*[A-Z])^\D.{6,}" title="Must contain 6 or more characters, an uppercase letter and a digit"    />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Phone Number
       <span class="red-text">
@@ -622,12 +622,12 @@
       Enter your mobile no.
      </span>
     </div>
-    <div class="col s6 l4">
+    <div class="col-xs-6 col-md-4">
      <input placeholder="98xxxxxxxx" type="tel" class="validate" id="phonenumber" name="phone" data-condition="phone" pattern="[0-9]*.{10,}" title="Must contain numbers only"  >
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Gender
       <span class="red-text">
@@ -635,7 +635,7 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <select name="gender" class="browser-default" data-condition="simple">
       <option value="" disabled="disabled" selected="selected">
        Select Gender
@@ -653,7 +653,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Date of Birth
       <span class="red-text">
@@ -661,23 +661,23 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <input type="date" class="datepicker" name="dob" data-condition="simple" onchange="ageToTime(this)" id="dob_datepicker"  />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Age
      </span>
     </div>
-    <div class="col s12 l6">
+    <div class="col-xs-12 col-md-6">
      <div id="times"> 
      </div>
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Are you Ok with home tuition?
       <span class="red-text">
@@ -686,7 +686,7 @@
      </span>
      <br />
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="home1" type="radio" name="home1" value="home1"  />
       <label for="home1">
@@ -702,7 +702,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Address
       <span class="red-text">
@@ -710,7 +710,7 @@
       </span>
      </span>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input placeholder="City" type="text" class="validate" name="city" data-condition="simple"  />
      </div>
@@ -718,7 +718,7 @@
       <input placeholder="Postal/Zip Code" type="text" class="validate" name="zipcode" data-condition="simple" />
      </div>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input placeholder="State/Province" type="text" class="validate" name="state" data-condition="simple"   />
      </div>
@@ -1462,7 +1462,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       How did you come to know about us?
       <span class="red-text">
@@ -1471,7 +1471,7 @@
      </span>
      <br />
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="source1" type="checkbox" name="knowaboutus1" data-condition="checkbox" data-group="knowaboutus"  />
       <label for="source1">
@@ -1485,7 +1485,7 @@
       </label>
      </div>
     </div>
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <div>
       <input id="source3" type="checkbox" name="knowaboutus3" data-condition="checkbox" data-group="knowaboutus" />
       <label for="source3">
@@ -1501,12 +1501,12 @@
     </div>
    </div>
    <div class="row" id="specify_survey_other">
-    <div class="col s12 l8 offset-l4">
+    <div class="col-xs-12 col-md-8 col-md-offset-4">
      <input placeholder="Please specify if other" type="text" class="validate" name="knowaboutusother" />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Resume
       <span class="red-text">
@@ -1518,7 +1518,7 @@
       Please upload your resume in PDF format<br>Max. file size: 2MB
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <div class="file-field input-field">
       <input class="file-path validate" type="text" placeholder="Click to upload file"/>
       <div>
@@ -1528,7 +1528,7 @@
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Linkedin Profile
      </span>
@@ -1537,12 +1537,12 @@
       Enter full URL
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <input placeholder="https://" type="url" class="validate" name="linkprofile" />
     </div>
    </div>
    <div class="row">
-    <div class="col s12 l4">
+    <div class="col-xs-12 col-md-4">
      <span class="grey-text text-darken-1">
       Anything else you would like to share
      </span>
@@ -1551,18 +1551,18 @@
       Any suggestion or a feedback
      </span>
     </div>
-    <div class="col s12 l8">
+    <div class="col-xs-12 col-md-8">
      <textarea placeholder="Feel free to write anything" class="materialize-textarea" name="feedback">
      </textarea>
     </div>
    </div>
    <div class="row">
-     <div class="col s12 l8 offset-l4 grey-text text-darken-2">
+     <div class="col-xs-12 col-md-8 col-md-offset-4 grey-text text-darken-2">
        By clicking Submit, you agree to our <a target="_new" href="<?php echo BASE.'termsofuse' ?>">Terms of use</a>.
      </div>
    </div>
    <div class="row">
-    <div class="col s12 l8 offset-l4">
+    <div class="col-xs-12 col-md-8 col-md-offset-4">
      <button class="btn waves-effect waves-light" type="submit" name="action" data-target="modal1" onclick="">
       Submit
       <i class="material-icons right">
