@@ -112,6 +112,7 @@ load_view("Template/navbarnew.php",$inp);
                 </a>
               </div>
             </div>
+            <br>
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <a href="<?php echo HOST.'gplus.php'; ?>" class="btn-large waves-effect waves-light red darken-1" style="width:100%;">

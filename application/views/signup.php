@@ -122,6 +122,7 @@ $defopen="signupwindow";
                 </a>
               </div>
             </div>
+            <br>
             <div class="row">
               <div class="col-xs-12">
                 <a href="<?php echo HOST.'gplus.php'; ?>" class="btn-large waves-effect waves-light red darken-1" style="width:100%;">

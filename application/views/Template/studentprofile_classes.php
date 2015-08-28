@@ -1,11 +1,11 @@
 <br><br>
 <div class="row">
-	<div class="col s12">
+	<div class="col-xs-12">
 		<h5 class="teal-text text-darken-1">Upcoming Classes</h5>
 	</div>
 </div>
 <div class="row">
-	<div class="col s12">
+	<div class="col-xs-12">
 		<table class="hoverable">
 			<thead>
 				<tr>
@@ -44,12 +44,12 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col s12">
+	<div class="col-xs-12">
 		<h5 class="teal-text text-darken-1">Previous Classes</h5>
 	</div>
 </div>
 <div class="row">
-	<div class="col s12">
+	<div class="col-xs-12">
 		<table class="hoverable">
 			<thead>
 				<tr>

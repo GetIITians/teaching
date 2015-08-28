@@ -1,6 +1,6 @@
 <br><br>
 <div class="row">
-	<div class="col s12 l10 offset-l1">
+	<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 		<h5 class="teal-text text-darken-1">Reviews provided by you</h5>
 	</div>
 </div>

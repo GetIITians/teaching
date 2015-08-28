@@ -590,6 +590,10 @@ margin: 0.82rem 0px 0.656rem;
 	margin-right: auto;
 }
 
+#review_slider .teacher span{
+	color: #00695C !important;
+}
+
 .icon-panel div.grey-text{
 	font-size: 1.2rem;
 }
@@ -1029,6 +1033,14 @@ footer .footer-copyright{
 		background-color: #00695C;
 	}
 
+	.grades{
+		margin-top: 0;
+	}
+
+	#review_slider .teacher span{
+		font-size: .8rem;
+		color: #00695C !important;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
