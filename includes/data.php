@@ -6,14 +6,14 @@ $view_default=array(
 	  	"css/bootstrap.min.css","css/glyphicon.css","css/google-icons.css"),
 		"title"=>array(
 					'index'		=>	'Get IITians',
-					'aboutus'	=>	'Get IITians',
-					'contactus'	=>	'Get IITians',
-					'joinus'	=>	'Get IITians',
-					'signup'	=>	'Get IITians',
-					'login'		=>	'Get IITians',
-					'reset'		=>	'Get IITians',
-					'profile'	=>	'Get IITians',
-					'search'	=>	'Get IITians',
+					'aboutus'	=>	'About Us :: Get IITians',
+					'contactus'	=>	'Contact Us :: Get IITians',
+					'joinus'	=>	'Join Us :: Get IITians',
+					'signup'	=>	'Sign Up :: Get IITians',
+					'login'		=>	'Login :: Get IITians',
+					'reset'		=>	'Reset :: Get IITians',
+					'profile'	=>	'Profile :: Get IITians',
+					'search'	=>	'Search :: Get IITians',
 				)
 		),
 	'Template/bottom.php'=>array(
@@ -115,6 +115,7 @@ $_ginfo["error"]=array(
 	"-27"=>"Wiziq Error",
 	"-28"=>"No Such CST exist",
 	"-29"=>"You don't have sufficient money in your account.",
+	"-30"=>"Another class has been booked for one of your selected time slot",
 
 	"1"=>"Positive"
 );

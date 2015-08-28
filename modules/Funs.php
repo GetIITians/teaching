@@ -468,7 +468,9 @@ abstract class Funs{
 		$home_constrain = Fun::get_constrain($data["home"], map(range(0, count(giget("encodeddataofteacherstable", "lang"))-1), function($inp){
 			return "concat('-',jsoninfo,'-') like concat('%', "."'".'"home":"'.(1+$inp).'"'."'".", '%')";
 		}));
-		mergeifunset($params, Fun::getflds(array("class", "subject", "topic","home"), $data));
+		$pincode_constrain = ($data['pincode']==''?'true':"concat('-',jsoninfo,'-') like concat('%', "."'".'"zipcode":"'.($data["pincode"]).'"'."'".", '%')");
+		
+		mergeifunset($params, Fun::getflds(array("class", "subject", "topic","home","pincode"), $data));
 		
 /*cmnt by yogy 		
 		$query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
@@ -482,9 +484,10 @@ cmnt by yogy */
 /* new query by yogy*/
 		
 		$query3 = "select tid from teachers where (".$lang_constrain.")";
+		$query5 = "select tid from teachers where (".$pincode_constrain.")";
 					
 //		$finalquery = $query1;
-		$finalquery = Fun::intersectionquery(array($query1/*, $query2*/, $query3, $query4), "tid");
+		$finalquery = Fun::intersectionquery(array($query1/*, $query2*/, $query3, $query4, $query5), "tid");
 //		echo $finalquery;
 //		$finalquery = "(".$query1.") union (".$query2.") ";
 //		$finalquery = Fun::intersectionquery(array($query1, $query2), "tid");

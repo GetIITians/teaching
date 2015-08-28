@@ -1,20 +1,10 @@
-<!doctype html>
+  <!doctype html>
 <html lang="en_US">
 <head>
 
-  <?php
+  <?php  
   opent("base",array("href"=>HOST));
-  /*      Narayan Waraich       */
-  ocloset("title",$title['index']);
-/*  if (strpos(uri_string(),'search') !== false || strpos(uri_string(),'profile') !== false)
-  {
-    array_push($css, "css/bootstrap.min.css");
-  }
-  if (strpos($_SERVER['PHP_SELF'], 'index.php') !== false) {
-    array_push($css, "css/bootstrap.min.css");
-  }
-*/
-  /*----------------------------*/
+  ocloset("title",(getNameFromUrl(Fun::getcururl())!='search'?$title[getNameFromUrl(Fun::getcururl())]:($_REQUEST['q']!=''?'Search :: '.$_REQUEST['q']:$title[getNameFromUrl(Fun::getcururl())])));
   addall_css($css);
   addmycss();
   ?>

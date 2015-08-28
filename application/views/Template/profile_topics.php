@@ -1,7 +1,7 @@
 <script>	var topics=<?php echo json_encode($cst_tree); ?>;	</script>
 
-<?php 
-if(!$isdonedemo) {
+<?php $_SESSION['isdonedemo']= $isdonedemo;
+if(!$isdonedemo) { 
 ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -625,8 +625,20 @@ abstract class Fun{
 			return "(".$inp.")";
 		}), "true");
 	}
-
+/*  yogy  */
+	public static function starttimeconsstu($date1,$timeslot) {
+		if($timeslot==null) {
+			return true;
+		} else { $str='';
+		for($i=0;$i<=count($timeslot)-1;$i++) {
+				if(count($timeslot)-1==$i) {
+					$str=$str.'starttime = '.($date1+($timeslot[$i]-1)*1800);				}
+				else {
+					$str=$str.'starttime = '.($date1+($timeslot[$i]-1)*1800).' OR ';
+					}
+			}
+			return $str;
+		}
+	}
 }
-
-
 ?>

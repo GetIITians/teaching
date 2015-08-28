@@ -45,7 +45,7 @@
 		<?php if($isself) : ?>
 			<button class='btn btn-default' type="button" data-datets="<?php echo $datets; ?>" data-eparams="{'slots':$('#popuptimecheckbox').val()}" data-action="teacherModifySlots" onclick="ms.f2();button.sendreq_v2(this);" data-waittext="Saving.." data-res='ms.calreq($("#calhomebutton")[0]);success.push("Timeslot Saved ! ");mohit.popup_close("timeslot");' >Save</button>
 		<?php elseif($isstudent) : ?>
-			<button class='btn btn-default' type="button" data-datets="<?php echo $datets; ?>" data-eparams="{'slots':$('#popuptimecheckbox').val()}" data-tid="<?php echo $tid; ?>" data-action="studentBookSlots" onclick="ms.studentbookslot(this);" data-waittext="Booking.." data-res='Materialize.toast("Slots Booked ! ", 4000);mohit.popup_close("timeslot");' >Book</button>
+			<button class='btn btn-default' type="button" data-demo="<?php echo $_SESSION['isdonedemo']; ?>" data-datets="<?php echo $datets; ?>" data-eparams="{'slots':$('#popuptimecheckbox').val()}" data-tid="<?php echo $tid; ?>" data-action="studentBookSlots" onclick="ms.studentbookslot(this);" data-waittext="Booking.." data-res='Materialize.toast("Slots Booked ! ", 4000);mohit.popup_close("timeslot");' >Book</button>
 		<?php endif; ?>
 	<?php endif; ?>
 </div>

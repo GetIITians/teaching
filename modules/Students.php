@@ -34,6 +34,12 @@ class Students{
 		$bookedslots = grouplist( $inpslots );
 		list($c_id, $s_id, $t_id) = intexplode("-", $data["cst"]);
 		$dbpush = array();
+/* by yogy */
+		$query="select * from timeslot where sid=".User::loginId()." AND (".Fun::starttimeconsstu($data['datets'],$inpslots).")";	
+		if(count(Sqle::getA($query))!=0) {
+			$outp["ec"] = "-30";
+		} else {
+/* ...... */
 		$query = "select accountbalance.mymoney, users.name as teachername, users.email as teacheremail,users.phone as teacherphone, users1.name as studentname, users1.email as studentemail,users1.phone as studentphone, subjectlist.* from ".qtable("subjectlist")." left join users on users.id = {tid} left join users as users1 on users1.id = {sid} left join ".qtable("accountbalance")." on accountbalance.uid = {sid} where c_id = $c_id AND s_id = $s_id AND t_id = $t_id AND tid={tid} ";
 		$cstinfo = Sqle::getR($query, array("sid" => User::loginId(), "tid" => $data["tid"]));
 		if($cstinfo==null) {
@@ -79,6 +85,7 @@ class Students{
 				$outp["data"] = Sqle::q( $query );
 			}
 		}
+	}
 		return $outp;
 	}
 
