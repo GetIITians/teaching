@@ -8,7 +8,7 @@ load_view("Template/navbarnew.php",$inp);
 			<div class="card-panel">
 			<br>
 				<div class="row">
-					<div class="col s12 l4 offset-l1 center">
+					<div class="col-xs-12 col-sm-4 col-sm-offset-1 center">
 						<img class="materialboxed" height="100" width="100" src="<?php  echo $ainfo["profilepic"]; ?>">
 						<br>
 						<!-- Change Profile Picture -->
@@ -17,12 +17,12 @@ load_view("Template/navbarnew.php",$inp);
 					 </form>
 
 					</div>
-					<div class="col s12 l7">
+					<div class="col-xs-12 col-sm-7">
 						<div class="row">
-							<div class="col s12">
+							<div class="col-xs-12">
 								<h5 class="green-text left"><?php echo convchars($ainfo["name"]); ?></h5>
 							</div>
-							<div class="col s12">
+							<div class="col-xs-12">
 								<h6 class="grey-text left"><?php echo $ainfo["email"]; ?></h6>
 							</div>
 						</div>
@@ -31,24 +31,24 @@ load_view("Template/navbarnew.php",$inp);
 			</div>
 			<div class="card-panel">
 				<div class="row">
-					<div class="col s12">
+					<div class="col-xs-12">
 						<ul class="tabs">
-							<li class="tab col s3"><a class="active" href="#tab_profile">Profile</a></li>
-							<li class="tab col s3"><a class="active" href="#tab_users">Users</a></li>
-							<li class="tab col s3"><a href="#tab_account">Account</a></li>
+							<li class="tab col-xs-3"><a class="active" href="#tab_profile">Profile</a></li>
+							<li class="tab col-xs-3"><a class="active" href="#tab_users">Users</a></li>
+							<li class="tab col-xs-3"><a href="#tab_account">Account</a></li>
 						</ul>
 					</div>
-					<div id="tab_profile" class="col s12 offset-l2">
+					<div id="tab_profile" class="col-xs-12 col-sm-offset-2">
 					<?php
 						load_view("Template/adminprofile_about.php", $inp);
 					?>
 					</div>
-					<div id="tab_users" class="col s12" data-action='adminprofile_users'  >
+					<div id="tab_users" class="col-xs-12" data-action='adminprofile_users'  >
 					<?php
 							handle_disp(array(), "adminprofile_users");
 					?>
 					</div>
-					<div id="tab_account" class="col s12" data-action='moneyaccount' >
+					<div id="tab_account" class="col-xs-12" data-action='moneyaccount' >
 					<?php
 						handle_disp(array(), "moneyaccount");
 //            load_view("Template/moneyaccount.php", $inp);

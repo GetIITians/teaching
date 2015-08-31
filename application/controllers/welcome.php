@@ -19,22 +19,15 @@ class Welcome extends CI_Controller {
 			if ($value['type'] == 's')
 				$pageinfo['students']++;
 		}
-
 		$reviews = $this->db
-				 ->select('name,feedback,tid')
-				 ->from('booked')
-				 ->join('users', 'booked.sid = users.id')
-				 ->where('booked.feedback !=', 'NULL')
+				 ->select('student.name as student,class.feedback,teacher.name as teacher,teacher.profilepic')
+				 ->from('booked class')
+				 ->join('users student', 'class.sid = student.id')
+				 ->join('users teacher', 'class.tid = teacher.id')
+				 ->where('class.feedback !=', 'NULL')
 				 ->get()
 				 ->result_array();
-		$complete = [];
-		foreach ($reviews as $review) {
-			$profilepic = $this->db->select('profilepic,name')->from('users')->where('id',$review['tid'])->get()->result_array();
-			$review['profilepic'] = $profilepic['0']['profilepic'];
-			$review['tname'] = $profilepic['0']['name'];
-			$complete[] = $review;
-		}
-		$pageinfo['reviews'] = $complete;
+		$pageinfo['reviews'] = $reviews;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");
@@ -715,7 +708,12 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	public function wiziq_status(){
+		var_dump($_POST);
+	}
+
 	public function narayan(){
+
 	}
 }
 

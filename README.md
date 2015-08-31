@@ -1,3 +1,3 @@
 # teaching
-This is BASAD free code of getIITians
+This is free code of getIITians
 

@@ -251,14 +251,14 @@ Shivam Mamgain
 										<p class="grey-text text-darken-2">
 											&#45;
 											<i>
-												<?php echo ucwords($reviews[$rand[$i]]['name']); ?>
+												<?php echo ucwords($reviews[$rand[$i]]['student']); ?>
 											</i>
 										</p>
 									</div>
 								</div>
 								<div class="col-xs-4 teacher">
 									<img class="img-responsive circle" src="<?php echo $reviews[$rand[$i]]['profilepic']; ?>">
-									<span class="grey-text text-darken-2"><?php echo ucwords($reviews[$rand[$i]]['tname']); ?></span>
+									<span class="grey-text text-darken-2"><?php echo ucwords($reviews[$rand[$i]]['teacher']); ?></span>
 								</div>
 							</div>
 						</li>

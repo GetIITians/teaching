@@ -392,7 +392,7 @@ abstract class Funs{
 			$requestParameters["control_category_id"]=""; //optional
 			$requestParameters["create_recording"]=""; //optional
 			$requestParameters["return_url"]=""; //optional
-			$requestParameters["status_ping_url"]=""; //optional
+			$requestParameters["status_ping_url"]=BASE."wiziq_status"; //optional
 			$requestParameters["language_culture_name"]="en-us";
 			$obj=new ScheduleClass($secretAcessKey,$access_key,$webServiceUrl,$requestParameters);
 			$odata=$obj->secheduledata;
