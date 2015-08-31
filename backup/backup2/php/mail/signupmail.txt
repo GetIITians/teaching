@@ -1,8 +1,0 @@
-#This mail is to be send when someone signup ( To confirm mail id)...this line is comment line
-Signup confirmation is your subject
-Dear {name},
-	You created an account on our website.
-	your confirmation key is {key}
-	so either enter this key or just open this url {url}
-
-Thank you.
