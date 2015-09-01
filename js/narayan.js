@@ -89,6 +89,23 @@ var homePage = {
 	}
 }
 
+var adminPage = {
+	approve : function(obj){
+		$.ajax({
+			url		: 'http://localhost/teaching/approve_review',
+			type	: 'POST',
+			data 	: {
+						tid			: 	$(obj).attr('tid'),
+						starttime 	: 	$(obj).attr('starttime'),
+			},
+			success: function(msg){
+				console.log(msg);
+			} 
+		})
+
+	}
+}
+
 $(function() {
 
 	$(document).on({

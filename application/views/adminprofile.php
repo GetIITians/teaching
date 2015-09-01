@@ -31,19 +31,24 @@ load_view("Template/navbarnew.php",$inp);
 			</div>
 			<div class="container">
 				<ul id="profiletabs" class="row" role="tablist">
-					<li  role="presentation" class="col-xs-4">
+					<li  role="presentation" class="col-xs-3">
 						<a href="#tab_profile" aria-controls="Profile" role="tab" data-toggle="tab">
 							Profile
 						</a>
 					</li>
-					<li role="presentation" class="active col-xs-4">
+					<li role="presentation" class="col-xs-3">
 						<a href="#tab_users" aria-controls="Users" role="tab" data-toggle="tab">
 							Users
 						</a>
 					</li>
-					<li role="presentation" class="col-xs-4" aria-controls="Account" role="tab" data-toggle="tab">
+					<li role="presentation" class="col-xs-3" aria-controls="Account" role="tab" data-toggle="tab">
 						<a href="#tab_account" aria-controls="Users" role="tab" data-toggle="tab">
 							Account
+						</a>
+					</li>
+					<li role="presentation" class="active col-xs-3" aria-controls="Reviews" role="tab" data-toggle="tab">
+						<a href="#tab_reviews" aria-controls="Reviews" role="tab" data-toggle="tab">
+							Reviews
 						</a>
 					</li>
 				</ul>
@@ -53,15 +58,20 @@ load_view("Template/navbarnew.php",$inp);
 						load_view("Template/adminprofile_about.php", $inp);
 					?>
 					</div>
-					<div id="tab_users" class="tab-pane active col-xs-12" data-action='adminprofile_users' role="tabpanel">
+					<div id="tab_users" class="tab-pane col-xs-12" data-action='adminprofile_users' role="tabpanel">
 					<?php
-							handle_disp(array(), "adminprofile_users");
+						handle_disp(array(), "adminprofile_users");
 					?>
 					</div>
 					<div id="tab_account" class="tab-pane col-xs-12" data-action='moneyaccount' role="tabpanel">
 					<?php
 						handle_disp(array(), "moneyaccount");
 		//            load_view("Template/moneyaccount.php", $inp);
+					?>
+					</div>
+					<div id="tab_reviews" class="tab-pane active col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
+					<?php
+							handle_disp(array(), "adminprofile_reviews");
 					?>
 					</div>
 				</div>

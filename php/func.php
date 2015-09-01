@@ -501,7 +501,7 @@
 	function handle_disp($post_data,$actionarg=null){ 
 		global $_ginfo;
 		if($actionarg!=null)
-			$post_data["action"]=$actionarg;  
+			$post_data["action"]=$actionarg;
 		$a=new Actiondisp();
 		$outp=array("ec"=>-7); 
 		if(isset($post_data["action"])  ){

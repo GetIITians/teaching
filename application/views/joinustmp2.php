@@ -29,9 +29,6 @@ load_view("Template/navbarnew.php");
 										<li><i class="material-icons left tiny">chevron_right</i>
 											An OTP will be sent to your Mobile Phone after you submit the form.
 										</li>
-										<li><i class="material-icons left tiny">chevron_right</i>
-											Confirmation through the OTP is mandatory.
-										</li>
 									</ul>
 								</div>
 							</div>

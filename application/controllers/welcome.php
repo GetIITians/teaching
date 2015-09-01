@@ -27,6 +27,7 @@ class Welcome extends CI_Controller {
 				 ->where('class.feedback !=', 'NULL')
 				 ->get()
 				 ->result_array();
+		//echo $this->db->last_query();
 		$pageinfo['reviews'] = $reviews;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
@@ -706,6 +707,20 @@ class Welcome extends CI_Controller {
 				);
 			echo json_encode($reply);
 		}
+	}
+
+	public function approve_review(){
+		$tid 		=	$this->input->post('tid');
+		$starttime 	=	$this->input->post('starttime');
+
+		$data 		= 	array(
+			'feedbackStatus'	=>	'yes'
+		);
+		$this->db->where('tid', $tid);
+		$this->db->where('starttime', $starttime);
+		$this->db->update('booked', $data);
+
+		echo "succesfull";
 	}
 
 	public function wiziq_status(){

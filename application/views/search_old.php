@@ -138,13 +138,13 @@ load_view("Template/navbarnew.php");
 													<div class="col-xs-12">
 														<input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
 														<label style="padding-left:23px;" for="home1" >
-														Home Tuition
+															Home Tuition
 														</label>
 													</div>
 													<div class="col-xs-12">
 													<input id="home2" type="checkbox" class="filled-in" name="home" value='2' checked />
 														<label style="padding-left:23px;" for="home2" >
-														Online Classes
+															Online Classes
 														</label>
 													</div>
 												
@@ -157,7 +157,7 @@ load_view("Template/navbarnew.php");
 												<div class="row">
 												
 													<div class="col-xs-12">
-														<input placeholder="Leave empty if search all" type="number" class="validate" name="pincode" data-condition="simple"   />
+														<input placeholder="Leave empty if search all" type="text" class="validate" name="pincode" data-condition="simple"   />
 													</div>
 												
 												</div>

@@ -25,12 +25,8 @@
 					<a href="https://www.facebook.com/getiitians">
 						<img src="images/facebook-ribbon.png" alt="Facebook" width="30" height="60" class="tooltipped" data-toggle="tooltip" data-placement="top" title="Facebook">
 					</a>
-					<a href="#!">
-						<img src="images/twitter-ribbon.png" alt="Twitter" width="30" height="60" class="tooltipped" data-toggle="tooltip" data-placement="top" title="Twitter">
-					</a>
-					<a href="#!">
-						<img src="images/googleplus-ribbon.png" alt="Google+" width="30" height="60"  class="tooltipped" data-toggle="tooltip" data-placement="top" title="Google+">
-					</a>
+					<img src="images/twitter-ribbon.png" alt="Twitter" width="30" height="60">
+					<img src="images/googleplus-ribbon.png" alt="Google+" width="30" height="60">
 					<a href="mailto:mail@getiitians.com">
 						<img src="images/email-ribbon.png" alt="Email" width="30" height="60"  class="tooltipped" data-toggle="tooltip" data-placement="top" title="info@getiitians.com">
 					</a>
