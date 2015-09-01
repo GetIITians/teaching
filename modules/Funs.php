@@ -423,6 +423,7 @@ abstract class Funs{
 			return $odata;
 		}
 	}
+	
 	public static function wiziqurl($row) {
 		$outpurl = null;
 		if($row["starttime"] + $row["duration"] < time() ){

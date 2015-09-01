@@ -710,6 +710,7 @@ class Welcome extends CI_Controller {
 
 	public function wiziq_status(){
 		var_dump($_POST);
+		var_dump($_POST['form']);
 	}
 
 	public function narayan(){

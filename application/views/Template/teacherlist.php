@@ -17,23 +17,23 @@ foreach ($ratingBigBox[0] as $bigBoxRating) {
 $arrangedRatings = ['5'=>0,'4'=>0,'3'=>0,'2'=>0,'1'=>0,];
 foreach ($allRatings as $value) {
   switch ($value) {
-    case 5:
-      $arrangedRatings['5']++;
-      break;
-    case 4:
-      $arrangedRatings['4']++;
-      break;
-    case 3:
-      $arrangedRatings['3']++;
-      break;
-    case 2:
-      $arrangedRatings['2']++;
-      break;
-    case 1:
-      $arrangedRatings['1']++;
-      break;
-    default:
-      break;
+	case 5:
+	  $arrangedRatings['5']++;
+	  break;
+	case 4:
+	  $arrangedRatings['4']++;
+	  break;
+	case 3:
+	  $arrangedRatings['3']++;
+	  break;
+	case 2:
+	  $arrangedRatings['2']++;
+	  break;
+	case 1:
+	  $arrangedRatings['1']++;
+	  break;
+	default:
+	  break;
   }
 }
 $maxRating = max($arrangedRatings);
@@ -43,7 +43,7 @@ $allReviews = [];
 foreach ($ratingBigBox[1] as $bigBoxReview) {
   if ($bigBoxReview['tid'] == $row['tid'] && $bigBoxReview['feedback'] != null)
   {
-    $allReviews[] = $bigBoxReview['feedback'];
+	$allReviews[] = $bigBoxReview['feedback'];
   }
 }
 //echo "<pre>";print_r($allReviews);echo "</pre><br>";
@@ -101,26 +101,26 @@ data-tooltip="<?php echo $subject_list; ?>"
 </p>
 
   <?php if($row['rating_total']>0) : ?>
-    <p class="grey-text text-darken-2 contentrating">
-      Rating : <?php //echo round($row['rating'],2); ?>
-      <?php
-      for ($i=1; $i < 6; $i++)
-      {
-        if ($i<=ceil($row['rating']))
-          echo "<span class='glyphicon glyphicon-star rated-star' aria-hidden='true'></span>";
-        else
-          echo "<span class='glyphicon glyphicon-star-empty rating-star' aria-hidden='true'></span>";
-      }
-      ?>
-    </p>
+	<p class="grey-text text-darken-2 contentrating">
+	  Rating : <?php //echo round($row['rating'],2); ?>
+	  <?php
+	  for ($i=1; $i < 6; $i++)
+	  {
+		if ($i<=ceil($row['rating']))
+		  echo "<span class='glyphicon glyphicon-star rated-star' aria-hidden='true'></span>";
+		else
+		  echo "<span class='glyphicon glyphicon-star-empty rating-star' aria-hidden='true'></span>";
+	  }
+	  ?>
+	</p>
   <?php else: ?>
-    <p class="grey-text text-darken-2">Rating : Not rated yet.</p>
+	<p class="grey-text text-darken-2">Rating : Not rated yet.</p>
   <?php endif; ?>
 
 <p class="lastp">
 <?php if(!$row["isdonedemo"]) { ?>
 	<a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
-		<button type="button" class="btn waves-effect waves-light btn-small" >Free Class</button>
+		<button type="button" class="btn waves-effect waves-light btn-small" >Free 1 Hour Class</button>
 	</a>
 <?php } ?>
 <span class="activator"><i class="material-icons right">toc</i></span>
