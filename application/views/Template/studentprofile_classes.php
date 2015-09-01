@@ -1,12 +1,7 @@
-<br><br>
+<h4 class="teal-text text-darken-1">Upcoming Classes</h4>
 <div class="row">
-	<div class="col-xs-12">
-		<h5 class="teal-text text-darken-1">Upcoming Classes</h5>
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-12">
-		<table class="hoverable">
+	<div class="col-xs-12 table-responsive">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Teacher</th>
@@ -19,7 +14,6 @@
 					<th></th>
 				</tr>
 			</thead>
-
 			<tbody>
 				<?php
 					foreach($newslots as $i => $row) { 
@@ -43,14 +37,10 @@
 		</table>
 	</div>
 </div>
+<h4 class="teal-text text-darken-1">Previous Classes</h4>
 <div class="row">
-	<div class="col-xs-12">
-		<h5 class="teal-text text-darken-1">Previous Classes</h5>
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-12">
-		<table class="hoverable">
+	<div class="col-xs-12 table-responsive">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Teacher</th>
@@ -63,7 +53,6 @@
 					<th></th>
 				</tr>
 			</thead>
-
 			<tbody>
 				<?php
 					foreach($oldslots as $i => $row) {
