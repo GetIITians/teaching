@@ -143,9 +143,20 @@ ul.collapsible {
 	box-shadow: none;
 }
 
-/*
-	Search section
-*/
+ul.uncollapsed > li{
+	border-bottom: 1px solid #ddd;
+}
+
+ul.uncollapsed > li > div:first-of-type{
+	display: block;
+	cursor: pointer;
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0 1rem;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
 html{
 	font-size: 15px;
 }

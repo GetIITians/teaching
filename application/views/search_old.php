@@ -113,19 +113,6 @@ load_view("Template/navbarnew.php");
 											</div>
 										</li>
 										<li>
-											<div class="collapsible-header">Pin Code</div>
-											<div class="collapsible-body" style="padding:6px;">
-												<div class="row">
-												
-													<div class="col s12">
-														<input placeholder="Leave empty if search all" type="text" class="validate" name="pincode" data-condition="simple"   />
-													</div>
-												
-												</div>
-											</div>
-										</li>
-										
-										<li>
 											<div class="collapsible-header" style="display:none">Duration</div>
 											<div class="collapsible-body" style="padding:10px;">
 												<?php
@@ -143,10 +130,10 @@ load_view("Template/navbarnew.php");
 											}
 										?>
 									</ul>
-							<ul class="collapsible" data-collapsible="accordion">
+									<ul class="collapsible uncollapsed" >
 										 <li>
-											<div class="collapsible-header">Home/Online Tuition</div>
-											<div class="collapsible-body" style="padding:6px;">
+											<div>Home/Online Tuition</div>
+											<div style="padding:6px;">
 												<div class="row">
 													<div class="col-xs-12">
 														<input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
@@ -159,6 +146,18 @@ load_view("Template/navbarnew.php");
 														<label style="padding-left:23px;" for="home2" >
 														Online Classes
 														</label>
+													</div>
+												
+												</div>
+											</div>
+										</li>
+										<li>
+											<div>Pin Code</div>
+											<div style="padding:6px;">
+												<div class="row">
+												
+													<div class="col-xs-12">
+														<input placeholder="Leave empty if search all" type="number" class="validate" name="pincode" data-condition="simple"   />
 													</div>
 												
 												</div>
