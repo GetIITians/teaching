@@ -592,7 +592,7 @@ cmnt by yogy */
 			$rating = sql::getArray($rating_query);
 
 			$review = [];
-			$review_query = "select feedback,tid from booked WHERE tid IN (".$teachers.")";
+			$review_query = "select feedback,tid from booked WHERE tid IN (".$teachers.") AND feedbackStatus = 'yes'";
 			$review = sql::getArray($review_query);
 
 			return [$rating,$review];

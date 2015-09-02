@@ -193,7 +193,7 @@ class Actiondisp{
 
 	function adminprofile_reviews() {
 		$pageinfo = array(); 
-		$pageinfo["reviews"] = Sqle::getA("SELECT `student`.`name` as student, `class`.`feedback`, `class`.`starttime`, `teacher`.`name` as teacher, `teacher`.`profilepic`, `teacher`.`id` as tid FROM (`booked` class) JOIN `users` student ON `class`.`sid` = `student`.`id` JOIN `users` teacher ON `class`.`tid` = `teacher`.`id` WHERE `class`.`feedback` != 'NULL'");
+		$pageinfo["reviews"] = Sqle::getA("SELECT `student`.`name` as student, `class`.`feedback`, `class`.`feedbackStatus`, `class`.`starttime`, `teacher`.`name` as teacher, `teacher`.`profilepic`, `teacher`.`id` as tid FROM (`booked` class) JOIN `users` student ON `class`.`sid` = `student`.`id` JOIN `users` teacher ON `class`.`tid` = `teacher`.`id` WHERE `class`.`feedback` != 'NULL'");
 		load_view("Template/adminprofile_reviews.php", $pageinfo );
 	}
 

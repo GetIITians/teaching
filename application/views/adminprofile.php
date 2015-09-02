@@ -31,47 +31,47 @@ load_view("Template/navbarnew.php",$inp);
 			</div>
 			<div class="container">
 				<ul id="profiletabs" class="row" role="tablist">
-					<li  role="presentation" class="col-xs-3">
-						<a href="#tab_profile" aria-controls="Profile" role="tab" data-toggle="tab">
+					<li  role="presentation" class="col-sm-3 col-xs-6">
+						<a href="#profile" aria-controls="Profile" role="tab" data-toggle="tab">
 							Profile
 						</a>
 					</li>
-					<li role="presentation" class="col-xs-3">
-						<a href="#tab_users" aria-controls="Users" role="tab" data-toggle="tab">
+					<li role="presentation" class="col-sm-3 col-xs-6">
+						<a href="#users" aria-controls="Users" role="tab" data-toggle="tab">
 							Users
 						</a>
 					</li>
-					<li role="presentation" class="col-xs-3" aria-controls="Account" role="tab" data-toggle="tab">
-						<a href="#tab_account" aria-controls="Users" role="tab" data-toggle="tab">
+					<li role="presentation" class="col-sm-3 col-xs-6" aria-controls="Account" role="tab" data-toggle="tab">
+						<a href="#account" aria-controls="Users" role="tab" data-toggle="tab">
 							Account
 						</a>
 					</li>
-					<li role="presentation" class="active col-xs-3" aria-controls="Reviews" role="tab" data-toggle="tab">
-						<a href="#tab_reviews" aria-controls="Reviews" role="tab" data-toggle="tab">
+					<li role="presentation" class="active col-sm-3 col-xs-6" aria-controls="Reviews" role="tab" data-toggle="tab">
+						<a href="#reviews" aria-controls="Reviews" role="tab" data-toggle="tab">
 							Reviews
 						</a>
 					</li>
 				</ul>
 				<div class="tab-content row">
-					<div id="tab_profile" class="tab-pane col-xs-12" role="tabpanel">
+					<div id="profile" class="tab-pane col-xs-12" role="tabpanel">
 					<?php
 						load_view("Template/adminprofile_about.php", $inp);
 					?>
 					</div>
-					<div id="tab_users" class="tab-pane col-xs-12" data-action='adminprofile_users' role="tabpanel">
+					<div id="users" class="tab-pane col-xs-12" data-action='adminprofile_users' role="tabpanel">
 					<?php
 						handle_disp(array(), "adminprofile_users");
 					?>
 					</div>
-					<div id="tab_account" class="tab-pane col-xs-12" data-action='moneyaccount' role="tabpanel">
+					<div id="account" class="tab-pane col-xs-12" data-action='moneyaccount' role="tabpanel">
 					<?php
 						handle_disp(array(), "moneyaccount");
 		//            load_view("Template/moneyaccount.php", $inp);
 					?>
 					</div>
-					<div id="tab_reviews" class="tab-pane active col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
+					<div id="reviews" class="tab-pane active col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
 					<?php
-							handle_disp(array(), "adminprofile_reviews");
+						handle_disp(array(), "adminprofile_reviews");
 					?>
 					</div>
 				</div>

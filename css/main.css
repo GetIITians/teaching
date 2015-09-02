@@ -933,6 +933,62 @@ footer .footer-copyright{
 	}
 }
 /*-------------------
+		Admin
+-------------------*/
+#adminReviews > div:first-of-type{
+	font-size: 1.5rem;
+	font-family: Roboto;
+	letter-spacing: 1px;
+	border: 1px solid #CCC;
+	background-color: #263238;
+	color: white;
+}
+
+#adminReviews > div:first-of-type div{
+	padding: .5rem;
+}
+
+#adminReviews > div:not(:first-child){
+	background-color: #EEE;
+	font-size: 1.1rem;
+	font-family: Roboto;
+}
+
+#adminReviews > div:not(:first-child) div{
+	padding: 0.8rem 15px;
+}
+
+#adminReviews > div:not(:first-child) div.img{
+	padding: 0.2rem 15px;
+}
+
+#adminReviews > div:not(:first-child) div:last-of-type{
+	text-align: center;
+}
+
+#adminReviews > div:not(:first-child) img{
+	width: 50px;
+}
+
+#adminReviews .btn{
+	text-transform: none;
+	height: auto;
+}
+@media (max-width: 767px) {
+
+	#adminReviews > div:not(:first-child) div{
+		padding: 0.8rem 2px;
+	}
+
+	#adminReviews .btn{
+		padding: 6px 0;
+	}
+
+	#adminReviews > div:not(:first-child){
+		font-size: 0.9rem;
+	}
+}
+/*-------------------
 	Media Queries
 -------------------*/
 

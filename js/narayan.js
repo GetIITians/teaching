@@ -90,19 +90,22 @@ var homePage = {
 }
 
 var adminPage = {
-	approve : function(obj){
+	approve : function(event,obj){
+		event.preventDefault();
+		$(obj).addClass('disabled');
 		$.ajax({
 			url		: 'http://localhost/teaching/approve_review',
 			type	: 'POST',
 			data 	: {
-						tid			: 	$(obj).attr('tid'),
-						starttime 	: 	$(obj).attr('starttime'),
+						tid			: 	obj.getAttribute('tid'),
+						starttime 	: 	obj.getAttribute('starttime'),
 			},
 			success: function(msg){
+				$(obj).removeClass('disabled').addClass('btn-success').html('Approved');
+				$(obj).parent().next().find('i').html('done');
 				console.log(msg);
 			} 
 		})
-
 	}
 }
 

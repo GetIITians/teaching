@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 				 ->join('users student', 'class.sid = student.id')
 				 ->join('users teacher', 'class.tid = teacher.id')
 				 ->where('class.feedback !=', 'NULL')
+				 ->where('class.feedbackStatus =', 'yes')
 				 ->get()
 				 ->result_array();
 		//echo $this->db->last_query();
