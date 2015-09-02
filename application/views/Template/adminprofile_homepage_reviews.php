@@ -42,14 +42,14 @@
 			</a>
 		</div>
 		<div class="col-sm-2 col-xs-4">
-			<?php if ($review["feedbackStatus"] == "yes") : ?>
+			<?php if ($review["feedbackHomepage"] == "yes") : ?>
 				<a role="button" class="btn btn-default disabled center-block" >Approved</a>
 			<?php else : ?>
-				<a role="button" class="btn btn-default center-block" onclick="adminPage.approve(event,this,'feedbackStatus');" tid="<?php echo $review["tid"] ?>" starttime="<?php echo $review["starttime"] ?>">Approve</a>
+				<a role="button" class="btn btn-default center-block" onclick="adminPage.approve(event,this,'feedbackHomepage');" tid="<?php echo $review["tid"] ?>" starttime="<?php echo $review["starttime"] ?>">Approve</a>
 			<?php endif; ?>
 		</div>
 		<div class="col-sm-1 col-xs-2">
-			<?php if ($review["feedbackStatus"] == "yes") : ?>
+			<?php if ($review["feedbackHomepage"] == "yes") : ?>
 				<i class="material-icons">done</i>
 			<?php else : ?>
 				<i class="material-icons">clear</i>

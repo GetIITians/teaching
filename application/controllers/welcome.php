@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
 				 ->join('users teacher', 'class.tid = teacher.id')
 				 ->where('class.feedback !=', 'NULL')
 				 ->where('class.feedbackStatus =', 'yes')
+				 ->where('class.feedbackHomepage =', 'yes')
 				 ->get()
 				 ->result_array();
 		//echo $this->db->last_query();
@@ -713,15 +714,16 @@ class Welcome extends CI_Controller {
 	public function approve_review(){
 		$tid 		=	$this->input->post('tid');
 		$starttime 	=	$this->input->post('starttime');
+		$dbColumn 	=	$this->input->post('dbColumn');
 
 		$data 		= 	array(
-			'feedbackStatus'	=>	'yes'
+			$dbColumn	=>	'yes'
 		);
 		$this->db->where('tid', $tid);
 		$this->db->where('starttime', $starttime);
 		$this->db->update('booked', $data);
 
-		echo "succesfull";
+		echo "successfull";
 	}
 
 	public function wiziq_status(){

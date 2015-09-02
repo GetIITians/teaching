@@ -197,6 +197,12 @@ class Actiondisp{
 		load_view("Template/adminprofile_reviews.php", $pageinfo );
 	}
 
+	function adminprofile_homepage_reviews() {
+		$pageinfo = array(); 
+		$pageinfo["reviews"] = Sqle::getA("SELECT `student`.`name` as student, `class`.`feedback`, `class`.`feedbackHomepage`,`class`.`starttime`, `teacher`.`name` as teacher, `teacher`.`profilepic`, `teacher`.`id` as tid FROM (`booked` class) JOIN `users` student ON `class`.`sid` = `student`.`id` JOIN `users` teacher ON `class`.`tid` = `teacher`.`id` WHERE `class`.`feedback` != 'NULL' AND `class`.`feedbackStatus`='yes'");
+		load_view("Template/adminprofile_homepage_reviews.php", $pageinfo );
+	}
+
 	function moneyaccount($data, $printjson = true) {
 		$outp = array("ec" => 1, "data" => 0);
 		if($printjson)

@@ -90,7 +90,7 @@ var homePage = {
 }
 
 var adminPage = {
-	approve : function(event,obj){
+	approve : function(event,obj,dbColumn){
 		event.preventDefault();
 		$(obj).addClass('disabled');
 		var link = window.location .protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
@@ -100,6 +100,7 @@ var adminPage = {
 			data 	: {
 						tid			: 	obj.getAttribute('tid'),
 						starttime 	: 	obj.getAttribute('starttime'),
+						dbColumn	: 	dbColumn
 			},
 			success: function(msg){
 				$(obj).removeClass('disabled').addClass('btn-success').html('Approved');
