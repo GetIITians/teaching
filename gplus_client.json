@@ -1,0 +1,10 @@
+{
+	"web":{
+		"client_id":"747266115104-g1jr1uoal3o8tne7ebva93t60c9oipss.apps.googleusercontent.com",
+		"auth_uri":"https://accounts.google.com/o/oauth2/auth",
+		"token_uri":"https://accounts.google.com/o/oauth2/token",
+		"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+		"client_secret":"pwCOh1DS8H3KmPgq16t7eMMy",
+		"javascript_origins":["http://getiitians.com","http://localhost.com"]
+	}
+}

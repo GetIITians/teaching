@@ -1,7 +1,6 @@
 <?php
 include "includes/app.php";
 
-
 include ( 'Facebook/FacebookSession.php' );
 require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
 require_once( 'Facebook/FacebookRequest.php' );

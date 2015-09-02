@@ -132,26 +132,18 @@ load_view("Template/navbarnew.php");
 									</ul>
 									<ul class="collapsible uncollapsed" >
 										 <li>
-											<div>Home/Online Tuition</div>
 											<div style="padding:6px;">
 												<div class="row">
 													<div class="col-xs-12">
-														<input id="home1" type="checkbox" class="filled-in" name="home" value='1' checked />
+														<input id="home1" type="checkbox" class="filled-in" name="home" value='1' />
 														<label style="padding-left:23px;" for="home1" >
 															Home Tuition
 														</label>
-													</div>
-													<div class="col-xs-12">
-													<input id="home2" type="checkbox" class="filled-in" name="home" value='2' checked />
-														<label style="padding-left:23px;" for="home2" >
-															Online Classes
-														</label>
-													</div>
-												
+													</div>												
 												</div>
 											</div>
 										</li>
-										<li>
+										<li id="homeTutionPinCode" style="display:none;">
 											<div>Pin Code</div>
 											<div style="padding:6px;">
 												<div class="row">

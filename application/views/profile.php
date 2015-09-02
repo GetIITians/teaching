@@ -67,6 +67,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				</div>
 				<div id="reviews" <?php echo profile_tabs(4,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php
+					//echo "<pre>";print_r($inp);echo "<pre>";
 					load_view("Template/profile_reviews.php", Fun::mergeifunset($inp, array("reviewname" => "studentname")));
 				?>
 				</div>
@@ -97,14 +98,14 @@ load_view("popup.php",array("name"=>"timeslot", "title" => "Please select your f
 load_view("Template/bottom.php",array("needbody"=>false));
 ?>
 	<script>
-	var selectedtopic = "";
-	function displaytext() {
-		document.getElementById("displayte").style.visibility = "hidden";
-	}
-	function displaytext_t2() {
-		document.getElementById("getText").style.visibility = "visible";
-		document.getElementById("getText1").style.visibility = "visible";
-	}
+		var selectedtopic = "";
+		function displaytext() {
+			document.getElementById("displayte").style.visibility = "hidden";
+		}
+		function displaytext_t2() {
+			document.getElementById("getText").style.visibility = "visible";
+			document.getElementById("getText1").style.visibility = "visible";
+		}
 	</script>
 	<script src="js/profile.js"></script>
 	<script src="js/bootstrap.min.js"></script>

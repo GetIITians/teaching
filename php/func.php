@@ -593,6 +593,7 @@
 		$args = func_get_args();
 		$inplist = array_slice($args, 1);
 		$outp = getval(0,$args);
+		//echo "<pre>";print_r($outp);echo "<pre>";
 		foreach($inplist as $i => $val) {
 			$outp = getval( $val, $outp );
 		}

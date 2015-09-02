@@ -40,7 +40,7 @@ $_ginfo["query"]["subjectnamelist"] = "select tid, group_concat(distinct subject
 
 $_ginfo["query"]["accountbalance"] = "select uid, sum(amount) as mymoney from moneyaccount group by uid";
 
-$_ginfo["query"]["allreviews"] = "select rate, feedback, tid, sid, users.name as teachername, users1.name as studentname from booked left join users on users.id = tid left join users as users1 on users1.id = sid where (feedback is not null AND feedback != '' ) ";
+$_ginfo["query"]["allreviews"] = "select rate, feedback, tid, sid, users.name as teachername, users1.name as studentname from booked left join users on users.id = tid left join users as users1 on users1.id = sid where (feedback is not null AND feedback != '' AND feedbackStatus = 'yes') ";
 
 $_ginfo["query"]["teacherratings"] = "select tid, avg(rate) as avgrating, count(rate) as numpeople from booked where rate is not null group by tid";
 
