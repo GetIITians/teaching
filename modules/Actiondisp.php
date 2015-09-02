@@ -142,16 +142,16 @@ class Actiondisp{
 		}
 
 		if($ec>0){ 
-			list($query,$param)=Funs::tejpal_output($data);
+			list($query,$param,$relv_query)=Funs::tejpal_output($data);
 			mergeifunset($param, array('max'=>$data['max'], 'maxl'=>$data["maxl"], 'minl'=>0, 'min'=>0));
 			$qoutput=Sqle::autoscroll($query, $param, null, '', true, null, $_ginfo["numsearchr"]["loadadd"]);
+			$relv_qoutput=Sqle::autoscroll($relv_query, $param, null, '', true, null, $_ginfo["numsearchr"]["loadadd"]);
 			//fb($qoutput,'row',FirePHP::LOG);
-			
-			$odata=Fun::getflds(array("max", "maxl", "qresultlen"), $qoutput); 
+			$odata=Fun::getflds(array("max", "maxl", "qresultlen"), $qoutput);
+			$relv_odata=Fun::getflds(array("max", "maxl", "qresultlen"), $relv_qoutput); 
 			/* Narayan Waraich */
-			//echo "<pre>";	print_r($qoutput['qresult'])	;echo "<pre>";
 			$ratingBigBox = Funs::ratingBigBox($qoutput['qresult']);
-
+			$relv_ratingBigBox = Funs::ratingBigBox($relv_qoutput['qresult']);
 
 			$rating_result = array();		
 			if (User::islogin())
@@ -165,8 +165,12 @@ class Actiondisp{
 			echo json_encode(array('ec'=>$ec,'data'=>$odata))."\n";
 		}
 		if($ec<0)
-			return; 
-		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox));
+			return;
+		if(!empty($qoutput['qresult'])){
+		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox,"isrelv"=>"0"));
+		} else if(!empty($relv_qoutput['qresult'])) {	
+		load_view("Template/teacherlist.php",array("qresult"=>$relv_qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$relv_ratingBigBox,"isrelv"=>"1"));
+		}
 	}
 	function disptopics($data, $printjson = true) {
 		$outp = array("ec" => 1, "data" => 0);

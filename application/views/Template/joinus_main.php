@@ -1,7 +1,6 @@
 <div id="main_form_section">
 	<div class="row">
 		<div class="col-xs-12">
-
 			<div class="row">
 				<div id="errorReport">
 				</div>
@@ -1522,7 +1521,7 @@
 					<div class="file-field input-field">
 						<input class="file-path validate" type="text" placeholder="Click to upload file"/>
 						<div>
-							<input type="file" name="resumefile" />
+							<input type="file" name="resumefile"  data-condition="simple" />
 						</div>
 					</div>
 				</div>
@@ -1571,8 +1570,6 @@
 					</button>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 </div>

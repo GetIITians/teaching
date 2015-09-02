@@ -14,7 +14,6 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
     <span>Step 2&nbsp;:&nbsp;Select a topic for the free class</span>
   </div>
 </div>
-
 	<main class="profile">
 		<div class="container">
 			<ul id="profiletabs" class="row" role="tablist">
@@ -50,6 +49,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				</li>
 			</ul>
 			<div class="tab-content row">
+
 				<div id="profile" <?php echo profile_tabs(1,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php 
 					load_view("Template/profile_about.php", $inp);
@@ -73,7 +73,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				</div>
 				<div id="topics" <?php echo profile_tabs(5,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php
-					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,array("tid"=>$tid,'minfees'=>$jsonArray['minfees'])));
+					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,Fun::mergeifunset(array("tid"=>$tid,'minfees'=>$jsonArray['minfees'],"resignupmsg"=>$resignupmsg),$st_detail)));
 				?>
 				</div>
 				<div id="account" <?php echo profile_tabs(6,$tabid,'tabpanel'); ?> role="tabpanel">

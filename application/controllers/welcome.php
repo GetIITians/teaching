@@ -35,7 +35,7 @@ class Welcome extends CI_Controller {
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");
 		//handle_request($arr);
-		//$arr=array("pincode"=>"asd","action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"asas sd sd","subject"=>"","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
+		//$arr=array("pincode"=>"","action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"11","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
 		//Actiondisp::search($arr);
 		}
 	
@@ -232,6 +232,21 @@ class Welcome extends CI_Controller {
 	}
 	
 		public function profile($tid=0,$tabid=1) { 
+		/* By Yogy */
+			$pageinfo=array();
+			$pageinfo["resignupmsg"]='';
+			if(isset($_POST['resignup'])) {
+				$handle_signup=handle_request(Fun::mergeifunset($_POST, array("action"=>"resignup")));
+				if($handle_signup["ec"]<0) {
+				sets("resignupmsg",errormsg($handle_signup["ec"],ispost("resignup")));
+				Fun::redirect(BASE."profile/11/5");
+				}
+			}
+			if(isses("resignupmsg")) {
+				$pageinfo["resignupmsg"]=gets("resignupmsg");
+				unsets("resignupmsg");
+			}
+		/* ...... */	
 			$this->load->library('uri'); 
 			if (!empty($this->uri->segment(2))) {
 				$tid = $this->uri->segment(2);	
@@ -261,7 +276,7 @@ class Welcome extends CI_Controller {
 				if($uprofile["type"]=='t' ){
 					if(isset($_FILES["profile_upload"]) && $_FILES["profile_upload"]["size"]>0  ){
 							$uf=Fun::profile_upload_file($_FILES["profile_upload"]);
-							
+
 							$name=preg_replace('/\\.[^.\\s]{3,4}$/', '', $bigpic);
 							$pic=$name."_small.".pathinfo($_FILES['profile_upload']['name'],PATHINFO_EXTENSION);
 							resizeimg($bigpic,$pic,$_ginfo['imgheight'],$_ginfo['imgwidth']);
@@ -282,7 +297,7 @@ class Welcome extends CI_Controller {
 					$topicinfo=array('cst_tree'=>$cst_tree,"tid"=>$tid);
 					$topicinfo["class_olist"]=Funs::cst_tree2classlist($cst_tree);
 					$topicinfo["mysubj"]=Sql::getArray("select subjects.*,all_classes.classname, all_subjects.subjectname, all_topics.topicname from subjects left join all_classes on all_classes.id=subjects.c_id left join all_subjects on all_subjects.id=subjects.s_id left join all_topics on all_topics.id=subjects.t_id where tid=?",'i',array(&$tid));
-					$pageinfo=array();
+					//$pageinfo=array();
 					$pageinfo["aboutinfo"]=Sqle::getR("select teachers.*, users.*, takendemo.isdonedemo from teachers left join users on users.id=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid where teachers.tid={tid} limit 1", array("tid" => $tid, "uid" => 0+User::loginId()));
 					if($pageinfo["aboutinfo"]==null){
 							Fun::redirect(HOST);
@@ -316,7 +331,8 @@ class Welcome extends CI_Controller {
 					mergeifunset($pageinfo, Funs::moneyaccount($tid));
 					$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where tid={tid} ", array("tid" => $tid));
 					$pageinfo["cansee"] = (User::loginId() == $tid || User::isloginas("a"));
-					$pageinfo["canedit"] = (User::loginId() == $tid);  
+					$pageinfo["canedit"] = (User::loginId() == $tid);
+					if(User::isloginas('s')) {$pageinfo["st_detail"]= User::userProfile(User::loginId());} 
 					load_view("profile.php",$pageinfo);            
 				}
 				else if($uprofile['type']=='s') {

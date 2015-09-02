@@ -1,6 +1,61 @@
 <script>	var topics=<?php echo json_encode($cst_tree); ?>;	</script>
 
-<?php $_SESSION['isdonedemo']= $isdonedemo;
+<?php
+
+$defopen="signupwindow";
+
+    load_view('Template/form_errors.php',array("msg"=>$resignupmsg));
+ if(empty($phone)): ?>
+<div class="alert alert-success alert-dismissible fade in" role="alert">
+	Please register Your Mobile Number to book a class.<a id="mob_update_link" data-toggle="modal" data-target="#myModal">click here!</a>
+</div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <a data-dismiss="modal">X</a>
+        <div class="modal-dialog" role="document">
+<div class="row center">
+              <form class="col s12 l12" method="post" onsubmit='return ms.mobregisterform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php }else{ ?>  <?php } ?>  autocomplete="off" >
+                <div id="signupwindow" style='<?php dit($defopen=="signupwindow"); ?>' >
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input name="name" type="hidden" value="<?php echo $name; ?>">
+                      <input id="phone" name="phone" type="text" data-condition="phone" value="1254124512" >
+                      <label for="phone">Mobile Number</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <button class="btn waves-effect waves-light" name="resignup" type="submit" id="submit_button">
+                        Submit<i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div id="otpwindow" style='<?php dit($defopen=="otpwindow"); ?>' >
+
+                  <div class="col s12">
+                    An OTP has been sent to your phone. Please enter it below.
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="otp" name="otp" type="text" data-condition="simple" class="validate" >
+                      <label for="otp">One Time Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <button class="btn waves-effect waves-light"  name="resignup" type="submit" >Submit
+                        <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+        </div>
+        </div>
+	</div>       
+<?php endif; 
+$_SESSION['isdonedemo']= $isdonedemo;
 if(!$isdonedemo) { 
 ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
@@ -14,7 +69,9 @@ if(!$isdonedemo) {
 ?>
 
 <div class="row">
-	<?php if(User::loginId()==$tid) : ?>
+	<?php
+
+	 if(User::loginId()==$tid) : ?>
 	<div class="col-md-3 col-xs-12">
 		<h5 class="grey-text text-darken-2">Please add your topics</h5>
 		<hr class="underlined">
@@ -67,7 +124,7 @@ if(!$isdonedemo) {
 				</thead>
 				<tbody data-tid="<?php echo $tid; ?>" data-action="disptopics" id="teacherdisptopics" >
 					<?php
-						load_view("Template/teacher_topiclist.php", array("mysubj" => $mysubj, "tid" => $tid));
+						load_view("Template/teacher_topiclist.php", array("mysubj" => $mysubj, "tid" => $tid,"user_mob"=>$phone));
 					?>
 				</tbody>
 			</table>

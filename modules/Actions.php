@@ -88,7 +88,12 @@ class Actions{
 		$outp["ec"]=Funs::otpstore($data["phone"], ($data["type"]=='s' ? $data["name"] : $data["fname"]),$data["email"] );
 		return $outp;
 	}
-
+	function resignupotp($data){
+		$outp=array("ec"=>-5,"data"=>0);
+		$outp["ec"]=Funs::otpstore($data["phone"], ($data["type"]=='s' ? $data["name"] : $data["fname"]));
+		
+		return $outp;
+	}
 	function confirmotp($data){//this function is not used.
 		$outp=array("ec"=>1,"data"=>0);
 		if(gets("phone")!=$data["otp"])

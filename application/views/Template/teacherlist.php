@@ -1,4 +1,8 @@
-<?php
+<?php if($isrelv==1): ?>
+No Result Found...
+<br>
+Relevent Results
+<?php endif;
 //fb($qresult,'row',FirePHP::LOG);
 
 $searchPageRows = 0;
@@ -62,6 +66,7 @@ $searchPageRows++;
 
 <div class="col-md-3 col-xs-6">
 <div class="card teacherlistelm">
+
 <?php
 $joinus_data  = json_decode($row['jsoninfo']);
 $name   = convchars($row["name"]);
