@@ -93,8 +93,9 @@ var adminPage = {
 	approve : function(event,obj){
 		event.preventDefault();
 		$(obj).addClass('disabled');
+		var link = window.location .protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
 		$.ajax({
-			url		: 'http://localhost/teaching/approve_review',
+			url		: link+'/approve_review',
 			type	: 'POST',
 			data 	: {
 						tid			: 	obj.getAttribute('tid'),
