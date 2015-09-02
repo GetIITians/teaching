@@ -24,7 +24,7 @@ use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
  
 // init app with app id (APPID) and secret (SECRET)
-FacebookSession::setDefaultApplication(gget("fbkeys", "appid") ,gget("fbkeys", "appsec"));
+FacebookSession::setDefaultApplication('781444138632186' ,'81c3207bf1cf29b3a2547976b0b94c25');
  
 // login helper with redirect_uri
 $helper = new FacebookRedirectLoginHelper( HOST.'fb2.php' );
