@@ -950,7 +950,7 @@ footer .footer-copyright{
 
 #adminReviews > div:not(:first-child){
 	background-color: #EEE;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	font-family: Roboto;
 }
 
@@ -960,6 +960,11 @@ footer .footer-copyright{
 
 #adminReviews > div:not(:first-child) div.img{
 	padding: 0.2rem 15px;
+}
+
+#adminReviews > div:not(:first-child) div.date{
+	font-size: 0.9rem;
+	padding: 0.8rem 5px;
 }
 
 #adminReviews > div:not(:first-child) div:last-of-type{

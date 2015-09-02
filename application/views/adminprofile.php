@@ -36,7 +36,7 @@ load_view("Template/navbarnew.php",$inp);
 							Profile
 						</a>
 					</li>
-					<li role="presentation" class="col-sm-3 col-xs-6">
+					<li role="presentation" class="active col-sm-3 col-xs-6">
 						<a href="#users" aria-controls="Users" role="tab" data-toggle="tab">
 							Users
 						</a>
@@ -46,7 +46,7 @@ load_view("Template/navbarnew.php",$inp);
 							Account
 						</a>
 					</li>
-					<li role="presentation" class="active col-sm-3 col-xs-6" aria-controls="Reviews" role="tab" data-toggle="tab">
+					<li role="presentation" class="col-sm-3 col-xs-6" aria-controls="Reviews" role="tab" data-toggle="tab">
 						<a href="#reviews" aria-controls="Reviews" role="tab" data-toggle="tab">
 							Reviews
 						</a>
@@ -58,7 +58,7 @@ load_view("Template/navbarnew.php",$inp);
 						load_view("Template/adminprofile_about.php", $inp);
 					?>
 					</div>
-					<div id="users" class="tab-pane col-xs-12" data-action='adminprofile_users' role="tabpanel">
+					<div id="users" class="tab-pane active col-xs-12" data-action='adminprofile_users' role="tabpanel">
 					<?php
 						handle_disp(array(), "adminprofile_users");
 					?>
@@ -69,7 +69,7 @@ load_view("Template/navbarnew.php",$inp);
 		//            load_view("Template/moneyaccount.php", $inp);
 					?>
 					</div>
-					<div id="reviews" class="tab-pane active col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
+					<div id="reviews" class="tab-pane col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
 					<?php
 						handle_disp(array(), "adminprofile_reviews");
 					?>

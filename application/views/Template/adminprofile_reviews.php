@@ -3,8 +3,11 @@
 		<div class="col-sm-2 hidden-xs">
 			Student
 		</div>
-		<div class="col-sm-4 col-xs-6">
+		<div class="col-sm-3 col-xs-4">
 			Feedback
+		</div>
+		<div class="col-sm-1 col-xs-2">
+			Date
 		</div>
 		<div class="col-sm-2 hidden-xs">
 			Teacher
@@ -24,8 +27,11 @@
 		<div class="col-sm-2 hidden-xs">
 			<?php echo $review["student"] ?>
 		</div>
-		<div class="col-sm-4 col-xs-6">
+		<div class="col-sm-3 col-xs-4">
 			<?php echo $review["feedback"] ?>
+		</div>
+		<div class="col-sm-1 col-xs-2 date">
+			<?php echo date('j F, Y',$review["starttime"]); ?>
 		</div>
 		<div class="col-sm-2 hidden-xs">
 			<?php echo ucwords($review["teacher"]) ?>

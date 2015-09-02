@@ -1,14 +1,21 @@
 <?php
-$trows = add(array(array("Name", "Email", "Phone", "Action", "Add money")), map( $allusers["teachers"], function ($row) { 
-	return Fun::get_key_values(Fun::getflds(array("name", "email", "phone"), $row)); 
-}));
 
-$srows = add(array(array("Name", "Email", "Phone", "Action", "Add money")), map( $allusers["students"], function ($row) { 
-	return Fun::get_key_values(Fun::getflds(array("name", "email", "phone"), $row)); 
+$trows = add(
+				array(array("Name", "Email", "Joined", "Phone", "Action", "Add money"))
+				,
+				map(
+					$allusers["teachers"], function ($row) {
+						return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone"), $row));
+					}
+				)
+			);
+
+$srows = add(array(array("Name", "Email", "Joined", "Phone", "Action", "Add money")), map( $allusers["students"], function ($row) { 
+	return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone"), $row)); 
 }));
 $addmoney = function($uid) {
 ?>
-	<form onsubmit="form.req(this);return false;" data-action='addmoney' data-res='success.push("Added Successfully");div.reload($("#tab_account")[0]);' >
+	<form onsubmit="form.req(this);return false;" data-action='addmoney' data-res='success.push("Added Successfully");div.reload($("#account")[0]);' >
 		<?php
 			hidinp("uid", $uid);
 		?>
@@ -25,12 +32,12 @@ $tfunc = function($r, $c) use($addmoney, $allusers) {
 		$row = $allusers["teachers"][$r-1];
 		if($row["isselected"] != "a") {
 		?>
-		<button type="button" onclick='button.sendreq_v2(this);' data-isselected='a' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" class="btn blue waves-effect waves-light" data-res='div.reload($("#tab_users")[0]);' >Accept</button>
+		<button type="button" onclick='button.sendreq_v2(this);' data-isselected='a' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" class="btn blue waves-effect waves-light" data-res='div.reload($("#users")[0]);' >Accept</button>
 		<?php
 		}
 		if($row["isselected"] != "r" ) {
 		?>
-		<button type="button" class="btn blue waves-effect waves-light" onclick='button.sendreq_v2(this);' data-isselected='r' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" data-res='div.reload($("#tab_users")[0]);' >Reject</button>
+		<button type="button" class="btn blue waves-effect waves-light" onclick='button.sendreq_v2(this);' data-isselected='r' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" data-res='div.reload($("#users")[0]);' >Reject</button>
 		<?php
 		}
 		return true;
