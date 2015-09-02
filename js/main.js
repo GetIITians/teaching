@@ -207,8 +207,8 @@ var ms={
 	},
 	signupform:function(obj,needotp,emailexist){ 
 		if(needotp){ 
-			if($("#signupwindow").is(":visible")){ 
-				if(form.valid.action1(  $("#signupwindow")[0]  )){
+			if($("#signupwindow").is(":visible")){
+				if(form.valid.action1(  $("#signupwindow")[0]  )){ 
 					form.sendreq1(obj, $("#signupwindow").find("button[type=submit]")[0] );
 				}
 				return false;
@@ -217,7 +217,20 @@ var ms={
 		} else {
 			return form.valid.action1( $("#signupwindow")[0] ) ;
 		}
-	},
+	},/* By Yogy */
+	mobregisterform:function(obj,needotp,emailexist){ 
+		if(needotp){ 
+			if($("#signupwindow").is(":visible")){
+				if(form.valid.action1(  $("#signupwindow")[0]  )){ 
+					form.sendreq1(obj, $("#signupwindow").find("button[type=submit]")[0] );
+				}
+				return false;
+			} else
+				return form.valid.action1(obj);
+		} else {
+			return form.valid.action1( $("#signupwindow")[0] ) ;
+		}
+	},/* ....... */
 	joinusform:function(obj, needotp){ 
 		var mainwindow = $("#main_form_section");
 		var otpwindow = $("#otp_section");
@@ -253,11 +266,11 @@ var ms={
 		}, function() {
 				ms.refinecallafter();
 		}, "#searchloadingimg");
-	}, // function by yogy 
+	}, /* by yogy */ 
 	orderrefine: function(obj) {
 		($(obj).attr("data-action")=="refinesearch" ? $("input[name=search][type=hidden]").attr("value","") : false);
 		this.refinesearch();
-	}, //function by yogy
+	}, /* ...... */
 	searchloadmore: function(obj){
 		var sdiv = $("#searchresultdiv");
 		var maxl = parseInt(sdiv.attr("data-maxl"));
@@ -295,7 +308,11 @@ var ms={
 			Materialize.toast('Please select the topic first', 4000, 'warning');
 		} 
 	},
-	booktopic: function(obj, cst) {
+	booktopic: function(obj, cst, user_mob) {
+		if(user_mob==''||user_mob==null){
+			$("#mob_update_link").click();
+			return false
+		}
 		selectedtopic=cst;
 		$("#profiletabs2").click();
 		landingPageTab.profileTabContent();

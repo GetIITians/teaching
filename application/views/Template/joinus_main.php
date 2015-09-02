@@ -1522,7 +1522,7 @@
      <div class="file-field input-field">
       <input class="file-path validate" type="text" placeholder="Click to upload file"/>
       <div>
-       <input type="file" name="resumefile" />
+       <input type="file" name="resumefile" data-condition="simple"/>
       </div>
      </div>
     </div>

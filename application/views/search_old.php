@@ -187,8 +187,8 @@ load_view("Template/navbarnew.php");
 										<option value="" >Sort By</option>
 										<option value="1">Experience</option>
 										<option value="2">Fees/hr (High to Low)</option>
-										<!-- <option value="3">Fees/hr (Low to High)</option>
-										--><option value="4">Rating</option>
+										<option value="3">Fees/hr (Low to High)</option>
+										<option value="4">Rating</option>
 										
 									</select>
 				</form>

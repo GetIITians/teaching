@@ -79,7 +79,16 @@ class User extends Sql{
 			return $temp;
 		}
 	}
-
+/* BY YOGY*/	
+public static function updateMob($data){
+		global $_ginfo;
+		$data['update_time']=time();
+		$ip=$_SERVER['REMOTE_ADDR'];
+		$data['last_ip']=$ip;
+		$temp=array('id'=>Sqle::updateVal('users',$data,array("id"=>User::loginId())),'type'=>$data['type']);
+		return $temp;
+	}
+/* ..... */	
 	public static function signIn($email,$password){
 		$temp=Sqle::selectVal("users",'id,type,password,conf',array('email'=>$email),1);
 		if($temp==null)

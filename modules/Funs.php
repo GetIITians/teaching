@@ -350,6 +350,7 @@ abstract class Funs{
 		$hisoutput[1]["uid"] = (0+User::loginId());
 		$setorderby=Funs::setorderby($data['orderby']);
 		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;		
+		$hisoutput[2]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[2].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;
 		return $hisoutput;
 	}
 	public static function get_teacher_classes($tid) {
@@ -472,14 +473,14 @@ abstract class Funs{
 		
 		mergeifunset($params, Fun::getflds(array("class", "subject", "topic","home","pincode"), $data));
 		
-/*cmnt by yogy 		
+		$relv_query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where ( s_id in (select id from all_subjects where subjectname=(select subjectname from all_subjects where id='".$params['subject']."'))) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
+		
 		$query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
 			
-		$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")";   
-cmnt by yogy */		
-
+/*		$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")";   
+*/ 
 /* new query by yogy*/
-		$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";// this query gives results with teachers has no class ,subject ,topic booked 
+/*		$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";*/ // this query gives results with teachers has no class ,subject ,topic booked 
 		$query4 = "select tid from teachers where (".$home_constrain.")";
 /* new query by yogy*/
 		
@@ -487,13 +488,14 @@ cmnt by yogy */
 		$query5 = "select tid from teachers where (".$pincode_constrain.")";
 					
 //		$finalquery = $query1;
+		$relv_finalquery = Fun::intersectionquery(array($relv_query1/*, $query2*/, $query3, $query4, $query5), "tid");
 		$finalquery = Fun::intersectionquery(array($query1/*, $query2*/, $query3, $query4, $query5), "tid");
 //		echo $finalquery;
 //		$finalquery = "(".$query1.") union (".$query2.") ";
 //		$finalquery = Fun::intersectionquery(array($query1, $query2), "tid");
 //		
 		//print_r($finalquery);
-		return array($finalquery , $params);
+		return array($finalquery,$params,$relv_finalquery);
 	}
 
 	public static function addremmoney($money, $commentid='', $uid=null, $add = array(), $mailf=null) {

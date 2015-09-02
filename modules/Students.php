@@ -103,5 +103,21 @@ class Students{
 		}
 		return $outp;
 	}
-
+/* By Yogy*/	
+function resignup($data){
+		global $_ginfo;
+		$outp=array("ec"=>1,"data"=>0);
+		if((gets("phone")!=$data["otp"] ) && $_ginfo["needsignupotp"] ){
+			$outp["ec"]=-17;
+		} else {
+			$update_mob_data=Fun::getflds(array("phone"),$data);
+			$update_mob_data["type"]="s";
+			$temp=User::updateMob($update_mob_data);
+			if(!($temp>0)){
+				$outp["ec"]=$temp;
+			}
+		}
+		return $outp;
+	}
+/* .... */	
 }
