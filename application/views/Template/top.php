@@ -2,7 +2,10 @@
 <html lang="en_US">
 <head>
 
-  <?php  
+  <?php 
+  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+  header("Cache-Control: post-check=0, pre-check=0", false);
+  header("Pragma: no-cache");
   opent("base",array("href"=>HOST));
   ocloset("title",(getNameFromUrl(Fun::getcururl())!='search'?$title[getNameFromUrl(Fun::getcururl())]:($_REQUEST['q']!=''?'Search :: '.$_REQUEST['q']:$title[getNameFromUrl(Fun::getcururl())])));
   addall_css($css);
