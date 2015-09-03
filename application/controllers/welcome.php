@@ -332,7 +332,9 @@ class Welcome extends CI_Controller {
 					$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where tid={tid} ", array("tid" => $tid));
 					$pageinfo["cansee"] = (User::loginId() == $tid || User::isloginas("a"));
 					$pageinfo["canedit"] = (User::loginId() == $tid);
-					if(User::isloginas('s')) {$pageinfo["st_detail"]= User::userProfile(User::loginId());} 
+					if(User::isloginas('s')){
+						$pageinfo["st_detail"]= User::userProfile(User::loginId());
+					}
 					load_view("profile.php",$pageinfo);            
 				}
 				else if($uprofile['type']=='s') {

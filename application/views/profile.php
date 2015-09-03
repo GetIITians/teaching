@@ -72,8 +72,12 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				?>
 				</div>
 				<div id="topics" <?php echo profile_tabs(5,$tabid,'tabpanel'); ?> role="tabpanel">
-				<?php
+				<?php 
+				if(User::isloginas('s')){
 					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,Fun::mergeifunset(array("tid"=>$tid,'minfees'=>$jsonArray['minfees'],"resignupmsg"=>$resignupmsg),$st_detail)));
+				} else {
+					load_view("Template/profile_topics.php",Fun::mergeifunset($topicinfo,array("tid"=>$tid,'minfees'=>$jsonArray['minfees'],"resignupmsg"=>$resignupmsg)));
+				}
 				?>
 				</div>
 				<div id="account" <?php echo profile_tabs(6,$tabid,'tabpanel'); ?> role="tabpanel">

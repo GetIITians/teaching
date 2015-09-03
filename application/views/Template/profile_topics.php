@@ -5,7 +5,7 @@
 $defopen="signupwindow";
 
     load_view('Template/form_errors.php',array("msg"=>$resignupmsg));
- if(empty($phone)): ?>
+ if(empty($phone) && (User::isloginas('s'))): ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
 	Please register Your Mobile Number to book a class.<a id="mob_update_link" data-toggle="modal" data-target="#myModal">click here!</a>
 </div>
@@ -123,8 +123,12 @@ if(!$isdonedemo) {
 					</tr>
 				</thead>
 				<tbody data-tid="<?php echo $tid; ?>" data-action="disptopics" id="teacherdisptopics" >
-					<?php
+					<?php if(User::isloginas('s')){ 
 						load_view("Template/teacher_topiclist.php", array("mysubj" => $mysubj, "tid" => $tid,"user_mob"=>$phone));
+					} else {
+						load_view("Template/teacher_topiclist.php", array("mysubj" => $mysubj, "tid" => $tid));
+					}
+
 					?>
 				</tbody>
 			</table>
