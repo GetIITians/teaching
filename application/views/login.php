@@ -106,7 +106,7 @@ load_view("Template/navbarnew.php",$inp);
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-								<a href="<?php echo HOST.'fb.php'; ?>" class="btn-large waves-effect waves-light blue darken-3" style="width:100%;">
+								<a href="<?php echo HOST.'fb2.php'; ?>" class="btn-large waves-effect waves-light blue darken-3" style="width:100%;">
 									<img src="images/facebook-login-icon.png" width="30" height="35" class="left" style="margin-top:9px;">&nbsp;&nbsp;&nbsp;Log In with facebook
 								</a>
 							</div>

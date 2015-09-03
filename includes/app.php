@@ -39,6 +39,7 @@
 
 	include_once( 'includes/data_loadonce.php' ) ;
 	include_once('includes/initdb.php');
+	include_once('includes/third_party.php');
 	include "php/display.php";
 	include "php/specf_display.php";
 

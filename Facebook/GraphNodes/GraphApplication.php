@@ -21,60 +21,23 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook;
+namespace Facebook\GraphNodes;
 
 /**
- * Interface FacebookHttpable
+ * Class GraphApplication
+ *
  * @package Facebook
  */
-interface FacebookHttpable
+
+class GraphApplication extends GraphObject
 {
-
-  /**
-   * The headers we want to send with the request
-   *
-   * @param string $key
-   * @param string $value
-   */
-  public function addRequestHeader($key, $value);
-
-  /**
-   * The headers returned in the response
-   *
-   * @return array
-   */
-  public function getResponseHeaders();
-
-  /**
-   * The HTTP status response code
-   *
-   * @return int
-   */
-  public function getResponseHttpStatusCode();
-
-  /**
-   * The error message returned from the client
-   *
-   * @return string
-   */
-  public function getErrorMessage();
-
-  /**
-   * The error code returned by the client
-   *
-   * @return int
-   */
-  public function getErrorCode();
-
-  /**
-   * Sends a request to the server
-   *
-   * @param string $url The endpoint to send the request to
-   * @param string $method The request method
-   * @param array  $parameters The key value pairs to be sent in the body
-   *
-   * @return string|boolean Raw response from the server or false on fail
-   */
-  public function send($url, $method = 'GET', $parameters = array());
-
+    /**
+     * Returns the ID for the application.
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->getProperty('id');
+    }
 }

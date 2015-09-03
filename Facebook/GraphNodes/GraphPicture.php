@@ -21,13 +21,52 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook;
+namespace Facebook\GraphNodes;
 
 /**
- * Class FacebookClientException
+ * Class GraphPicture
+ *
  * @package Facebook
  */
-class FacebookClientException extends FacebookRequestException
+class GraphPicture extends GraphObject
 {
+    /**
+     * Returns true if user picture is silhouette.
+     *
+     * @return bool|null
+     */
+    public function isSilhouette()
+    {
+        return $this->getProperty('is_silhouette');
+    }
 
+    /**
+     * Returns the url of user picture if it exists
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->getProperty('url');
+    }
+
+    /**
+     * Returns the width of user picture if it exists
+     *
+     * @return int|null
+     */
+    public function getWidth()
+    {
+        return $this->getProperty('width');
+    }
+
+    /**
+     * Returns the height of user picture if it exists
+     *
+     * @return int|null
+     */
+    public function getHeight()
+    {
+        return $this->getProperty('height');
+    }
 }

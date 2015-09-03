@@ -1,8 +1,0 @@
-Here is your client ID
-747266115104-g1jr1uoal3o8tne7ebva93t60c9oipss.apps.googleusercontent.com
-
-Here is your client secret
-pwCOh1DS8H3KmPgq16t7eMMy
-
-Here is your API key
-AIzaSyABou16wi88sqs3Dgcoe-qf9SpcVuTn48U

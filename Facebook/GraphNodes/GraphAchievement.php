@@ -29,7 +29,7 @@ namespace Facebook\GraphNodes;
  * @package Facebook
  */
 
-class GraphAchievement extends GraphNode
+class GraphAchievement extends GraphObject
 {
     /**
      * @var array Maps object key names to Graph object types.
@@ -46,7 +46,7 @@ class GraphAchievement extends GraphNode
      */
     public function getId()
     {
-        return $this->getField('id');
+        return $this->getProperty('id');
     }
 
     /**
@@ -56,7 +56,7 @@ class GraphAchievement extends GraphNode
      */
     public function getFrom()
     {
-        return $this->getField('from');
+        return $this->getProperty('from');
     }
 
     /**
@@ -66,7 +66,7 @@ class GraphAchievement extends GraphNode
      */
     public function getPublishTime()
     {
-        return $this->getField('publish_time');
+        return $this->getProperty('publish_time');
     }
 
     /**
@@ -76,7 +76,7 @@ class GraphAchievement extends GraphNode
      */
     public function getApplication()
     {
-        return $this->getField('application');
+        return $this->getProperty('application');
     }
 
     /**
@@ -86,7 +86,7 @@ class GraphAchievement extends GraphNode
      */
     public function getData()
     {
-        return $this->getField('data');
+        return $this->getProperty('data');
     }
 
     /**
@@ -108,6 +108,6 @@ class GraphAchievement extends GraphNode
      */
     public function isNoFeedStory()
     {
-        return $this->getField('no_feed_story');
+        return $this->getProperty('no_feed_story');
     }
 }

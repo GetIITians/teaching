@@ -8,16 +8,16 @@ include "includes/app.php";
 // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
 require_once 'Google/google-api-php-client/src/Google/autoload.php';
 
-$client_id = "747266115104-g1jr1uoal3o8tne7ebva93t60c9oipss.apps.googleusercontent.com";
-$client_secret = "pwCOh1DS8H3KmPgq16t7eMMy";
+$client_id = Google_client_id;
+$client_secret = Google_client_secret;
 $redirect_uri = HOST.'gplus.php';
 //var_dump($redirect_uri);
 //die();
-$simple_api_key = "AIzaSyABou16wi88sqs3Dgcoe-qf9SpcVuTn48U";
+$simple_api_key = Google_simple_api_key;
  
 //Create Client Request to access Google API
 $client = new Google_Client();
-$client->setApplicationName( gget("gpluskeys", "appname") );
+$client->setApplicationName("getIITians");
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
 $client->setRedirectUri($redirect_uri);

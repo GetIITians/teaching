@@ -28,7 +28,7 @@ namespace Facebook\GraphNodes;
  *
  * @package Facebook
  */
-class GraphLocation extends GraphNode
+class GraphLocation extends GraphObject
 {
     /**
      * Returns the street component of the location
@@ -37,7 +37,7 @@ class GraphLocation extends GraphNode
      */
     public function getStreet()
     {
-        return $this->getField('street');
+        return $this->getProperty('street');
     }
 
     /**
@@ -47,7 +47,7 @@ class GraphLocation extends GraphNode
      */
     public function getCity()
     {
-        return $this->getField('city');
+        return $this->getProperty('city');
     }
 
     /**
@@ -57,7 +57,7 @@ class GraphLocation extends GraphNode
      */
     public function getState()
     {
-        return $this->getField('state');
+        return $this->getProperty('state');
     }
 
     /**
@@ -67,7 +67,7 @@ class GraphLocation extends GraphNode
      */
     public function getCountry()
     {
-        return $this->getField('country');
+        return $this->getProperty('country');
     }
 
     /**
@@ -77,7 +77,7 @@ class GraphLocation extends GraphNode
      */
     public function getZip()
     {
-        return $this->getField('zip');
+        return $this->getProperty('zip');
     }
 
     /**
@@ -87,7 +87,7 @@ class GraphLocation extends GraphNode
      */
     public function getLatitude()
     {
-        return $this->getField('latitude');
+        return $this->getProperty('latitude');
     }
 
     /**
@@ -97,6 +97,6 @@ class GraphLocation extends GraphNode
      */
     public function getLongitude()
     {
-        return $this->getField('longitude');
+        return $this->getProperty('longitude');
     }
 }

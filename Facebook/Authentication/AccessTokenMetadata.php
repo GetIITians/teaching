@@ -73,29 +73,13 @@ class AccessTokenMetadata
      *
      * @return mixed
      */
-    public function getField($field, $default = null)
+    public function getProperty($field, $default = null)
     {
         if (isset($this->metadata[$field])) {
             return $this->metadata[$field];
         }
 
         return $default;
-    }
-
-    /**
-     * Returns a value from the metadata.
-     *
-     * @param string $field   The property to retrieve.
-     * @param mixed  $default The default to return if the property doesn't exist.
-     *
-     * @return mixed
-     *
-     * @deprecated 5.0.0 getProperty() has been renamed to getField()
-     * @todo v6: Remove this method
-     */
-    public function getProperty($field, $default = null)
-    {
-        return $this->getField($field, $default);
     }
 
     /**
@@ -153,7 +137,7 @@ class AccessTokenMetadata
      */
     public function getAppId()
     {
-        return $this->getField('app_id');
+        return $this->getProperty('app_id');
     }
 
     /**
@@ -163,7 +147,7 @@ class AccessTokenMetadata
      */
     public function getApplication()
     {
-        return $this->getField('application');
+        return $this->getProperty('application');
     }
 
     /**
@@ -174,7 +158,7 @@ class AccessTokenMetadata
      */
     public function isError()
     {
-        return $this->getField('error') !== null;
+        return $this->getProperty('error') !== null;
     }
 
     /**
@@ -214,7 +198,7 @@ class AccessTokenMetadata
      */
     public function getExpiresAt()
     {
-        return $this->getField('expires_at');
+        return $this->getProperty('expires_at');
     }
 
     /**
@@ -224,7 +208,7 @@ class AccessTokenMetadata
      */
     public function getIsValid()
     {
-        return $this->getField('is_valid');
+        return $this->getProperty('is_valid');
     }
 
     /**
@@ -239,7 +223,7 @@ class AccessTokenMetadata
      */
     public function getIssuedAt()
     {
-        return $this->getField('issued_at');
+        return $this->getProperty('issued_at');
     }
 
     /**
@@ -250,7 +234,7 @@ class AccessTokenMetadata
      */
     public function getMetadata()
     {
-        return $this->getField('metadata');
+        return $this->getProperty('metadata');
     }
 
     /**
@@ -291,7 +275,7 @@ class AccessTokenMetadata
      */
     public function getProfileId()
     {
-        return $this->getField('profile_id');
+        return $this->getProperty('profile_id');
     }
 
     /**
@@ -302,7 +286,7 @@ class AccessTokenMetadata
      */
     public function getScopes()
     {
-        return $this->getField('scopes');
+        return $this->getProperty('scopes');
     }
 
     /**
@@ -312,7 +296,7 @@ class AccessTokenMetadata
      */
     public function getUserId()
     {
-        return $this->getField('user_id');
+        return $this->getProperty('user_id');
     }
 
     /**

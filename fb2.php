@@ -1,62 +1,74 @@
 <?php
 include "includes/app.php";
 
-include ( 'Facebook/FacebookSession.php' );
-require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
-require_once( 'Facebook/FacebookRequest.php' );
-require_once( 'Facebook/FacebookResponse.php' );
-require_once( 'Facebook/FacebookSDKException.php' );
-require_once( 'Facebook/FacebookRequestException.php' );
-require_once( 'Facebook/FacebookAuthorizationException.php' );
-require_once( 'Facebook/GraphObject.php' );
-require_once( 'Facebook/FacebookHttpable.php' );
-require_once( 'Facebook/FacebookCurl.php' );
-require_once( 'Facebook/FacebookCurlHttpClient.php' );
+require_once __DIR__ . '/Facebook/autoload.php';
 
- 
-use Facebook\FacebookSession;
-use Facebook\FacebookRedirectLoginHelper;
-use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use Facebook\FacebookSDKException;
-use Facebook\FacebookRequestException;
-use Facebook\FacebookAuthorizationException;
-use Facebook\GraphObject;
- 
-// init app with app id (APPID) and secret (SECRET)
-FacebookSession::setDefaultApplication('781444138632186' ,'81c3207bf1cf29b3a2547976b0b94c25');
- 
-// login helper with redirect_uri
-$helper = new FacebookRedirectLoginHelper( HOST.'fb2.php' );
-//echo HOST.'fb2.php';
- 
+$fb = new Facebook\Facebook([
+	'app_id' => Facebook_app_id,
+	'app_secret' => Facebook_app_secret,
+	'default_graph_version' => 'v2.2',
+]);
+
+
+$helper = $fb->getRedirectLoginHelper();
+
 try {
-	$session = $helper->getSessionFromRedirect();
-} catch( FacebookRequestException $ex ) {
-	// When Facebook returns an error
-} catch( Exception $ex ) {
+	$accessToken = $helper->getAccessToken();
+	//var_dump($accessToken);
+
+	// OAuth 2.0 client handler
+	//$oAuth2Client = $fb->getOAuth2Client();
+
+	// Exchanges a short-lived access token for a long-lived one
+	//$longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+	// When Graph returns an error
+	echo 'Graph returned an error: ' . $e->getMessage();
+	exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
 	// When validation fails or other local issues
+	echo 'Facebook SDK returned an error: ' . $e->getMessage();
+	exit;
 }
- 
-if ( isset( $session ) ) {
-	$request = new FacebookRequest( $session, 'GET', '/me' );
-	$response = $request->execute();
-	// get response
-	$graphObject = $response->getGraphObject();
-	 
-	$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
-	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
-	$fbemail = $graphObject->getProperty('email');
 
-	var_dump($graphObject->getProperty('email'));
-	die();
+if (isset($accessToken)) {
+	// Logged in!
+	$_SESSION['facebook_access_token'] = (string) $accessToken;
 
-	User::fglogin(array("type" => "fblogin", "fblogin" => $fbid, "name" => $fbfullname, "email" => $fbemail));
+	// Now you can redirect to another page and use the
+	// access token from $_SESSION['facebook_access_token']
+	//var_dump($_SESSION['facebook_access_token']);
+
+	$fb->setDefaultAccessToken($accessToken);
+
+	try {
+		$response = $fb->get('/me?fields=id,name,email',$accessToken);
+		$userNode = $response->getGraphUser();
+	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		// When Graph returns an error
+		echo 'Graph returned an error: ' . $e->getMessage();
+		exit;
+	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+		// When validation fails or other local issues
+		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
+	}
+
+	//var_dump($userNode);
+	//var_dump($userNode->getProperty('email'));
+	//echo $userNode->getName() . "<br>" . $userNode->getId() . "<br>";
+	User::fglogin(array(
+		"type" => "fblogin",
+		"fblogin" => $userNode->getProperty('id'),
+		"name" => $userNode->getProperty('name'),
+		"email" => $userNode->getProperty('email')
+		)
+	);
 	Fun::redirect(BASE."profile");
+	//echo "<pre>";print_r($userNode->getProperty('email'));echo "</pre>";
 } else {
-	$loginurl = $helper->getLoginUrl(array('scope' => 'email'));
-	Fun::redirect($loginurl);
+	$permissions = ['email'];
+	$loginUrl = $helper->getLoginUrl(HOST.'fb2.php', $permissions);
+	Fun::redirect($loginUrl);
+	//echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
 }
-
-closedb();
-?>
