@@ -109,4 +109,12 @@ $(document).keyup(function(e) {
 		}
 	}
 });
-
+/* By Yogy */
+var yogy = {
+	confirm:function(obj) { 
+		var ch=confirm("Are You Sure to Delete ?");
+		if(ch)
+			button.sendreq_v2(obj);
+	}
+}
+/* ..... */

@@ -38,7 +38,7 @@ $tfunc = function($r, $c) use($addmoney, $allusers) {
 		<button type="button" class="btn blue waves-effect waves-light" onclick='button.sendreq_v2(this);' data-isselected='r' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" data-res='div.reload($("#users")[0]);' >Reject</button>
 		<?php
 		} ?>
-<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delteachers' onclick='button.sendreq_v2(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
+<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delteachers' onclick='yogy.confirm(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
 			Delete
 		</a><?php		
 		return true;
@@ -56,7 +56,7 @@ $sfunc = function($r, $c) use ($addmoney, $allusers) {
 	if($c == 4 && $r > 0 ) {
 		$row = $allusers["students"][$r-1];
 	?>
-<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delstudents' onclick='button.sendreq_v2(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
+<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delstudents' onclick='yogy.confirm(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
 			Delete
 		</a>
 	<?php	
