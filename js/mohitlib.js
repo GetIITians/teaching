@@ -90,7 +90,7 @@ var button={
 				if(respo.ec<0){
 					if(button.hasattr(allattrs,"data-error")){
 						var ec=respo.ec;
-						eval(allattrsmoney["data-error"]);
+						eval(allattrs["data-error"]);
 					}
 					else
 						mohit.alert(ecn[respo.ec]);
