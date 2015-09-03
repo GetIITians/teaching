@@ -126,7 +126,7 @@ class Welcome extends CI_Controller {
 			$result = Help::contactUs($contactus_data);
 			if($result>0){
 				Fun::mailfromfile(gi("adminmailid"), "php/mail/contact.txt", $contactus_data);
-				$msg="Thank you for contact us.We will soon get in touch with you.";
+				$msg="Thank you for contacting us. We will soon get in touch with you.<i class=\"material-icons\">insert emoticon</i>";
 			}
 			else
 				$msg="Error submitting your query. Please try again";

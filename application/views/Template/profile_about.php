@@ -142,6 +142,12 @@
 				?>
 			</span>
 		</div>
+		<div>
+			City :
+			<span class="grey-text text-darken-1">
+				<?php echo $jsonArray['city']; ?>
+			</span>
+		</div>
 		<?php /* if(User::islogin()) : ?>
 		<div>
 			Resume :

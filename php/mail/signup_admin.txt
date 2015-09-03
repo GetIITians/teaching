@@ -1,3 +1,3 @@
 New Sign Up
 Dear Admin,
-{name} just filled the join us form. Please review his form and  add money in his account.
+{name} just filled the sign up form. Please review his form and add money in his account.

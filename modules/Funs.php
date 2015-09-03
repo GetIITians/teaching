@@ -527,14 +527,14 @@ abstract class Funs{
 		$mail->Password   = "iitdelhi1984";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
 
 		$mail->From       = "getiitians@gmail.com";
-		$mail->FromName   = "Himanshu";
+		$mail->FromName   = "getIITians";
 		$mail->Subject    = $subject;
 		$mail->AltBody    = ""; //Text Body
 		$mail->WordWrap   = 5000; // set word wrap
 
 		$mail->MsgHTML($body);
 
-		$mail->AddReplyTo("himanshu@getiitians.com","Himanshu Jain");
+		$mail->AddReplyTo("info@getiitians.com","getIITians");
 
 		//$mail->AddAttachment("/path/to/file.zip");             // attachment
 		//$mail->AddAttachment("/path/to/image.jpg", "new.jpg"); // attachment

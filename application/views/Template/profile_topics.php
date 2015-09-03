@@ -56,6 +56,7 @@ $defopen="signupwindow";
 	</div>       
 <?php endif; 
 $_SESSION['isdonedemo']= $isdonedemo;
+/*
 if(!$isdonedemo) { 
 ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
@@ -65,7 +66,7 @@ if(!$isdonedemo) {
 	Choose a course for free class.
 </div>
 <?php
-}
+}*/
 ?>
 
 <div class="row">

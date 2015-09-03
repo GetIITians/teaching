@@ -177,7 +177,7 @@ Home Tution :
 <p class="grey-text text-darken-2">
 City : <?php echo $joinus_data->{'city'}; ?>
 </p>
-<p class="black-text text-darken-1"><?php echo ($row['ttl_avlsolts']==null?"No timeslots avalible":"Avalible timeslots :".($row['ttl_avlsolts']/2)." hr"); ?></p>
+<p class="black-text text-darken-1"><?php echo ($row['ttl_avlsolts']==null?"No timeslots available":"Available timeslots :".($row['ttl_avlsolts']/2)." hr"); ?></p>
 <div class="divider"></div>
 <!--
 ########################## 

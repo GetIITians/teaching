@@ -587,12 +587,12 @@
 							*
 						</span><br>
 						<span class="grey-text text-lighten-1" style="font-size: 13px;">
-								Must contain 6 or more characters, at least one special character, an uppercase letter and a digit
+								&nbsp;
 							</span>
 					</span>
 				</div>
 				<div class="col-xs-12 col-md-8">
-					<input placeholder="Password" type="password" class="validate" id="password" name="password" data-condition="simple" pattern="(?=.*\d)(?=.*[A-Z])^\D.{6,}" title="Must contain 6 or more characters, an uppercase letter and a digit"  />
+					<input placeholder="Password" type="password" class="validate" id="password" name="password" data-condition="simple" title=""  />
 				</div>
 			</div>
 			<div class="row">
@@ -605,7 +605,7 @@
 					</span>
 				</div>
 				<div class="col-xs-12 col-md-8">
-					<input placeholder="Re-enter Password" type="password" class="validate" name="cpassword" data-condition="password" pattern="(?=.*\d)(?=.*[A-Z])^\D.{6,}" title="Must contain 6 or more characters, an uppercase letter and a digit"    />
+					<input placeholder="Re-enter Password" type="password" class="validate" name="cpassword" data-condition="password" title="Must contain 6 or more characters, an uppercase letter and a digit"    />
 				</div>
 			</div>
 			<div class="row">

@@ -23,7 +23,13 @@ foreach($mysubj as $i=>$row){
 <?php elseif(User::isloginas('s')) : ?>
 	<td>
 		<a onclick="ms.booktopic(this,'<?php echo $row["c_id"]."-".$row["s_id"]."-".$row["t_id"]; ?>','<?php echo $user_mob; ?>');"  class="btn waves-effect waves-light red darken-1" data-topictext="<?php echo $row["classname"].", ".$row["subjectname"].", ".$row["topicname"]; ?>" >
-			Book
+		<?php
+			if($_SESSION['isdonedemo']){
+				echo "Book";
+			} else {
+				echo "Free 1 Hour Class";
+			}
+		?>
 		</a>
 	</td>
 <?php elseif(!(User::islogin())) : ?>

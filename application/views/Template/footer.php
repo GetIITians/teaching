@@ -32,9 +32,9 @@
 					</a>
 				</div>
 				<ul>
-					<li><a><i class="material-icons tiny">phone_iphone</i> +91 931 339 4403</a></li>
-					<li><a><img src="images/feel-free-whatsapp.png" width="15" height="15"> +91 931 339 4403</a></li>
-					<li><a><i class="material-icons tiny">mail</i> info@getiitians.com</a></li>
+					<li><i class="material-icons tiny">phone_iphone</i> +91 931 339 4403</li>
+					<li><img src="images/feel-free-whatsapp.png" width="15" height="15"> +91 931 339 4403</li>
+					<li><a  href="mailto:info@getiitians.com"><i class="material-icons tiny">mail</i> info@getiitians.com</a></li>
 				</ul>
 			</div>
 		</div>

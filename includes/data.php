@@ -27,7 +27,7 @@ $view_default=array(
 		"rows" => array()
 	),
 	"popup.php"=>array(
-		"title"=>"This popup is made in India",
+		"title"=>"Dear student, please review the teacher",
 		"body"=>"",
 		"bodyinfo"=>array(),
 		"footer"=>"",

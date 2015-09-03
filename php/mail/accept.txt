@@ -1,5 +1,5 @@
 Teacher Accepted
 Dear Admin,
-Currently there are {nooft} teachers are on search page.
+Currently there are {nooft} teachers on search page.
 
 Thank you

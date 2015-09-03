@@ -7,5 +7,5 @@
 #
 Class book
 Dear {teachername},
-Your class have been booked by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
-Please login and verify the booking details
+Your class has been booked by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please don't be late for the class. Thank you.

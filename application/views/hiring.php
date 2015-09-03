@@ -20,10 +20,10 @@ load_view("Template/navbarnew.php");
                 <div class="card-panel large"> 
                   <h4 style="text-align:center"> Creative </h4>
                   <div class="row">                            
-                  <h4 style="font-family:italic;padding-left:15px;padding-right:15px">Content Writer & PR Executive </h4>
+                  <h4 style="font-family:italic;padding-left:15px;padding-right:15px">Content Writer &amp; PR Executive </h4>
                   <h6 style="font-family:italic;padding-left:15px;padding-right:15px"> Key Responsibilities:</h6> 
-                  <p style="padding-left:15px;padding-right:15px";>Write/proof read/edit product descriptions for GetIITians an identify the attributes of the product and write with a clear understanding of the target audience with the right tone of voice.
-                    Develop highly effective, original and targeted content for promotion of GetIITians.
+                  <p style="padding-left:15px;padding-right:15px";>Write/proof read/edit product descriptions for getIITians an identify the attributes of the product and write with a clear understanding of the target audience with the right tone of voice.
+                    Develop highly effective, original and targeted content for promotion of getIITians.
                     Understanding the message the company is seeking to deliver and translating this into crisp and clutter breaking copy.
                     Work with various internal and external teams to get hold of the correct product information.
                   </p>                               

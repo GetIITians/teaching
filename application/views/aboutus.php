@@ -5,7 +5,7 @@ load_view("Template/navbarnew.php");
 <div id="aboutus">
 	<div class="jumbotron">
 		<img src="images/about.png" class="img-responsive">
-		<span>We connect teachers to students</span>
+		<span>We connect students &amp; teachers</span>
 	</div>
 
 	<div class="white container">
@@ -26,9 +26,7 @@ load_view("Template/navbarnew.php");
 			<div class="col-sm-6 col-xs-12">
 				<h4 class="grey-text text-darken-4">Our Mission</h4>
 				<p class="grey-text text-darken-2" style="font-size:18px;">For personalization to happen, technology will definitely help. But more importantly there has to be a system free of institutions where learning is bound within four walls. We imagine a world free of such middle layers, where a student is directly connected to a teacher and learning-teaching happens in a personalized way. Imagine a world with Knowledge Democracy.</p>
-				<!--				
 				<p class="right-align grey-text text-darken-3" style="font-size:17px;padding-right:20px;">Himanshu Jain<br><span style="font-size:15px">CEO, getIITians</span></p>
-				-->
 			</div>
 		</div>
 	</div>

@@ -994,6 +994,19 @@ footer .footer-copyright{
 	}
 }
 /*-------------------
+		Sitewide
+-------------------*/
+
+a{
+	outline: 0;
+}
+
+a:focus{
+	outline: 0;
+}
+
+
+/*-------------------
 	Media Queries
 -------------------*/
 

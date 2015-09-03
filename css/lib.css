@@ -1,4 +1,4 @@
-.p0{padding:0px;}
+  .p0{padding:0px;}
 .p5{padding:5px;}
 .p10{padding:10px;}
 .p15{padding:15px;}
@@ -163,6 +163,7 @@ hr.underlined{
 -----------------------*/
 
 a{
+  outline: 0;
   color: #009688;
 }
 

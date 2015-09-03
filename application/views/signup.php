@@ -63,7 +63,7 @@ $defopen="signupwindow";
 									</div>
 									<div class="row">
 										<div class="col-xs-12 grey-text">
-											By clicking on Submit, you agree to our <a href="<?php echo BASE.'termsofuse'; ?>">Terms of use</a>.
+											By clicking on Submit, you agree to our <a target="_blank" href="<?php echo BASE.'termsofuse'; ?>">Terms of use</a>.
 										</div>
 									</div>
 									<div class="row">
