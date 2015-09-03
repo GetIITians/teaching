@@ -9,7 +9,6 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
   <div class="closeIcon">
     <i class="material-icons">clear</i>
   </div>
-  
   <div class="content right">
     <span>Step 2&nbsp;:&nbsp;Select a topic for the free class</span>
   </div>

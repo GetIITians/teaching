@@ -10,7 +10,9 @@ class Admin{
 		$t_cntr['nooft']=$accepted_teacher['teacher'].'/'.$total_teacher['teacher'];
 		Fun::mailfromfile( gi("adminmailid"), (($data["isselected"]=='a') ? "php/mail/accept.txt":"php/mail/reject.txt"),$t_cntr);
 		$tinfo = User::userProfile($data["tid"]);
+		if($data["isselected"]=='a'){
 		Fun::mailfromfile( $tinfo["email"] , (($data["isselected"]=='a') ? "php/mail/accept_teacher.txt":"php/mail/reject_teacher.txt"), $tinfo);
+		}
 		return $odata;
 	}
 
