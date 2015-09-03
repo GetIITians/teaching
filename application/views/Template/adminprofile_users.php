@@ -1,5 +1,4 @@
 <?php
-
 $trows = add(
 				array(array("Name", "Email", "Joined", "Phone", "Action", "Add money"))
 				,
@@ -9,7 +8,6 @@ $trows = add(
 					}
 				)
 			);
-
 $srows = add(array(array("Name", "Email", "Joined", "Phone", "Action", "Add money")), map( $allusers["students"], function ($row) { 
 	return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone"), $row)); 
 }));
@@ -28,7 +26,7 @@ $addmoney = function($uid) {
 };
 
 $tfunc = function($r, $c) use($addmoney, $allusers) {
-	if($c == 3 && $r > 0 ) {
+	if($c == 4 && $r > 0 ) {
 		$row = $allusers["teachers"][$r-1];
 		if($row["isselected"] != "a") {
 		?>
@@ -39,9 +37,12 @@ $tfunc = function($r, $c) use($addmoney, $allusers) {
 		?>
 		<button type="button" class="btn blue waves-effect waves-light" onclick='button.sendreq_v2(this);' data-isselected='r' data-tid="<?php echo $row["id"]; ?>" data-action="acceptrej" data-res='div.reload($("#users")[0]);' >Reject</button>
 		<?php
-		}
+		} ?>
+<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delteachers' onclick='button.sendreq_v2(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
+			Delete
+		</a><?php		
 		return true;
-	} else if ($c == 4 && $r > 0) {
+	} else if ($c == 5 && $r > 0) {
 		$addmoney( $allusers["teachers"][$r-1]["id"] );
 	} else if ($c == 0 && $r > 0) {
 		?>
@@ -51,9 +52,16 @@ $tfunc = function($r, $c) use($addmoney, $allusers) {
 	}
 	return null;
 };
-
 $sfunc = function($r, $c) use ($addmoney, $allusers) {
 	if($c == 4 && $r > 0 ) {
+		$row = $allusers["students"][$r-1];
+	?>
+<a data-deleteid="<?php echo $row["id"]; ?>" data-action='delstudents' onclick='button.sendreq_v2(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#users")[0])' >
+			Delete
+		</a>
+	<?php	
+	} else
+	if($c == 5 && $r > 0 ) {
 		$addmoney( $allusers["students"][$r-1]["id"] );
 		return true;
 	}
@@ -63,7 +71,7 @@ $sfunc = function($r, $c) use ($addmoney, $allusers) {
 ?>
 
 <br><br>
-<div class="row">
+<div class="row" >
 	<div class="col s12">
 		<h5 class="teal-text text-darken-1">Teachers</h5>
 	</div>
@@ -80,7 +88,7 @@ load_view("Template/table.php", array("rows" => $trows, "func" => $tfunc));
 		<h5 class="teal-text text-darken-1">Students</h5>
 	</div>
 </div>
-<div class="row">
+<div class="row" >
 	<div class="col s12">
 <?php
 load_view("Template/table.php", array("rows" => $srows, "func" => $sfunc));

@@ -79,8 +79,8 @@ var button={
 			params=others.mergeifunset(params,eparams);
 		}
 		params['action']=allattrs["data-action"];
-		obj.disabled=true; 
-		var prvvalue=obj.innerHTML;
+		obj.disabled=true;
+		var prvvalue=obj.innerHTML; 
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
@@ -90,7 +90,7 @@ var button={
 				if(respo.ec<0){
 					if(button.hasattr(allattrs,"data-error")){
 						var ec=respo.ec;
-						eval(allattrs["data-error"]);
+						eval(allattrsmoney["data-error"]);
 					}
 					else
 						mohit.alert(ecn[respo.ec]);
@@ -98,7 +98,7 @@ var button={
 				}
 				else{ 
 					obj.innerHTML=(typeof(allattrs["data-restext"])=='undefined')?prvvalue:allattrs["data-restext"];
-					if(button.hasattr(allattrs,"data-res")){
+					if(button.hasattr(allattrs,"data-res")){ 
 						var data=respo.data;
 						eval(allattrs["data-res"]);
 					}
@@ -150,7 +150,7 @@ var button={
 			
 		}});
 	},
-	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){console.log(params);
+	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){
 		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d.split("\n")[0]); 
 			if(respo){
@@ -264,7 +264,7 @@ var form={
 
 		params['action']=allattrs["data-action"];
 		bobj.disabled=true;
-		var prvvalue=bobj.innerHTML;console.log(params);
+		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
@@ -505,7 +505,7 @@ var div={
 	setunblock:function(obj){
 		$(obj).attr("data-blocked","false");
 	},
-	reload:function(obj,call_back_data,adata){
+	reload:function(obj,call_back_data,adata){ 
 		button.sendreq_v2_t4(obj,call_back_data,function(d){
 			$(obj).html(d);
 		},adata);

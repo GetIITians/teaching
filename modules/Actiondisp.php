@@ -180,7 +180,16 @@ class Actiondisp{
 			return;
 		load_view("Template/teacher_topiclist.php", array("mysubj" => Funs::teacher_subjects($data["tid"]), "tid" => $data["tid"] ));
 	}
-
+	/* BY Yogy */
+	function dispteacher($data, $printjson = true) {
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+		return;
+	handle_disp(array(), "adminprofile_users");
+	}
+	/* .... */
 	function adminprofile_users($data, $printjson = true) {
 		$outp = array("ec" => 1, "data" => 0);
 		if($printjson)

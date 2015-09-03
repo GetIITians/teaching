@@ -28,5 +28,26 @@ class Admin{
 		}
 		return $outp;
 	}
+/* By Yogy*/
+	function delteachers($data){ 
+		Sqle::deleteVal("users",array("id"=>$data["deleteid"]),1);
+		Sqle::deleteVal("teachers",array("tid"=>$data["deleteid"]));
+		Sqle::deleteVal("timeslot",array("tid"=>$data["deleteid"]));
+		Sqle::deleteVal("subjects",array("tid"=>$data["deleteid"]));
+		Sqle::deleteVal("booked",array("tid"=>$data["deleteid"]));
+		Sqle::deleteVal("donefreedemo",array("tid"=>$data["deleteid"]));
+		Sqle::deleteVal("moneyaccount",array("uid"=>$data["deleteid"]));
+		Sqle::deleteVal("rating",array("teacher_id"=>$data["deleteid"]));
+		return array("ec"=>1,"data"=>0);
+	}
+	function delstudents($data){ 
+		Sqle::deleteVal("users",array("id"=>$data["deleteid"]),1);
+		Sqle::updateVal("timeslot",array("sid"=>null),array("sid"=>$data["deleteid"]));
+		Sqle::deleteVal("booked",array("sid"=>$data["deleteid"]));
+		Sqle::deleteVal("donefreedemo",array("uid"=>$data["deleteid"]));
+		Sqle::deleteVal("moneyaccount",array("uid"=>$data["deleteid"]));
+		return array("ec"=>1,"data"=>0);
+	}
+/*.......*/	
 }
 ?>

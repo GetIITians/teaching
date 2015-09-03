@@ -3,7 +3,7 @@ setifnn($width, (count($rows)==0 ? 0 : count($rows[0])) );
 setifnn($height,  count($rows)  );
 if($height > 0 ) {
 ?>
-<table class=" responsive-table">
+<table class=" responsive-table"  >
 	<thead>
 		<tr>
 			<?php

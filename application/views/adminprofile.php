@@ -73,7 +73,7 @@ load_view("Template/navbarnew.php",$inp);
 					<div id="account" class="tab-pane col-xs-12" data-action='moneyaccount' role="tabpanel">
 					<?php
 						handle_disp(array(), "moneyaccount");
-		//            load_view("Template/moneyaccount.php", $inp);
+						//load_view("Template/moneyaccount.php", $inp);
 					?>
 					</div>
 					<div id="reviews" class="tab-pane col-xs-12" data-action='adminprofile_reviews' role="tabpanel">
