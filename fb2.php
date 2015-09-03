@@ -28,7 +28,7 @@ FacebookSession::setDefaultApplication('781444138632186' ,'81c3207bf1cf29b3a2547
  
 // login helper with redirect_uri
 $helper = new FacebookRedirectLoginHelper( HOST.'fb2.php' );
-echo HOST.'fb2.php';
+//echo HOST.'fb2.php';
  
 try {
 	$session = $helper->getSessionFromRedirect();
@@ -47,6 +47,9 @@ if ( isset( $session ) ) {
 	$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
 	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	$fbemail = $graphObject->getProperty('email');
+
+	var_dump($graphObject->getProperty('email'));
+	die();
 
 	User::fglogin(array("type" => "fblogin", "fblogin" => $fbid, "name" => $fbfullname, "email" => $fbemail));
 	Fun::redirect(BASE."profile");
