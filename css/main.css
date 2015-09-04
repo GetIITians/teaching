@@ -238,31 +238,40 @@ html{
 	color: #777;
 }
 
-.teacherlistelm .card-content p.lastp{
-	margin-top: 1rem;
+.teacherlistelm .card-reveal p.lastp{
+	margin-top: .2rem;
+	margin-bottom: .7rem;
 }
 
 /*-------------------------------
 	Search Page Rating System
 -------------------------------*/
-
+.rating-system{
+	display: inline-block;
+	padding: 5px;
+}
 
 .rating-system span.glyphicon{
 	cursor: pointer;
+	margin-right: 1px;
 }
 
 .rating-value p{
-	font-size: 2.5rem;
+	font-size: 1.2rem;
 	font-family: Roboto;
 }
 
 .rating-value span{
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-family: Roboto;
 }
 
 .rated-star{
 	color: #E89914;
+}
+
+.personal-rated-star{
+	color: #F8C166;
 }
 
 .rating-star{
