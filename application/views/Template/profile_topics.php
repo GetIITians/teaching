@@ -7,19 +7,16 @@ $defopen="signupwindow";
     load_view('Template/form_errors.php',array("msg"=>$resignupmsg));
  if(empty($phone) && (User::isloginas('s'))): ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
-	Please register Your Mobile Number to book a class.<a id="mob_update_link" data-toggle="modal" data-target="#myModal">click here!</a>
+	Please register Your Mobile Number to book a class.<a id="mob_update_link" onclick='mohit.popup("alert",{"body":$("#divmobpop")[0],"title":"Please Enter Your Mobile No."})'>click here!</a>
 </div>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <a data-dismiss="modal">X</a>
-        <div class="modal-dialog" role="document">
-<div class="row center">
+    <div class="modal fade" >
+<div class="row center l10 s10 m10" id="divmobpop">
               <form class="col s12 l12" method="post" onsubmit='return ms.mobregisterform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php }else{ ?>  <?php } ?>  autocomplete="off" >
                 <div id="signupwindow" style='<?php dit($defopen=="signupwindow"); ?>' >
                   <div class="row">
                     <div class="input-field col s12">
                       <input name="name" type="hidden" value="<?php echo $name; ?>">
-                      <input id="phone" name="phone" type="text" data-condition="phone" value="1254124512" >
+                      <input id="phone" name="phone" type="text" data-condition="simple" >
                       <label for="phone">Mobile Number</label>
                     </div>
                   </div>
@@ -51,7 +48,6 @@ $defopen="signupwindow";
                   </div>
                 </div>
               </form>
-        </div>
         </div>
 	</div>       
 <?php endif; 

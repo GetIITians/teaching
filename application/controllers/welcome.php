@@ -231,22 +231,7 @@ class Welcome extends CI_Controller {
 
 	}
 	
-		public function profile($tid=0,$tabid=1) { 
-		/* By Yogy */
-			$pageinfo=array();
-			$pageinfo["resignupmsg"]='';
-			if(isset($_POST['resignup'])) {
-				$handle_signup=handle_request(Fun::mergeifunset($_POST, array("action"=>"resignup")));
-				if($handle_signup["ec"]<0) {
-				sets("resignupmsg",errormsg($handle_signup["ec"],ispost("resignup")));
-				Fun::redirect(BASE."profile/11/5");
-				}
-			}
-			if(isses("resignupmsg")) {
-				$pageinfo["resignupmsg"]=gets("resignupmsg");
-				unsets("resignupmsg");
-			}
-		/* ...... */	
+		public function profile($tid=0,$tabid=1) {
 			$this->load->library('uri'); 
 			if (!empty($this->uri->segment(2))) {
 				$tid = $this->uri->segment(2);	
@@ -254,6 +239,25 @@ class Welcome extends CI_Controller {
 			if(!empty($this->uri->segment(3))) {
 				$tabid = $this->uri->segment(3);
 			}
+			/* By Yogy */
+			$pageinfo=array();
+			$pageinfo["resignupmsg"]='';
+			if(isset($_POST['resignup'])) {
+				$handle_signup=handle_request(Fun::mergeifunset($_POST, array("action"=>"resignup")));
+				if($handle_signup["ec"]<0) {
+				sets("resignupmsg",errormsg($handle_signup["ec"],ispost("resignup")));
+				Fun::redirect(BASE."profile/".$tid."/5");
+				}
+				else {
+				Fun::redirect(BASE."profile/".$tid."/5");	
+				}
+			}
+			if(isses("resignupmsg")) {
+				$pageinfo["resignupmsg"]=gets("resignupmsg");
+				unsets("resignupmsg");
+			} 
+		/* ...... */	
+
 			$numtabs=6;
 			global $_ginfo;
 			$tid=Funs::gettid($tid);
@@ -265,7 +269,6 @@ class Welcome extends CI_Controller {
 			}
 
 			if($uprofile!=null){
-
 				$bulkupload_timeslot=handle_request(Fun::mergeifunset($_POST,array("action"=>"addrembulkts")));
 				$addtopic=handle_request(Fun::mergeifunset($_POST,array("action"=>"addtopics")));
 				$remtopic=handle_request(Fun::mergeifunset($_GET,array("action"=>"deltopics")));
