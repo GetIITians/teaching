@@ -58,13 +58,13 @@ var mohit={
 	clickinside:function(obj){
 		mohit.lastclickedinside=time("m");
 	},
-	popup:function(id,data){
+	popup:function(id,data,narayan=null){
 		if(id==null)
 			id="";
 		if(data==null)
 			data={};
 		mergeifunset(data,{"title":null,"body":null});
-		console.log(data);
+		//console.log(data);
 		for(i in data){
 			if(data[i]!=null)
 				$("#"+id+"Popup"+i).html(data[i]);
@@ -84,6 +84,10 @@ var mohit={
 			var defaultvals={"width":"2%","left":"48%","top":"48%"};
 			$("#"+id+"Popuplayer").css(defaultvals);
 			$('#'+id+"Popup").css("visibility","visible");
+			if(narayan){
+				oldvals['width']	=	narayan['width'];
+				oldvals['left']		=	narayan['left'];
+			}
 			$("#"+id+"Popuplayer").animate(oldvals,animtime,function(){
 					$('#'+id+"Popupmain").css("visibility",prvvisib);
 			});
