@@ -18,9 +18,15 @@ var helpers = {
 		var elemBottom = elemTop + $elem.height();
 
 		return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+	},
+	toType : function(obj){
+		return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 	}
 }
 
+/*
+For Free class guidance popup
+*/
 var landingPageTab = {
 	icon     : $('#landingPageTab .closeIcon i'),
 	demo     : { state : true, done  : false },
@@ -57,6 +63,9 @@ var landingPageTab = {
 	}
 }
 
+/*
+	For Loading numbers animation on homepage
+*/
 var homePage = {
 	animationDone : false,
 	checkAnimation : function(){
@@ -89,6 +98,9 @@ var homePage = {
 	}
 }
 
+/*
+	Admin's approval of reviews
+*/
 var adminPage = {
 	approve : function(event,obj,dbColumn){
 		event.preventDefault();
@@ -116,6 +128,7 @@ $(function() {
 	$(document).on({
 		// Handles the mouseover
 		mouseenter: function() {
+			console.log('1 chal gaya');
 			$(this).prevAll().andSelf().removeClass('glyphicon-star-empty');
 			$(this).prevAll().andSelf().addClass('glyphicon-star');
 		},
@@ -137,7 +150,7 @@ $(function() {
 		var rating_avg			= 	rating_value_div.attr('value');
 
 		$.ajax({
-			url		: set_url(),
+			url		: window.location .protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1] + "/rating",
 			type	: 'POST',
 			data 	: {
 						previous_rating	: 	previous_rating,// changed
@@ -154,17 +167,6 @@ $(function() {
 		})
 	});
 
-	function set_url() {
-		var url 		 	 = window.location.href.replace("search","rating");
-		if (url.indexOf('?q=') != -1)
-			url = url.slice(0,url.indexOf('?q='));
-		return url;
-	};
-
-	function toType(obj) {
-		return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
-	};
-
 	function update_card_reveal(msg){
 		var info = JSON.parse(msg);
 		var father = $('.rating[data-tid="'+info.tid+'"]');
@@ -173,18 +175,17 @@ $(function() {
 		father.find('.rating-value').attr('count',info.rating_count);
 		father.find('.rating-value').attr('value',info.rating_avg);
 		var plural = (info.rating_count == 1) ? 'rating' : 'ratings';
-		father.find('.rating-value').html('<p>'+info.rating_avg+'<span>('+info.rating_count+plural+')</span>'+'</p>');
-		update_card_content(msg);
+		father.find('.rating-value').html('<p>'+info.rating_avg+'/5 <span>('+info.rating_count+' '+plural+')</span>'+'</p>');
+		update_card_content(info);
 	};
 
-	function update_card_content(msg){
-		var info = JSON.parse(msg);
+	function update_card_content(info){
 		var father = $('.rating[data-tid="'+info.tid+'"]').parent().prev().find('.contentrating');
 
 		var updateHTML = 'Rating: ';
 		for (var i = 1; i < 6; i++) {
 			if(i <= info.previous_rating)
-				updateHTML += '<span class="glyphicon glyphicon-star rated-star" aria-hidden="true"></span>';
+				updateHTML += '<span class="glyphicon glyphicon-star personal-rated-star" aria-hidden="true"></span>';
 			else
 				updateHTML += '<span class="glyphicon glyphicon-star-empty rating-star" aria-hidden="true"></span>';
 		};
@@ -192,44 +193,29 @@ $(function() {
 	};
 
 	$(document).on({mouseleave:function() {
-		var current_rating = parseInt($(this).attr('previousRating'),10);
+		var personal_rating = parseInt($(this).attr('previousRating'),10);
+		var overall_rating  = parseInt($(this).next().attr('value'),10);
 		$(this).find('span').each(function(index){
 			$(this).removeClass();
-			if (index < current_rating) {
-				$(this).addClass('glyphicon glyphicon-star rated-star');
+			var count = ( personal_rating != 0 ? personal_rating : overall_rating);
+			var cLASS = ( personal_rating != 0 ? "personal-rated-star" : "rated-star");
+			if (index < count) {
+				console.log('2.1 chal gaya');
+				$(this).addClass('glyphicon glyphicon-star').addClass(cLASS);
 			}else{
+				console.log('2.2 chal gaya');
 				$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 			}
 		});
 	}},'.rating-system');
 
 	$(document).on({mouseenter: function() {
+		console.log('3 chal gaya');
 		$(this).find('span').each(function(index){
 			$(this).removeClass();
 			$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 		});
 	}},'.rating-system');
-
-	/* Scroll to top Button on search page */
-	if (window.location.href.indexOf("/search") > -1) {
-		$('#top_arrow').hide();
-		var scroll_offset = 0;
-		var sideBar = $('#sideBar').offset().top+$('#sideBar').outerHeight();
-		$(document).scroll(function () {
-			if ($(this).scrollTop() > sideBar) {
-				$('#top_arrow').fadeIn();
-			} else {
-				$('#top_arrow').fadeOut();
-			}
-		});
-
-		$('#top_arrow').click(function () {
-			$('body,html').animate({
-				scrollTop: 0
-			}, 800);
-			return false;
-		});
-	}
 
 	/* Teacher Rating detail box on search page */
 	$('#ratingBigBox').hide();
@@ -242,13 +228,10 @@ $(function() {
 			var ratingBigBox = $(this).closest('.teacherlistelm').next('#ratingBigBox');
 			var netHeight 	 = ratingTop-Math.floor(ratingBigBox.outerHeight()/2)
 
-			if ($(document).outerWidth() < ($(this).offset().left+$(this).outerWidth()+400))
-			{
+			if ($(document).outerWidth() < ($(this).offset().left+$(this).outerWidth()+400)){
 				ratingLeft = -(ratingBigBox.outerWidth()-4);
 				ratingBigBox.find('.arrow').addClass('arrowRight');
-			}
-			else
-			{
+			} else {
 				ratingBigBox.find('.arrow').addClass('arrowLeft');
 			}
 			ratingBigBox.css({top: netHeight, left: ratingLeft});
@@ -260,7 +243,7 @@ $(function() {
 			ratingBigBox.find('.arrow').removeClass().addClass('row arrow');
 			ratingBigBox.hide(100);
 		}
-	},'.contentrating');
+	},'.rating');
 
 
 	var demo = helpers.getStorage('demo');

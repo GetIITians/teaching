@@ -7,7 +7,7 @@ $defopen="signupwindow";
     load_view('Template/form_errors.php',array("msg"=>$resignupmsg));
  if(empty($phone) && (User::isloginas('s'))): ?>
 <div class="alert alert-success alert-dismissible fade in" role="alert">
-	Please register Your Mobile Number to book a class.<a id="mob_update_link" onclick='mohit.popup("alert",{"body":$("#divmobpop")[0],"title":"Please Enter Your Mobile No."})'>click here!</a>
+	Please register Your Mobile Number to book a class. <a id="mob_update_link" onclick='mohit.popup("alert",{"body":$("#divmobpop")[0],"title":"Please Enter Your Mobile No."},{"width":"40%","left":"30%"})'>click here!</a>
 </div>
     <div class="modal fade" >
 <div class="row center l10 s10 m10" id="divmobpop">
