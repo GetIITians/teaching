@@ -1,11 +1,14 @@
 html{
-	  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
 
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	overflow: -moz-scrollbars-vertical; 
+	overflow-y: scroll;
 }
 
 .PopupWrapper {
@@ -277,30 +280,26 @@ main.profile .container{
 	background-color: white;
 }
 
-#profiletabs li{
+#profiletabs a{
 	background-color: #e6e6e6;
 	text-align: center;
 	padding: 10px 0;
 	border: 1px solid white;
-}
-
-#profiletabs li:hover{
-	background-color: #d4d4d4;
-	cursor: pointer;
-}
-
-#profiletabs li.active{
-	background-color: #d4d4d4;
-	color: #717171;
-}
-
-#profiletabs li a{
-	padding: 10px 25px;
 	color: #808080;
 	font-size: 1rem;
 }
 
-#profiletabs li a:hover, a:active, a:focus{
+#profiletabs a:hover{
+	background-color: #d4d4d4;
+	cursor: pointer;
+}
+
+#profiletabs a.active{
+	background-color: #d4d4d4;
+	color: #717171;
+}
+
+#profiletabs a:hover, a:active, a:focus{
 	text-decoration: none;
 	color: #717171;
 }

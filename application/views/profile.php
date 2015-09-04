@@ -15,6 +15,27 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 </div>
 	<main class="profile">
 		<div class="container">
+			<div id="profiletabs" class="row" role="tablist">
+				<a <?php echo profile_tabs(1,$tabid,'tablist'); ?> role="presentation" id="profiletabs1" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+					Profile
+				</a>
+				<a <?php echo profile_tabs(5,$tabid,'tablist'); ?> role="presentation" id="profiletabs5" href="#topics" aria-controls="topics" role="tab" data-toggle="tab">
+					Topics
+				</a>
+				<a <?php echo profile_tabs(2,$tabid,'tablist'); ?> role="presentation" id="profiletabs2" href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">
+					Calendar
+				</a>
+				<a <?php echo profile_tabs(4,$tabid,'tablist'); ?> role="presentation" id="profiletabs4" href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
+					Reviews
+				</a>
+				<a style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>" <?php echo profile_tabs(3,$tabid,'tablist'); ?> role="presentation" id="profiletabs3" href="#classes" aria-controls="classes" role="tab" data-toggle="tab">
+					Classes
+				</a>
+				<a style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>" <?php echo profile_tabs(6,$tabid,'tablist'); ?> role="presentation" id="profiletabs6" href="#account" aria-controls="account" role="tab" data-toggle="tab">
+					Account
+				</a>
+			</div>
+			<?php /* ?>
 			<ul id="profiletabs" class="row" role="tablist">
 				<li role="presentation" <?php echo profile_tabs(1,$tabid,'tablist'); ?>>
 					<a  id="profiletabs1" href="#profile" aria-controls="home" role="tab" data-toggle="tab">
@@ -47,6 +68,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 					</a>
 				</li>
 			</ul>
+			<?php */ ?>
 			<div class="tab-content row">
 
 				<div id="profile" <?php echo profile_tabs(1,$tabid,'tabpanel'); ?> role="tabpanel">
