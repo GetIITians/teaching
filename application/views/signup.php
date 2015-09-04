@@ -41,7 +41,7 @@ $defopen="signupwindow";
 											<label for="fullname">Full Name</label>
 										</div>
 										<div class="input-field col-xs-12 col-md-6">
-											<input id="email" name="email" type="email"   data-condition='email'  >
+											<input id="email" name="email" type="email" data-condition='email' data-action="emailexist" data-params='{"email":$("#email").val()}' onblur="button.sendreq_v2(this)"   >
 											<label for="email">Email</label>
 										</div>
 									</div>

@@ -217,7 +217,7 @@ var ms={
 		} else {
 			return form.valid.action1( $("#signupwindow")[0] ) ;
 		}
-	},/* By Yogy */
+	},/* By Yogy currently not called deletable in future*/
 	mobregisterform:function(obj,needotp,emailexist){ 
 		if(needotp){ 
 			if($("#signupwindow").is(":visible")){

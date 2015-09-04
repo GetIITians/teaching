@@ -11,7 +11,7 @@ $defopen="signupwindow";
 </div>
     <div class="modal fade" >
 <div class="row center l10 s10 m10" id="divmobpop">
-              <form class="col s12 l12" method="post" onsubmit='return ms.mobregisterform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php }else{ ?>  <?php } ?>  autocomplete="off" >
+              <form class="col s12 l12" method="post" onsubmit='return ms.signupform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php }else{ ?>  <?php } ?>  autocomplete="off" >
                 <div id="signupwindow" style='<?php dit($defopen=="signupwindow"); ?>' >
                   <div class="row">
                     <div class="input-field col s12">

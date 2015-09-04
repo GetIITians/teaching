@@ -14,6 +14,7 @@ $view_default=array(
 					'reset'		=>	'Reset :: Get IITians',
 					'profile'	=>	'Profile :: Get IITians',
 					'search'	=>	'Search :: Get IITians',
+					'termsofuse'=>   'Terms of use :: Get IITians'
 				)
 		),
 	'Template/bottom.php'=>array(
@@ -100,7 +101,7 @@ $_ginfo["error"]=array(
 	"-7"=>"Action handler not defined",
 	"-8"=>"Session expired or You are not right person to perform this action.",
 	"-9"=>"Not sufficient arguments.",
-	"-16"=>"This email id used Already",
+	"-16"=>"This email-id is already registered with us.",
 	"-17"=>"Phone OTP is incorrect",
 	"-18"=>"Email OTP is incorrect",
 	"-19"=>"You cannot choose slot of past.",

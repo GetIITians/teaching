@@ -1,5 +1,5 @@
 <?php
-class Actions{
+class Actions {
 
 //For Not login people
 
@@ -155,5 +155,13 @@ class Actions{
 		$outp["data"] = User::changePassword( null,  $data["password"] );
 		return $outp;
 	}
+/* By Yogy */
+	function emailexist($data) {
+		$outp = array("ec"=>1, "data"=>0);
+		if(User::isUserExist($data['email']))
+			$outp["ec"]=-16;
+		return $outp;
+	}
+/* .......*/
 }
 ?>

@@ -44,7 +44,7 @@ var checkValidInput={
 		}
 		return onechecked;
 	},
-	'isChecked':function (obj){ console.log(this[ obj.getAttribute('data-condition') ]);
+	'isChecked':function (obj){ 
 		return (obj.getAttribute('data-condition')==null || this[ obj.getAttribute('data-condition') ](obj)) ;
 	}
 };

@@ -80,7 +80,7 @@ var button={
 		}
 		params['action']=allattrs["data-action"];
 		obj.disabled=true;
-		var prvvalue=obj.innerHTML; 
+		var prvvalue=obj.innerHTML; console.log(params);
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;

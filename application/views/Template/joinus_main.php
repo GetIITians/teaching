@@ -576,7 +576,7 @@
 					</span>
 				</div>
 				<div class="col-xs-12 col-md-8">
-					<input placeholder="e.g. example@example.com" type="email" class="validate" name="email" data-condition="email"    />
+					<input placeholder="e.g. example@example.com" id="email" type="email" class="validate" name="email" data-condition="email" data-action="emailexist" data-params='{"email":$("#email").val()}' onblur="button.sendreq_v2(this)"   />
 				</div>
 			</div>
 			<div class="row">

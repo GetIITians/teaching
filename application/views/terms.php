@@ -1,4 +1,4 @@
-<?php
+<?php 
 load_view("Template/top.php",$inp);
 load_view("Template/navbarnew.php",$inp);
 ?>		
