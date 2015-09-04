@@ -58,11 +58,13 @@ var mohit={
 	clickinside:function(obj){
 		mohit.lastclickedinside=time("m");
 	},
-	popup:function(id,data,narayan=null){
+	popup:function(id,data,narayan){
 		if(id==null)
 			id="";
 		if(data==null)
 			data={};
+		if(narayan==null || undefined)
+			narayan=false;
 		mergeifunset(data,{"title":null,"body":null});
 		//console.log(data);
 		for(i in data){

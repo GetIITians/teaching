@@ -66,7 +66,7 @@ var button={
 			
 		}});
 	},
-	sendreq_v2:function(obj){ 
+	sendreq_v2:function(obj){ console.log(this);
 		var allattrs=this.attrs(obj); 
 		if(!button.hasattr(allattrs,"data-params"))
 			var params=this.tosendattrs(obj,allattrs);  
