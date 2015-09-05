@@ -435,7 +435,7 @@ abstract class Funs{
 		return getifn($outpurl, "");
 	}
 //Search modules
-//function by yogy 
+/* by yogy */
 	public static function setorderby($orderval) {
 		if($orderval==1) {
 			return "teachers.teachingexp desc";
@@ -446,10 +446,11 @@ abstract class Funs{
 		} else if($orderval==4) {
 			return "teachers.rating desc";
 		} else {
-			return "pricelist.maxprice desc";
+			return "pricelist.maxprice asc";
 		}
 
-	}	
+	}
+/* ..... */		
 	public static function mssearch($data) { 
 		$keys = replacekeys(searchkeysplit($data["search"]),array('6'=>'vi','7'=>'vii','8'=>'viii','9'=>'ix','10'=>'x','11'=>'xi','12'=>'xii',"maths"=>"math"));
 		$params=array();
