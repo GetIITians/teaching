@@ -659,7 +659,7 @@
 	}
 
 ?>
-<?php  /* functions by yogy   */
+<?php  /*  by yogy   */
 	function digrupee($digit) {
 		return 'Rs. '.$digit;
 	}

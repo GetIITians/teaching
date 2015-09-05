@@ -148,14 +148,14 @@
 				<?php echo $jsonArray['city']; ?>
 			</span>
 		</div>
-		<?php /* if(User::islogin()) : ?>
+		<?php  if((User::isloginas('t')|| User::isloginas('a')) && !empty($ejsoninfo["resume"])) : ?>
 		<div>
 			Resume :
 			<span class="grey-text text-darken-1">
-				<a href="<?php echo $ejsoninfo["resume"] ; ?>">Click to see</a>
+				<a target="_new" href="<?php echo $ejsoninfo["resume"] ; ?>">Click to see</a>
 			</span>
 		</div>
-		<?php endif; */ ?>
+		<?php endif;  ?>
 	</div>
 	<div class="col-md-4 col-xs-12 mb25">
 	<?php if($cansee) : ?>
@@ -200,5 +200,14 @@
 				<?php echo Fun::smilymsg($jsonArray['branch']); ?>
 			</span>
 		</div>
+		<?php  if((User::isloginas('t')|| User::isloginas('a')) && !empty($ejsoninfo["calvarification"]) ) : ?>
+		<div>
+			College Verification :
+			<span class="grey-text text-darken-1">
+				<a target="_new" href="<?php echo $ejsoninfo["calvarification"] ; ?>">Click to see</a>
+			</span>
+		</div>
+		<?php endif;  ?>
+	
 	</div>
 </div>
