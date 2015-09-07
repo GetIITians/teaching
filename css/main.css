@@ -243,6 +243,31 @@ html{
 	margin-bottom: .7rem;
 }
 
+#filterClear ul li{
+	display: inline-block;
+	font-size: 1.1rem;
+	font-family: Roboto;
+	border-right: 1px solid #D4D4D4;
+	padding: 0px 1rem;
+}
+
+#filterClear ul li:last-of-type{
+	border-right: 0;
+}
+
+#filterClear ul li i{
+	font-size: 15px;
+	background-color: #333;
+	color: #FFF;
+	border-radius: 1px;
+	margin-left: .2rem;
+}
+
+#filterClear ul li i:hover{
+	cursor: pointer;
+	background-color: #000;
+}
+
 /*-------------------------------
 	Search Page Rating System
 -------------------------------*/

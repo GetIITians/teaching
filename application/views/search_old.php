@@ -166,44 +166,48 @@ load_view("Template/navbarnew.php");
 			
 			<!-- Begin Search Panel -->
 			<div id="mainContent" class="col-md-9">
-					<div class="row">
-						<div class="col-sm-5 col-xs-7">
-							<h3 class="blue-grey-text text-darken-1">Search Results</h3>
-							</div>
-				<div class="col-xs-3 col-xs-1">
-				 <img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>
-				</div>
-				<form method="post" class="col-sm-4 col-xs-4 mt20">
-									<select name="orderby" class="browser-default" data-action="orderby" onchange="ms.orderrefine(this)" >
-										Something
-										<option value="" >Sort By</option>
-										<option value="1">Experience</option>
-										<option value="2">Fees/hr (High to Low)</option>
-										<option value="3">Fees/hr (Low to High)</option>
-										<option value="4">Rating</option>
-										
-									</select>
-				</form>
+				<div class="row">
+					<div class="col-sm-5 col-xs-7">
+						<h3 class="blue-grey-text text-darken-1">Search Results</h3>
 					</div>
-		<div class="divider"></div>
-						<div class="row" id="dispnoresult" style='display:none;' >
-							<div class="col-xs-12 red-text text-lighten-1">
-								Sorry. No results found.
-							</div>
-						</div>
-							<div class="row">
-								<div id="searchresultdiv" data-action='search' data-max='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>' data-maxl='<?php echo $_ginfo["numsearchr"]["loadadd"]; ?>' data-eparams='searchform()' data-ignoreloadonce='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>'>
-								<?php
-									handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>''), "search");
-								?>
-							</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12">
-									<img src='photo/icons/loading2.gif' id="loadmoreloadingimg" style='visibility:hidden;' /><br>
-									<a onclick='ms.searchloadmore(this);' style="cursor:pointer;" id="loadmorebutton" >View More</a>
-								</div>
-							</div>
+					<div class="col-sm-3 col-xs-1">
+						<img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>
+					</div>
+					<form method="post" class="col-sm-4 col-xs-4 mt20">
+						<select name="orderby" class="browser-default" data-action="orderby" onchange="ms.orderrefine(this)" >
+							Something
+							<option value="" >Sort By</option>
+							<option value="1">Experience</option>
+							<option value="2">Fees/hr (High to Low)</option>
+							<option value="3">Fees/hr (Low to High)</option>
+							<option value="4">Rating</option>
+						</select>
+					</form>
+				</div>
+				<div class="row" id="filterClear">
+					<ul class="col-xs-12">
+						
+					</ul>
+				</div>
+				<div class="divider"></div>
+				<div class="row" id="dispnoresult" style='display:none;' >
+					<div class="col-xs-12 red-text text-lighten-1">
+						Sorry. No results found.
+					</div>
+				</div>
+				<div class="row">
+					<div id="searchresultdiv" data-action='search' data-max='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>' data-maxl='<?php echo $_ginfo["numsearchr"]["loadadd"]; ?>' data-eparams='searchform()' data-ignoreloadonce='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>'>
+					<?php
+						handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>''), "search");
+					?>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<img src='photo/icons/loading2.gif' id="loadmoreloadingimg" style='visibility:hidden;' /><br>
+						<a onclick='ms.searchloadmore(this);' style="cursor:pointer;" id="loadmorebutton" >View More</a>
+					</div>
+				</div>
 			</div>
 			<!-- End Search Panel -->
 		

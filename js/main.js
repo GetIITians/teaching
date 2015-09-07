@@ -255,7 +255,10 @@ var ms={
 			$("#dispnoresult").hide();
 		}
 	},
-	refinesearch: function(){ 
+	refinesearch: function(narayan){
+
+		search.filterList(narayan);
+
 		var searchdiv = $('#searchresultdiv');
 		var maxl = parseInt($("#searchresultdiv").attr("data-maxl")); 
 		div.reload_autoscroll(searchdiv[0], null, function(d){ 
@@ -265,7 +268,7 @@ var ms={
 			}
 		}, function() {
 				ms.refinecallafter();
-		}, "#searchloadingimg");
+		}, "#searchloadingimg",narayan);
 	}, /* by yogy */ 
 	orderrefine: function(obj) {
 		($(obj).attr("data-action")=="refinesearch" ? $("input[name=search][type=hidden]").attr("value","") : false);

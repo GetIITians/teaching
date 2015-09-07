@@ -71,3 +71,74 @@ $(function () {
 		},'.card.teacherlistelm');
 	});
 });
+
+var search = {
+
+	filterDefaults : {
+		search: "",
+		topic: "",
+		timeslot: "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
+		lang: "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
+		price: "",
+		timer: "",
+		home: "",
+		pincode: "",
+		class: "",
+		subject: "",
+		orderby: ""
+	},
+
+	filterNames : {
+		search: "Search Query",
+		topic: "Topic",
+		timeslot: "Time",
+		lang: "Language",
+		price: "Price",
+		timer: "Duration",
+		home: "Home Tution",
+		pincode: "Pincode",
+		class: "Class",
+		subject: "Subject",
+		orderby: "Sort"
+	},
+
+	filterList : function(filter){
+		selected = searchform();
+		filters = {};
+		for (list in selected) {
+			if (selected.hasOwnProperty(list)) {
+				if(selected[list] !== this.filterDefaults[list])
+					filters[list] = true;
+			}
+		}
+		if (filter !== undefined) {
+			delete filters[filter];
+			// reset the filter in searchbar
+			this.resetSidebar(filter);
+		};
+		this.displayFilters(filters);
+	},
+
+	displayFilters : function(filters){
+		filterUl = $('#filterClear').find('ul');
+		li = "";
+		for(filter in filters){
+			if (filters.hasOwnProperty(filter)) {
+				li += "<li>"+this.filterNames[filter]+"&nbsp;<i class=\"material-icons\" onclick=\"ms.refinesearch('"+filter+"')\">clear</i></li>";
+			}
+		}
+		filterUl.html(li);
+	},
+
+	resetSidebar : function(filter){
+		if (filter === 'class' || filter === 'subject' || filter === 'orderby') {
+			$('[name="'+filter+'"]').find("option:first").prop("selected", true);
+		} else if(filter === 'pincode'){
+			$('[name="pincode"]').val("");
+		} else{
+			$('[name="'+filter+'"]').each(function(){
+				$(this)[0].checked = $(this)[0].defaultChecked;
+			});
+		}
+	}
+}

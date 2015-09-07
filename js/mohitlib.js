@@ -177,16 +177,19 @@ var button={
 			}
 		}});
 	},
-	sendreq_v2_t4:function(obj,call_back_data,call_back_html,adata){ 
-		var allattrs=this.attrs(obj);  
+	sendreq_v2_t4:function(obj,call_back_data,call_back_html,adata,narayan){
+		var allattrs=this.attrs(obj);
 		if(!button.hasattr(allattrs,"data-params")) { 
 			var params=this.tosendattrs(obj,allattrs); 
 		}
 		else{
 			eval("var params="+allattrs["data-params"]);
-		} 
+		}
 		if(button.hasattr(allattrs,"data-eparams")){ 
-			eval("var eparams="+allattrs["data-eparams"]); 
+			eval("var eparams="+allattrs["data-eparams"]);
+			if (narayan!=undefined) {
+				eparams[narayan] = "";
+			}
 			params=others.mergeifunset(params,eparams);
 		}
 		params['action']=allattrs["data-action"]; 
@@ -510,7 +513,7 @@ var div={
 			$(obj).html(d);
 		},adata);
 	},
-	load:function(obj, isloadold, isappendold, call_back_data, call_back_html, loadingselector) {
+	load:function(obj, isloadold, isappendold, call_back_data, call_back_html, loadingselector,narayan) {
 		if(div.isblock(obj))
 			return -1;
 		if( (isloadold==1 && $(obj).attr("data-minl")==0) || (isloadold==0 && $(obj).attr("data-maxl")==0) )
@@ -520,6 +523,7 @@ var div={
 		if(isappendold==null) 
 			isappendold=isloadold;
 		$(obj).attr("data-isloadold",isloadold);
+		//console.log('load: '+narayan);
 		button.sendreq_v2_t4(obj,function(d){ 
 			var replacearr=["min", "max", "minl", "maxl"];
 			for(var i=0; i<replacearr.length; i++){
@@ -539,13 +543,13 @@ var div={
 			if(call_back_html!=null){
 				call_back_html(d);
 			}
-		});
+		}, null, narayan);
 	},
-	reload_autoscroll: function(obj, data_maxl, call_back_data, call_back_html, selector) { 
-		if(data_maxl==null) 
+	reload_autoscroll: function(obj, data_maxl, call_back_data, call_back_html, selector, narayan) { 
+		if(data_maxl==null)
 			data_maxl=$(obj).attr("data-ignoreloadonce"); 
 		$(obj).attr({"data-max":0, "data-maxl":data_maxl});
-		div.load(obj, 0, -1, call_back_data, call_back_html, selector);
+		div.load(obj, 0, -1, call_back_data, call_back_html, selector, narayan);
 	},
 };
 
