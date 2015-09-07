@@ -1,4 +1,4 @@
-<?php
+<?php 
 load_view("Template/top.php");
 load_view("Template/navbarnew.php");
 
@@ -72,7 +72,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 			<div class="tab-content row">
 
 				<div id="profile" <?php echo profile_tabs(1,$tabid,'tabpanel'); ?> role="tabpanel">
-				<?php 
+				<?php  
 					load_view("Template/profile_about.php", $inp);
 				?>
 				</div>
@@ -88,7 +88,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				</div>
 				<div id="reviews" <?php echo profile_tabs(4,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php
-					//echo "<pre>";print_r($inp);echo "<pre>";
+					
 					load_view("Template/profile_reviews.php", Fun::mergeifunset($inp, array("reviewname" => "studentname")));
 				?>
 				</div>
