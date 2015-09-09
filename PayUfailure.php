@@ -25,5 +25,7 @@ if ($hash != $posted_hash) {
 	echo "<h4>Your transaction id for this transaction is ".$txnid.". You may try making the payment by clicking the link below.</h4>";
 } 
 ?>
-<!--Please enter your website homepagge URL -->
-<p><a href="http://localhost/teaching/PayUMoney/PayUMoney_form.php"> Try Again</a></p>
+<?php
+	$_SESSION['PayUMoneySlotBooked'] = false;
+	Fun::redirect('http://localhost/teaching/profile');
+?>

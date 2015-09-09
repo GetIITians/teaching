@@ -1,3 +1,14 @@
+<?php if(isset($_SESSION['PayUMoneySlotBooked'])) : ?>
+	<?php if($_SESSION['PayUMoneySlotBooked']) : ?>
+	<script type="text/javascript">
+		Materialize.toast('Slot Booked', 4000);				
+	</script>
+	<?php else : ?>
+	<script type="text/javascript">
+		Materialize.toast('Invalid Transaction', 4000, 'warning');
+	</script>
+	<?php endif; unset($_SESSION['PayUMoneySlotBooked']); ?>
+<?php endif; ?>
 <div class="row">
 	<div class="col-xs-12">
 		<div class="card blue-grey darken-1">

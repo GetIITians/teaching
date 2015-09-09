@@ -67,8 +67,8 @@ $action = $PAYU_BASE_URL . '/_payment';
 			<input type="hidden" name="email" value="<?php echo $posted['email']; ?>" />
 			<input type="hidden" name="phone" value="<?php echo $posted['phone']; ?>" />
 			<input type="hidden" name="productinfo" value="<?php echo $posted['productinfo']; ?>" />
-			<input type="hidden" name="surl" value="<?php echo 'http://localhost/teaching/PayUsuccess.php'; ?>" />
-			<input type="hidden" name="furl" value="<?php echo 'http://localhost/teaching/PayUfailure.php'; ?>" />
+			<input type="hidden" name="surl" value="<?php echo HOST.'PayUsuccess.php'; ?>" />
+			<input type="hidden" name="furl" value="<?php echo HOST.'PayUfailure.php'; ?>" />
 			<input type="hidden" name="service_provider" value="payu_paisa" />
 		</form>
 	</body>

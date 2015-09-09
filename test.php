@@ -25,8 +25,4 @@ include "includes/app.php";
 */
 
 
-var_dump($_SESSION['studentBookSlotData']);
-
-$outp = handle_request($_SESSION['studentBookSlotData']);
-
-var_dump($outp);
+var_dump(HOST);

@@ -41,6 +41,7 @@ if ($hash != $posted_hash) {
 
 		if ($outp["ec"]>0) {
 			//echo "<pre>";var_dump($outp);echo "</pre>";
+			$_SESSION['PayUMoneySlotBooked'] = true;
 			Fun::redirect('http://localhost/teaching/profile');
 		}
 	}
