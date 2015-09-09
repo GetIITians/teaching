@@ -135,7 +135,7 @@ abstract class Funs{
 		}
 		return $twoDArr;
 	}
-	function bulktsquery($slotList,$dayList,$startdate,$enddate){//Return list of ( to be inserted/ deleted ) starttime in a array
+	public static function bulktsquery($slotList,$dayList,$startdate,$enddate){//Return list of ( to be inserted/ deleted ) starttime in a array
 		$outp=array();
 		for($i=$startdate;$i<=$enddate;$i+=3600*24){
 			if(in_array(0+date("N",$i),$dayList)){
@@ -329,6 +329,7 @@ abstract class Funs{
 		$pageinfo=array("fname"=>$flname[0],"lname"=>$flname[1],"sinfo"=>$sinfo,"dob"=>$dob, "sid" => $sid, "newslots" => $newslots, "oldslots" => $oldslots);
 		$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where sid={sid} ", array("sid" => User::loginId()));
 		mergeifunset($pageinfo, Funs::moneyaccount($sid)); 
+		//fb($pageinfo,'pageinfo',FirePHP::LOG);
 		return $pageinfo;
 	}
 	public static function doublesplit($inp){
@@ -498,6 +499,15 @@ abstract class Funs{
 //		
 		//print_r($finalquery);
 		return array($finalquery,$params,$relv_finalquery);
+	}
+
+	public static function addPayUMoney($money, $commentid='', $uid=null, $add = array(), $mailf=null) {
+		setifnn($uid, User::loginId());
+		$content = "You booked class of ".$add['classname'].", ".$add['subjectname'].", ".$add['topicname']." with teacher ".$add['teachername'];
+		Sqle::insertVal("moneyaccount", array("uid" => $uid, "content" => $content, "time" => time(), "PayUMoney" => (-$money), "amount" => $money, "txnid" => $add['txnid']));
+		if($mailf != null) {
+			Fun::mailfromfile($add["mailto"], $mailf, $add);
+		}
 	}
 
 	public static function addremmoney($money, $commentid='', $uid=null, $add = array(), $mailf=null) {

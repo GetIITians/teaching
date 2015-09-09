@@ -1,6 +1,7 @@
 <?php
 include "includes/app.php";
 
+/*
 	function wiziqtime() {
 		return date("Y-m-d H:i", now());
 	}
@@ -20,3 +21,12 @@ include "includes/app.php";
 	}
 
 	var_dump(wiziq());
+
+*/
+
+
+var_dump($_SESSION['studentBookSlotData']);
+
+$outp = handle_request($_SESSION['studentBookSlotData']);
+
+var_dump($outp);

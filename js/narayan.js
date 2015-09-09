@@ -21,6 +21,9 @@ var helpers = {
 	},
 	toType : function(obj){
 		return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+	},
+	baseUrl : function(window){
+		return window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
 	}
 }
 
@@ -105,9 +108,8 @@ var adminPage = {
 	approve : function(event,obj,dbColumn){
 		event.preventDefault();
 		$(obj).addClass('disabled');
-		var link = window.location .protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
 		$.ajax({
-			url		: link+'/approve_review',
+			url		: helpers.baseUrl(window)+'/approve_review',
 			type	: 'POST',
 			data 	: {
 						tid			: 	obj.getAttribute('tid'),
@@ -150,7 +152,7 @@ $(function() {
 		var rating_avg			= 	rating_value_div.attr('value');
 
 		$.ajax({
-			url		: window.location .protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1] + "/rating",
+			url		: helpers.baseUrl(window) + "/rating",
 			type	: 'POST',
 			data 	: {
 						previous_rating	: 	previous_rating,// changed

@@ -37,6 +37,7 @@ load_view("Template/navbarnew.php",$inp);
 				<div id="tab_account" class="tab-pane col-xs-12" role="tabpanel">
 				<?php
 					load_view("Template/moneyaccount.php", $inp);
+					fb($inp,'inp',FirePHP::LOG);
 				?>
 				</div>
 			</div>

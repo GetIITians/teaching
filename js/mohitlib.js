@@ -66,8 +66,8 @@ var button={
 			
 		}});
 	},
-	sendreq_v2:function(obj){ console.log(this);
-		var allattrs=this.attrs(obj); 
+	sendreq_v2:function(obj){
+		var allattrs=this.attrs(obj);
 		if(!button.hasattr(allattrs,"data-params"))
 			var params=this.tosendattrs(obj,allattrs);  
 		else{
@@ -80,21 +80,26 @@ var button={
 		}
 		params['action']=allattrs["data-action"];
 		obj.disabled=true;
-		var prvvalue=obj.innerHTML; console.log(params);
+		var prvvalue=obj.innerHTML;
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
+		//console.log(params);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
+			console.log(d);
 			var respo=button.parse(d); 
 			obj.innerHTML=prvvalue;
 			if(respo){ 
 				if(respo.ec<0){
+					if( respo.ec == -29 ){
+						window.location = helpers.baseUrl(window) + "/PayUMoney_form_test.php";
+						//mohit.alert(ecn[respo.ec])
+					}
 					if(button.hasattr(allattrs,"data-error")){
 						var ec=respo.ec;
 						eval(allattrs["data-error"]);
 					}
 					else
 						mohit.alert(ecn[respo.ec]);
-
 				}
 				else{ 
 					obj.innerHTML=(typeof(allattrs["data-restext"])=='undefined')?prvvalue:allattrs["data-restext"];
@@ -127,7 +132,7 @@ var button={
 			var respo=button.parse(d.split("\n")[0]);
 			obj.innerHTML=prvvalue; 
 			if(respo){
-				if(respo.ec<0){ 
+				if(respo.ec<0){
 					if(button.hasattr(allattrs,"data-error")){
 						var ec=respo.ec; 
 						eval(allattrs["data-error"]);
@@ -187,7 +192,7 @@ var button={
 		}
 		if(button.hasattr(allattrs,"data-eparams")){ 
 			eval("var eparams="+allattrs["data-eparams"]);
-			if (narayan!=undefined) {
+			if (typeof narayan !== "undefined") {
 				eparams[narayan] = "";
 			}
 			params=others.mergeifunset(params,eparams);

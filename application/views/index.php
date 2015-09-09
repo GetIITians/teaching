@@ -1,10 +1,4 @@
-<?php  
-load_view("Template/top.php",$inp);
-?>
-<!--
-mohit Saini11
-Shivam Mamgain
--->
+<?php load_view("Template/top.php",$inp); ?>
 <link rel="stylesheet" href="css/custom-homestyle-v2.css">
 
 <body id="homepage">

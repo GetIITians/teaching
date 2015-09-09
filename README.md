@@ -1,3 +1,3 @@
 # teaching
-This is free code of getIITians
+This is the code of getIITians
 

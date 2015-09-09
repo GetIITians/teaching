@@ -75,31 +75,31 @@ $(function () {
 var search = {
 
 	filterDefaults : {
-		search: "",
-		topic: "",
-		timeslot: "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
-		lang: "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
-		price: "",
-		timer: "",
-		home: "",
-		pincode: "",
-		class: "",
-		subject: "",
-		orderby: ""
+		'search': "",
+		'topic': "",
+		'timeslot': "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
+		'lang': "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
+		'price': "",
+		'timer': "",
+		'home': "",
+		'pincode': "",
+		'class': "",
+		'subject': "",
+		'orderby': ""
 	},
 
 	filterNames : {
-		search: "Search Query",
-		topic: "Topic",
-		timeslot: "Time",
-		lang: "Language",
-		price: "Price",
-		timer: "Duration",
-		home: "Home Tution",
-		pincode: "Pincode",
-		class: "Class",
-		subject: "Subject",
-		orderby: "Sort"
+		'search': "Search Query",
+		'topic': "Topic",
+		'timeslot': "Time",
+		'lang': "Language",
+		'price': "Fees",
+		'timer': "Duration",
+		'home': "Home Tution",
+		'pincode': "Pincode",
+		'class': "Class",
+		'subject': "Subject",
+		'orderby': "Sort"
 	},
 
 	filterList : function(filter){
@@ -111,7 +111,7 @@ var search = {
 					filters[list] = true;
 			}
 		}
-		if (filter !== undefined) {
+		if (typeof filter !== "undefined") {
 			delete filters[filter];
 			// reset the filter in searchbar
 			this.resetSidebar(filter);

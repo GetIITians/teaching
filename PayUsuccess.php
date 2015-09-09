@@ -1,6 +1,8 @@
 <?php
 
-include_once('../actionv2.php');
+if (!isset($_SESSION)) { session_start(); }
+
+include "includes/app.php";
 
 $status=$_POST["status"];
 $firstname=$_POST["firstname"];
@@ -26,9 +28,19 @@ if ($hash != $posted_hash) {
 	echo "Invalid Transaction. Please try again";
 } else {
 	if ($status == 'success') {
-		handle_request($_SESSION['studentBookSlotData']);
+		$_SESSION['paidViaPayUMoney'] = true;
+		$_SESSION['studentBookSlotAddMoney']['txnid']=$txnid;
+		Funs::addPayUMoney(-$_SESSION['studentBookSlotAddMoney']['priceused'], -1, null, $_SESSION['studentBookSlotAddMoney']);
+		unset($_SESSION['studentBookSlotAddMoney']);
+
+		$outp = handle_request($_SESSION['studentBookSlotData']);
 		unset($_SESSION['studentBookSlotData']);
+		//echo "<pre>";var_dump($outp);echo "</pre>";
+		//echo "<pre>";var_dump($status);echo "</pre>";
+		//echo "<pre>";var_dump($_SESSION);echo "</pre>";
+
 		if ($outp["ec"]>0) {
+			//echo "<pre>";var_dump($outp);echo "</pre>";
 			Fun::redirect('http://localhost/teaching/profile');
 		}
 	}

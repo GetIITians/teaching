@@ -231,122 +231,120 @@ class Welcome extends CI_Controller {
 
 	}
 	
-		public function profile($tid=0,$tabid=1) {
-			$this->load->library('uri'); 
-			if (!empty($this->uri->segment(2))) {
-				$tid = $this->uri->segment(2);	
-			}
-			if(!empty($this->uri->segment(3))) {
-				$tabid = $this->uri->segment(3);
-			}
-			/* By Yogy */
-			$pageinfo=array();
-			$pageinfo["resignupmsg"]='';
-			if(isset($_POST['resignup'])) {
-				$handle_signup=handle_request(Fun::mergeifunset($_POST, array("action"=>"resignup")));
-				if($handle_signup["ec"]<0) {
+	public function profile($tid=0,$tabid=1) {
+		$this->load->library('uri'); 
+		if (!empty($this->uri->segment(2))) {
+			$tid = $this->uri->segment(2);	
+		}
+		if(!empty($this->uri->segment(3))) {
+			$tabid = $this->uri->segment(3);
+		}
+		/* By Yogy */
+		$pageinfo=array();
+		$pageinfo["resignupmsg"]='';
+		if(isset($_POST['resignup'])) {
+			$handle_signup=handle_request(Fun::mergeifunset($_POST, array("action"=>"resignup")));
+			if($handle_signup["ec"]<0) {
 				sets("resignupmsg",errormsg($handle_signup["ec"],ispost("resignup")));
 				Fun::redirect(BASE."profile/".$tid."/5");
-				}
-				else {
+			} else {
 				Fun::redirect(BASE."profile/".$tid."/5");	
-				}
 			}
-			if(isses("resignupmsg")) {
-				$pageinfo["resignupmsg"]=gets("resignupmsg");
-				unsets("resignupmsg");
-			} 
+		}
+		if(isses("resignupmsg")) {
+			$pageinfo["resignupmsg"]=gets("resignupmsg");
+			unsets("resignupmsg");
+		} 
 		/* ...... */	
 
-			$numtabs=6;
-			global $_ginfo;
-			$tid=Funs::gettid($tid);
-			$tabid=max(min($numtabs,(0+$tabid)),1);
-			$uprofile=User::userProfile($tid);
+		$numtabs=6;
+		global $_ginfo;
+		$tid=Funs::gettid($tid);
+		$tabid=max(min($numtabs,(0+$tabid)),1);
+		$uprofile=User::userProfile($tid);
 
-			if($uprofile==null){
-				Fun::redirect(HOST);
+		if($uprofile==null){
+			Fun::redirect(HOST);
+		}
+
+		if($uprofile!=null){
+			$bulkupload_timeslot=handle_request(Fun::mergeifunset($_POST,array("action"=>"addrembulkts")));
+			$addtopic=handle_request(Fun::mergeifunset($_POST,array("action"=>"addtopics")));
+			$remtopic=handle_request(Fun::mergeifunset($_GET,array("action"=>"deltopics")));
+			if(isset($_FILES["profilepic"])){
+				Fun::uploadpic($_FILES["profilepic"], "profilepic", "profilepicbig", 100);
 			}
+			if($uprofile["type"]=='t' ){
+				if(isset($_FILES["profile_upload"]) && $_FILES["profile_upload"]["size"]>0  ){
+						$uf=Fun::profile_upload_file($_FILES["profile_upload"]);
 
-			if($uprofile!=null){
+						$name=preg_replace('/\\.[^.\\s]{3,4}$/', '', $bigpic);
+						$pic=$name."_small.".pathinfo($_FILES['profile_upload']['name'],PATHINFO_EXTENSION);
+						resizeimg($bigpic,$pic,$_ginfo['imgheight'],$_ginfo['imgwidth']);
+						$sql="select * from users where id='$tid'";
+						$olddata=sql::getArray($sql);
+				}
+				if(isset($_POST['getText']) && $_POST['getText']!='') {
+						$displayte=$_POST['getText'];
+						$sql="update teachers set teachermoto='$displayte' where tid='$tid'";
+						sql::query($sql);
+				}
+				$tid=Funs::gettid($tid);
+				$tabid=max(min($numtabs,(0+$tabid)),1);
 				$bulkupload_timeslot=handle_request(Fun::mergeifunset($_POST,array("action"=>"addrembulkts")));
 				$addtopic=handle_request(Fun::mergeifunset($_POST,array("action"=>"addtopics")));
 				$remtopic=handle_request(Fun::mergeifunset($_GET,array("action"=>"deltopics")));
-				if(isset($_FILES["profilepic"])){
-					Fun::uploadpic($_FILES["profilepic"], "profilepic", "profilepicbig", 100);
+				$cst_tree=Funs::cst_tree();
+				$topicinfo=array('cst_tree'=>$cst_tree,"tid"=>$tid);
+				$topicinfo["class_olist"]=Funs::cst_tree2classlist($cst_tree);
+				$topicinfo["mysubj"]=Sql::getArray("select subjects.*,all_classes.classname, all_subjects.subjectname, all_topics.topicname from subjects left join all_classes on all_classes.id=subjects.c_id left join all_subjects on all_subjects.id=subjects.s_id left join all_topics on all_topics.id=subjects.t_id where tid=?",'i',array(&$tid));
+				//$pageinfo=array();
+				$pageinfo["aboutinfo"]=Sqle::getR("select teachers.*, users.*, takendemo.isdonedemo from teachers left join users on users.id=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid where teachers.tid={tid} limit 1", array("tid" => $tid, "uid" => 0+User::loginId()));
+				if($pageinfo["aboutinfo"]==null){
+						Fun::redirect(HOST);
 				}
-
-				if($uprofile["type"]=='t' ){
-					if(isset($_FILES["profile_upload"]) && $_FILES["profile_upload"]["size"]>0  ){
-							$uf=Fun::profile_upload_file($_FILES["profile_upload"]);
-
-							$name=preg_replace('/\\.[^.\\s]{3,4}$/', '', $bigpic);
-							$pic=$name."_small.".pathinfo($_FILES['profile_upload']['name'],PATHINFO_EXTENSION);
-							resizeimg($bigpic,$pic,$_ginfo['imgheight'],$_ginfo['imgwidth']);
-							$sql="select * from users where id='$tid'";
-							$olddata=sql::getArray($sql);
-					}
-					if(isset($_POST['getText']) && $_POST['getText']!='') {
-							$displayte=$_POST['getText'];
-							$sql="update teachers set teachermoto='$displayte' where tid='$tid'";
-							sql::query($sql);
-					}
-					$tid=Funs::gettid($tid);
-					$tabid=max(min($numtabs,(0+$tabid)),1);
-					$bulkupload_timeslot=handle_request(Fun::mergeifunset($_POST,array("action"=>"addrembulkts")));
-					$addtopic=handle_request(Fun::mergeifunset($_POST,array("action"=>"addtopics")));
-					$remtopic=handle_request(Fun::mergeifunset($_GET,array("action"=>"deltopics")));
-					$cst_tree=Funs::cst_tree();
-					$topicinfo=array('cst_tree'=>$cst_tree,"tid"=>$tid);
-					$topicinfo["class_olist"]=Funs::cst_tree2classlist($cst_tree);
-					$topicinfo["mysubj"]=Sql::getArray("select subjects.*,all_classes.classname, all_subjects.subjectname, all_topics.topicname from subjects left join all_classes on all_classes.id=subjects.c_id left join all_subjects on all_subjects.id=subjects.s_id left join all_topics on all_topics.id=subjects.t_id where tid=?",'i',array(&$tid));
-					//$pageinfo=array();
-					$pageinfo["aboutinfo"]=Sqle::getR("select teachers.*, users.*, takendemo.isdonedemo from teachers left join users on users.id=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid where teachers.tid={tid} limit 1", array("tid" => $tid, "uid" => 0+User::loginId()));
-					if($pageinfo["aboutinfo"]==null){
-							Fun::redirect(HOST);
-					}
-					$pageinfo["calinfo"]=Funs::get_teacher_cal_info($tid);
-					$pageinfo["myclasses"] = Funs::get_teacher_classes($tid);
-					$pageinfo["topicinfo"]=$topicinfo;
-					$pageinfo["topicinfo"]["isdonedemo"] = $pageinfo["aboutinfo"]["isdonedemo"];
-					$pageinfo["tid"]=$tid;
-					$pageinfo["tabid"]=$tabid;
-					$tempArr=explode(' ',$pageinfo['aboutinfo']['name']);
-					$pageinfo['firstName']=$tempArr[0];
-					$pageinfo['lastName']=$tempArr[1];
-					$jsonArray=str2json($pageinfo['aboutinfo']['jsoninfo']); 
-					$pageinfo['city']=$jsonArray['city'];
-					$pageinfo['jsonArray']=$jsonArray;  
-					$tempSubjects=Funs::extractFields($pageinfo['aboutinfo']['jsoninfo'],$_ginfo['encodeddataofteacherstable']['sub'],'sub');
-					$pageinfo['subArray']=explode(' , ', $tempSubjects);
-					$tempGrades=explode('-',$jsonArray['grade']);
-					// foreach ($tempGrades as $value) {
-					// 		$gradeArray[]=$_ginfo['encodeddataofteacherstable']['grade'][$value-1];
-					// }
-					$pageinfo['gradeArray']=$tempGrades;//$gradeArray;
-					$tempLang=explode('-',$pageinfo['aboutinfo']['lang']);
-					// foreach ($tempLang as $value) {
-					// 		$langArray[]=$_ginfo['encodeddataofteacherstable']['lang'][$value-1];
-					// }
-					$pageinfo["ejsoninfo"] = str2json($pageinfo["aboutinfo"]["jsoninfo"]);
-					$pageinfo['langArray'] = $tempLang;// $langArray;
-					$pageinfo["isme"] = (User::loginId() == $tid);
-					mergeifunset($pageinfo, Funs::moneyaccount($tid));
-					$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where tid={tid} ", array("tid" => $tid));
-					$pageinfo["cansee"] = (User::loginId() == $tid || User::isloginas("a"));
-					$pageinfo["canedit"] = (User::loginId() == $tid);
-					if(User::isloginas('s')){
-						$pageinfo["st_detail"]= User::userProfile(User::loginId());
-					}
-					load_view("profile.php",$pageinfo);            
+				$pageinfo["calinfo"]=Funs::get_teacher_cal_info($tid);
+				$pageinfo["myclasses"] = Funs::get_teacher_classes($tid);
+				$pageinfo["topicinfo"]=$topicinfo;
+				$pageinfo["topicinfo"]["isdonedemo"] = $pageinfo["aboutinfo"]["isdonedemo"];
+				$pageinfo["tid"]=$tid;
+				$pageinfo["tabid"]=$tabid;
+				$tempArr=explode(' ',$pageinfo['aboutinfo']['name']);
+				$pageinfo['firstName']=$tempArr[0];
+				$pageinfo['lastName']=$tempArr[1];
+				$jsonArray=str2json($pageinfo['aboutinfo']['jsoninfo']); 
+				$pageinfo['city']=$jsonArray['city'];
+				$pageinfo['jsonArray']=$jsonArray;  
+				$tempSubjects=Funs::extractFields($pageinfo['aboutinfo']['jsoninfo'],$_ginfo['encodeddataofteacherstable']['sub'],'sub');
+				$pageinfo['subArray']=explode(' , ', $tempSubjects);
+				$tempGrades=explode('-',$jsonArray['grade']);
+				// foreach ($tempGrades as $value) {
+				// 		$gradeArray[]=$_ginfo['encodeddataofteacherstable']['grade'][$value-1];
+				// }
+				$pageinfo['gradeArray']=$tempGrades;//$gradeArray;
+				$tempLang=explode('-',$pageinfo['aboutinfo']['lang']);
+				// foreach ($tempLang as $value) {
+				// 		$langArray[]=$_ginfo['encodeddataofteacherstable']['lang'][$value-1];
+				// }
+				$pageinfo["ejsoninfo"] = str2json($pageinfo["aboutinfo"]["jsoninfo"]);
+				$pageinfo['langArray'] = $tempLang;// $langArray;
+				$pageinfo["isme"] = (User::loginId() == $tid);
+				mergeifunset($pageinfo, Funs::moneyaccount($tid));
+				$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where tid={tid} ", array("tid" => $tid));
+				$pageinfo["cansee"] = (User::loginId() == $tid || User::isloginas("a"));
+				$pageinfo["canedit"] = (User::loginId() == $tid);
+				if(User::isloginas('s')){
+					$pageinfo["st_detail"]= User::userProfile(User::loginId());
 				}
-				else if($uprofile['type']=='s') {
-					load_view("studentprofile.php",Funs::student_profile($tid));
-				}            
-				else if($uprofile['type']=='a') {
-					load_view("adminprofile.php",Funs::admin_profile($tid, $uprofile));
-				}            
+				load_view("profile.php",$pageinfo);            
 			}
+			else if($uprofile['type']=='s') {
+				load_view("studentprofile.php",Funs::student_profile($tid));
+			}            
+			else if($uprofile['type']=='a') {
+				load_view("adminprofile.php",Funs::admin_profile($tid, $uprofile));
+			}            
+		}
 	}
 
 	public function edit($tid=0){

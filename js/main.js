@@ -283,7 +283,7 @@ var ms={
 			}
 		}, null, "#loadmoreloadingimg");
 	},
-	studentbookslot: function(obj) { 
+	studentbookslot: function(obj) {
 		if(selectedtopic != "") {
 			var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
 			if($('#popuptimecheckbox').val().length===0){
