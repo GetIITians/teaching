@@ -24,5 +24,7 @@ include "includes/app.php";
 
 */
 
+$query = "select accountbalance.mymoney, users.name as teachername, users.email as teacheremail,users.phone as teacherphone, users1.name as studentname, users1.email as studentemail,users1.phone as studentphone, subjectlist.* from ".qtable("subjectlist")." left join users on users.id = {tid} left join users as users1 on users1.id = {sid} left join ".qtable("accountbalance")." on accountbalance.uid = {sid} where c_id = 5 AND s_id = 22 AND t_id = 247 AND tid={tid} ";
+$cstinfo = Sqle::getR($query, array("sid" => User::loginId(), "tid" => '19'));
 
-var_dump(HOST);
+echo "<pre>";var_dump($cstinfo);echo "</pre>";

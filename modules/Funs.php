@@ -316,7 +316,7 @@ abstract class Funs{
 	public static function moneyaccount($uid) {
 		$pageinfo = array();
 		$pageinfo["moneyaccount"] = Sqle::getA("select * from moneyaccount where uid={uid} order by time desc ", array("uid" => $uid));
-		$pageinfo["mymoney"] = getval("mymoney", Sqle::getR( "select * from ".qtable("accountbalance")." where uid={uid}", array("uid" => $uid)));
+		$pageinfo["mymoney"] = getval("mymoney", Sqle::getR( "select * from ".qtable("showaccountbalance")." where uid={uid}", array("uid" => $uid)));
 		return $pageinfo;
 	}
 
@@ -504,7 +504,7 @@ abstract class Funs{
 	public static function addPayUMoney($money, $commentid='', $uid=null, $add = array(), $mailf=null) {
 		setifnn($uid, User::loginId());
 		$content = "You booked class of ".$add['classname'].", ".$add['subjectname'].", ".$add['topicname']." with teacher ".$add['teachername'];
-		Sqle::insertVal("moneyaccount", array("uid" => $uid, "content" => $content, "time" => time(), "PayUMoney" => (-$money), "amount" => $money, "txnid" => $add['txnid']));
+		Sqle::insertVal("moneyaccount", array("uid" => $uid, "content" => $content, "time" => time(), "PayUMoney" => $money, "amount" => (-$money), "txnid" => $add['txnid']));
 		if($mailf != null) {
 			Fun::mailfromfile($add["mailto"], $mailf, $add);
 		}
