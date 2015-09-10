@@ -5,11 +5,7 @@ load_view("Template/navbarnew.php",$inp);
 <?php if(isset($_SESSION['PayUMoneySlotBooked'])) : ?>
 	<?php if($_SESSION['PayUMoneySlotBooked']) : ?>
 	<script type="text/javascript">
-		var status = true;
-	</script>
-	<?php else : ?>
-	<script type="text/javascript">
-		var status = false;
+		status = true;
 	</script>
 	<?php endif; unset($_SESSION['PayUMoneySlotBooked']); ?>
 <?php endif; ?>

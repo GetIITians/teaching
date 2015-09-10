@@ -26,7 +26,6 @@ function editProfile() {
 if (typeof status != 'undefined') {
 	if (status) {
 		Materialize.toast('Slot Booked', 4000);
-	} else {
-		Materialize.toast('Invalid Transaction', 4000, 'warning');
 	}
+	delete status;
 };
