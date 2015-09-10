@@ -35,12 +35,12 @@ if ($hash != $posted_hash) {
 
 		$outp = handle_request($_SESSION['studentBookSlotData']);
 		unset($_SESSION['studentBookSlotData']);
-		echo "<pre>";var_dump($outp);echo "</pre>";
-		echo "<pre>";var_dump($status);echo "</pre>";
-		echo "<pre>";var_dump($_SESSION);echo "</pre>";
+		//echo "<pre>";var_dump($outp);echo "</pre>";
+		//echo "<pre>";var_dump($status);echo "</pre>";
+		//echo "<pre>";var_dump($_SESSION);echo "</pre>";
 
 		if ($outp["ec"]>0) {
-			echo "<pre>";var_dump($outp);echo "</pre>";
+			//echo "<pre>";var_dump($outp);echo "</pre>";
 			$_SESSION['PayUMoneySlotBooked'] = true;
 			Fun::redirect(HOST.'profile');
 		}

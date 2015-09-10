@@ -19,6 +19,8 @@ If (isset($_POST["additionalCharges"])) {
  $hash = hash("sha512", $retHashSeq);
 	
 if ($hash != $posted_hash) {
+	var_dump($status);
+	var_dump($_POST["Error"]);
 	echo "Invalid Transaction. Please try again";
 } else {
 	echo "<h3>Your order status is ". $status .".</h3>";
