@@ -1,5 +1,6 @@
 <?php load_view("Template/top.php",$inp); ?>
 <link rel="stylesheet" href="css/custom-homestyle-v2.css">
+<link rel="stylesheet" href="css/jquery.smartmenus.bootstrap.css">
 
 <body id="homepage">
 	<a id="top"></a>
@@ -46,6 +47,79 @@
 					</div>
 				</form>
 
+
+				
+				<ul class="nav navbar-nav row" id="homeDropdown">
+					<?php foreach ($cst as $classname => $subjects) : ?>
+						<li class="col-xs-2"><a href="#"><?php echo $classname; ?> <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							<?php foreach ($subjects as $subjectname => $topics) : ?>
+								<li><a href="#"><?php echo $subjectname; ?> <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<?php foreach ($topics as $topicname) : ?>
+											<li><a href="#"><?php echo $topicname; ?></a></li>
+										<?php endforeach; ?>
+									</ul>
+								</li>
+							<?php endforeach; ?>
+							</ul>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<!-- Core bootstrap dropdown
+				<ul class="nav nav-pills row">
+					<li role="presentation" class="dropdown col-xs-2 col-sm-offset-1">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							Class X <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Mathematics</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Science <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">Link 3</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li role="presentation" class="dropdown col-xs-2">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							Class XI <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+
+						</ul>
+					</li>
+					<li role="presentation" class="dropdown col-xs-2">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							Class XII <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+
+						</ul>
+					</li>
+					<li role="presentation" class="dropdown col-xs-2">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							IIT Mains <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+
+						</ul>
+					</li>
+					<li role="presentation" class="dropdown col-xs-2">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							IIT Advance <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+
+						</ul>
+					</li>
+				</ul>
+				-->
 				<!-- DROPDOWN BEGIN
 				<div id="dropdownnav" class="row" style="display:none;">
 					<nav class="transparent col s12">
@@ -475,5 +549,7 @@ load_view("Template/bottom.php",Fun::mergeifunset($inp, array("needbody"=>false 
 	<script type="text/javascript" src="js/jssor.js"></script>
 	<script type="text/javascript" src="js/jssor.slider.js"></script>
 	<script src="js/home.js"></script>
+	<script src="js/jquery.smartmenus.js"></script>
+	<script src="js/jquery.smartmenus.bootstrap.js"></script>
 </body>
 </html>

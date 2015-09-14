@@ -20,17 +20,41 @@ class Welcome extends CI_Controller {
 				$pageinfo['students']++;
 		}
 		$reviews = $this->db
-				 ->select('student.name as student,class.feedback,teacher.name as teacher,teacher.profilepic')
-				 ->from('booked class')
-				 ->join('users student', 'class.sid = student.id')
-				 ->join('users teacher', 'class.tid = teacher.id')
-				 ->where('class.feedback !=', 'NULL')
-				 ->where('class.feedbackStatus =', 'yes')
-				 ->where('class.feedbackHomepage =', 'yes')
-				 ->get()
-				 ->result_array();
+				->select('student.name as student,class.feedback,teacher.name as teacher,teacher.profilepic')
+				->from('booked class')
+				->join('users student', 'class.sid = student.id')
+				->join('users teacher', 'class.tid = teacher.id')
+				->where('class.feedback !=', 'NULL')
+				->where('class.feedbackStatus =', 'yes')
+				->where('class.feedbackHomepage =', 'yes')
+				->get()
+				->result_array();
 		//echo $this->db->last_query();
 		$pageinfo['reviews'] = $reviews;
+		/* --------------- */
+		$query = $this->db
+				->select('classname,subjectname,topicname,c_id,s_id,t_id')
+				->from('all_cst')
+				->join('all_classes', 'all_classes.id = all_cst.c_id')
+				->join('all_subjects', 'all_subjects.id = all_cst.s_id')
+				->join('all_topics', 'all_topics.id = all_cst.t_id')
+				->get()
+				->result_array();
+
+
+		$data = [];
+		$ids = [];
+		$class = $subject = $topic = NULL;
+		foreach ($query as $row) {
+			if($class !== $row['c_id']) $ids[$row['classname']] = $row['c_id'];
+			if($subject !== $row['s_id']) $ids[$row['classname'].' '.$row['subjectname']] = $row['s_id'];
+			$ids[$row['topicname']] = $row['t_id'];
+			$data[$row['classname']][$row['subjectname']][] = $row['topicname'];
+			$class = $row['c_id'];
+			$subject = $row['s_id'];
+		}
+		$pageinfo['cstid'] = $ids;
+		$pageinfo['cst'] = $data;
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");
@@ -751,7 +775,50 @@ class Welcome extends CI_Controller {
 	}
 
 	public function narayan(){
+		/*
+		$query = $this->db
+						->select('classname,subjectname,topicname,c_id,s_id,t_id')
+						->from('all_cst')
+						->join('all_classes', 'all_classes.id = all_cst.c_id')
+						->join('all_subjects', 'all_subjects.id = all_cst.s_id')
+						->join('all_topics', 'all_topics.id = all_cst.t_id')
+						->get()
+						->result_array();
+						//echo $this->db->last_query();
+		$data = [];
+		$ids = [];
+		$class = $subject = $topic = NULL;
+		foreach ($query as $row) {
+			if($class !== $row['c_id']) $ids[$row['classname']] = $row['c_id'];
+			if($subject !== $row['s_id']) $ids[$row['classname'].' '.$row['subjectname']] = $row['s_id'];
+			$ids[$row['topicname']] = $row['t_id'];
+			$data[$row['classname']][$row['subjectname']][] = $row['topicname'];
+			$class = $row['c_id'];
+			$subject = $row['s_id'];
+		}
+		echo "<pre>";var_dump($data);echo "</pre>";
+		echo "<pre>";var_dump($ids);echo "</pre>";
+		
+//		foreach ($data as $key => $value) {
+//		}
+		*/
 
+		/*
+		$string = "The Story of Village Palampur
+People As Resource
+Poverty As A Challenge
+Food Security in India";
+		$pieces = explode("\n", $string);
+		$id = 171;
+		foreach ($pieces as $value) {
+			$data = array(
+				'id' => $id,
+				'topicname' => $value
+			);
+			$this->db->insert('all_topics', $data);
+			$id++;
+		}
+		*/
 	}
 }
 

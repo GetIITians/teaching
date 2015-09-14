@@ -777,7 +777,7 @@ a.attention-joinus:hover {
 }
 
 #index-banner .no-pad-bot form{
-	margin-bottom: 85px;
+	margin-bottom: 45px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -894,6 +894,48 @@ nav.navbar-fixed-top .dropdown-menu > li > a:focus, nav.navbar-fixed-top .dropdo
 
 nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	font-size: .7rem;
+}
+/*-------------------
+	Homepage Tabs
+-------------------*/
+#homeDropdown{
+	width: 100%;
+}
+
+#homeDropdown > li{
+	background-color: #00695C;
+	border-right: 1px solid #002C26;
+}
+
+#homeDropdown > li > a{
+	color: white;
+	background-color: transparent;
+	text-align: center;
+	padding: .7rem;
+}
+
+#homeDropdown .open > a,
+#homeDropdown .open > a:focus,
+#homeDropdown .open > a:hover {
+	background-color: transparent;
+	border-color: 0;
+}
+
+#homeDropdown .dropdown-menu {
+	background-color: #00695C;
+	border: 0;
+	border-radius: 0;
+	margin-top: 1px;
+}
+
+#homeDropdown .dropdown-menu > li > a{
+	background-color: #00695C;
+	color: white;
+}
+
+#homeDropdown .dropdown-menu > li > a:focus,
+#homeDropdown .dropdown-menu > li > a:hover {
+	color: #FFF;
 }
 
 /*-------------------
