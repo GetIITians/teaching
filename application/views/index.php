@@ -28,10 +28,10 @@
 			<div class="container">
 				<div class="row ">
 					<div class="col-xs-12">
-						<h1 class="header center white-text">Tuition by IITians</h1>
+						<h1 class="header center white-text">Improve your grades</h1>
 					</div>
 					<div class="col-xs-12">
-							<h5 class="sub-title">Get an IITian tutor for Any Subject! Any Class!</h5>
+							<h5 class="sub-title">Attend 1-on-1 live tution by IITians</h5>
 					</div>
 				</div><br>
 
@@ -51,13 +51,13 @@
 				
 				<ul class="nav navbar-nav row" id="homeDropdown">
 					<?php foreach ($cst as $classname => $subjects) : ?>
-						<li class="col-xs-2"><a href="#"><?php echo $classname; ?> <span class="caret"></span></a>
+						<li class=""><a href="<?php echo HOST.'search?class='.$cstid[$classname]; ?>"><?php echo $classname; ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 							<?php foreach ($subjects as $subjectname => $topics) : ?>
-								<li><a href="#"><?php echo $subjectname; ?> <span class="caret"></span></a>
+								<li><a href="<?php echo HOST.'search?class='.$cstid[$classname].'&subject='.$cstid[$classname.' '.$subjectname]; ?>"><?php echo $subjectname; ?> <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<?php foreach ($topics as $topicname) : ?>
-											<li><a href="#"><?php echo $topicname; ?></a></li>
+											<li><a href="<?php echo HOST.'search?class='.$cstid[$classname].'&subject='.$cstid[$classname.' '.$subjectname].'&topic='.$cstid[$topicname];?>"><?php echo $topicname; ?></a></li>
 										<?php endforeach; ?>
 									</ul>
 								</li>
@@ -66,128 +66,6 @@
 						</li>
 					<?php endforeach; ?>
 				</ul>
-				<!-- Core bootstrap dropdown
-				<ul class="nav nav-pills row">
-					<li role="presentation" class="dropdown col-xs-2 col-sm-offset-1">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-							Class X <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="#">Mathematics</a>
-							</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Science <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="#">Link 3</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li role="presentation" class="dropdown col-xs-2">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-							Class XI <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-
-						</ul>
-					</li>
-					<li role="presentation" class="dropdown col-xs-2">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-							Class XII <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-
-						</ul>
-					</li>
-					<li role="presentation" class="dropdown col-xs-2">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-							IIT Mains <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-
-						</ul>
-					</li>
-					<li role="presentation" class="dropdown col-xs-2">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-							IIT Advance <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-
-						</ul>
-					</li>
-				</ul>
-				-->
-				<!-- DROPDOWN BEGIN
-				<div id="dropdownnav" class="row" style="display:none;">
-					<nav class="transparent col s12">
-						<ul class="nav">
-							<li><a>VI</a>
-								<div>
-									<ul class="nav2">
-										<li><a href="#">Mathematics</a>
-											<div>
-											<div class="nav-column">
-												<ul>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">Algebric expression</a></li>
-													<li><a href="#">Calculas</a></li>
-													<li><a href="#">application of Trigonometry</a></li>
-													<li><a href="#">Algebra</a></li>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">Calculas</a></li>
-													<li><a href="#">Algebric expression</a></li>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">Calculas</a></li>
-												</ul>
-											</div>
-											</div>
-										</li>
-										<li><a href="#">Science</a>
-											<div>
-											<div class="nav-column">
-												<ul>
-													<li><a href="#">Calculas</a></li>
-													<li><a href="#">Algebric expression</a></li>
-													<li><a href="#">Calculas</a></li>
-													<li><a href="#">application of Trigonometry</a></li>
-													<li><a href="#">Algebra</a></li>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">Algebric expression</a></li>
-													<li><a href="#">introduction to Trigonometry</a></li>
-													<li><a href="#">Calculas</a></li>
-												</ul>
-											</div>
-											</div>
-										</li>
-										<li><a href="#">Civics</a></li>
-										<li><a href="#">Chemistry</a></li>
-										<li><a href="#">Physics</a></li>
-										<li><a href="#">English</a></li>
-										<li><a href="#">Computer</a></li>
-										<li><a href="#">Hindi</a></li>
-										<li><a href="#">Bussiness</a></li>
-										<li><a href="#">Accounts</a></li>
-										<li><a href="#">Psychology</a></li>
-										<li><a href="#">Sociology</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a>VII</a></li>
-							<li><a>VIII</a></li>
-							<li><a>IX</a></li>
-							<li><a>X</a></li>
-							<li><a>XI</a></li>
-							<li><a>XII</a></li>
-							<li><a>JEE-mains</a></li>
-							<li><a>JEE-advance</a></li>
-						</ul>
-					</nav>
-				</div>
-				DROPDOWN END -->
 			</div>
 		</div>
 	</div>

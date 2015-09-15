@@ -40,8 +40,6 @@ class Welcome extends CI_Controller {
 				->join('all_topics', 'all_topics.id = all_cst.t_id')
 				->get()
 				->result_array();
-
-
 		$data = [];
 		$ids = [];
 		$class = $subject = $topic = NULL;
