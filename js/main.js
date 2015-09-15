@@ -50,7 +50,7 @@ function topicssubtopic_t2(obj){
 	}
 	if(obj.id=="selectsubject" && typeof(topics[cstval[0]])!='undefined' && typeof(topics[cstval[0]]['children'][cstval[1]])!='undefined' ){
 		var selectedHTML=selects.arr2mselect(getslist( topics[cstval[0]]['children'][cstval[1]]['children'] ),'topic');
-			
+
 		$("#selecttopic").html(selectedHTML);
 	}
 	$(".selectall").click(function(){

@@ -25,4 +25,5 @@ include "includes/app.php";
 */
 
 
-echo "<pre>";var_dump($cstinfo);echo "</pre>";
+//echo "<pre>";var_dump(Funs::cst_tree());echo "</pre>";
+echo "<pre>";print_r(Funs::cst_tree());echo "</pre>";

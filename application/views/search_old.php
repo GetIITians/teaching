@@ -3,9 +3,11 @@
 //ob_start();
 load_view("Template/top.php");
 load_view("Template/navbarnew.php");
+//echo "<pre>";var_dump($cst_tree);echo "</pre>";
 ?>
 <script>
 	var topics=<?php echo json_encode($cst_tree); ?>;
+	var getData=<?php echo json_encode($_GET); ?>;
 </script>
 	<a id="top"></a>
 	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP" style="display:none;">
@@ -198,7 +200,7 @@ load_view("Template/navbarnew.php");
 				<div class="row">
 					<div id="searchresultdiv" data-action='search' data-max='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>' data-maxl='<?php echo $_ginfo["numsearchr"]["loadadd"]; ?>' data-eparams='searchform()' data-ignoreloadonce='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>'>
 					<?php
-						handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>''), "search");
+						handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'4', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>''), "search");
 					?>
 				</div>
 				</div>

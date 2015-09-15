@@ -167,9 +167,9 @@ class Actiondisp{
 		if($ec<0)
 			return;
 		if(!empty($qoutput['qresult'])){
-		load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox,"isrelv"=>"0"));
+			load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox,"isrelv"=>"0"));
 		} else if(!empty($relv_qoutput['qresult'])) {	
-		load_view("Template/teacherlist.php",array("qresult"=>$relv_qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$relv_ratingBigBox,"isrelv"=>"1"));
+			load_view("Template/teacherlist.php",array("qresult"=>$relv_qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$relv_ratingBigBox,"isrelv"=>"1"));
 		}
 	}
 	function disptopics($data, $printjson = true) {

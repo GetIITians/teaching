@@ -140,5 +140,32 @@ var search = {
 				$(this)[0].checked = $(this)[0].defaultChecked;
 			});
 		}
+	},
+
+	setSidebar : function(filter,value){
+		if (filter === 'class' || filter === 'subject'){
+			$('[name="'+filter+'"]').val(value);
+		}
 	}
 }
+
+$(function () {
+	//console.log(getData);
+	if (typeof getData['q'] != 'undefined') delete getData['q'];
+	search.displayFilters(getData);
+
+	for(filter in getData){
+		if (getData.hasOwnProperty(filter)) {
+			console.log(filter,getData[filter]);
+			obj = {};
+			if (filter == 'class') {
+				obj.id = "selectclass";
+			} else if (filter == 'subject') {
+				obj.id = "selectsubject";
+			}
+			obj.value = getData[filter];
+			search.setSidebar(filter,getData[filter]);
+			topicssubtopic_t2(obj);
+		}
+	}
+});
