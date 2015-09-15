@@ -32,27 +32,7 @@ class Welcome extends CI_Controller {
 		//echo $this->db->last_query();
 		$pageinfo['reviews'] = $reviews;
 		/* --------------- */
-		$query = $this->db
-				->select('classname,subjectname,topicname,c_id,s_id,t_id')
-				->from('all_cst')
-				->join('all_classes', 'all_classes.id = all_cst.c_id')
-				->join('all_subjects', 'all_subjects.id = all_cst.s_id')
-				->join('all_topics', 'all_topics.id = all_cst.t_id')
-				->get()
-				->result_array();
-		$data = [];
-		$ids = [];
-		$class = $subject = $topic = NULL;
-		foreach ($query as $row) {
-			if($class !== $row['c_id']) $ids[$row['classname']] = $row['c_id'];
-			if($subject !== $row['s_id']) $ids[$row['classname'].' '.$row['subjectname']] = $row['s_id'];
-			$ids[$row['topicname']] = $row['t_id'];
-			$data[$row['classname']][$row['subjectname']][] = $row['topicname'];
-			$class = $row['c_id'];
-			$subject = $row['s_id'];
-		}
-		$pageinfo['cstid'] = $ids;
-		$pageinfo['cst'] = $data;
+		$pageinfo['cst'] = Funs::cst_tree();
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");

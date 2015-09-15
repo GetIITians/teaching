@@ -145,6 +145,8 @@ var search = {
 	setSidebar : function(filter,value){
 		if (filter === 'class' || filter === 'subject'){
 			$('[name="'+filter+'"]').val(value);
+		} else if (filter === 'topic') {
+			$('#selecttopic').find('input[value="'+value+'"]').prop('checked',true);
 		}
 	}
 }
@@ -156,7 +158,7 @@ $(function () {
 
 	for(filter in getData){
 		if (getData.hasOwnProperty(filter)) {
-			console.log(filter,getData[filter]);
+			//console.log(filter,getData[filter]);
 			obj = {};
 			if (filter == 'class') {
 				obj.id = "selectclass";

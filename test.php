@@ -24,6 +24,6 @@ include "includes/app.php";
 
 */
 
-
+$cst = Funs::cst_tree();
 //echo "<pre>";var_dump(Funs::cst_tree());echo "</pre>";
-echo "<pre>";print_r(Funs::cst_tree());echo "</pre>";
+echo "<pre>";var_dump($cst[3]['children'][11]);echo "</pre>";

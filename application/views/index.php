@@ -28,10 +28,10 @@
 			<div class="container">
 				<div class="row ">
 					<div class="col-xs-12">
-						<h1 class="header center white-text">Improve your grades</h1>
+						<h1 class="header center white-text">Tuition by IITians</h1>
 					</div>
 					<div class="col-xs-12">
-							<h5 class="sub-title">Attend 1-on-1 live tution by IITians</h5>
+							<h5 class="sub-title">Get an IITian tutor for Any Subject! Any Class!</h5>
 					</div>
 				</div><br>
 
@@ -46,18 +46,15 @@
 						</button>
 					</div>
 				</form>
-
-
-				
 				<ul class="nav navbar-nav row" id="homeDropdown">
-					<?php foreach ($cst as $classname => $subjects) : ?>
-						<li class=""><a href="<?php echo HOST.'search?class='.$cstid[$classname]; ?>"><?php echo $classname; ?> <span class="caret"></span></a>
+					<?php foreach ($cst as $class_id => $class) : ?>
+						<li class=""><a href="<?php echo HOST.'search?class='.$class_id; ?>"><?php echo $class['name']; ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-							<?php foreach ($subjects as $subjectname => $topics) : ?>
-								<li><a href="<?php echo HOST.'search?class='.$cstid[$classname].'&subject='.$cstid[$classname.' '.$subjectname]; ?>"><?php echo $subjectname; ?> <span class="caret"></span></a>
+							<?php foreach ($class['children'] as $subject_id => $subject) : ?>
+								<li><a href="<?php echo HOST.'search?class='.$class_id.'&subject='.$subject_id; ?>"><?php echo $subject['name']; ?> <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<?php foreach ($topics as $topicname) : ?>
-											<li><a href="<?php echo HOST.'search?class='.$cstid[$classname].'&subject='.$cstid[$classname.' '.$subjectname].'&topic='.$cstid[$topicname];?>"><?php echo $topicname; ?></a></li>
+										<?php foreach ($subject['children'] as $topic_id => $topic) : ?>
+											<li><a href="<?php echo HOST.'search?class='.$class_id.'&subject='.$subject_id.'&topic='.$topic_id;?>"><?php echo $topic['name']; ?></a></li>
 										<?php endforeach; ?>
 									</ul>
 								</li>
