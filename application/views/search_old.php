@@ -7,7 +7,10 @@ load_view("Template/navbarnew.php");
 ?>
 <script>
 	var topics=<?php echo json_encode($cst_tree); ?>;
-	var getData=<?php echo json_encode($_GET); ?>;
+	var getData = {};
+	getData['class']	=	<?php echo json_encode($class) ?>;
+	getData['subject']	=	<?php echo json_encode($subject) ?>;
+	getData['topic']	=	<?php echo json_encode($topic) ?>;
 </script>
 	<a id="top"></a>
 	<a href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>#top" class="btn-large btn-floating waves-effect waves-light  blue-grey darken-4" id="top_arrow" title="TOP" style="display:none;">

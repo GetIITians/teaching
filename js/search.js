@@ -153,7 +153,9 @@ var search = {
 
 $(function () {
 	//console.log(getData);
-	if (typeof getData['q'] != 'undefined') delete getData['q'];
+	for(filter in getData) {
+		if (getData[filter] == '') delete getData[filter];
+	}
 	search.displayFilters(getData);
 
 	for(filter in getData){

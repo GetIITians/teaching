@@ -529,7 +529,8 @@ a#top_arrow {
 }
 
 #homepage h1{
-	font-size: 4.2rem;
+	font-size: 4rem;
+	font-weight: 400;
 }
 
 #homepage h5{

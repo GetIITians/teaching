@@ -416,11 +416,30 @@ class Welcome extends CI_Controller {
 		$pageinfo["lang"]=Funs::doublesplit($_ginfo['encodeddataofteacherstable']["lang"]);
 		$pageinfo["price"]=Funs::doublesplit($_ginfo['price']);
 		$pageinfo["timer"]=Funs::doublesplit($_ginfo['timer']);
-		$pageinfo["search"]=get("q","");
-		$pageinfo["class"]=get("class","");
-		$pageinfo["subject"]=get("subject","");
-		$pageinfo["topic"]=get("topic","");
-		
+		$pageinfo["search"]=$pageinfo["class"]=$pageinfo["subject"]=$pageinfo["topic"]="";
+		if ($this->uri->segment(2)) {
+			foreach ($cst_tree as $class_id => $class_details) {
+				// If referred by homepage dropdown
+				if($class_details['name'] == $this->uri->segment(2)) {
+					$pageinfo["class"] = (string)$class_id;
+					if ($this->uri->segment(3)) {
+						foreach ($class_details['children'] as $subject_id => $subject_details) {
+							if ($subject_details['name'] == $this->uri->segment(3)) {
+								$pageinfo["subject"] = (string)$subject_id;
+								if ($this->uri->segment(4)) {
+									foreach ($subject_details['children'] as $topic_id => $topic_details) {
+										if($topic_details['name'] == str_replace('_', ' ', $this->uri->segment(4))){
+											$pageinfo["topic"] = (string)$topic_id;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		$pageinfo["search"] = get("q","");
 		load_view("search_old.php",$pageinfo);
 	}
 

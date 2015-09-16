@@ -28,10 +28,10 @@
 			<div class="container">
 				<div class="row ">
 					<div class="col-xs-12">
-						<h1 class="header center white-text">Tuition by IITians</h1>
+						<h1 class="header center white-text">Better Marks are just the beginning!</h1>
 					</div>
 					<div class="col-xs-12">
-							<h5 class="sub-title">Get an IITian tutor for Any Subject! Any Class!</h5>
+						<h5 class="sub-title">Private tutoring by IITians, at home &amp; online</h5>
 					</div>
 				</div><br>
 
@@ -48,13 +48,13 @@
 				</form>
 				<ul class="nav navbar-nav row" id="homeDropdown">
 					<?php foreach ($cst as $class_id => $class) : ?>
-						<li class=""><a href="<?php echo HOST.'search?class='.$class_id; ?>"><?php echo $class['name']; ?> <span class="caret"></span></a>
+						<li class=""><a href="<?php echo HOST.'search/'.$class['name']; ?>"><?php echo $class['name']; ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 							<?php foreach ($class['children'] as $subject_id => $subject) : ?>
-								<li><a href="<?php echo HOST.'search?class='.$class_id.'&subject='.$subject_id; ?>"><?php echo $subject['name']; ?> <span class="caret"></span></a>
+								<li><a href="<?php echo HOST.'search/'.$class['name'].'/'.$subject['name']; ?>"><?php echo $subject['name']; ?> <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<?php foreach ($subject['children'] as $topic_id => $topic) : ?>
-											<li><a href="<?php echo HOST.'search?class='.$class_id.'&subject='.$subject_id.'&topic='.$topic_id;?>"><?php echo $topic['name']; ?></a></li>
+											<li><a href="<?php echo HOST.'search/'.$class['name'].'/'.$subject['name'].'/'.str_replace(' ', '_', $topic['name']);?>"><?php echo $topic['name']; ?></a></li>
 										<?php endforeach; ?>
 									</ul>
 								</li>

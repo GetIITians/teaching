@@ -63,6 +63,7 @@ $route['view'] 					=	"welcome/view";
 $route['reject'] 				=	"welcome/reject";
 $route['accept'] 				=	"welcome/accept";
 $route['acceptOrReject'] 		=	"welcome/acceptOrReject";
+$route['search/:any'] 			=	"welcome/search";
 $route['search'] 				=	"welcome/search";
 $route['edit'] 					=	"welcome/edit";
 
