@@ -772,50 +772,13 @@ class Welcome extends CI_Controller {
 	}
 
 	public function narayan(){
-		/*
-		$query = $this->db
-						->select('classname,subjectname,topicname,c_id,s_id,t_id')
-						->from('all_cst')
-						->join('all_classes', 'all_classes.id = all_cst.c_id')
-						->join('all_subjects', 'all_subjects.id = all_cst.s_id')
-						->join('all_topics', 'all_topics.id = all_cst.t_id')
-						->get()
-						->result_array();
-						//echo $this->db->last_query();
-		$data = [];
-		$ids = [];
-		$class = $subject = $topic = NULL;
-		foreach ($query as $row) {
-			if($class !== $row['c_id']) $ids[$row['classname']] = $row['c_id'];
-			if($subject !== $row['s_id']) $ids[$row['classname'].' '.$row['subjectname']] = $row['s_id'];
-			$ids[$row['topicname']] = $row['t_id'];
-			$data[$row['classname']][$row['subjectname']][] = $row['topicname'];
-			$class = $row['c_id'];
-			$subject = $row['s_id'];
-		}
-		echo "<pre>";var_dump($data);echo "</pre>";
-		echo "<pre>";var_dump($ids);echo "</pre>";
-		
-//		foreach ($data as $key => $value) {
-//		}
-		*/
-
-		/*
-		$string = "The Story of Village Palampur
-People As Resource
-Poverty As A Challenge
-Food Security in India";
-		$pieces = explode("\n", $string);
-		$id = 171;
-		foreach ($pieces as $value) {
-			$data = array(
-				'id' => $id,
-				'topicname' => $value
-			);
-			$this->db->insert('all_topics', $data);
-			$id++;
-		}
-		*/
+		echo "<pre>site_url() : ";var_dump(site_url());echo "</pre>";
+		echo "<pre>base_url() : ";var_dump(base_url());echo "</pre>";
+		echo "<pre>current_url() : ";var_dump(current_url());echo "</pre>";
+		echo "<pre>uri_string() : ";var_dump(uri_string());echo "</pre>";
+		echo "<pre>index_page() : ";var_dump(index_page());echo "</pre>";
+		echo "<pre>uri_string() : ";var_dump(uri_string());echo "</pre>";
+		echo "<pre>url : ";var_dump(site_url().uri_string());echo "</pre>";
 	}
 }
 

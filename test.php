@@ -1,5 +1,21 @@
 <?php
 include "includes/app.php";
+/*
+$string = "The Story of Village Palampur
+People As Resource
+Poverty As A Challenge
+Food Security in India";
+$pieces = explode("\n", $string);
+$id = 171;
+foreach ($pieces as $value) {
+	$data = array(
+		'id' => $id,
+		'topicname' => $value
+	);
+	$this->db->insert('all_topics', $data);
+	$id++;
+}
+*/
 
 /*
 	function wiziqtime() {
@@ -24,6 +40,6 @@ include "includes/app.php";
 
 */
 
-$cst = Funs::cst_tree();
+//$cst = Funs::cst_tree();
 //echo "<pre>";var_dump(Funs::cst_tree());echo "</pre>";
-echo "<pre>";var_dump($cst[3]['children'][11]);echo "</pre>";
+echo "<pre>";var_dump(site_url());echo "</pre>";

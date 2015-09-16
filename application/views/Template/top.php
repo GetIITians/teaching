@@ -1,33 +1,35 @@
-  <!doctype html>
+<!doctype html>
 <html lang="en_US">
 <head>
 
-  <?php 
-  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-  header("Cache-Control: post-check=0, pre-check=0", false);
-  header("Pragma: no-cache");
-  opent("base",array("href"=>HOST));
-  ocloset("title",(getNameFromUrl(Fun::getcururl())!='search'?$title[getNameFromUrl(Fun::getcururl())]:($_REQUEST['q']!=''?'Search :: '.$_REQUEST['q']:$title[getNameFromUrl(Fun::getcururl())])));
-  addall_css($css);
-  addmycss();
-  ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <meta charset="utf-8"/>
-  <script type="text/javascript">
-    var HOST="<?php echo HOST; ?>";
-  </script>
-  <!-- Google Analytics -->
-  <!--
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	<?php 
+	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+	header("Cache-Control: post-check=0, pre-check=0", false);
+	header("Pragma: no-cache");
+	opent("base",array("href"=>HOST));
+	$title = "getIITians | ".ucfirst(uri_string());
+	if (uri_string()=="") $title = "Private tutoring by IITians, at home & online";
+	ocloset("title",$title);
+	addall_css($css);
+	addmycss();
+	?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta charset="utf-8"/>
+	<script type="text/javascript">
+		var HOST="<?php echo HOST; ?>";
+	</script>
+	<!-- Google Analytics -->
+	<!--
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-64966801-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-  -->
+		ga('create', 'UA-64966801-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	-->
 <!--Start of Zopim Live Chat Script-->
 <!--
 <script type="text/javascript">

@@ -123,11 +123,13 @@ var search = {
 		filterUl = $('#filterClear').find('ul');
 		li = "";
 		for(filter in filters){
+			//console.log(this.retrieveFilterValue(filter,filters[filter]));
 			if (filters.hasOwnProperty(filter)) {
-				li += "<li>"+this.filterNames[filter]+"&nbsp;<i class=\"material-icons\" onclick=\"ms.refinesearch('"+filter+"')\">clear</i></li>";
+				li += "<li>"+this.retrieveFilterContent(filter,filters[filter])+"&nbsp;<i class=\"material-icons\" onclick=\"ms.refinesearch('"+filter+"')\">clear</i></li>";
 			}
 		}
-		filterUl.html(li);
+		content = (li=="") ? "" : "Showing results for : " ;
+		filterUl.html(content+li);
 	},
 
 	resetSidebar : function(filter){
@@ -148,6 +150,25 @@ var search = {
 		} else if (filter === 'topic') {
 			$('#selecttopic').find('input[value="'+value+'"]').prop('checked',true);
 		}
+	},
+
+	retrieveFilterContent : function(filter,value){
+		if (typeof value == 'boolean') return this.filterNames[filter];
+		switch (filter) {
+			case "class":
+			case "subject":
+			case "orderby":
+				return $('[name="'+filter+'"]').find('option[value="'+value+'"]').html();
+				break;
+			case "pincode":
+				return $('[name="pincode"]').val();
+				break;
+			case "topic":
+				return $('[name="topic"][value="'+value+'"]').next('label').text().trim();
+				break;
+			default:
+				return this.filterNames[filter];
+		}
 	}
 }
 
@@ -156,7 +177,6 @@ $(function () {
 	for(filter in getData) {
 		if (getData[filter] == '') delete getData[filter];
 	}
-	search.displayFilters(getData);
 
 	for(filter in getData){
 		if (getData.hasOwnProperty(filter)) {
@@ -172,4 +192,5 @@ $(function () {
 			topicssubtopic_t2(obj);
 		}
 	}
+	search.displayFilters(getData);
 });

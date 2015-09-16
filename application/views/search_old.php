@@ -183,7 +183,6 @@ load_view("Template/navbarnew.php");
 				</div>
 				<div class="row" id="filterClear">
 					<ul class="col-xs-12">
-						
 					</ul>
 				</div>
 				<div class="divider"></div>
@@ -207,7 +206,6 @@ load_view("Template/navbarnew.php");
 				</div>
 			</div>
 			<!-- End Search Panel -->
-		
 		</div>
 	</div>
 </main>

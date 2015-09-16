@@ -5,7 +5,7 @@ $view_default=array(
 	  "css"=>array("css/materialize.css","css/custom-stylesheet.css","css/jquery.bxslider.css",
 	  	"css/bootstrap.min.css","css/glyphicon.css","css/google-icons.css"),
 		"title"=>array(
-					'index'		=>	'Get IITians',
+					'index'		=>	'getIITians',
 					'aboutus'	=>	'About Us :: Get IITians',
 					'contactus'	=>	'Contact Us :: Get IITians',
 					'joinus'	=>	'Join Us :: Get IITians',

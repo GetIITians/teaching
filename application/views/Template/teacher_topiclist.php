@@ -14,7 +14,6 @@ foreach($mysubj as $i=>$row){
 	<td style="display:none"><?php echo $row["timer"]."h"; ?></td>
 	<td>&#8377;<?php echo $row["price"]; ?></td>
 <?php if($tid==User::loginId()) : ?>
-	<?php // echo "string"; ?>
 	<td>
 		<a data-deleteid="<?php echo $row["id"]; ?>" data-action='deltopics' onclick='button.sendreq_v2(this);' class="btn waves-effect waves-light red darken-1" data-res='success.push("Deleted");div.reload($("#teacherdisptopics")[0]);' >
 			Delete
@@ -36,6 +35,7 @@ foreach($mysubj as $i=>$row){
 	<td>
 		<a href='<?php echo BASE."login" ?>'  class="btn waves-effect waves-light red darken-1" >
 			Free 1 Hour Class
+			<?php $_SESSION['redirecturl'] = Helper::link(); ?>
 		</a>
 	</td>
 <?php endif; ?>

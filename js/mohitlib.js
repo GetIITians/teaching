@@ -91,7 +91,7 @@ var button={
 			if(respo){ 
 				if(respo.ec<0){
 					if( respo.ec == -29 ){
-						window.location = helpers.baseUrl(window) + "/PayUMoney.php";
+						window.location = HOST + "PayUMoney.php";
 						//mohit.alert(ecn[respo.ec])
 					}
 					if(button.hasattr(allattrs,"data-error")){

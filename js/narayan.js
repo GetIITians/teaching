@@ -109,7 +109,7 @@ var adminPage = {
 		event.preventDefault();
 		$(obj).addClass('disabled');
 		$.ajax({
-			url		: helpers.baseUrl(window)+'/approve_review',
+			url		: HOST+'approve_review',
 			type	: 'POST',
 			data 	: {
 						tid			: 	obj.getAttribute('tid'),
@@ -152,7 +152,7 @@ $(function() {
 		var rating_avg			= 	rating_value_div.attr('value');
 
 		$.ajax({
-			url		: helpers.baseUrl(window) + "/rating",
+			url		: HOST + "rating",
 			type	: 'POST',
 			data 	: {
 						previous_rating	: 	previous_rating,// changed
