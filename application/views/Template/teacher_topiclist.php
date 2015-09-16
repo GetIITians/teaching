@@ -5,9 +5,20 @@ if(User::islogin() ) {
 } else {
 	sets("redirecturl",cururl().'/5');
 }
+$pehla = 0;
 foreach($mysubj as $i=>$row){
+	if (isset($_SESSION['shortlist']) && ($row["c_id"] == $_SESSION['shortlist']['class'] || $row["s_id"] == $_SESSION['shortlist']['subject'] || $row["t_id"] == $_SESSION['shortlist']['topic'])) {
+		$pehla++;
+		// some error with this
+		if ($pehla === 1) {
+			echo "<tr class='shortlist' id='pehla'>";
+		} else {
+			echo "<tr class='shortlist'>";
+		}
+	} else {
+		echo "<tr>";
+	}
 ?>
-<tr>
 	<td><?php echo $row["classname"]; ?></td>
 	<td><?php echo $row["subjectname"]; ?></td>
 	<td><?php echo $row["topicname"]; ?></td>
@@ -41,5 +52,7 @@ foreach($mysubj as $i=>$row){
 <?php endif; ?>
 </tr>
 <?php
+} if (isset($_SESSION['shortlist'])) {
+	unset($_SESSION['shortlist']);
 }
 ?>

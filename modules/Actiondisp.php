@@ -135,11 +135,14 @@ class Actiondisp{
 		global $_ginfo;
 //		$need=array('class', 'subject', 'topic', 'price', 'timer', 'lang', 'timeslot', 'orderby', 'search', 'max', 'maxl');
 		$need=array('class', 'subject', 'topic', 'orderby', 'search', 'max', 'maxl');
-		if ($data['class'] != '' || $data['subject'] != '' || $data['topic'] != '') {
-			if (isset($_SESSION['shortlist'])) {
-				unset($_SESSION['shortlist']);
-			}
-			$_SESSION['shortlist'] = true;
+		if (isset($_SESSION['shortlist'])) {
+			unset($_SESSION['shortlist']);
+		}
+		if (!User::isloginas('t') && ($data['class'] != '' || $data['subject'] != '' || $data['topic'] != '')) {
+			$_SESSION['shortlist'] = [];
+			$_SESSION['shortlist']['class']		=	($data['class'] != '') ? $data['class'] : null ;
+			$_SESSION['shortlist']['subject']	=	($data['subject'] != '') ? $data['subject'] : null ;
+			$_SESSION['shortlist']['topic']		=	($data['topic'] != '') ? $data['topic'] : null ;
 		}
 		$ec=1;
 		$odata = 0; 

@@ -353,6 +353,27 @@ a#top_arrow {
 	margin-top: 1rem;
 }
 
+#topics .table > thead > tr > th {
+	border-bottom: 1px solid #DEDEDE;
+}
+
+@keyframes shortlist_highlight {
+    from {
+        background-color: #F9F9F9;
+    }
+    to {
+        background-color: rgba(249, 255, 0, 0.38);
+    }
+}
+
+#teacherdisptopics tr.shortlist {
+	animation-name: shortlist_highlight;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+}
+
 /*------------------------------------
 	Search Page Rating Detail Box
 ------------------------------------*/

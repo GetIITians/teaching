@@ -22,8 +22,8 @@ function editProfile() {
 	$("#edit_profile_info").slideToggle(1000);
 }
 
-
-
-
+$(function () {
+	//$('.shortlist').animate({backgroundColor: 'rgba(249, 255, 0, 0.38)'}, 500);
+});
 
 
