@@ -135,6 +135,12 @@ class Actiondisp{
 		global $_ginfo;
 //		$need=array('class', 'subject', 'topic', 'price', 'timer', 'lang', 'timeslot', 'orderby', 'search', 'max', 'maxl');
 		$need=array('class', 'subject', 'topic', 'orderby', 'search', 'max', 'maxl');
+		if ($data['class'] != '' || $data['subject'] != '' || $data['topic'] != '') {
+			if (isset($_SESSION['shortlist'])) {
+				unset($_SESSION['shortlist']);
+			}
+			$_SESSION['shortlist'] = true;
+		}
 		$ec=1;
 		$odata = 0; 
 		if(!Fun::isAllSet($need,$data)){ 

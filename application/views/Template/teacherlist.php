@@ -115,7 +115,14 @@ $searchPageRows++;
 		</div>
 		<div class="card-reveal">
 			<p class="card-title">
-				<a href="<?php echo BASE."profile/".$row["tid"]; ?>">
+				<?php
+					if (isset($_SESSION['shortlist'])&&$_SESSION['shortlist']) {
+						$profilelink = BASE."profile/".$row["tid"]."/5";
+					} else {
+						$profilelink = BASE."profile/".$row["tid"];
+					}
+				?>
+				<a href="<?php echo $profilelink; ?>">
 					<?php echo $name; ?>
 				</a>
 			</p>
@@ -278,4 +285,8 @@ $searchPageRows++;
 </div>
 <?php 
 echo ($searchPageRows%4===0) ? '</div>' : FALSE;
-} ?>
+} 
+if (isset($_SESSION['shortlist'])) {
+	unset($_SESSION['shortlist']);
+}
+?>

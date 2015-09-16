@@ -35,40 +35,6 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 					Account
 				</a>
 			</div>
-			<?php /* ?>
-			<ul id="profiletabs" class="row" role="tablist">
-				<li role="presentation" <?php echo profile_tabs(1,$tabid,'tablist'); ?>>
-					<a  id="profiletabs1" href="#profile" aria-controls="home" role="tab" data-toggle="tab">
-						Profile
-					</a>
-				</li>
-				<li role="presentation" <?php echo profile_tabs(5,$tabid,'tablist'); ?>>
-					<a  id="profiletabs5" href="#topics" aria-controls="topics" role="tab" data-toggle="tab">
-						Topics
-					</a>
-				</li>
-				<li role="presentation" <?php echo profile_tabs(2,$tabid,'tablist'); ?>>
-					<a id="profiletabs2" href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">
-						Calendar
-					</a>
-				</li>
-				<li role="presentation" <?php echo profile_tabs(4,$tabid,'tablist'); ?>>
-					<a id="profiletabs4" href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">
-						Reviews
-					</a>
-				</li>
-				<li role="presentation" <?php echo profile_tabs(3,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
-					<a id="profiletabs3" href="#classes" aria-controls="classes" role="tab" data-toggle="tab">
-						Classes
-					</a>
-				</li>
-				<li role="presentation" <?php echo profile_tabs(6,$tabid,'tablist'); ?> style="<?php pit("visibility:hidden", $tid != User::loginId()); ?>">
-					<a id="profiletabs6" href="#account" aria-controls="account" role="tab" data-toggle="tab">
-						Account
-					</a>
-				</li>
-			</ul>
-			<?php */ ?>
 			<div class="tab-content row">
 
 				<div id="profile" <?php echo profile_tabs(1,$tabid,'tabpanel'); ?> role="tabpanel">

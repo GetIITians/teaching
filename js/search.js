@@ -74,6 +74,8 @@ $(function () {
 
 var search = {
 
+	shortlist : {},
+
 	filterDefaults : {
 		'search': "",
 		'topic': "",
@@ -108,7 +110,7 @@ var search = {
 		for (list in selected) {
 			if (selected.hasOwnProperty(list)) {
 				if(selected[list] !== this.filterDefaults[list])
-					filters[list] = true;
+					filters[list] = selected[list];
 			}
 		}
 		if (typeof filter !== "undefined") {
@@ -120,6 +122,8 @@ var search = {
 	},
 
 	displayFilters : function(filters){
+		//console.log(filters);
+		this.shortlist = filters;
 		filterUl = $('#filterClear').find('ul');
 		li = "";
 		for(filter in filters){

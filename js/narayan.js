@@ -202,17 +202,14 @@ $(function() {
 			var count = ( personal_rating != 0 ? personal_rating : overall_rating);
 			var cLASS = ( personal_rating != 0 ? "personal-rated-star" : "rated-star");
 			if (index < count) {
-				console.log('2.1 chal gaya');
 				$(this).addClass('glyphicon glyphicon-star').addClass(cLASS);
 			}else{
-				console.log('2.2 chal gaya');
 				$(this).addClass('glyphicon glyphicon-star-empty rating-star');
 			}
 		});
 	}},'.rating-system');
 
 	$(document).on({mouseenter: function() {
-		console.log('3 chal gaya');
 		$(this).find('span').each(function(index){
 			$(this).removeClass();
 			$(this).addClass('glyphicon glyphicon-star-empty rating-star');
