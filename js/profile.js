@@ -33,7 +33,7 @@ $(function () {
 		profile.pehla.removeAttr('id').nextAll('.shortlist').removeClass('shortlist');
 	}
 	*/
-	if (profile.pehla.length > 0) {
+	if (profile.pehla.length) {
 		$('html, body').animate({
 			scrollTop: $("#pehla").prev('tr').offset().top
 		}, 2000, 'swing');

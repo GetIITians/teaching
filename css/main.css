@@ -934,7 +934,7 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	color: white;
 	background-color: transparent;
 	text-align: center;
-	padding: 0.7rem 1.5rem;
+	padding: 0.7rem .9rem;
 }
 
 #homeDropdown .open > a,
