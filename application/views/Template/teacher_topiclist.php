@@ -52,7 +52,8 @@ foreach($mysubj as $i=>$row){
 <?php endif; ?>
 </tr>
 <?php
-} if (isset($_SESSION['shortlist'])) {
-	unset($_SESSION['shortlist']);
+}
+if (isset($_SESSION['shortlist'])) {
+	//unset($_SESSION['shortlist']);
 }
 ?>

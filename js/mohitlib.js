@@ -101,7 +101,8 @@ var button={
 					else
 						mohit.alert(ecn[respo.ec]);
 				}
-				else{ 
+				else{
+					//profile.booked = true;
 					obj.innerHTML=(typeof(allattrs["data-restext"])=='undefined')?prvvalue:allattrs["data-restext"];
 					if(button.hasattr(allattrs,"data-res")){ 
 						var data=respo.data;

@@ -117,7 +117,7 @@ $searchPageRows++;
 			<p class="card-title">
 				<?php
 					if (isset($_SESSION['shortlist'])&&!empty($_SESSION['shortlist'])) {
-						$profilelink = BASE."profile/".$row["tid"]."/5#pehla";
+						$profilelink = BASE."profile/".$row["tid"]."/5";
 					} else {
 						$profilelink = BASE."profile/".$row["tid"];
 					}

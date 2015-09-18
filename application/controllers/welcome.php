@@ -41,7 +41,7 @@ class Welcome extends CI_Controller {
 		//Actiondisp::search($arr);
 		}
 	
-	public function joinus(){ 
+	public function joinus(){
 		global $_ginfo;
 		$pageinfo=array("issubmitted"=>false,"msg1"=>"");
 		$msg="Dear IITian, welcome to getIITians please tell us something about yourself.";

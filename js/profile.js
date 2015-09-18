@@ -22,8 +22,21 @@ function editProfile() {
 	$("#edit_profile_info").slideToggle(1000);
 }
 
+var profile = {
+	booked : false,
+	pehla : $('#pehla'),
+}
+
 $(function () {
-	//$('.shortlist').animate({backgroundColor: 'rgba(249, 255, 0, 0.38)'}, 500);
+	/*
+	if (profile.booked) {
+		profile.pehla.removeAttr('id').nextAll('.shortlist').removeClass('shortlist');
+	}
+	*/
+	if (profile.pehla.length > 0) {
+		$('html, body').animate({
+			scrollTop: $("#pehla").prev('tr').offset().top
+		}, 2000, 'swing');
+	};
+
 });
-
-
