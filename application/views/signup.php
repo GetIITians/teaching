@@ -26,7 +26,7 @@ $defopen="signupwindow";
 										<ul>
 											<li><h6><i class="material-icons tiny left">chevron_right</i>
 												All fields are mandatory.
-											</h6></li>                      
+											</h6></li>
 										</ul>
 									</div>
 								</div>

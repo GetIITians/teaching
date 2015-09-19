@@ -772,16 +772,19 @@ class Welcome extends CI_Controller {
 	}
 
 	public function narayan(){
-		$t_id 	= 773;
-		for ($s_id=60; $s_id < 119; $s_id++) {
-			$data = array(
-				'c_id' => '10',
-				's_id' => $s_id,
-				't_id' => $t_id
-			);
-			$this->db->insert('all_cst', $data);
-			$t_id++;
-		}
+
+	$t_id 	= 832;
+	for ($s_id=119; $s_id < 119; $s_id++) {
+		$data = array(
+			'c_id' => '11',
+			's_id' => $s_id,
+			't_id' => $t_id
+		);
+		$this->db->insert('all_cst', $data);
+		$t_id++;
+	}
+
+
 	}
 }
 

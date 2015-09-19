@@ -935,6 +935,7 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	background-color: transparent;
 	text-align: center;
 	padding: 0.7rem .9rem;
+	font-size: 1.2rem;
 }
 
 #homeDropdown .open > a,
