@@ -4483,7 +4483,7 @@ main {
     main {
       width: 83.33333%; } }
   main table.table.table-striped.table-hover tbody tr {
-    transition: background 0.2s ease; }
+    transition: background 0.2s ease-in-out; }
     main table.table.table-striped.table-hover tbody tr:nth-of-type(2n+1) {
       background-color: rgba(39, 42, 53, 0.53); }
     main table.table.table-striped.table-hover tbody tr:hover {
@@ -4500,7 +4500,7 @@ main {
     background-color: transparent;
     border: 1px solid #434857;
     color: #ABABAB;
-    transition: all 0.1s ease; }
+    transition: all 0.1s ease-in-out; }
     main .pagination > li > a:hover, main .pagination > li > a:focus {
       color: #FFF;
       background-color: #2E323E;
@@ -4511,5 +4511,47 @@ main {
     color: #FFF;
     background-color: #2E323E;
     border: 1px solid #434857; }
+  main #adminForm label {
+    color: #CCC; }
+  main #adminForm select {
+    background-color: transparent;
+    border-color: #434857; }
+  main input.switch:empty {
+    display: none; }
+    main input.switch:empty ~ label {
+      position: relative;
+      float: left;
+      line-height: 1.6em;
+      text-indent: 4em;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+      main input.switch:empty ~ label:before, main input.switch:empty ~ label:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        content: ' ';
+        width: 3.6em;
+        background-color: #181B21;
+        border-radius: 0.3em;
+        box-shadow: inset 0 0.2em 0 rgba(0, 0, 0, 0.3);
+        -webkit-transition: all 100ms ease-in;
+        transition: all 100ms ease-in; }
+      main input.switch:empty ~ label:after {
+        width: 1.4em;
+        top: 0.1em;
+        bottom: 0.1em;
+        margin-left: 0.1em;
+        background-color: #fff;
+        border-radius: 0.15em;
+        box-shadow: inset 0 -0.2em 0 rgba(0, 0, 0, 0.2); }
+  main input.switch:checked ~ label:before {
+    background-color: #1CA8DD; }
+  main input.switch:checked ~ label:after {
+    margin-left: 2em; }
 
 /*# sourceMappingURL=style.css.map */

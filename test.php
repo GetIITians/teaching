@@ -116,3 +116,4 @@ include "includes/app.php";
 //echo "<pre>";var_dump(Funs::cst_tree());echo "</pre>";
 //echo "<pre>";var_dump(site_url());echo "</pre>";
 
+session_destroy();

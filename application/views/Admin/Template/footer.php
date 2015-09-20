@@ -12,5 +12,6 @@
 		<script src="<?php echo base_url();?>js/bootstrap/scrollspy.js"></script>
 		<script src="<?php echo base_url();?>js/bootstrap/tab.js"></script>
 		<script src="<?php echo base_url();?>js/bootstrap/util.js"></script>
+		<script src="<?php echo base_url();?>js/admin.js"></script>
 	</body>
 </html>
