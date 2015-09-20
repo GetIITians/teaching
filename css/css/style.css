@@ -4483,7 +4483,7 @@ main {
     main {
       width: 83.33333%; } }
   main table.table.table-striped.table-hover tbody tr {
-    transition: background 0.3s ease; }
+    transition: background 0.2s ease; }
     main table.table.table-striped.table-hover tbody tr:nth-of-type(2n+1) {
       background-color: rgba(39, 42, 53, 0.53); }
     main table.table.table-striped.table-hover tbody tr:hover {
@@ -4496,5 +4496,20 @@ main {
     main table.table.table-striped.table-hover thead tr th {
       color: white;
       border: 1px solid #434857; }
+  main .pagination > li > a {
+    background-color: transparent;
+    border: 1px solid #434857;
+    color: #ABABAB;
+    transition: all 0.1s ease; }
+    main .pagination > li > a:hover, main .pagination > li > a:focus {
+      color: #FFF;
+      background-color: #2E323E;
+      border: 1px solid #434857; }
+  main .pagination > .active a,
+  main .pagination > .active a:hover,
+  main .pagination > .active a:focus {
+    color: #FFF;
+    background-color: #2E323E;
+    border: 1px solid #434857; }
 
 /*# sourceMappingURL=style.css.map */

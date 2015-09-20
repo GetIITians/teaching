@@ -54,7 +54,7 @@ main {
 	}
 	table.table.table-striped.table-hover{
 		tbody tr{
-			transition: background 0.3s ease;
+			transition: background 0.2s ease;
 			&:nth-of-type(2n+1) {
 				background-color: rgba(39, 42, 53, 0.53);
 			}
@@ -75,4 +75,27 @@ main {
 			}
 		}
 	}
+	.pagination {
+		> li > a {
+			background-color: transparent;
+			border : 1px solid #434857;
+			color: #ABABAB;
+			transition: all 0.1s ease;
+			&:hover,
+			&:focus{
+				color: #FFF;
+				background-color: #2E323E;
+				border : 1px solid #434857;
+			}
+		}
+		> .active a,
+		> .active a:hover,
+		> .active a:focus {
+			color: #FFF;
+			background-color: #2E323E;
+			border : 1px solid #434857;
+		}
+	}
 }
+
+

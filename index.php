@@ -78,6 +78,21 @@ if (defined('ENVIRONMENT'))
 	$application_folder = 'application';
 
 /*
+ *---------------------------------------------------------------
+ * VIEW FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view folder out of the application
+ * folder set the path to the folder here. The folder can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application folder. If you
+ * do move this, use the full server path to this folder.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = 'application/views/';
+
+/*
  * --------------------------------------------------------------------
  * DEFAULT CONTROLLER
  * --------------------------------------------------------------------
@@ -106,7 +121,6 @@ if (defined('ENVIRONMENT'))
 
 	// The controller function you wish to be called.
 	// $routing['function']	= '';
-
 
 /*
  * -------------------------------------------------------------------
@@ -194,6 +208,7 @@ if (defined('ENVIRONMENT'))
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
 
+	define('VIEWPATH', $view_folder);
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
