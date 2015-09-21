@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$data['view_name']		=	'Admin/index';
+		$data['view_name']		=	'Admin/home';
 		$data['view_data']		=	[];
 		$data['nav']['active']	=	1;
 		$data['nav']['tables']	=	$this->db->list_tables();

@@ -1,4 +1,4 @@
-<?php 
+<?php
 load_view("Template/top.php");
 load_view("Template/navbarnew.php");
 
@@ -40,6 +40,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 				<div id="profile" <?php echo profile_tabs(1,$tabid,'tabpanel'); ?> role="tabpanel">
 				<?php  
 					load_view("Template/profile_about.php", $inp);
+					fb($inp,'$inp',FirePHP::LOG);
 				?>
 				</div>
 				<div id="calendar" <?php echo profile_tabs(2,$tabid,'tabpanel'); ?> role="tabpanel">
@@ -98,7 +99,9 @@ load_view("Template/bottom.php",array("needbody"=>false));
 			document.getElementById("getText1").style.visibility = "visible";
 		}
 	</script>
+	<script src="js/editProfile.js"></script>
 	<script src="js/profile.js"></script>
+	<script src="js/joinus.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

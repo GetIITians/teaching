@@ -42,6 +42,7 @@
 	</div>
 	<div class="col-md-5 col-xs-12" >
 		<div class="row">
+		<a class="modal-trigger " href="#editProfile">editProfile</a>
 			<h4 class="teal-text text-darken-3 left col-xs-12"><?php echo ucfirst($aboutinfo["name"]); ?></h4>
 			<form class="col-xs-12" onsubmit='form.req(this);return false;' data-action='updatebio' data-res='hideshowdown("bioedit", "biodisp");$("#biodisptext").html($("#biography").val());' >
 				<div id='biodisp' >
@@ -209,5 +210,273 @@
 		</div>
 		<?php endif;  ?>
 	
+	</div>
+</div>
+
+<?php
+fb($langArray,'$inp',FirePHP::LOG);
+?>
+
+
+<div id="editProfile" class="modal modal-fixed-footer">
+	<div class="modal-content">
+			<div class="row">
+				<div class="col-xs-12 col-md-4">
+					<span class="grey-text text-darken-1">
+						Subjects
+						<span class="red-text">
+							*
+						</span>
+					</span>
+					<br />
+					<span class="grey-text text-lighten-1" style="font-size: 13px;">
+						You would like to teach
+					</span>
+				</div>
+				<div class="col-xs-12 col-md-8">
+					<div class="row" id="editSubject">
+						<div class="col-xs-6">
+							<input id="math" type="checkbox" name="1" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Mathematics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<label for="math">
+								Mathematics
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<input id="physics" type="checkbox" name="2" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Physics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<label for="physics">
+								Physics
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<input id="chemistry" type="checkbox" name="3" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Chemistry', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<label for="chemistry">
+								Chemistry
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<input id="biology" type="checkbox" name="4" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Biology', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<label for="biology">
+								Biology
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<input id="science" type="checkbox" name="5" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Science(6-10)', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<label for="science">
+								Science (6-10)
+							</label>
+						</div>
+						<div class="col-xs-6">
+							<input id="subject_other" type="checkbox" name="sub6" data-condition="checkbox" data-group="sub" onchange="specifySubOther()" />
+							<label for="subject_other">
+								Other
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+	<div class="row" id="specify_sub_other">
+		<div class="col-xs-12 col-md-8 col-md-offset-4">
+			<input placeholder="Please specify if other" type="text" class="validate" name="subother" />
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="row" id="editGrade">
+		<div class="col-xs-12 col-md-4">
+			<span class="grey-text text-darken-1">
+				Grade
+				<span class="red-text">
+					*
+				</span>
+			</span>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div>
+				<input id="6to8" type="checkbox" name="1" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('1', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?>  />
+				<label for="6to8">
+					6
+					<sup>
+						th
+					</sup>
+					to 8
+					<sup>
+						th
+					</sup>
+				</label>
+			</div>
+			<div>
+				<input id="9to10" type="checkbox" name="2" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('2', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<label for="9to10">
+					9
+					<sup>
+						th
+					</sup>
+					to 10
+					<sup>
+						th
+					</sup>
+				</label>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div>
+				<input id="11to12" type="checkbox" name="3" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('3', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<label for="11to12">
+					11
+					<sup>
+						th
+					</sup>
+					to 12
+					<sup>
+						th
+					</sup>
+				</label>
+			</div>
+			<div>
+				<input id="iitjee" type="checkbox" name="4" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('4', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<label for="iitjee">
+					IIT JEE
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="row"  id="editLanguage">
+	<div class="col-xs-12 col-md-4">
+		<span class="grey-text text-darken-1">
+			Languages
+			<span class="red-text">
+				*
+			</span>
+		</span>
+		<br />
+		<span class="grey-text text-lighten-1" style="font-size: 13px;">
+			You are comfortable to teach in
+		</span>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div>
+			<input id="lang1" type="checkbox" name="1" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('1', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang1">
+				English
+			</label>
+		</div>
+		<div>
+			<input id="lang2" type="checkbox" name="2" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('2', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang2">
+				Hindi
+			</label>
+		</div>
+		<div>
+			<input id="lang3" type="checkbox" name="3" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('3', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang3">
+				Assamese
+			</label>
+		</div>
+		<div>
+			<input id="lang5" type="checkbox" name="4" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('4', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang5">
+				Sanskrit
+			</label>
+		</div>
+		<div>
+			<input id="lang6" type="checkbox" name="5" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('5', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang6">
+				Bengali
+			</label>
+		</div>
+		<div>
+			<input id="lang7" type="checkbox" name="6" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('6', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang7">
+				Mayalayam
+			</label>
+		</div>
+		<div>
+			<input id="lang8" type="checkbox" name="7" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('7', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang8">
+				Tamil
+			</label>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div>
+			<input id="lang9" type="checkbox" name="8" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('8', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang9">
+				Gujarati
+			</label>
+		</div>
+		<div>
+			<input id="lang10" type="checkbox" name="9" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('9', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang10">
+				Marathi
+			</label>
+		</div>
+		<div>
+			<input id="lang11" type="checkbox" name="10" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('10', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang11">
+				Telugu
+			</label>
+		</div>
+		<div>
+			<input id="lang12" type="checkbox" name="11" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('11', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang12">
+				Oriya
+			</label>
+		</div>
+		<div>
+			<input id="lang13" type="checkbox" name="12" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('12', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang13">
+				Urdu
+			</label>
+		</div>
+		<div>
+			<input id="lang14" type="checkbox" name="13" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('13', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang14">
+				Kannada
+			</label>
+		</div>
+		<div>
+			<input id="lang15" type="checkbox" name="14" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('14', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<label for="lang15">
+				Punjabi
+			</label>
+		</div>
+	</div>
+</div>
+		<div class="row"  id="editName">
+			<div class="col-xs-12 col-md-4">
+				<span class="grey-text text-darken-1">
+					Full Name
+					<span class="red-text">
+						*
+					</span>
+				</span>
+				<br />
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<input type="text" class="form-control" id="Name" value="<?php echo $firstName.' '.$lastName ?>" placeholder="Full Name">
+			</div>
+		</div>
+		<div class="row"  id="editDob">
+			<div class="col-xs-12 col-md-4">
+				<span class="grey-text text-darken-1">
+					Birthday
+					<span class="red-text">
+						*
+					</span>
+					<span><?php echo $aboutinfo['dob']; ?></span>
+				</span>
+				<br />
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="row">
+					<input class="col-md-4" type="text" class="form-control" id="day" placeholder="day">
+					<input class="col-md-4" type="text" class="form-control" id="month" placeholder="month">
+					<input class="col-md-4" type="text" class="form-control" id="Year" placeholder="Year">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="<?php echo HOST.'profile' ?>" class="" id="editProfileLink">Agree</a>
 	</div>
 </div>

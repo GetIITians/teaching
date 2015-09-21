@@ -9,47 +9,46 @@ $defopen="signupwindow";
 <div class="alert alert-success alert-dismissible fade in" role="alert">
 	Please register Your Mobile Number to book a class. <a id="mob_update_link" onclick='mohit.popup("alert",{"body":$("#divmobpop")[0],"title":"Please Enter Your Mobile No."},{"width":"40%","left":"30%"})'>click here!</a>
 </div>
-    <div class="modal fade" >
-<div class="row center l10 s10 m10" id="divmobpop">
-              <form class="col s12 l12" method="post" onsubmit='return ms.signupform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php }else{ ?>  <?php } ?>  autocomplete="off" >
-                <div id="signupwindow" style='<?php dit($defopen=="signupwindow"); ?>' >
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input name="name" type="hidden" value="<?php echo $name; ?>">
-                      <input id="phone" name="phone" type="text" data-condition="simple" >
-                      <label for="phone">Mobile Number</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <button class="btn waves-effect waves-light" name="resignup" type="submit" id="submit_button">
-                        Submit<i class="material-icons right">send</i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div id="otpwindow" style='<?php dit($defopen=="otpwindow"); ?>' >
-
-                  <div class="col s12">
-                    An OTP has been sent to your phone. Please enter it below.
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="otp" name="otp" type="text" data-condition="simple" class="validate" >
-                      <label for="otp">One Time Password</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <button class="btn waves-effect waves-light"  name="resignup" type="submit" >Submit
-                        <i class="material-icons right">send</i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-        </div>
-	</div>       
+<div class="modal fade" >
+	<div class="row center l10 s10 m10" id="divmobpop">
+		<form class="col s12 l12" method="post" onsubmit='return ms.signupform(this,<?php echo tf($_ginfo["needsignupotp"]); ?>,true);' <?php if($_ginfo["needsignupotp"]) { ?>  data-action='resignupotp' data-param='{"phone":$("#signupwindow").find("input[name=phone]").val(), type: "s"}' data-res='hideshowdown("signupwindow","otpwindow");'  <?php } ?>  autocomplete="off" >
+			<div id="signupwindow" style='<?php dit($defopen=="signupwindow"); ?>' >
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="name" type="hidden" value="<?php echo $name; ?>">
+						<input id="phone" name="phone" type="text" data-condition="simple" >
+						<label for="phone">Mobile Number</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<button class="btn waves-effect waves-light" name="resignup" type="submit" id="submit_button">
+							Submit<i class="material-icons right">send</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="otpwindow" style='<?php dit($defopen=="otpwindow"); ?>' >
+				<div class="col s12">
+					An OTP has been sent to your phone. Please enter it below.
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="otp" name="otp" type="text" data-condition="simple" class="validate" >
+						<label for="otp">One Time Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<button class="btn waves-effect waves-light"  name="resignup" type="submit" >Submit
+							<i class="material-icons right">send</i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 <?php endif; 
 $_SESSION['isdonedemo']= $isdonedemo;
 /*
