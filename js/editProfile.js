@@ -1,7 +1,7 @@
 $(function () {
 	$(document).on('click','#editProfileLink', function(event) {
 		event.preventDefault();
-
+		var teacherid = user;
 		var ids = {
 			'editSubject' : 'input:checkbox:checked',
 			'editGrade' : 'input:checkbox:checked',

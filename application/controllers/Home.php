@@ -13,13 +13,16 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		echo "string";
+		echo str_replace('.', '', $this->input->ip_address());
+
 	}
 
 	public function doubt()
 	{
-		$content = json_decode($this->input->post('content'));
+		$data = json_decode($this->input->post('content'),true);
+		$data['user_id'] = str_replace('.', '', $this->input->ip_address());
 
+		//Call the Home_model.php's insert function
 
 		//Funs::sendmail($to, $subject, $body);
 		echo json_encode($content);

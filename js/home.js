@@ -61,11 +61,11 @@ var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 $(function() {
 	$(document).on('click','#welcome a.submit', function(event) {
 		event.preventDefault();
-		var details = helpers.inputNameValObject('#welcome',['input','textarea']);
+		var details = helpers.inputsNameValObject('#welcome',['input','textarea']);
 		console.log(JSON.stringify(details));
 		emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 		if (details["email"] == '' && !emailRegex.test(details["email"])) {
-			$('#welcome .modal-footer p').html('Email ID is copulsory');
+			$('#welcome .modal-footer p').html('Email ID is compulsory');
 			return false;
 		} else {
 			$('#welcome .modal-footer p').html('');

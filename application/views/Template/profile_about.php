@@ -42,7 +42,7 @@
 	</div>
 	<div class="col-md-5 col-xs-12" >
 		<div class="row">
-		<a class="modal-trigger " href="#editProfile">editProfile</a>
+			<a class="modal-trigger " href="#editProfile">editProfile</a>
 			<h4 class="teal-text text-darken-3 left col-xs-12"><?php echo ucfirst($aboutinfo["name"]); ?></h4>
 			<form class="col-xs-12" onsubmit='form.req(this);return false;' data-action='updatebio' data-res='hideshowdown("bioedit", "biodisp");$("#biodisptext").html($("#biography").val());' >
 				<div id='biodisp' >

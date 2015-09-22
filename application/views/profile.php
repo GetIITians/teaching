@@ -4,7 +4,10 @@ load_view("Template/navbarnew.php");
 
 if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 
-?> 
+?>
+<script type="text/javascript">
+	var user = <?php echo ($tid == User::loginId()) ? User::loginId() : '' ; ?>;
+</script>
 <div id="landingPageTab">
   <div class="closeIcon">
     <i class="material-icons">clear</i>
