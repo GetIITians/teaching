@@ -25,19 +25,12 @@ var helpers = {
 	baseUrl : function(window){
 		return window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
 	},
-	checkboxValue : function(id) {
-		temp = $(id).find('input:checkbox:checked').map(function() {
-			return this.name;
-		}).get();
-		return temp;
-	},
-	inputValue : function(id) {
-		temp = $(id).find('input').map(function() {
+	inputsValueArray : function(parent,inputType) {
+		return $(parent).find(inputType).map(function() {
 			return this.value;
 		}).get();
-		return temp;
 	},
-	elValue : function(parent,inputTypeArray) {
+	inputsNameValObject : function(parent,inputTypeArray) {
 		temp = {};
 		for(input in inputTypeArray){
 			$(parent).find(inputTypeArray[input]).map(function() {

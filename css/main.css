@@ -966,6 +966,20 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	background-color: #004d40;
 }
 
+#homeDropdown .dropdown-menu .dropdown-menu{
+	background-color: #004d40;
+}
+
+#homeDropdown .dropdown-menu .dropdown-menu li a{
+	background-color: #004d40;
+}
+
+#homeDropdown .dropdown-menu .dropdown-menu li a:hover,
+#homeDropdown .dropdown-menu .dropdown-menu li a.highlighted
+{
+	background-color: #003C32;
+}
+
 /*-------------------
 	Home Modal
 -------------------*/

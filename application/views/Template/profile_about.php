@@ -236,37 +236,37 @@ fb($langArray,'$inp',FirePHP::LOG);
 				<div class="col-xs-12 col-md-8">
 					<div class="row" id="editSubject">
 						<div class="col-xs-6">
-							<input id="math" type="checkbox" name="1" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Mathematics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<input id="math" type="checkbox" value="1" name="1" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Mathematics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 							<label for="math">
 								Mathematics
 							</label>
 						</div>
 						<div class="col-xs-6">
-							<input id="physics" type="checkbox" name="2" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Physics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<input id="physics" type="checkbox" value="2" name="2" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Physics', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 							<label for="physics">
 								Physics
 							</label>
 						</div>
 						<div class="col-xs-6">
-							<input id="chemistry" type="checkbox" name="3" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Chemistry', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<input id="chemistry" type="checkbox" value="3" name="3" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Chemistry', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 							<label for="chemistry">
 								Chemistry
 							</label>
 						</div>
 						<div class="col-xs-6">
-							<input id="biology" type="checkbox" name="4" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Biology', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<input id="biology" type="checkbox" value="4" name="4" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Biology', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 							<label for="biology">
 								Biology
 							</label>
 						</div>
 						<div class="col-xs-6">
-							<input id="science" type="checkbox" name="5" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Science(6-10)', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+							<input id="science" type="checkbox" value="5" name="5" data-condition="checkbox" data-group="sub" <?php $key = Funs::recursive_array_search('Science(6-10)', $subArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 							<label for="science">
 								Science (6-10)
 							</label>
 						</div>
 						<div class="col-xs-6">
-							<input id="subject_other" type="checkbox" name="sub6" data-condition="checkbox" data-group="sub" onchange="specifySubOther()" />
+							<input id="subject_other" type="checkbox" value="6" name="sub6" data-condition="checkbox" data-group="sub" onchange="specifySubOther()" />
 							<label for="subject_other">
 								Other
 							</label>
@@ -291,7 +291,7 @@ fb($langArray,'$inp',FirePHP::LOG);
 		</div>
 		<div class="col-xs-12 col-md-4">
 			<div>
-				<input id="6to8" type="checkbox" name="1" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('1', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?>  />
+				<input id="6to8" type="checkbox" value="1" name="1" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('1', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?>  />
 				<label for="6to8">
 					6
 					<sup>
@@ -304,7 +304,7 @@ fb($langArray,'$inp',FirePHP::LOG);
 				</label>
 			</div>
 			<div>
-				<input id="9to10" type="checkbox" name="2" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('2', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<input id="9to10" type="checkbox" value="2" name="2" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('2', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 				<label for="9to10">
 					9
 					<sup>
@@ -319,7 +319,7 @@ fb($langArray,'$inp',FirePHP::LOG);
 		</div>
 		<div class="col-xs-12 col-md-4">
 			<div>
-				<input id="11to12" type="checkbox" name="3" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('3', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<input id="11to12" type="checkbox" value="3" name="3" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('3', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 				<label for="11to12">
 					11
 					<sup>
@@ -332,7 +332,7 @@ fb($langArray,'$inp',FirePHP::LOG);
 				</label>
 			</div>
 			<div>
-				<input id="iitjee" type="checkbox" name="4" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('4', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+				<input id="iitjee" type="checkbox" value="4" name="4" data-condition="checkbox" data-group="grade" <?php $key = Funs::recursive_array_search('4', $gradeArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 				<label for="iitjee">
 					IIT JEE
 				</label>
@@ -355,43 +355,43 @@ fb($langArray,'$inp',FirePHP::LOG);
 	</div>
 	<div class="col-xs-12 col-md-4">
 		<div>
-			<input id="lang1" type="checkbox" name="1" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('1', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang1" type="checkbox" value="1" name="1" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('1', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang1">
 				English
 			</label>
 		</div>
 		<div>
-			<input id="lang2" type="checkbox" name="2" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('2', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang2" type="checkbox" value="2" name="2" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('2', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang2">
 				Hindi
 			</label>
 		</div>
 		<div>
-			<input id="lang3" type="checkbox" name="3" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('3', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang3" type="checkbox" value="3" name="3" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('3', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang3">
 				Assamese
 			</label>
 		</div>
 		<div>
-			<input id="lang5" type="checkbox" name="4" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('4', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang5" type="checkbox" value="4" name="4" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('4', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang5">
 				Sanskrit
 			</label>
 		</div>
 		<div>
-			<input id="lang6" type="checkbox" name="5" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('5', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang6" type="checkbox" value="5" name="5" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('5', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang6">
 				Bengali
 			</label>
 		</div>
 		<div>
-			<input id="lang7" type="checkbox" name="6" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('6', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang7" type="checkbox" value="6" name="6" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('6', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang7">
 				Mayalayam
 			</label>
 		</div>
 		<div>
-			<input id="lang8" type="checkbox" name="7" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('7', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang8" type="checkbox" value="7" name="7" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('7', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang8">
 				Tamil
 			</label>
@@ -399,43 +399,43 @@ fb($langArray,'$inp',FirePHP::LOG);
 	</div>
 	<div class="col-xs-12 col-md-4">
 		<div>
-			<input id="lang9" type="checkbox" name="8" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('8', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang9" type="checkbox" value="8" name="8" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('8', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang9">
 				Gujarati
 			</label>
 		</div>
 		<div>
-			<input id="lang10" type="checkbox" name="9" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('9', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang10" type="checkbox" value="9" name="9" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('9', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang10">
 				Marathi
 			</label>
 		</div>
 		<div>
-			<input id="lang11" type="checkbox" name="10" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('10', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang11" type="checkbox" value="10" name="10" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('10', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang11">
 				Telugu
 			</label>
 		</div>
 		<div>
-			<input id="lang12" type="checkbox" name="11" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('11', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang12" type="checkbox" value="11" name="11" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('11', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang12">
 				Oriya
 			</label>
 		</div>
 		<div>
-			<input id="lang13" type="checkbox" name="12" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('12', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang13" type="checkbox" value="12" name="12" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('12', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang13">
 				Urdu
 			</label>
 		</div>
 		<div>
-			<input id="lang14" type="checkbox" name="13" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('13', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang14" type="checkbox" value="13" name="13" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('13', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang14">
 				Kannada
 			</label>
 		</div>
 		<div>
-			<input id="lang15" type="checkbox" name="14" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('14', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
+			<input id="lang15" type="checkbox" value="14" name="14" data-condition="checkbox" data-group="lang" <?php $key = Funs::recursive_array_search('14', $langArray);echo ($key != false || $key === 0) ? 'checked' : ''; ?> />
 			<label for="lang15">
 				Punjabi
 			</label>
@@ -463,15 +463,20 @@ fb($langArray,'$inp',FirePHP::LOG);
 					<span class="red-text">
 						*
 					</span>
-					<span><?php echo $aboutinfo['dob']; ?></span>
 				</span>
 				<br />
 			</div>
 			<div class="col-xs-12 col-md-8">
 				<div class="row">
-					<input class="col-md-4" type="text" class="form-control" id="day" placeholder="day">
-					<input class="col-md-4" type="text" class="form-control" id="month" placeholder="month">
-					<input class="col-md-4" type="text" class="form-control" id="Year" placeholder="Year">
+					<div class="col-md-4">
+						<input type="text" value="<?php echo date('d',$aboutinfo['dob']); ?>" class="form-control" id="day" placeholder="day">
+					</div>
+					<div class="col-md-4">
+						<input type="text" value="<?php echo date('m',$aboutinfo['dob']); ?>" class="form-control" id="month" placeholder="month">
+					</div>
+					<div class="col-md-4">
+						<input type="text" value="<?php echo date('Y',$aboutinfo['dob']); ?>" class="form-control" id="year" placeholder="year">
+					</div>
 				</div>
 			</div>
 		</div>

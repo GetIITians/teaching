@@ -61,7 +61,7 @@ var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 $(function() {
 	$(document).on('click','#welcome a.submit', function(event) {
 		event.preventDefault();
-		var details = helpers.elValue('#welcome',['input','textarea']);
+		var details = helpers.inputNameValObject('#welcome',['input','textarea']);
 		console.log(JSON.stringify(details));
 		emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 		if (details["email"] == '' && !emailRegex.test(details["email"])) {

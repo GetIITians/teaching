@@ -1,16 +1,19 @@
 $(function () {
 	$(document).on('click','#editProfileLink', function(event) {
 		event.preventDefault();
-		var subject 	=	helpers.checkboxValue('#editSubject');
-		var grade 		=	helpers.checkboxValue('#editGrade');
-		var lang 		=	helpers.checkboxValue('#editLanguage');
-		var name 		=	helpers.inputValue('#editName');
 
+		var ids = {
+			'editSubject' : 'input:checkbox:checked',
+			'editGrade' : 'input:checkbox:checked',
+			'editLanguage' : 'input:checkbox:checked',
+			'editName' : 'input',
+			'editDob'  : 'input'
+		};
+		for(id in ids) {
+			ids[id] = helpers.inputsValueArray('#'+id,ids[id]);
+		}
 
-		console.log(subject);
-		console.log(grade);
-		console.log(lang);
-		console.log(name);
+		console.log(ids);
 		/*
 		$.ajax({
 			url		: HOST+'profile/edit',
