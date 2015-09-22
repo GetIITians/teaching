@@ -1,25 +1,10 @@
-var profileEdit = {
-	checkboxValue : function(id) {
-		temp = $(id).find('input:checkbox:checked').map(function() {
-			return this.name;
-		}).get();
-		return temp;
-	},
-	inputValue : function(id) {
-		temp = $(id).find('input').map(function() {
-			return this.value;
-		}).get();
-		return temp;
-	}
-}
-
 $(function () {
 	$(document).on('click','#editProfileLink', function(event) {
 		event.preventDefault();
-		var subject 	=	profileEdit.checkboxValue('#editSubject');
-		var grade 		=	profileEdit.checkboxValue('#editGrade');
-		var lang 		=	profileEdit.checkboxValue('#editLanguage');
-		var name 		=	profileEdit.inputValue('#editName');
+		var subject 	=	helpers.checkboxValue('#editSubject');
+		var grade 		=	helpers.checkboxValue('#editGrade');
+		var lang 		=	helpers.checkboxValue('#editLanguage');
+		var name 		=	helpers.inputValue('#editName');
 
 
 		console.log(subject);

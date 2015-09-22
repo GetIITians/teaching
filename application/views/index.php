@@ -31,7 +31,7 @@
 						<h1 class="header center white-text">Better Marks are just the beginning!</h1>
 					</div>
 					<div class="col-xs-12">
-						<h5 class="sub-title">Private tutoring by IITians, at home &amp; online</h5>
+						<h5 class="sub-title">Private tutoring by <a class="waves-effect waves-light btn modal-trigger" href="#welcome">IITians</a>, at home &amp; online</h5>
 					</div>
 				</div><br>
 
@@ -48,7 +48,7 @@
 				</form>
 				<ul class="nav navbar-nav row" id="homeDropdown">
 					<li class="col-xs-3"><a href="">9th to 12th <span class="caret"></span></a>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu multi-level">
 						<?php foreach ($cst as $class_id => $class) : ?>
 							<?php if($class_id == 8) break; ?>
 							<li><a href="<?php echo HOST.'search/'.$class['name']; ?>"><?php echo $class['name']; ?> <span class="caret"></span></a>
@@ -148,6 +148,61 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="welcome" class="modal modal-fixed-footer">
+		<div class="modal-content">
+			<h2>Welcome to getIITians</h2>
+			<h4>1 - on - 1 personal tutions</h4>
+			<div class="divider"></div>
+			<p>
+			Have a <b>doubt</b> ? Need <b>personal</b> coaching ? Enter the details below &amp; we will get
+			back to you within the next 24 Hours. 
+			</p>
+			<form>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="sr-only" for="class">Class name</label>
+							<div class="input-group">
+								<div class="input-group-addon">Class</div>
+								<input type="text" class="form-control" id="class" name="class" placeholder="Class">
+							</div>
+						</div>		
+						<div class="form-group">
+							<label class="sr-only" for="topic">Topic name</label>
+							<div class="input-group">
+								<div class="input-group-addon">Topic</div>
+								<input type="text" class="form-control" id="topic" name="topic" placeholder="Topic">
+							</div>
+						</div>		
+						<div class="form-group">
+							<label class="sr-only" for="email">Email ID</label>
+							<div class="input-group">
+								<div class="input-group-addon">Email</div>
+								<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+							</div>
+						</div>		
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="sr-only" for="message">Class name</label>
+							<div class="input-group">
+								<div class="input-group-addon">Message</div>
+								<textarea class="form-control" rows="5" id="message" name="message" placeholder="message"></textarea>
+							</div>
+						</div>		
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<p></p>
+			<a href="#" role ="button" class="btn btn-default modal-action modal-close">Close</a>
+			<a href="#" role ="button" class="btn btn-default submit">Submit</a>
+		</div>
+	</div>
+
+
 
 	<div class="container">
 		<div class="section">

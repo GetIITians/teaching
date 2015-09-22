@@ -1,32 +1,3 @@
-var helpers = {
-	setStorage : function(key,value){
-		localStorage.setItem(key,JSON.stringify(value));
-	},
-	getStorage : function(key){
-		return JSON.parse(localStorage.getItem(key));
-	},
-	isElementInViewport : function(elem){
-		var $elem = $(elem);
-
-		// Get the scroll position of the page.
-		var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-		var viewportTop = $(scrollElem).scrollTop();
-		var viewportBottom = viewportTop + $(window).height();
-
-		// Get the position of the element on the page.
-		var elemTop = Math.round( $elem.offset().top );
-		var elemBottom = elemTop + $elem.height();
-
-		return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
-	},
-	toType : function(obj){
-		return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
-	},
-	baseUrl : function(window){
-		return window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1];
-	}
-}
-
 /*
 For Free class guidance popup
 */

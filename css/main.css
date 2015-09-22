@@ -962,6 +962,30 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	color: #FFF;
 }
 
+#homeDropdown .dropdown-menu > li > a.highlighted{
+	background-color: #004d40;
+}
+
+/*-------------------
+	Home Modal
+-------------------*/
+#welcome h2, h4 {
+	text-align: center;
+}
+
+#welcome input {
+	border: 1px solid #CCC;
+	border-radius: 0px 4px 4px 0px;
+	height: auto;
+	padding: 6px 12px;
+	box-sizing: border-box;
+}
+
+#welcome .modal-footer p {
+	display: inline-block;
+	float: left;
+}
+
 /*-------------------
 		Footer
 -------------------*/

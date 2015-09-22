@@ -5,6 +5,7 @@ if($needpopup){
 	load_view("Template/success.php");
 }
 ?>
+  <script src="js/helper.js"></script>
   <script src="js/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.min.js"></script>
   <script src="js/jquery.bxslider.min.js"></script>
