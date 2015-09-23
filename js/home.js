@@ -62,7 +62,6 @@ $(function() {
 	$(document).on('click','#welcome a.submit', function(event) {
 		event.preventDefault();
 		var details = helpers.inputsNameValObject('#welcome',['input','textarea']);
-		console.log(JSON.stringify(details));
 		emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 		if (details["email"] == '' && !emailRegex.test(details["email"])) {
 			$('#welcome .modal-footer p').html('Email ID is compulsory');
@@ -71,7 +70,6 @@ $(function() {
 			$('#welcome .modal-footer p').html('');
 			$('#welcome a.submit').html('Submitting').attr('disabled','disabled');
 		}
-		console.log(emailRegex.test(details["email"]));
 		$.ajax({
 			url		: HOST+'home/doubt',
 			type	: 'POST',
@@ -82,6 +80,10 @@ $(function() {
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 				//$('#welcome').closeModal();
+			},
+			error: function(msg){
+				console.log(JSON.parse(msg));
+				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 			}
 		})
 	});

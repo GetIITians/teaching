@@ -47,7 +47,7 @@
 					</div>
 				</form>
 				<ul class="nav navbar-nav row" id="homeDropdown">
-					<li class="col-xs-3"><a href="">9th to 12th <span class="caret"></span></a>
+					<li class="col-xs-3"><a href="">6th to 12th <span class="caret"></span></a>
 						<ul class="dropdown-menu multi-level">
 						<?php foreach ($cst as $class_id => $class) : ?>
 							<?php if($class_id == 8) break; ?>
@@ -185,10 +185,10 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group">
-							<label class="sr-only" for="message">Class name</label>
+							<label class="sr-only" for="msg">Class name</label>
 							<div class="input-group">
 								<div class="input-group-addon">Message</div>
-								<textarea class="form-control" rows="5" id="message" name="message" placeholder="message"></textarea>
+								<textarea class="form-control" rows="5" id="msg" name="msg" placeholder="message"></textarea>
 							</div>
 						</div>		
 					</div>
@@ -355,14 +355,14 @@
 				<div class="col-sm-6 col-md-3 col-xs-12">
 					<div class="card-panel">
 						<div class="courses-grade">
-							6<sup>th</sup> - 8<sup>th</sup> Grade
+							6<sup>th</sup> - 12<sup>th</sup> Grade
 						</div>
 						<div class="courses-list">
 							Topics
 							<ul class="courses-list-ul">
-								<li>Algebra</li>
-								<li>Light</li>
-								<li>Urban Livelihoods</li>
+								<li>Lines &amp; angles</li>
+								<li>Coordinate geometry</li>
+								<li>Thermodynamics</li>
 								<li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
 							</ul>
 						</div>
@@ -371,14 +371,14 @@
 				<div class="col-sm-6 col-md-3 col-xs-12">
 					<div class="card-panel">
 						<div class="courses-grade">
-							9<sup>th</sup> - 10<sup>th</sup> Grade
+							Engineering Entrance
 						</div>
 						<div class="courses-list">
 							Topics
 							<ul class="courses-list-ul">
-								<li>Practical Geometry</li>
-								<li>The Indian Subcontinent</li>
-								<li>Heat and Thermodynamics</li>
+								<li>Electrochemistry</li>
+								<li>Engineering design</li>
+								<li>Integral calculus</li>
 								<li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
 							</ul>
 						</div>
@@ -387,14 +387,14 @@
 				<div class="col-sm-6 col-md-3 col-xs-12">
 					<div class="card-panel">
 						<div class="courses-grade">
-							11<sup>th</sup> - 12<sup>th</sup> Grade
+							Engineering
 						</div>
 						<div class="courses-list">
 							Topics
 							<ul class="courses-list-ul">
-								<li>Semiconductors</li>
-								<li>Plane Equations</li>
-								<li>French</li>
+								<li>Electrochemistry</li>
+								<li>Engineering design</li>
+								<li>Integral calculus</li>
 								<li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
 							</ul>
 						</div>
@@ -403,14 +403,14 @@
 				<div class="col-sm-6 col-md-3 col-xs-12">
 					<div class="card-panel">
 						<div class="courses-grade">
-							JEE Mains &amp; Advanced
+							M.B.A.
 						</div>
 						<div class="courses-list">
 							Topics
 							<ul class="courses-list-ul">
-								<li>Optics</li>
-								<li>Kinematics</li>
-								<li>In-Organics Chemistry</li>
+								<li>Architecture</li>
+								<li>Energy engineering</li>
+								<li>Pharmaceutics</li>
 								<li><a href="<?php echo BASE.'search'; ?>">+ View More</a></li>
 							</ul>
 						</div>

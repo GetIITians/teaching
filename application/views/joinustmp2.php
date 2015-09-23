@@ -10,8 +10,7 @@ load_view("Template/navbarnew.php");
 	<br>
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="card-panel"  >
-
+				<div class="card-panel">
 					<div class="row">
 						<div class="col-xs-12 col-md-3 col-md-offset-1">
 							<h3 class="teal-text text-darken-1 center">Join Us</h3>

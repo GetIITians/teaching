@@ -1,3 +1,124 @@
-Index page contains a stylesheet "css/custom-homestyle-v2.css" which is
-not included inside the <head> tag.
+_POST = array(35) {
+  ["otp"]=>
+  string(6) "182617"
+  ["otp_mail"]=>
+  string(6) "444338"
+  ["fname"]=>
+  string(5) "Preet"
+  ["lname"]=>
+  string(10) "gjkbwgjkwe"
+  ["sub5"]=>
+  string(2) "on"
+  ["sub6"]=>
+  string(2) "on"
+  ["subother"]=>
+  string(6) "Faaltu"
+  ["grade1"]=>
+  string(2) "on"
+  ["grade3"]=>
+  string(2) "on"
+  ["grade4"]=>
+  string(2) "on"
+  ["minfees"]=>
+  string(3) "200"
+  ["teachingexp"]=>
+  string(1) "0"
+  ["lang1"]=>
+  string(2) "on"
+  ["college"]=>
+  string(6) "Kanpur"
+  ["degree"]=>
+  string(5) "btech"
+  ["degreeother"]=>
+  string(0) ""
+  ["branch"]=>
+  string(3) "EEE"
+  ["email"]=>
+  string(27) "narayanwaraich123@gmail.com"
+  ["password"]=>
+  string(3) "123"
+  ["cpassword"]=>
+  string(3) "123"
+  ["phone"]=>
+  string(10) "9015410410"
+  ["gender"]=>
+  string(4) "male"
+  ["dob"]=>
+  string(16) "4 December, 1989"
+  ["home1"]=>
+  string(5) "home2"
+  ["city"]=>
+  string(9) "New Delhi"
+  ["zipcode"]=>
+  string(7) "fwyqgfu"
+  ["state"]=>
+  string(10) "Chandigarh"
+  ["country"]=>
+  string(5) "India"
+  ["knowaboutus4"]=>
+  string(2) "on"
+  ["knowaboutusother"]=>
+  string(18) "Newspaper Pamphlet"
+  ["linkprofile"]=>
+  string(0) ""
+  ["feedback"]=>
+  string(5) ""
+  ["calvarification"]=>
+  string(36) "data/files/1443005990__689d7d039.jpg"
+  ["resume"]=>
+  string(42) "data/files/1443005990__689d7d039resume.jpg"
+  ["name"]=>
+  string(16) "Preet gjkbwgjkwe"
+}
 
+datatoinsert = array(4) {
+  ["lang"]=>
+  string(1) "1"
+  ["teachingexp"]=>
+  string(1) "0"
+  ["tid"]=>
+  int(25)
+  ["isselected"]=>
+  string(1) "f"
+}
+
+adddata = array(19) {
+  ["college"]=>
+  string(6) "Kanpur"
+  ["subother"]=>
+  string(6) "Faaltu"
+  ["minfees"]=>
+  string(3) "200"
+  ["resume"]=>
+  string(42) "data/files/1443005990__689d7d039resume.jpg"
+  ["calvarification"]=>
+  string(36) "data/files/1443005990__689d7d039.jpg"
+  ["degree"]=>
+  string(5) "btech"
+  ["degreeother"]=>
+  string(0) ""
+  ["branch"]=>
+  string(3) "EEE"
+  ["city"]=>
+  string(9) "New Delhi"
+  ["zipcode"]=>
+  string(7) "fwyqgfu"
+  ["state"]=>
+  string(10) "Chandigarh"
+  ["country"]=>
+  string(5) "India"
+  ["linkprofile"]=>
+  string(0) ""
+  ["feedback"]=>
+  string(5) "					"
+  ["knowaboutusother"]=>
+  string(18) "Newspaper Pamphlet"
+  ["sub"]=>
+  string(16) "5-6-other-Faaltu"
+  ["grade"]=>
+  string(5) "1-3-4"
+  ["knowaboutus"]=>
+  string(26) "4-other-Newspaper Pamphlet"
+  ["home"]=>
+  string(1) "1"
+}

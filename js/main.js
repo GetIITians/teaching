@@ -232,7 +232,8 @@ var ms={
 			return form.valid.action1( $("#signupwindow")[0] ) ;
 		}
 	},/* ....... */
-	joinusform:function(obj, needotp){ 
+	joinusform:function(obj, needotp){
+		debugger;
 		var mainwindow = $("#main_form_section");
 		var otpwindow = $("#otp_section");
 		if(needotp){

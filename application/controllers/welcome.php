@@ -68,15 +68,18 @@ class Welcome extends CI_Controller {
 				$temp=1;
 			if($temp>0) {
 				$temp=User::signUp(array("name"=>$_POST["name"],"email"=>$_POST["email"],"password"=>$_POST["password"],"type"=>'t',"phone"=>$_POST["phone"],"dob"=>Fun::strtotime_t3($_POST["dob"]),"gender"=>$_POST["gender"]));
+				echo "<pre>";var_dump($_POST);echo "</pre>";
 				if($temp>0){
 					$datatoinsert=array("lang"=>Fun::getmulchecked($_POST,"lang",14),"teachingexp"=>$_POST["teachingexp"]);
 					$datatoinsert["tid"]=$temp['id'];
 					$datatoinsert["isselected"]=$_ginfo["joinus_need_to_confirm"]?'f':'t';
+					echo "<pre>";var_dump($datatoinsert);echo "</pre>";
 					$adddata=Fun::getflds(array("college","subother","minfees","resume", "calvarification", "degree","degreeother","branch","city","zipcode","state","country","linkprofile","feedback","knowaboutusother"),$_POST);
 					$adddata["sub"]=Fun::getmulchecked($_POST,"sub",6);
 					$adddata["grade"]=Fun::getmulchecked($_POST,"grade",4);
 					$adddata["knowaboutus"]=Fun::getmulchecked($_POST,"knowaboutus",4);
 					$adddata["home"]=Fun::getmulchecked($_POST,"home",2);
+					echo "<pre>";var_dump($adddata);echo "</pre>";
 					$datatoinsert["jsoninfo"]=json_encode($adddata);
 					$odata=Sqle::insertVal("teachers",$datatoinsert);
 					$post_data = $_POST;
@@ -84,7 +87,7 @@ class Welcome extends CI_Controller {
 					Fun::mailfromfile( $post_data["email"], "php/mail/joinus_teacher.txt", array("teachername" => $post_data["name"] ));
 				  //Fun::redirect(BASE."account");
 					$msg="Dear ".$_POST["name"].", thanks for contacting us. We will soon get back to you.";
-					Fun::redirect(BASE."profile");
+					//Fun::redirect(BASE."profile");
 				}
 			}		
 			$data=json_encode($_POST);

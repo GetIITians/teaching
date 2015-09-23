@@ -39,5 +39,4 @@ var helpers = {
 		}
 		return temp;
 	}
-
 }

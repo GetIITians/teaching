@@ -259,7 +259,7 @@ var form={
 			
 		}});
 	}, 
-	sendreq1:function(obj,bobj){ 
+	sendreq1:function(obj,bobj){
 		if(bobj.disabled)
 			return;
 		var allattrs=button.attrs(obj); 
@@ -275,6 +275,7 @@ var form={
 		bobj.disabled=true;
 		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
+		console.log(params);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
 			var respo=button.parse(d);
