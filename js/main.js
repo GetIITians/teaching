@@ -233,7 +233,6 @@ var ms={
 		}
 	},/* ....... */
 	joinusform:function(obj, needotp){
-		debugger;
 		var mainwindow = $("#main_form_section");
 		var otpwindow = $("#otp_section");
 		if(needotp){

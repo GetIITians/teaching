@@ -19,11 +19,20 @@ class Home extends CI_Controller {
 	public function doubt()
 	{
 		$data = json_decode($this->input->post('content'),true);
-		$data['user_id'] = (int)("00".cleanIP($this->input->ip_address()));
+		$data['user_id'] = 12345;
 
-		echo ($this->homedb->insert($data)) ? "true" : "false" ;
+		if ($this->homedb->insert($data)) {
+			Fun::mailfromfile(gi("adminmailid"), "php/mail/doubt.txt", $data);
+			echo "true";
+		} else {
+			echo "false";
+		}
+	}
 
-		//Funs::sendmail($to, $subject, $body);
+	public function joinus()
+	{
+		global $_ginfo;
+		$pageinfo=array("issubmitted"=>false,"msg"=>"Dear IITian, welcome to getIITians please tell us something about yourself.");
 	}
 }
 ?>

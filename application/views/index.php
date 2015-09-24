@@ -31,7 +31,7 @@
 						<h1 class="header center white-text">Better Marks are just the beginning!</h1>
 					</div>
 					<div class="col-xs-12">
-						<h5 class="sub-title">Private tutoring by <a class="waves-effect waves-light btn modal-trigger" href="#welcome">IITians</a>, at home &amp; online</h5>
+						<h5 class="sub-title">Private tutoring by , at home &amp; online</h5>
 					</div>
 				</div><br>
 
@@ -148,15 +148,14 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- <a class="waves-effect waves-light btn modal-trigger" href="#welcome">IITians</a> -->
 	<div id="welcome" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h2>Welcome to getIITians</h2>
-			<h4>1 - on - 1 personal tutions</h4>
+			<h4>get 1-on-1 tuition by IITian, online or at home</h4>
 			<div class="divider"></div>
 			<p>
-			Have a <b>doubt</b> ? Need <b>personal</b> coaching ? Enter the details below &amp; we will get
-			back to you within the next 24 Hours. 
+			Have a <b>doubt</b>? Need <b>personal</b> tuition? Please enter the details below &amp; we will revert within 24 Hours. 
 			</p>
 			<form>
 				<div class="row">
@@ -165,16 +164,16 @@
 							<label class="sr-only" for="class">Class name</label>
 							<div class="input-group">
 								<div class="input-group-addon">Class</div>
-								<input type="text" class="form-control" id="class" name="class" placeholder="Class">
+								<input type="text" class="form-control" id="class" name="class" placeholder="9th/IIT JEE/Electrical/MBA prep">
 							</div>
 						</div>		
 						<div class="form-group">
-							<label class="sr-only" for="topic">Topic name</label>
+							<label class="sr-only" for="topic">Subject name</label>
 							<div class="input-group">
-								<div class="input-group-addon">Topic</div>
-								<input type="text" class="form-control" id="topic" name="topic" placeholder="Topic">
+								<div class="input-group-addon">Subject</div>
+								<input type="text" class="form-control" id="topic" name="topic" placeholder="Subject">
 							</div>
-						</div>		
+						</div>
 						<div class="form-group">
 							<label class="sr-only" for="email">Email ID</label>
 							<div class="input-group">
@@ -182,14 +181,18 @@
 								<input type="email" class="form-control" id="email" name="email" placeholder="Email">
 							</div>
 						</div>		
+						<div class="form-group">
+							<label class="sr-only" for="phone">Phone No</label>
+							<div class="input-group">
+								<div class="input-group-addon">Phone</div>
+								<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+							</div>
+						</div>		
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label class="sr-only" for="msg">Class name</label>
-							<div class="input-group">
-								<div class="input-group-addon">Message</div>
-								<textarea class="form-control" rows="5" id="msg" name="msg" placeholder="message"></textarea>
-							</div>
+							<textarea class="form-control" rows="8" col="5" id="msg" name="msg" placeholder="I need help in my upcoming math exam in a month. I am free on saturdays and sundays."></textarea>
 						</div>		
 					</div>
 				</div>

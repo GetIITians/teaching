@@ -58,7 +58,13 @@ var options = {
 var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 //responsive code begin
 
+var homeModal = {
+	status : false,
+}
+
 $(function() {
+//	if (homeModal.status) {};
+	$('#welcome').openModal();
 	$(document).on('click','#welcome a.submit', function(event) {
 		event.preventDefault();
 		var details = helpers.inputsNameValObject('#welcome',['input','textarea']);
@@ -79,11 +85,12 @@ $(function() {
 			success: function(msg){
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
-				//$('#welcome').closeModal();
+				$('#welcome').closeModal();
 			},
 			error: function(msg){
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
+				$('#welcome').closeModal();
 			}
 		})
 	});

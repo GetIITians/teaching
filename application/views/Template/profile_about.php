@@ -42,7 +42,7 @@
 	</div>
 	<div class="col-md-5 col-xs-12" >
 		<div class="row">
-			<a class="modal-trigger " href="#editProfile">editProfile</a>
+			<!-- <a class="modal-trigger " href="#editProfile">editProfile</a> -->
 			<h4 class="teal-text text-darken-3 left col-xs-12"><?php echo ucfirst($aboutinfo["name"]); ?></h4>
 			<form class="col-xs-12" onsubmit='form.req(this);return false;' data-action='updatebio' data-res='hideshowdown("bioedit", "biodisp");$("#biodisptext").html($("#biography").val());' >
 				<div id='biodisp' >
@@ -149,7 +149,7 @@
 				<?php echo $jsonArray['city']; ?>
 			</span>
 		</div>
-		<?php  if((User::isloginas('t')|| User::isloginas('a')) && !empty($ejsoninfo["resume"])) : ?>
+		<?php  if(User::isloginas('t') && !empty($ejsoninfo["resume"]) && (User::loginId() == $tid)) : ?>
 		<div>
 			Resume :
 			<span class="grey-text text-darken-1">
@@ -214,7 +214,8 @@
 </div>
 
 <?php
-fb($langArray,'$inp',FirePHP::LOG);
+//fb($langArray,'$inp',FirePHP::LOG);
+/*
 ?>
 
 
@@ -485,3 +486,4 @@ fb($langArray,'$inp',FirePHP::LOG);
 		<a href="<?php echo HOST.'profile' ?>" class="" id="editProfileLink">Agree</a>
 	</div>
 </div>
+<?php */ ?>
