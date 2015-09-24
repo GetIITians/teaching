@@ -70,7 +70,7 @@
 					<li class="col-xs-3"><a href="">Engineering Entrance <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 						<?php foreach ($cst as $class_id => $class) : ?>
-							<?php if($class_id == 9 || $class_id == 10) : ?>
+							<?php if($class_id == 8 || $class_id == 9) : ?>
 							<li><a href="<?php echo HOST.'search/'.$class['name']; ?>"><?php echo $class['name']; ?> <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 								<?php foreach ($class['children'] as $subject_id => $subject) : ?>
