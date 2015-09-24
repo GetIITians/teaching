@@ -7,7 +7,6 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('help');
-		$this->load->model('home_model','homedb');
 
 		$this->config->set_item('enable_query_strings', FALSE);
 	}
@@ -21,7 +20,7 @@ class Home extends CI_Controller {
 		$data = json_decode($this->input->post('content'),true);
 		$data['user_id'] = 12345;
 
-		if ($this->homedb->insert($data)) {
+		if ($this->db->insert('user_query', $data)) {
 			Fun::mailfromfile(gi("adminmailid"), "php/mail/doubt.txt", $data);
 			echo "true";
 		} else {

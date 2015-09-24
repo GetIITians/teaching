@@ -83,11 +83,13 @@ $(function() {
 				content		:	JSON.stringify(details)
 			},
 			success: function(msg){
+				console.log(msg);
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 				$('#welcome').closeModal();
 			},
 			error: function(msg){
+				console.log(msg);
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 				$('#welcome').closeModal();
