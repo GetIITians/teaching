@@ -31,7 +31,7 @@
 						<h1 class="header center white-text">Better Marks are just the beginning!</h1>
 					</div>
 					<div class="col-xs-12">
-						<h5 class="sub-title">Private tutoring by , at home &amp; online</h5>
+						<h5 class="sub-title">Private tutoring by IITians, at home &amp; online</h5>
 					</div>
 				</div><br>
 
