@@ -130,8 +130,21 @@ abstract class Fun{
 		}
 		return $temp;
 	}
-
-
+/*   BY YOGY  */
+	public static function getarrflds($arr,$data){
+		$temp=array();
+		for($i=0;$i<count($arr);$i++){
+			$k=$arr[$i];
+			if(isset($data[$k])) {
+				for($j=0;$j<count($data[$k]);$j++) { 
+					$l=$j+1;
+					$temp[$k.$l]=$data[$k][$j];
+				}
+			}		
+		}
+		return $temp;
+	}
+/*...........*/	
 	public static function timetostr($time){//Opposite of strtotime
 		return date("M d Y h:i a",$time);
 	}
@@ -625,7 +638,7 @@ abstract class Fun{
 			return "(".$inp.")";
 		}), "true");
 	}
-/*  yogy  */
+/*   BY YOGY   */
 	public static function starttimeconsstu($date1,$timeslot) {
 		if($timeslot==null) {
 			return true;
@@ -640,5 +653,15 @@ abstract class Fun{
 			return $str;
 		}
 	}
+	public static function rearrangefilearray($filearray) {
+		$img_pro=array("name","type","tmp_name","error","size");
+		for($j=0;$j<count($filearray[$img_pro[0]]);$j++) {
+			for($i=0;$i<count($img_pro);$i++) {
+				$arr[$j][$img_pro[$i]]=$filearray[$img_pro[$i]][$j];
+			}
+		}
+		return $arr;		
+	}
+/*...........*/
 }
 ?>

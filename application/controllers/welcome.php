@@ -52,6 +52,23 @@ class Welcome extends CI_Controller {
 				$_POST["calvarification"]=$uf["fn"];
 		}
 
+/*    BY YOGY     */
+		if(isset($_FILES["ex_uploadfile_clgvarification"]) && $_FILES["ex_uploadfile_clgvarification"]["size"]>0  ){
+			$arr=Fun::rearrangefilearray($_FILES["ex_uploadfile_clgvarification"]);	
+			for($i=0;$i<count($arr);$i++) { 
+				if(!empty($arr[$i]["name"])) {
+					$j=$i+1;
+					$uf=Fun::uploadfile_post($arr[$i],array(),'excalvari'.$j);
+					if($uf["ec"]>0)
+						$_POST["ex_calvarification"][]=$uf["fn"];
+				}
+				else {
+					$_POST["ex_calvarification"][]='';	
+				}
+
+			}
+		}
+/* ............... */
 		if(isset($_FILES["resumefile"]) && $_FILES["resumefile"]["size"]>0  ){
 			$uf=Fun::uploadfile_post($_FILES["resumefile"], array(), 'resume');
 			if($uf["ec"]>0)
@@ -75,12 +92,13 @@ class Welcome extends CI_Controller {
 					$datatoinsert["isselected"]=$_ginfo["joinus_need_to_confirm"]?'f':'t';
 					//echo "<pre>";var_dump($datatoinsert);echo "</pre>";
 					$adddata=Fun::getflds(array("college","subother","minfees","resume", "calvarification", "degree","degreeother","branch","city","zipcode","state","country","linkprofile","feedback","knowaboutusother"),$_POST);
+/* BY YOGY*/		$adddata=Fun::mergeifunset($adddata,Fun::getarrflds(array("ex_college","ex_collegeother","ex_degree","ex_degreeother","ex_branch","ex_calvarification"),$_POST)); /*...........*/
 					$adddata["sub"]=Fun::getmulchecked($_POST,"sub",6);
 					$adddata["grade"]=Fun::getmulchecked($_POST,"grade",4);
 					$adddata["knowaboutus"]=Fun::getmulchecked($_POST,"knowaboutus",4);
 					$adddata["home"]=Fun::getmulchecked($_POST,"home",2);
-					//echo "<pre>";var_dump($adddata);echo "</pre>";
 					$datatoinsert["jsoninfo"]=json_encode($adddata);
+					//echo "<pre>";print_r($adddata);echo "</pre>";
 					$odata=Sqle::insertVal("teachers",$datatoinsert);
 					$post_data = $_POST;
 					Fun::mailfromfile( gi("adminmailid"), "php/mail/joinus_admin.txt", array("teachername" => $post_data["name"] ));
@@ -139,8 +157,6 @@ class Welcome extends CI_Controller {
 		$contactVar=array("msg"=>$msg);
 		load_view("contactus.php",$contactVar);
 	}
-
-
 	public function joinusreal(){
 		global $_ginfo;
 		$pageinfo=array("msg"=>"");
