@@ -12,19 +12,18 @@ $(function () {
 		for(id in ids) {
 			ids[id] = helpers.inputsValueArray('#'+id,ids[id]);
 		}
-
-		console.log(ids);
 		/*
+		console.log(ids);
 		$.ajax({
 			url		: HOST+'profile/edit',
 			type	: 'POST',
 			data 	: {
-						sub 	:	subject
+						sub 	:	JSON.stringify(ids)
 			},
 			success: function(msg){
-				console.log(msg);
+				console.log(JSON.parse(msg));
 			} 
 		})
-		*/
+*/
 	});
 });

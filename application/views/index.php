@@ -94,7 +94,7 @@
 								<ul class="dropdown-menu">
 								<?php foreach($cst[10]['children'] as $engg_id => $engg_subject) : ?>
 									<?php $check = strtolower($engg_subject['name'][0]); if( $check == 'a' || $check == 'b') : ?>
-										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.$engg_subject['name']; ?>"><?php echo $engg_subject['name']; ?></a></li>
+										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.str_replace(' ', '_', $engg_subject['name']); ?>"><?php echo $engg_subject['name']; ?></a></li>
 									<?php endif; ?>
 								<?php endforeach; ?>
 								</ul>
@@ -103,7 +103,7 @@
 								<ul class="dropdown-menu">
 								<?php foreach($cst[10]['children'] as $engg_id => $engg_subject) : ?>
 									<?php $check = strtolower($engg_subject['name'][0]); if( $check == 'c' || $check == 'd') : ?>
-										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.$engg_subject['name']; ?>"><?php echo $engg_subject['name']; ?></a></li>
+										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.str_replace(' ', '_', $engg_subject['name']); ?>"><?php echo $engg_subject['name']; ?></a></li>
 									<?php endif; ?>
 								<?php endforeach; ?>
 								</ul>
@@ -112,7 +112,7 @@
 								<ul class="dropdown-menu">
 								<?php foreach($cst[10]['children'] as $engg_id => $engg_subject) : ?>
 									<?php $check = strtolower($engg_subject['name'][0]); if( $check == 'e' || $check == 'f' || $check == 'g' || $check == 'h' || $check == 'i') : ?>
-										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.$engg_subject['name']; ?>"><?php echo $engg_subject['name']; ?></a></li>
+										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.str_replace(' ', '_', $engg_subject['name']); ?>"><?php echo $engg_subject['name']; ?></a></li>
 									<?php endif; ?>
 								<?php endforeach; ?>
 								</ul>
@@ -121,7 +121,7 @@
 								<ul class="dropdown-menu">
 								<?php foreach($cst[10]['children'] as $engg_id => $engg_subject) : ?>
 									<?php $check = strtolower($engg_subject['name'][0]); if( $check == 'm' || $check == 'n') : ?>
-										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.$engg_subject['name']; ?>"><?php echo $engg_subject['name']; ?></a></li>
+										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.str_replace(' ', '_', $engg_subject['name']); ?>"><?php echo $engg_subject['name']; ?></a></li>
 									<?php endif; ?>
 								<?php endforeach; ?>
 								</ul>
@@ -130,7 +130,7 @@
 								<ul class="dropdown-menu">
 								<?php foreach($cst[10]['children'] as $engg_id => $engg_subject) : ?>
 									<?php $check = strtolower($engg_subject['name'][0]); if( $check == 'p' || $check == 'q' || $check == 'r' || $check == 's' || $check == 't') : ?>
-										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.$engg_subject['name']; ?>"><?php echo $engg_subject['name']; ?></a></li>
+										<li><a href="<?php echo HOST.'search/'.$cst[10]['name'].'/'.str_replace(' ', '_', $engg_subject['name']); ?>"><?php echo $engg_subject['name']; ?></a></li>
 									<?php endif; ?>
 								<?php endforeach; ?>
 								</ul>

@@ -427,7 +427,7 @@ class Welcome extends CI_Controller {
 					$pageinfo["class"] = (string)$class_id;
 					if ($this->uri->segment(3)) {
 						foreach ($class_details['children'] as $subject_id => $subject_details) {
-							if ($subject_details['name'] == $this->uri->segment(3)) {
+							if ($subject_details['name'] == str_replace('_', ' ', $this->uri->segment(3))) {
 								$pageinfo["subject"] = (string)$subject_id;
 								if ($this->uri->segment(4)) {
 									foreach ($subject_details['children'] as $topic_id => $topic_details) {

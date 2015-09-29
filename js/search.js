@@ -124,16 +124,14 @@ var search = {
 	displayFilters : function(filters){
 		//console.log(filters);
 		this.shortlist = filters;
-		filterUl = $('#filterClear').find('ul');
 		li = "";
 		for(filter in filters){
-			//console.log(this.retrieveFilterValue(filter,filters[filter]));
 			if (filters.hasOwnProperty(filter)) {
 				li += "<li>"+this.retrieveFilterContent(filter,filters[filter])+"&nbsp;<i class=\"material-icons\" onclick=\"ms.refinesearch('"+filter+"')\">clear</i></li>";
 			}
 		}
-		content = (li=="") ? "" : "Showing results for : " ;
-		filterUl.html(content+li);
+		title = (li=="") ? "" : "Showing results for : " ;
+		$('#filterClear').find('ul').html(title+li);
 	},
 
 	resetSidebar : function(filter){

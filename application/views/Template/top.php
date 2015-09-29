@@ -7,12 +7,13 @@
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache");
 	opent("base",array("href"=>HOST));
-	$title = "getIITians | ".ucfirst(uri_string());
+	$title = ucfirst(uri_string())." | getIITians";
 	if (uri_string()=="") $title = "Private tutoring by IITians, at home & online";
 	ocloset("title",$title);
 	addall_css($css);
 	addmycss();
 	?>
+	<meta name="description" content="<?php echo ucfirst(uri_string())." @ getIITians | Private tutoring by IITians, at home & online"; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<meta charset="utf-8"/>
 	<script type="text/javascript">
