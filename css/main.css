@@ -1135,6 +1135,22 @@ footer .footer-copyright{
 	}
 }
 /*-------------------
+		Joinus
+-------------------*/
+#addAnotherCollege{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#addAnotherCollege span{
+	font-size: 1rem;
+}
+
+#addAnotherCollege span:hover{
+	cursor: pointer;
+	font-size: 1rem;
+}
+/*-------------------
 		Sitewide
 -------------------*/
 
