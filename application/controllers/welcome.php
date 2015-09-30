@@ -76,6 +76,7 @@ class Welcome extends CI_Controller {
 		}
 
 		if(Fun::isSetP("fname", "lname", "email", "phone", "password", "subother", "degreeother","branch","dob","city","zipcode","state","linkprofile","feedback")){
+			
 			$pageinfo["issubmitted"]=true; 
 			$_POST=Fun::mergeifunset($_POST,array("degree"=>"","college"=>"","resume"=>"","calvarification"=>"","minfees"=>"","country"=>"", "teachingexp" => "", "gender" => ""));
 			$_POST['name']=$_POST["fname"]." ".$_POST["lname"];
@@ -368,7 +369,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-	public function edit($tid=0){
+	public function edit($tid=0){ 
 		$page=array("issubmitted"=>false);
 		$sql="Select * from users where id='$tid' and type='t'";
 		$temp=Sql::getArray($sql);
@@ -423,6 +424,63 @@ class Welcome extends CI_Controller {
 		}
 		load_view('joinustmp3.php',array('info'=>$temp,'tid'=>$tid,'info_t'=>$temp1,'issubmitted'=>$page['issubmitted']));
 	}    
+    public function edit1(){ 
+    	$tid= User::loginId();
+		$sql="Select * from teachers where tid='$tid'";
+		$temp1=Sql::getArray($sql);
+		if(Fun::isSetP("fname", "lname","dob")){ 
+			$jsonArray=str2json($temp1[0]['jsoninfo']);
+			$exclgcount=substr_count(implode("",array_keys($jsonArray)),"ex_collegeother");
+/*    BY YOGY     */
+		if(isset($_FILES["ex_uploadfile_clgvarification"]) && $_FILES["ex_uploadfile_clgvarification"]["size"]>0  ){
+			$arr=Fun::rearrangefilearray($_FILES["ex_uploadfile_clgvarification"]);	
+			for($i=0;$i<count($arr);$i++) { 
+				if(!empty($arr[$i]["name"])) {
+					$j=$i+1+$exclgcount;
+					$uf=Fun::uploadfile_post($arr[$i],array(),'excalvari'.$j);
+					if($uf["ec"]>0)
+						$_POST["ex_calvarification"][]=$uf["fn"];
+				}
+				else {
+					$_POST["ex_calvarification"][]='';	
+				}
+
+			}
+		}
+/* ............... */
+			$_POST['name']=$_POST["fname"]." ".$_POST["lname"];
+			$name=$_POST['name'];
+			$dob=Fun::strtotime_t3($_POST["dob"]);
+			$sql="UPDATE users SET name='$name',dob='$dob' where id='$tid'";
+			Sql::query($sql);
+			$lang=Fun::getmulchecked($_POST,"lang",14);
+			$adddata['subother']=$_POST['subother'];
+			$adddata['city']=$_POST['city'];
+			$adddata['country']=$_POST['country'];
+			$adddata['zipcode']=$_POST['zipcode'];
+			$adddata['state']=$_POST['state'];
+			$adddata['minfees']=$jsonArray['minfees'];
+			$adddata['linkprofile']=$jsonArray['linkprofile'];
+			$adddata['knowaboutusother']=$jsonArray['knowaboutusother'];
+			$adddata['college'] = $jsonArray['college'];
+			$adddata['degree'] = $jsonArray['degree'];
+			$adddata['degreeother'] = $jsonArray['degreeother'];
+			$adddata['calvarification'] = $jsonArray['calvarification'];
+			$adddata['branch'] = $jsonArray['branch'];
+			$adddata['resume']=$jsonArray['resume'];
+			$adddata['feedback']=$jsonArray['feedback'];
+			$adddata["sub"] = Fun::getmulchecked($_POST,"sub",6);
+			$adddata["grade"] = Fun::getmulchecked($_POST,"grade",4);
+			$adddata["home"] = Fun::getmulchecked($jsonArray,"home",2);
+			$adddata=	Fun::mergeifunset($adddata,Fun::getsamenameflds($jsonArray,array("ex_college","ex_collegeother","ex_degree","ex_degreeother","ex_branch","ex_calvarification"),$exclgcount));
+			$adddata=Fun::mergeifunset($adddata,Fun::getarrflds(array("ex_college","ex_collegeother","ex_degree","ex_degreeother","ex_branch","ex_calvarification"),$_POST,$exclgcount)); /*...........*/
+			print_r($adddata);
+			$jsoninfo = json_encode($adddata);
+			$sql="UPDATE teachers set lang='$lang',jsoninfo='$jsoninfo' where tid='$tid'"; 
+			Sql::query($sql);
+		}
+		Fun::redirect(BASE."profile");
+	}
 
 	public function search(){
 

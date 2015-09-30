@@ -131,13 +131,13 @@ abstract class Fun{
 		return $temp;
 	}
 /*   BY YOGY  */
-	public static function getarrflds($arr,$data){
+	public static function getarrflds($arr,$data,$namestrtpos=0){
 		$temp=array();
 		for($i=0;$i<count($arr);$i++){
 			$k=$arr[$i];
 			if(isset($data[$k])) {
 				for($j=0;$j<count($data[$k]);$j++) { 
-					$l=$j+1;
+					$l=$j+$namestrtpos+1;
 					$temp[$k.$l]=$data[$k][$j];
 				}
 			}		
@@ -145,6 +145,8 @@ abstract class Fun{
 		return $temp;
 	}
 /*...........*/	
+	
+
 	public static function timetostr($time){//Opposite of strtotime
 		return date("M d Y h:i a",$time);
 	}
@@ -661,6 +663,15 @@ abstract class Fun{
 			}
 		}
 		return $arr;		
+	}
+	public static function getsamenameflds($data,$key,$len) {
+		$arr=array();
+		for($i=0;$i<count($key);$i++) {
+			for($j=1;$j<=$len;$j++) {
+				$arr[$key[$i].$j]=$data[$key[$i].$j];	
+			}
+		}
+		return $arr;	
 	}
 /*...........*/
 }
