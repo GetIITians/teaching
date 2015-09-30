@@ -568,7 +568,7 @@
 			</div>
 			<div class="row" id="addAnotherCollege">
 				<div class="col-xs-12 col-md-4">
-					<span class="grey-text text-darken-1"><i class="material-icons">playlist_add</i> Add another college</span>
+					<span class="grey-text text-darken-1">[ Add another college ]</span>
 				</div>
 				<div class="col-xs-12 col-md-8"></div>
 			</div>

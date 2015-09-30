@@ -1,4 +1,4 @@
-<?php load_view("Template/top.php",$inp); ?>
+<?php load_view("Template/top.php",$inp); fb($inp,'row',FirePHP::LOG);?>
 <link rel="stylesheet" href="css/custom-homestyle-v2.css">
 <link rel="stylesheet" href="css/jquery.smartmenus.bootstrap.css">
 
@@ -171,7 +171,7 @@
 							<label class="sr-only" for="topic">Subject name</label>
 							<div class="input-group">
 								<div class="input-group-addon">Subject</div>
-								<input type="text" class="form-control" id="topic" name="topic" placeholder="Subject">
+								<input type="text" class="form-control" id="topic" name="topic" placeholder="Maths/Physics/Chemistry">
 							</div>
 						</div>
 						<div class="form-group">
@@ -185,7 +185,7 @@
 							<label class="sr-only" for="phone">Phone No</label>
 							<div class="input-group">
 								<div class="input-group-addon">Phone</div>
-								<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+								<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number (optional)">
 							</div>
 						</div>		
 					</div>

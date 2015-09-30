@@ -23,6 +23,7 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="<?php echo BASE."blog"; ?>">Blog</a></li>
 				<li><a href="<?php echo BASE."aboutus"; ?>">About Us</a></li>
 				<li><a href="<?php echo BASE."contactus"; ?>">Contact Us</a></li>
 				<?php if (User::islogin()) : ?>

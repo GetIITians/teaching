@@ -11,6 +11,7 @@
 	if (uri_string()=="") $title = "Private tutoring by IITians, at home & online";
 	ocloset("title",$title);
 	addall_css($css);
+	fb($css,'row',FirePHP::LOG);
 	addmycss();
 	?>
 	<meta name="description" content="<?php echo ucfirst(uri_string())." @ getIITians | Private tutoring by IITians, at home & online"; ?>">
