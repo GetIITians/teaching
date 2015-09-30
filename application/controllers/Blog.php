@@ -34,7 +34,7 @@ class Blog extends CI_Controller {
 
 		$data['records'] = $this->db->get('blogpost', $config['per_page'], $this->uri->segment(2))->result_array();
 
-		$this->load->view('Blog/index', $data);
+		$this->load->view('Blog/home', $data);
 	}
 
 }
