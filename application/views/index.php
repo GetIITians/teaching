@@ -207,23 +207,39 @@
 
 
 
-	<div class="container">
-		<div class="section">
+	<div class="container-fluid">
+		<div class="section" id="howitworks">
 			<div class="row">
 				<div class="col-xs-12">
 					<h3 class="header center grey-text text-darken-4">How it Works</h3>
+					<p>Can't understand a <b>topic?</b> Preparing for an <b>exam?</b> Want to clear a <b>doubt?</b></p>
 				</div>
 			</div>
 			<div class="row">
-			<!--
-				<div class="col s6 l2 offset-l1">
-					<div class="card-panel center hoverable" style="height:200px;padding:10px;">
-						<div class="work-step-number">1</div>
-						<div><i class="material-icons blue-grey-text text-darken-3" style="font-size:5rem;">list</i></div>
-						<div class="blue-grey-text" style="font-size:18px;">Select <br><b>Topics</b></div>
-					</div>
+				<div class="col-sm-2 col-sm-offset-1">
+					<img src="images/howitworks/topic.png" class="img-responsive">
+					<h5>Choose a topic</h5>
+					<p>Select any subject or topic from the menu, </p>
 				</div>
-			-->
+				<div class="col-sm-2">
+					<img src="images/howitworks/teacher.png" class="img-responsive">
+					<h5>Choose a teacher</h5>
+				</div>
+				<div class="col-sm-2">
+					<img src="images/howitworks/book.png" class="img-responsive">
+					<h5>Book the class</h5>
+				</div>
+				<div class="col-sm-2">
+					<img src="images/howitworks/slots.png" class="img-responsive">
+					<h5>Choose your timeslot</h5>
+				</div>
+				<div class="col-sm-2">
+					<img src="images/howitworks/class.png" class="img-responsive">
+					<h5>Start the class</h5>
+				</div>
+			</div>
+			<!-- How it Works (old) START
+			<div class="row">
 				<div class="col-md-2 col-md-offset-2 col-sm-3 col-xs-6">
 					<div class="card-panel center hoverable icon-panel">
 						<div class="work-step-number">1</div>
@@ -253,13 +269,7 @@
 					</div>
 				</div>
 			</div>
-<!--
-			<div class="row">
-				<div class="col s12">
-					<div class="divider"></div>
-				</div>
-			</div>
--->
+			How it Works (old) END -->
 		</div>
 	</div>
 

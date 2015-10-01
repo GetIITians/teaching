@@ -17,7 +17,7 @@ class ModifyClass
 		$requestParameters["time_zone"]=""; //optional
 		$requestParameters["attendee_limit"]=""; //optional
 		$requestParameters["control_category_id"]=""; //optional
-		$requestParameters["create_recording"]=""; //optional
+		$requestParameters["create_recording"]=true; //optional
 		$requestParameters["return_url"]=""; //optional
 		$requestParameters["status_ping_url"]=""; //optional
                 $requestParameters["language_culture_name"]="en-us";

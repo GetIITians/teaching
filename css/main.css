@@ -119,7 +119,6 @@ html{
 		Search
 -------------------*/
 
-
 div#sideBar {
 }
 
@@ -714,7 +713,30 @@ a.attention-joinus {
 a.attention-joinus:hover {
 	background-color: #00796b;
 }
+/*----------------
+	howitworks
+----------------*/
+#howitworks{
+	font-family: Roboto;
+}
 
+#howitworks p{
+	text-align: center;
+	font-size: 1.4rem;
+	margin-bottom: 
+}
+
+#howitworks img{
+	border-radius: 10rem;
+	box-shadow: 0px 0px 10px 5px rgba(51, 51, 51, 0.17);
+}
+
+#howitworks h5{
+	font-size: 1.5rem;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 2rem;
+}
 /*-------------------
 		Navbar
 -------------------*/

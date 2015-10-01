@@ -63,8 +63,7 @@ var homeModal = {
 }
 
 $(function() {
-//	if (homeModal.status) {};
-	$('#welcome').openModal();
+	//$('#welcome').openModal();
 	$(document).on('click','#welcome a.submit', function(event) {
 		event.preventDefault();
 		var details = helpers.inputsNameValObject('#welcome',['input','textarea']);
