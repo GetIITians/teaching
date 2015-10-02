@@ -15,7 +15,7 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a><i class="material-icons tiny">call</i>&nbsp;+91 931 339 4403</a></li>
-				<li><a href="<?php echo BASE."blog"; ?>">Blog</a></li>
+		<!--	<li><a href="<?php // echo BASE."blog"; ?>">Blog</a></li> -->
 				<li><a href="<?php echo BASE."aboutus"; ?>">About Us</a></li>
 				<li><a href="<?php echo BASE."contactus"; ?>">Contact Us</a></li>
 				<?php if (User::islogin()) : ?>

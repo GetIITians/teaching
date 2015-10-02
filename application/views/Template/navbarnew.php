@@ -1,7 +1,7 @@
 <body style="padding-top:45px;">
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
+		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
@@ -23,7 +23,7 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?php echo BASE."blog"; ?>">Blog</a></li>
+			<!--	<li><a href="<?php // echo BASE."blog"; ?>">Blog</a></li> -->
 				<li><a href="<?php echo BASE."aboutus"; ?>">About Us</a></li>
 				<li><a href="<?php echo BASE."contactus"; ?>">Contact Us</a></li>
 				<?php if (User::islogin()) : ?>
