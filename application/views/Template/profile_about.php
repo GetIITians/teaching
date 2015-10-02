@@ -149,7 +149,7 @@
 				<?php echo $jsonArray['city']; ?>
 			</span>
 		</div>
-		<?php  if(User::isloginas('t') && !empty($ejsoninfo["resume"]) && (User::loginId() == $tid)) : ?>
+		<?php  if((User::isloginas('t') || User::isloginas('a') )  && !empty($ejsoninfo["resume"])) : ?>
 		<div>
 			Resume :
 			<span class="grey-text text-darken-1">
