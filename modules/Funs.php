@@ -392,7 +392,7 @@ abstract class Funs{
 			$requestParameters["time_zone"] = "Asia/Kolkata"; //optional
 			$requestParameters["attendee_limit"]=""; //optional
 			$requestParameters["control_category_id"]=""; //optional
-			$requestParameters["create_recording"]=""; //optional
+			$requestParameters["create_recording"]=true; //optional
 			$requestParameters["return_url"]=""; //optional
 			$requestParameters["status_ping_url"]=""; //optional
 			$requestParameters["language_culture_name"]="en-us";
@@ -480,8 +480,8 @@ abstract class Funs{
 		
 		$query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
 			
-/*		$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")";   
-*/ 
+		$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")";   
+ 
 /* new query by yogy*/
 /*		$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";*/ // this query gives results with teachers has no class ,subject ,topic booked 
 		$query4 = "select tid from teachers where (".$home_constrain.")";
@@ -491,8 +491,8 @@ abstract class Funs{
 		$query5 = "select tid from teachers where (".$pincode_constrain.")";
 					
 //		$finalquery = $query1;
-		$relv_finalquery = Fun::intersectionquery(array($relv_query1/*, $query2*/, $query3, $query4, $query5), "tid");
-		$finalquery = Fun::intersectionquery(array($query1/*, $query2*/, $query3, $query4, $query5), "tid");
+		$relv_finalquery = Fun::intersectionquery(array($relv_query1, $query2, $query3, $query4, $query5), "tid");
+		$finalquery = Fun::intersectionquery(array($query1, $query2, $query3, $query4, $query5), "tid");
 //		echo $finalquery;
 //		$finalquery = "(".$query1.") union (".$query2.") ";
 //		$finalquery = Fun::intersectionquery(array($query1, $query2), "tid");

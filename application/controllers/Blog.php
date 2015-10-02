@@ -31,10 +31,22 @@ class Blog extends CI_Controller {
 		$config['per_page']		=	2;
 		$config['uri_segment']	=	'2';
 		$this->pagination->initialize($config);
-
+		
 		$data['records'] = $this->db->get('blogpost', $config['per_page'], $this->uri->segment(2))->result_array();
 
 		$this->load->view('Blog/home', $data);
+	}
+
+	public function view()
+	{
+		$data['top']['css'] = $this->css;
+		$data['navbar']['page'] = 'blog';
+
+		$this->db->where('slug',$this->uri->segment(2));
+		$data['records'] = $this->db->get('blogpost')->result_array();
+
+		$this->load->view('Blog/post', $data);
+		
 	}
 
 }
