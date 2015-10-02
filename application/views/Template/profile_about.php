@@ -13,6 +13,7 @@
 			<form method="post" enctype="multipart/form-data"> 
 				<a onclick='uploadfile(this,"profilepic");' style="cursor:pointer;" >Change Profile Picture</a>
 			</form>
+			<a class="modal-trigger " href="#editProfile">Edit Profile</a>
 		<?php endif; ?>
 
 		<div id="pic_upload" class="modal">
@@ -42,7 +43,6 @@
 	</div>
 	<div class="col-md-5 col-xs-12" >
 		<div class="row">
-			<a class="modal-trigger " href="#editProfile">editProfile</a> 
 			<h4 class="teal-text text-darken-3 left col-xs-12"><?php echo ucfirst($aboutinfo["name"]); ?></h4>
 			<form class="col-xs-12" onsubmit='form.req(this);return false;' data-action='updatebio' data-res='hideshowdown("bioedit", "biodisp");$("#biodisptext").html($("#biography").val());' >
 				<div id='biodisp' >
@@ -1240,20 +1240,20 @@
 			</div>
 		<div class="row" >
 			<div class="col-xs-12 col-md-12"> 
-				<span class="grey-text text-darken-1">Total <?php echo $ttlclgcount=substr_count(implode("",array_keys($jsonArray)),"ex_collegeother")+1; if($ttlclgcount==1) echo " college"; else echo " colleges"; ?>  added at peresent</span>
+				<span class="grey-text text-darken-1">Total <?php echo $ttlclgcount=substr_count(implode("",array_keys($jsonArray)),"ex_collegeother")+1; if($ttlclgcount==1) echo " college"; else echo " colleges"; ?>  added at present</span>
 			</div>
 		</div>
 		<div class="row" id="addAnotherCollege">
 			<div class="col-xs-12 col-md-4"> 
-				<span class="grey-text text-darken-1"><i class="material-icons">playlist_add</i> Add another college</span>
+				<span class="grey-text text-darken-1">[ Add another college ]</span>
 			</div>
 			<div class="col-xs-12 col-md-8"></div>
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button type="submit">
-		 	<a class="" id="editProfileLink">Agree</a>
-		</button>
+		<button type="submit" id="editProfileLink" class="btn btn-default">Save</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#!" role="button" class=" modal-action modal-close btn btn-default">Close</a>
 	</div>
 </div></form>
 
