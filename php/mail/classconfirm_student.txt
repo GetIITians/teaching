@@ -1,0 +1,4 @@
+Class confirm
+Dear {studentname},
+Your class has been confirmed by {teachername} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please dont be late for the class. Thank You.

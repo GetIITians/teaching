@@ -1,0 +1,4 @@
+Class confirm
+Dear Admin ,
+{teachername} just confirm a class booked by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please login and verify the transaction.

@@ -39,6 +39,8 @@ class Welcome extends CI_Controller {
 		//handle_request($arr);
 		//$arr=array("pincode"=>"","action"=>"search","blocked"=>"true","class"=>"","home"=>"1-2","ignoreloadonce"=>"20","isloadold"=>"0","lang"=>"1-2-3-4-5-6-7-8-9-10-11-12-13-14","max"=>"0","maxl"=>"20","orderby"=>"3","price"=>"","search"=>"","subject"=>"11","timer"=>"","timeslot"=>"1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48","topic"=>"");
 		//Actiondisp::search($arr);
+		//$arr=array("action"=>"confirm_class","sid"=>127,"tid"=>136,"starttime"=>1444026600);
+		//handle_request($arr);
 		}
 	
 	public function joinus(){
@@ -357,7 +359,7 @@ class Welcome extends CI_Controller {
 				$pageinfo["canedit"] = (User::loginId() == $tid);
 				if(User::isloginas('s')){
 					$pageinfo["st_detail"]= User::userProfile(User::loginId());
-				}
+				} 
 				load_view("profile.php",$pageinfo);            
 			}
 			else if($uprofile['type']=='s') {

@@ -66,7 +66,7 @@ var button={
 			
 		}});
 	},
-	sendreq_v2:function(obj){
+	sendreq_v2:function(obj){ 
 		var allattrs=this.attrs(obj);
 		if(!button.hasattr(allattrs,"data-params"))
 			var params=this.tosendattrs(obj,allattrs);  
@@ -82,10 +82,9 @@ var button={
 		obj.disabled=true;
 		var prvvalue=obj.innerHTML;
 		obj.innerHTML=(!button.hasattr(allattrs,"data-waittext"))?' ... ':(allattrs["data-waittext"]==''?prvvalue:allattrs["data-waittext"]);
-		console.log(params);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
 			obj.disabled=false;
-			console.log(d);
+			
 			var respo=button.parse(d); 
 			obj.innerHTML=prvvalue;
 			if(respo){ 
@@ -156,7 +155,7 @@ var button={
 			
 		}});
 	},
-	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){
+	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){ 
 		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d.split("\n")[0]); 
 			if(respo){
@@ -275,7 +274,6 @@ var form={
 		bobj.disabled=true;
 		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
-		console.log(params);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
 			var respo=button.parse(d);

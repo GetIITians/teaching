@@ -233,5 +233,17 @@ class Actiondisp{
 			return;
 		load_view("Template/moneyaccount.php", Funs::moneyaccount(User::loginId()));
 	}
+/*    BY YOGY   */	
+	function teacher_classes($data, $printjson = true) {
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$myclasses = array(); 
+		$myclasses = Funs::get_teacher_classes(User::loginId());
+		load_view("Template/profile_classes.php", $myclasses);
+	}
+/*  ........   */	
 }
 ?>

@@ -1,4 +1,4 @@
 Class book
 Dear {studentname},
 You just booked a class with {teachername} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
-Please dont be late for the class. Thank You.
+Please wait for confirmation of this class by {teachername}. Thank You.
