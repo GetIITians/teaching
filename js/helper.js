@@ -38,5 +38,12 @@ var helpers = {
 			}).get();
 		}
 		return temp;
+	},
+	specifyOther : function(obj){
+		if ($(obj).val() == 'other') {
+			$(obj).next('.display_other').slideToggle(500);
+		} else{
+			$(obj).next('.display_other').slideUp(500);
+		};
 	}
 }

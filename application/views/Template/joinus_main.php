@@ -496,7 +496,7 @@
 					</span>
 				</div>
 				<div class="col-xs-12 col-md-8">
-					<select name="degree" id="degree" class="browser-default" onchange="specifyDegOther()" data-condition="simple">
+					<select name="degree" id="degree" class="browser-default" onchange="helpers.specifyOther(this)" data-condition="simple">
 						<option value="" disabled="disabled" selected="selected">
 							Select Degree
 						</option>
@@ -522,7 +522,7 @@
 							Other
 						</option>
 					</select>
-					<div id="specify_deg_other">
+					<div id="specify_deg_other" class="display_other">
 						<input placeholder="Please specify if other" type="text" class="validate" name="degreeother" />
 					</div>
 				</div>

@@ -219,15 +219,17 @@
 				<div class="col-sm-2 col-sm-offset-1">
 					<img src="images/howitworks/topic.png" class="img-responsive">
 					<h5>Choose a topic</h5>
-					<p>Select any subject or topic from the menu, </p>
+					<p>Select any subject/topic from the menu or just use the searchbar. </p>
 				</div>
 				<div class="col-sm-2">
 					<img src="images/howitworks/teacher.png" class="img-responsive">
 					<h5>Choose a teacher</h5>
+					<p>Use the search filters to shortlist teachers of your choice</p>
 				</div>
 				<div class="col-sm-2">
 					<img src="images/howitworks/book.png" class="img-responsive">
 					<h5>Book the class</h5>
+					<p>Book the appropriate class from the list of available classes</p>
 				</div>
 				<div class="col-sm-2">
 					<img src="images/howitworks/slots.png" class="img-responsive">
