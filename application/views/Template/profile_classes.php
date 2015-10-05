@@ -1,5 +1,5 @@
 <h4 class="teal-text text-darken-1">Upcoming Classes</h4>
-<div class="row">
+<div class="row" >
 	<div class="col-xs-12 table-responsive">
 		<table class="table table-striped">
 			<thead>
@@ -24,7 +24,13 @@
 				<td><?php echo $row["startdate_disp"]; ?></td>
 				<td><?php echo $row["starttime_disp"]; ?></td>
 				<td><?php echo $row["duration_disp"]; ?> hrs</td>
-				<td><a target="_blank" href="<?php echo Funs::wiziqurl($row); ?>" ><button class="btn waves-effect waves-light" >Start Class</button></a></td>
+				<td>
+					<?php if($row["confirm"]==0) { ?>	
+					<a class="btn waves-effect waves-light"  onclick="button.sendreq_v2(this)" data-starttime="<?php echo $row["starttime"]; ?>" data-tid="<?php echo $row["tid"]; ?>" data-sid="<?php echo $row["sid"]; ?>" data-action='confirm_class' data-res='success.push("Class confirmed");div.reload($("#classes")[0]);' >Confirm Class</a>
+					<?php } else { ?>
+					<a target="_blank" href="<?php echo Funs::wiziqurl($row); ?>" ><button class="btn waves-effect waves-light" >Start Class</button></a>						 
+					<?php } ?>
+				</td>
 				</tr>
 			<?php } ?>
 			</tbody>

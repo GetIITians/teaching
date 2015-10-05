@@ -51,8 +51,8 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 					load_view("Template/profile_calendar.php",Fun::mergeifunset($calinfo,array("tid"=>$tid)) );
 				?>
 				</div>
-				<div id="classes" <?php echo profile_tabs(3,$tabid,'tabpanel'); ?> role="tabpanel">
-				<?php
+				<div id="classes" <?php echo profile_tabs(3,$tabid,'tabpanel'); ?> role="tabpanel" data-action="teacher_classes">
+				<?php 
 					load_view("Template/profile_classes.php", $myclasses);
 				?>
 				</div>
