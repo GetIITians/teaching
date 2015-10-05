@@ -1,4 +1,5 @@
 $(function () {
+	/*
 	$(document).on('click','#editProfileLink', function(event) {
 		event.preventDefault();
 		var teacherid = user;
@@ -12,7 +13,6 @@ $(function () {
 		for(id in ids) {
 			ids[id] = helpers.inputsValueArray('#'+id,ids[id]);
 		}
-		/*
 		console.log(ids);
 		$.ajax({
 			url		: HOST+'profile/edit',
@@ -24,6 +24,6 @@ $(function () {
 				console.log(JSON.parse(msg));
 			} 
 		})
-*/
 	});
+*/
 });

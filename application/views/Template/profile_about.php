@@ -180,6 +180,45 @@
 		<h4><i class="material-icons left">school</i>Education and Qualifications</h4>
 		<hr class="lightscale">
 		<div>
+			<span class="grey-text text-darken-1">
+				<?php
+					if ($jsonArray['degreeother'] != '') {
+						echo Fun::smilymsg($jsonArray['degreeother']);
+					} else {
+						echo convert_degree(Fun::smilymsg($jsonArray['degree']));
+					}
+					echo " in ";
+					echo Fun::smilymsg($jsonArray['branch']);
+					echo " from ";
+					echo 'IIT '. $jsonArray['college'];
+					echo ".";
+				?>
+			</span>
+		</div>
+		<?php
+			if (isset($jsonArray['ex_branch1']) || array_key_exists('ex_branch1',$jsonArray)) {
+				echo "<div><span class='grey-text text-darken-1'>";
+				$countExtra = count(preg_grep("/^ex_branch/", array_keys($jsonArray)));
+				for ($i=1; $i <= $countExtra ; $i++) {
+					if ($jsonArray['ex_degreeother'.$i] != '') {
+						echo Fun::smilymsg($jsonArray['ex_degreeother'.$i]);
+					} else {
+						echo convert_degree(Fun::smilymsg($jsonArray['ex_degree'.$i]));
+					}
+					echo " in ";
+					echo Fun::smilymsg($jsonArray['ex_branch'.$i]);
+					echo " from ";
+					if ($jsonArray['ex_collegeother'.$i] != '') {
+						echo $jsonArray['ex_collegeother'.$i];
+					} else {
+						echo 'IIT '.$jsonArray['ex_college'.$i];
+					}
+				}
+				echo ".</span></div>";
+			}
+		?>
+		<?php /* ?>
+		<div>
 			College :
 			<span class="grey-text text-darken-1">
 				<?php echo 'IIT '. $jsonArray['college']; ?>
@@ -208,13 +247,12 @@
 				<a target="_new" href="<?php echo $ejsoninfo["calvarification"] ; ?>">Click to see</a>
 			</span>
 		</div>
-		<?php endif;  ?>
-	
+		<?php endif; */ ?>
 	</div>
 </div>
 
 <?php
-//fb($langArray,'$inp',FirePHP::LOG);
+fb($jsonArray,'$jsonArray',FirePHP::LOG);
 
 ?>
 
@@ -1252,8 +1290,7 @@
 	</div>
 	<div class="modal-footer">
 		<button type="submit" id="editProfileLink" class="btn btn-default">Save</button>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="#!" role="button" class=" modal-action modal-close btn btn-default">Close</a>
+		<a href="<?php echo base_url()."profile"; ?>" role="button" class=" modal-action modal-close btn btn-default">Close</a>
 	</div>
 </div></form>
 

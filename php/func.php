@@ -760,6 +760,6 @@
 			);
 		if (array_key_exists($degree, $degrees))
 			return $degrees[$degree];
-		return NULL;
+		return $degree;
 	}
 ?>
