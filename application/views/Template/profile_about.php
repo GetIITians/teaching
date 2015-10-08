@@ -197,9 +197,9 @@
 		</div>
 		<?php
 			if (isset($jsonArray['ex_branch1']) || array_key_exists('ex_branch1',$jsonArray)) {
-				echo "<div><span class='grey-text text-darken-1'>";
 				$countExtra = count(preg_grep("/^ex_branch/", array_keys($jsonArray)));
 				for ($i=1; $i <= $countExtra ; $i++) {
+					echo "<div><span class='grey-text text-darken-1'>";
 					if ($jsonArray['ex_degreeother'.$i] != '') {
 						echo Fun::smilymsg($jsonArray['ex_degreeother'.$i]);
 					} else {
@@ -213,8 +213,8 @@
 					} else {
 						echo 'IIT '.$jsonArray['ex_college'.$i];
 					}
+					echo ".</span></div>";
 				}
-				echo ".</span></div>";
 			}
 		?>
 		<?php /* ?>
@@ -252,7 +252,8 @@
 </div>
 
 <?php
-fb($jsonArray,'$jsonArray',FirePHP::LOG);
+
+//fb($jsonArray,'$jsonArray',FirePHP::LOG);
 
 ?>
 
