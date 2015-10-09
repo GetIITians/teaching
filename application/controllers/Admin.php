@@ -19,25 +19,6 @@ class Admin extends CI_Controller {
 		$data['nav']['tables']	=	$this->db->list_tables();
 		$data['nav']['collapse']=	'';
 		$this->load->view('Admin/Template/Template.php', $data);
-/*
-		$this->table->set_heading('Id','The Title','The Author','The Contents');
-
-		$config['base_url']		=	'http://localhost/CodeIgniter/index.php/page/index';
-		$config['total_rows']	=	$this->db->get('data')->num_rows();
-		$config['per_page']		=	2;
-		$config['num_links']	=	2;
-
-		$this->pagination->initialize($config);
-
-		$data['view_name']				=	'site_view';
-		$data['header']['title']		=	'Pagination View';
-		$data['view_data']['records']	=	$this->db->get(
-												'data',
-												$config['per_page'],
-												$this->uri->segment(3)
-											);	
-		$this->load->view('templates/template.php', $data);
-*/
 	}
 
 	public function table()

@@ -1,11 +1,3 @@
 Customer Enquiry
 
-Phone : {phone}
-\n
-Email : {email}
-\n
-Class : {class}
-\n
-Topics : {topic}
-\n
-Message : {msg}
+Phone : {phone} , Email : {email} , Class : {class} , Topics : {topic} , Message : {msg}
