@@ -6,7 +6,7 @@ if(true || $aboutinfo["isselected"] == "a" || User::isloginas("a") ) {
 
 ?>
 <script type="text/javascript">
-	var user = <?php echo ($tid == User::loginId()) ? User::loginId() : '' ; ?>;
+	var user = <?php echo ($tid == User::loginId()) ? User::loginId() : 'false' ; ?>;
 </script>
 <div id="landingPageTab">
   <div class="closeIcon">

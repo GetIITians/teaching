@@ -34,7 +34,7 @@ class ScheduleClass
 			}
 			catch(Exception $e)
 			{
-//			  echo $e->getMessage();
+//				echo $e->getMessage();
 			}
 		$status=$objDOM->getElementsByTagName("rsp")->item(0);
     	$attribNode = $status->getAttribute("status");
@@ -85,8 +85,8 @@ class getTeacher
 		$method = "get_teacher_details";
 		$requestParameters["signature"]=$authBase->GenerateSignature($method,$requestParameters);
 		#for teacher account pass parameter 'presenter_email'
-                //This is the unique email of the presenter that will identify the presenter in WizIQ. Make sure to add
-                //this presenter email to your organization’s teacher account. ’ For more information visit at: (http://developer.wiziq.com/faqs)
+		//This is the unique email of the presenter that will identify the presenter in WizIQ. Make sure to add
+		//this presenter email to your organization’s teacher account. ’ For more information visit at: (http://developer.wiziq.com/faqs)
 		$requestParameters=Fun::mergeifunset($requestParameters,$add_details);
 
 		$httpRequest=new HttpRequest();

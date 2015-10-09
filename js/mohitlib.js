@@ -66,7 +66,8 @@ var button={
 			
 		}});
 	},
-	sendreq_v2:function(obj){ 
+	sendreq_v2:function(obj){
+		
 		var allattrs=this.attrs(obj);
 		if(!button.hasattr(allattrs,"data-params"))
 			var params=this.tosendattrs(obj,allattrs);  
@@ -200,7 +201,7 @@ var button={
 		params['action']=allattrs["data-action"]; 
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);
 	},
-	sendreq1:function (params,call_back,adata){
+	sendreq1:function (params,call_back,adata){ 
 		$.post("actionv2.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d);
 			if(respo){ 
@@ -271,7 +272,8 @@ var form={
 		}
 
 		params['action']=allattrs["data-action"];
-		bobj.disabled=true;
+		(!button.hasattr(allattrsb,"data-enablebutton"))?bobj.disabled=true:((allattrsb["data-enablebutton"]==true)?bobj.disabled=false:bobj.disabled=true);
+		//bobj.disabled=false;
 		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 

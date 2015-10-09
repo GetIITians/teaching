@@ -206,7 +206,6 @@ var ms={
 			return false;
 	},
 	signupform:function(obj,needotp,emailexist){ 
-		debugger;
 		if(needotp){ 
 			if($("#signupwindow").is(":visible")){
 				if(form.valid.action1(  $("#signupwindow")[0]  )){ 

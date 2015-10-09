@@ -40,3 +40,20 @@ include "includes/app.php";
 //echo "<pre>";var_dump(Funs::cst_tree());echo "</pre>";
 //echo "<pre>";var_dump(site_url());echo "</pre>";
 //echo "<pre>";var_dump(phpinfo());echo "</pre>";
+
+
+
+//global $_ginfo;
+
+$obj = new testClass();
+
+/*
+echo "<pre>";
+echo($obj->test('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/'));
+echo "</pre>";
+*/
+
+//echo "<pre>";
+$XMLReturn = $obj->recording('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/');
+var_dump($XMLReturn);
+//echo "</pre>";

@@ -378,11 +378,12 @@ abstract class Funs{
 
 		} else if($data["action"] == "addteacher") {//tmid
 			$requestParameters = array();
-			$requestParameters["name"]="Mohit Saini";
+			$requestParameters["name"]="getIITians";
 			$requestParameters["email"]=$data["tmid"];
 			$requestParameters["password"] = "mohitsaini";
 			$obj=new AddTeacher($secretAcessKey,$access_key,$webServiceUrl,$requestParameters);
 		} else if($data["action"] == "addclass") {//tmid, s_time,duration  o:{title, }
+			$_SESSION['wiziq_data'] = $data;
 			mergeifunset($data, array("title" => "getIITians"));
 			$requestParameters=array();
 			$requestParameters["presenter_email"]=$data["tmid"];
