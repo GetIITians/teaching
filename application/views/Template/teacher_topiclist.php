@@ -37,7 +37,7 @@ foreach($mysubj as $i=>$row){
 			if($_SESSION['isdonedemo']){
 				echo "Book";
 			} else {
-				echo "Free 1 Hour Class";
+				echo "1 Hour Trial Class";
 			}
 		?>
 		</a>
@@ -45,7 +45,7 @@ foreach($mysubj as $i=>$row){
 <?php elseif(!(User::islogin())) : ?>
 	<td>
 		<a href='<?php echo BASE."login" ?>'  class="btn waves-effect waves-light red darken-1" >
-			Free 1 Hour Class
+			1 Hour Trial Class
 			<?php $_SESSION['redirecturl'] = Helper::link(); ?>
 		</a>
 	</td>

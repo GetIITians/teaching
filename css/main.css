@@ -170,9 +170,27 @@ html{
 	box-shadow: none;
 }
 
+.teacherlistelm .card-image{
+	height: auto;
+}
+
+.teacherlistelm .card-image img{
+	width: 100px;
+	float: left;
+	margin-right: 5px;
+	border: 1px solid #DDD;
+}
+
+.teacherlistelm .card-image p{
+	font-size: .8rem;
+	margin-bottom: 0;
+}
+
 .teacherlistelm .card-content{
 	font-size: .8rem;
-	padding: 5px 5 10px;
+	padding: 20px;
+	padding-left: 5px;
+	padding-top: 0;
 }
 
 .teacherlistelm .card-content .card-title{
@@ -786,14 +804,21 @@ a.attention-joinus:hover {
 
 .navbar > .container-fluid .navbar-brand {
 	margin-left: 3rem;
+	padding: 2px;
 }
 
+.navbar > .container-fluid .navbar-brand img{
+	height: 45px;
+}
+
+/*
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
 	font-size: 2.5rem;
 	color: white;
 }
+*/
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
     color: white;
@@ -867,9 +892,8 @@ nav.navbar-fixed-top .navbar-form{
 }
 
 nav.navbar-fixed-top > .container-fluid .navbar-brand {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	height: 3rem;
+	height: 45px;
+	padding: 0;
 }
 
 nav.navbar-fixed-top .navbar-brand,

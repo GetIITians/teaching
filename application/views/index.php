@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="content right">
-		<span>Attend a free class by an IITian</span>
+		<span>Attend a trial class by an IITian</span>
 		<a href="<?php echo BASE."search"; ?>" class="glyphicon glyphicon-play"></a>
 	</div>
 </div>

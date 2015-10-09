@@ -76,6 +76,7 @@ $searchPageRows++;
 	?>
 		<div class="card-image waves-effect waves-block waves-light">
 			<img class="activator" src="<?php echo $row["profilepic"]; ?>">
+			<p class="grey-text text-darken-1"><?php echo $row["teachermoto"]; ?></p>
 		</div>
 		<div class="card-content">
 			<p class="card-title activator"><?php echo $name; ?></p>
@@ -161,7 +162,7 @@ $searchPageRows++;
 			<p class="lastp">
 				<?php if(!$row["isdonedemo"]) : ?>
 				<a href="<?php pit(BASE."profile/".$row["tid"]."/"."5", User::islogin(), BASE."login"); ?>" >
-					<button type="button" class="btn waves-effect waves-light btn-small" >Free 1 Hour Class</button>
+					<button type="button" class="btn waves-effect waves-light btn-small" >1 Hour Trial Class</button>
 				</a>
 				<?php endif; ?>
 				<!--

@@ -9,7 +9,9 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo BASE; ?>">getIITians</a>
+			<a class="navbar-brand" href="<?php echo BASE; ?>">
+				<img src="images/logo_horizontal.png" class="img-responsive">
+			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
