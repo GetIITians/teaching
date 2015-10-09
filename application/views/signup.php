@@ -68,7 +68,7 @@ $defopen="signupwindow";
 									</div>
 									<div class="row">
 										<div class="input-field col-xs-12">
-											<button class="btn waves-effect waves-light" name="signup" type="submit" id="submit_button">
+											<button class="btn waves-effect waves-light" name="signup" type="submit" id="submit_button" data-waittext="Waiting..." data-enablebutton=0>
 												Submit<i class="material-icons right">send</i>
 											</button>
 										</div>

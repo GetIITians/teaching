@@ -1165,6 +1165,12 @@ footer .footer-copyright{
 /*-------------------
 		Joinus
 -------------------*/
+#signupwindow #submit_button:disabled {
+	cursor:pointer;
+}
+/*-------------------
+		Joinus
+-------------------*/
 #addAnotherCollege{
 	margin-top: 5px;
 	margin-bottom: 5px;

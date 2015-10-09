@@ -378,11 +378,12 @@ abstract class Funs{
 
 		} else if($data["action"] == "addteacher") {//tmid
 			$requestParameters = array();
-			$requestParameters["name"]="Mohit Saini";
+			$requestParameters["name"]="getIITians";
 			$requestParameters["email"]=$data["tmid"];
 			$requestParameters["password"] = "mohitsaini";
 			$obj=new AddTeacher($secretAcessKey,$access_key,$webServiceUrl,$requestParameters);
 		} else if($data["action"] == "addclass") {//tmid, s_time,duration  o:{title, }
+			$_SESSION['wiziq_data'] = $data;
 			mergeifunset($data, array("title" => "getIITians"));
 			$requestParameters=array();
 			$requestParameters["presenter_email"]=$data["tmid"];
@@ -392,7 +393,7 @@ abstract class Funs{
 			$requestParameters["time_zone"] = "Asia/Kolkata"; //optional
 			$requestParameters["attendee_limit"]=""; //optional
 			$requestParameters["control_category_id"]=""; //optional
-			$requestParameters["create_recording"]=true; //optional
+			$requestParameters["create_recording"]="true"; //optional
 			$requestParameters["return_url"]=""; //optional
 			$requestParameters["status_ping_url"]=""; //optional
 			$requestParameters["language_culture_name"]="en-us";

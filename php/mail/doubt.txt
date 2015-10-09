@@ -1,5 +1,11 @@
 Customer Enquiry
-Dear admin,
-{phone}, {email},
-wants to contact you about {class} > {topic}
-{msg}
+
+Phone : {phone}
+\n
+Email : {email}
+\n
+Class : {class}
+\n
+Topics : {topic}
+\n
+Message : {msg}
