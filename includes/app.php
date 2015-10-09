@@ -20,7 +20,6 @@
 	include "php/func.php";
 
 	require_once(WIZ."create.php");
-	require_once(WIZ."test.php");
 		
 	require_once(WIZ."AddAttendee.php");
 
