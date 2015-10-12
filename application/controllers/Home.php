@@ -22,6 +22,8 @@ class Home extends CI_Controller {
 
 		if ($this->db->insert('user_query', $data)) {
 			Fun::mailfromfile(gi("adminmailid"), "php/mail/doubt.txt", $data);
+			$message = "Thank you for contacting us. Our represntative will get back to you as soon as possible.";
+			Funs::sendmail($data['email'], 'Thank you for contacting getIITians', $message);
 			echo "true";
 		} else {
 			echo "false";
