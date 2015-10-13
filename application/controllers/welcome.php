@@ -59,7 +59,7 @@ class Welcome extends CI_Controller {
 		$a=new Actiondisp();
 		$a->search($arr);
 */		//$arr=array("action"=>"confirm_class","sid"=>127,"tid"=>136,"starttime"=>1444026600);
-		handle_request($arr);
+		//handle_request($arr);
 		}
 	
 	public function joinus(){
