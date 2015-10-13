@@ -69,12 +69,14 @@ $(function() {
 		var details = helpers.inputsNameValObject('#welcome',['input','textarea']);
 		emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 		if (details["email"] == '' && !emailRegex.test(details["email"])) {
-			$('#welcome .modal-footer p').html('Email ID is compulsory');
+			$('#welcome .modal-footer p.text-danger').html('Email ID is compulsory');
 			return false;
 		} else {
-			$('#welcome .modal-footer p').html('');
+			$('#welcome .modal-footer p.text-danger').html('');
 			$('#welcome a.submit').html('Submitting').attr('disabled','disabled');
 		}
+		console.log(details);
+		/*
 		$.ajax({
 			url		: HOST+'home/doubt',
 			type	: 'POST',
@@ -94,5 +96,6 @@ $(function() {
 				$('#welcome').closeModal();
 			}
 		})
+		*/
 	});
 });

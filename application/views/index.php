@@ -191,7 +191,7 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group">
-							<label class="sr-only" for="msg">Class name</label>
+							<label class="sr-only" for="msg">Message</label>
 							<textarea class="form-control" rows="8" col="5" id="msg" name="msg" placeholder="I need help in my upcoming math exam in a month. I am free on saturdays and sundays."></textarea>
 						</div>		
 					</div>
@@ -199,9 +199,16 @@
 			</form>
 		</div>
 		<div class="modal-footer">
-			<p></p>
-			<a href="#" role ="button" class="btn btn-default modal-action modal-close">Close</a>
-			<a href="#" role ="button" class="btn btn-default submit">Submit</a>
+			<div class="row">
+				<div class="col-xs-8">
+					<p class="text-muted"><b>Contact : </b>+91 931 339 4403, info@getiitians.com</p>
+					<p class="text-danger">&nbsp;</p>
+				</div>
+				<div class="col-xs-4">
+					<a href="#" role ="button" class="btn btn-default modal-action modal-close">Close</a>
+					<a href="#" role ="button" class="btn btn-default submit">Submit</a>
+				</div>
+			</div>
 		</div>
 	</div>
 

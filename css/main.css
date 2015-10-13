@@ -1050,6 +1050,10 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 #welcome .modal-footer p {
 	display: inline-block;
 	float: left;
+	margin-bottom: 5px;
+}
+
+#welcome .modal-footer .col-xs-8{
 }
 
 /*-------------------
