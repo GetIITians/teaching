@@ -451,7 +451,10 @@ class Welcome extends CI_Controller {
 		$temp1=Sql::getArray($sql);
 		if(Fun::isSetP("fname", "lname","dob")){ 
 			$jsonArray=str2json($temp1[0]['jsoninfo']);
-			$exclgcount=substr_count(implode("",array_keys($jsonArray)),"ex_collegeother");
+			if(isset($jsonArray["ex_collegeother"]))
+				$exclgcount=substr_count(implode("",array_keys($jsonArray)),"ex_collegeother");
+			else
+				$exclgcount = 0;
 /*    BY YOGY     */
 		if(isset($_FILES["ex_uploadfile_clgvarification"]) && $_FILES["ex_uploadfile_clgvarification"]["size"]>0  ){
 			$arr=Fun::rearrangefilearray($_FILES["ex_uploadfile_clgvarification"]);	
@@ -474,31 +477,32 @@ class Welcome extends CI_Controller {
 			$dob=Fun::strtotime_t3($_POST["dob"]);
 			$sql="UPDATE users SET name='$name',dob='$dob' where id='$tid'";
 			Sql::query($sql);
-			$lang=Fun::getmulchecked($_POST,"lang",14);
-			$adddata['subother']=$_POST['subother'];
-			$adddata['city']=$_POST['city'];
-			$adddata['country']=$_POST['country'];
-			$adddata['zipcode']=$_POST['zipcode'];
-			$adddata['state']=$_POST['state'];
-			$adddata['minfees']=$jsonArray['minfees'];
-			$adddata['linkprofile']=$jsonArray['linkprofile'];
-			$adddata['knowaboutusother']=$jsonArray['knowaboutusother'];
+			$datatoinsert["lang"]=Fun::getmulchecked($_POST,"lang",14);
 			$adddata['college'] = $jsonArray['college'];
+			$adddata['subother']=$_POST['subother'];
+			$adddata['minfees']=$jsonArray['minfees'];
+			$adddata['resume']=$jsonArray['resume'];
+			$adddata['calvarification'] = $jsonArray['calvarification'];
 			$adddata['degree'] = $jsonArray['degree'];
 			$adddata['degreeother'] = $jsonArray['degreeother'];
-			$adddata['calvarification'] = $jsonArray['calvarification'];
 			$adddata['branch'] = $jsonArray['branch'];
-			$adddata['resume']=$jsonArray['resume'];
+			$adddata['city']=$_POST['city'];
+			$adddata['zipcode']=$_POST['zipcode'];
+			$adddata['state']=$_POST['state'];
+			$adddata['country']=$_POST['country'];
+			$adddata['linkprofile']=$jsonArray['linkprofile'];
 			$adddata['feedback']=$jsonArray['feedback'];
+			$adddata['knowaboutusother']=$jsonArray['knowaboutusother'];
 			$adddata["sub"] = Fun::getmulchecked($_POST,"sub",6);
 			$adddata["grade"] = Fun::getmulchecked($_POST,"grade",4);
-			$adddata["home"] = Fun::getmulchecked($jsonArray,"home",2);
+			$adddata['knowaboutus']=$jsonArray['knowaboutus'];
+			$adddata["home"] = $jsonArray["home"];
+			
 			$adddata=	Fun::mergeifunset($adddata,Fun::getsamenameflds($jsonArray,array("ex_college","ex_collegeother","ex_degree","ex_degreeother","ex_branch","ex_calvarification"),$exclgcount));
 			$adddata=Fun::mergeifunset($adddata,Fun::getarrflds(array("ex_college","ex_collegeother","ex_degree","ex_degreeother","ex_branch","ex_calvarification"),$_POST,$exclgcount)); /*...........*/
-			print_r($adddata);
-			$jsoninfo = json_encode($adddata);
-			$sql="UPDATE teachers set lang='$lang',jsoninfo='$jsoninfo' where tid='$tid'"; 
-			Sql::query($sql);
+			
+			$datatoinsert["jsoninfo"] = json_encode($adddata);
+			Sqle::updateVal("teachers",$datatoinsert,array('tid'=>$tid));
 		}
 		Fun::redirect(BASE."profile");
 	}

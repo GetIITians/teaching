@@ -153,8 +153,8 @@ load_view("Template/navbarnew.php");
 											</div>
 										</li>
 									 </ul>
-									 <?php if(User::isloginas('a')): ?>
-									 <ul class="collapsible uncollapsed" >
+									 
+									 <ul class="collapsible uncollapsed" <?php if(!User::isloginas('a')): ?> style="display:none"<?php endif; ?>  >
 										<li>
 											<div class="collapsible-header">Timeslot</div>
 											<div class="collapsible-body" style="padding:10px;">
@@ -210,7 +210,7 @@ load_view("Template/navbarnew.php");
 											</div>
 										</li>
 										</ul>
-									<?php endif; ?>	
+									
 							<button type="button" class="btn waves-effect waves-light" data-action="refinesearch" onclick="ms.orderrefine(this);">
 								Refine Search
 							</button>

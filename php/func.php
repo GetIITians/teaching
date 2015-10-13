@@ -129,10 +129,10 @@
 		}
 	}
 
-	function str2json($inp) {
+	function str2json($inp) { 
 	/* Takes a JSON encoded string and converts it into Php array variable
 	*/
-		$temp = json_decode($inp);
+		$temp = json_decode($inp); 
 		if($temp)
 			return (array)$temp;
 		else
