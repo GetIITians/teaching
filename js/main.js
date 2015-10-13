@@ -255,10 +255,8 @@ var ms={
 			$("#dispnoresult").hide();
 		}
 	},
-	refinesearch: function(narayan){
-
+	refinesearch: function(narayan){ 
 		search.filterList(narayan);
-
 		var searchdiv = $('#searchresultdiv');
 		var maxl = parseInt($("#searchresultdiv").attr("data-maxl")); 
 		div.reload_autoscroll(searchdiv[0], null, function(d){ 
@@ -346,7 +344,7 @@ function setinputselects(hidinp,cbselector){
 }
 
 function searchform(){ 
-	var leftform=readform($("#searchform")); 
+	var leftform=readform($("#searchform"));
 	mergeifunset(leftform, {'orderby':$("select[name=orderby]").val()}); 
 	return leftform;
 }

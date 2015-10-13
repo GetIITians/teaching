@@ -87,7 +87,9 @@ var search = {
 		'pincode': "",
 		'class': "",
 		'subject': "",
-		'orderby': ""
+		'orderby': "",
+		'timeslotbooked' : "1",
+		'topicsadded' : "1"
 	},
 
 	filterNames : {
@@ -101,7 +103,10 @@ var search = {
 		'pincode': "Pincode",
 		'class': "Class",
 		'subject': "Subject",
-		'orderby': "Sort"
+		'orderby': "Sort",
+		'timeslotbooked' : "Time slot available",
+		'topicsadded' : "Topics added"
+
 	},
 
 	filterList : function(filter){

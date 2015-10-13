@@ -201,6 +201,11 @@ function readform(obj,add){
 					if(ilist[j].checked)
 						outp[fn].push(ilist[j].value);
 				}
+				else if(ilist[j].type=="radio"){
+						setifunset(outp,fn,'');
+						if(ilist[j].checked)
+							outp[fn]=fv;
+				}
 				else
 					outp[fn]=fv;
 			}
