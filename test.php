@@ -45,8 +45,8 @@ include "includes/app.php";
 
 //global $_ginfo;
 
-$obj = new testClass();
-
+/*$obj = new testClass();
+*/
 /*
 echo "<pre>";
 echo($obj->test('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/'));
@@ -54,6 +54,9 @@ echo "</pre>";
 */
 
 //echo "<pre>";
-$XMLReturn = $obj->recording('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/');
-var_dump($XMLReturn);
+//$XMLReturn = $obj->recording('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/');
+//var_dump($XMLReturn);
 //echo "</pre>";
+?>
+<input type="number" step="1" min="0" max="24">
+<input type="number" step="30" min="0" max="30">

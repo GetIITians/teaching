@@ -323,6 +323,9 @@ html{
 /*------------------
 	Profile Page
 -------------------*/
+#bg-rqst{
+	background-color: #F3F3F3;
+}
 #biodisp span.glyphicon{
 	cursor: pointer;
 }

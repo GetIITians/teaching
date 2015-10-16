@@ -27,8 +27,12 @@ class Students{
 		}
 		return array('ec'=>$ec,'data'=>$odata);
 	}
-	function studentBookSlots($data) {
+	function studentBookSlots($data) {  
 		global $_ginfo;
+		if(isset($data['bookslotrqst']))
+			$bookclassrqst=1;
+		else
+			$bookclassrqst=0;
 		$outp = array("ec" => 1, "data" => 0);
 		$inpslots = intexplode("-", $data["slots"]);
 		$bookedslots = grouplist( $inpslots );
@@ -98,14 +102,18 @@ class Students{
 						} else {
 							$wiziqo = Funs::wiziq(array("action" => "tryaddclass", "s_time" => $starttime, "duration" => $duration ));
 						}
-						$insrow = array($data["tid"], $starttime, User::loginId(), $duration, $c_id, $s_id, $t_id, getval("curl", $wiziqo), getval("surl", $wiziqo), getval("rurl", $wiziqo), getval("cid", $wiziqo), time() );
+						$insrow = array($data["tid"], $starttime, User::loginId(), $duration, $c_id, $s_id, $t_id, getval("curl", $wiziqo), getval("surl", $wiziqo), getval("rurl", $wiziqo), getval("cid", $wiziqo), time(),$bookclassrqst );
 						$dbpush[] = $insrow;
 					}
-					foreach($inpslots as $i => $val) {
-						Sqle::updateVal("timeslot", array("sid" => User::loginId()), array("tid" => $data["tid"], "starttime" => $data["datets"]+($val-1)*1800 ));
+					if(isset($data['bookslotrqst'])) {
+						foreach($inpslots as $i => $val)
+							Sqle::insertVal("timeslot", array("sid" => User::loginId(),"tid" => $data["tid"], "starttime" => $data["datets"]+($val-1)*1800,"slotrqst" => 1 ));
 					}
-
-					$query = "insert into booked (tid, starttime, sid, duration, c_id, s_id, t_id, url, surl, rurl, class_id, bookedat) ".Fun::makeDummyTableColumns($dbpush, null, "iiiiiiissssi")."";
+					else {
+						foreach($inpslots as $i => $val)
+						Sqle::updateVal("timeslot", array("sid" => User::loginId(),"slotrqst" => 0), array("tid" => $data["tid"], "starttime" => $data["datets"]+($val-1)*1800 ));
+					}	
+						$query = "insert into booked (tid, starttime, sid, duration, c_id, s_id, t_id, url, surl, rurl, class_id, bookedat,bookclassrqst) ".Fun::makeDummyTableColumns($dbpush, null, "iiiiiiissssii")."";
 					$outp["data"] = Sqle::q( $query );
 				}
 			}

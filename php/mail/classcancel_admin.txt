@@ -1,0 +1,4 @@
+Class cancel
+Dear Admin ,
+{teachername} just canceled a class booked by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please login and verify the transaction.

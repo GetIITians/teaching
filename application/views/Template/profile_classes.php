@@ -16,7 +16,7 @@
 			</thead>
 			<tbody>
 			<?php foreach($newslots as $i => $row) { ?>
-				<tr>
+				<tr <?php if($row["bookclassrqst"]==1): ?> id="bg-rqst" <?php endif; ?>>
 				<td><?php echo $row["studentname"] ?></td>
 				<td><?php echo $row["classname"] ?></td>
 				<td><?php echo $row["subjectname"] ?></td>
@@ -26,7 +26,8 @@
 				<td><?php echo $row["duration_disp"]; ?> hrs</td>
 				<td>
 					<?php if($row["confirm"]==0) { ?>	
-					<a class="btn waves-effect waves-light"  onclick="button.sendreq_v2(this)" data-starttime="<?php echo $row["starttime"]; ?>" data-tid="<?php echo $row["tid"]; ?>" data-sid="<?php echo $row["sid"]; ?>" data-action='confirm_class' data-res='success.push("Class confirmed");div.reload($("#classes")[0]);' >Confirm Class</a>
+					<a class="btn waves-effect waves-light"  onclick="button.sendreq_v2(this)" data-starttime="<?php echo $row["starttime"]; ?>" data-tid="<?php echo $row["tid"]; ?>" data-sid="<?php echo $row["sid"]; ?>" data-action='confirm_class' data-res='success.push("Class confirmed");div.reload($("#classes")[0]);' >Confirm</a>
+					<a class="btn red accent-2 waves-effect waves-light"  onclick="button.sendreq_v2(this)" data-classcharge="<?php echo $row["classcharge"]; ?>" data-starttime="<?php echo $row["starttime"]; ?>" data-tid="<?php echo $row["tid"]; ?>" data-sid="<?php echo $row["sid"]; ?>" data-action='cancel_class' data-res='success.push("Class canceled");div.reload($("#classes")[0]);' >Cancel</a>					
 					<?php } else { ?>
 					<a target="_blank" href="<?php echo Funs::wiziqurl($row); ?>" ><button class="btn waves-effect waves-light" >Start Class</button></a>						 
 					<?php } ?>

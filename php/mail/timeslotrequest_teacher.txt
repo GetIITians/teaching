@@ -5,7 +5,7 @@
 #Every line starting with # is comment line. first uncomment line is subject of mail and rest part is body.
 #
 #
-Class confirm
+Class book
 Dear {teachername},
-Your class has been confirmed by you on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname} booked by {studentname}. 
+A student {studentname} has requested for {classname}, Subject {subjectname} and Topic {topicname} on {date} at {stimes} .Please login and free that perticular timeslots if its suitable for you.
 Thank you.

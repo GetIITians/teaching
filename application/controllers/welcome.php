@@ -35,31 +35,6 @@ class Welcome extends CI_Controller {
 		$pageinfo['cst'] = Funs::cst_tree();
 		/* --------------- */
 		load_view('index.php',$pageinfo);
-		//$arr=array("action"=>"studentBookSlots","cst"=>"6-36-421","datets"=>"1440700200","demo"=>"1","slots"=>"1-2-3","tid"=>"10");
-		//handle_request($arr);
-/*			$arr=array("action"=>"search",
-			"blocked"=> "true",
-			"class"=> "",
-			"home"=> "",
-			"ignoreloadonce"=> "20",
-			"isloadold"=> "0",
-			"lang"=> "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
-			"max"=> "0",
-			"maxl"=> "20",
-			"orderby"=> "",
-			"pincode"=> "",
-			"price"=> "",
-			"search"=> "",
-			"subject"=> "",
-			"timer"=> "",
-			"timeslot"=> "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
-			"timeslotbooked"=> "1",
-			"topic"=> "",
-			"topicsadded"=> "1");
-		$a=new Actiondisp();
-		$a->search($arr);
-*/		//$arr=array("action"=>"confirm_class","sid"=>127,"tid"=>136,"starttime"=>1444026600);
-		//handle_request($arr);
 		}
 	
 	public function joinus(){
@@ -885,9 +860,44 @@ class Welcome extends CI_Controller {
 		$this->db->insert('all_cst', $data);
 		$t_id++;
 	}
-
-
 	}
+	public function test() { 
+		/*$arr=array(
+			"action"=>"studentBookSlots",
+			"bookslotrqst"=>"1",
+		"cst"=>"4-19-224",
+		"datets"=>"1444933800",
+		"demo"=>"1",
+		"slots"=>"4",
+		"tid"=>"3");
+		handle_request($arr);*/
+	/*			$arr=array("action"=>"search",
+			"blocked"=> "true",
+			"class"=> "",
+			"home"=> "",
+			"ignoreloadonce"=> "20",
+			"isloadold"=> "0",
+			"lang"=> "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
+			"max"=> "0",
+			"maxl"=> "20",
+			"orderby"=> "",
+			"pincode"=> "",
+			"price"=> "",
+			"search"=> "",
+			"subject"=> "",
+			"timer"=> "",
+			"timeslot"=> "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
+			"timeslotbooked"=> "1",
+			"topic"=> "",
+			"topicsadded"=> "1");
+		$a=new Actiondisp();
+		$a->search($arr);
+	*/ 
+		$arr=array("action"=>"cancel_class","sid"=>2,"tid"=>3,"starttime"=>1445022000);
+		handle_request($arr);
+	}
+
+
 }
 
 ?>

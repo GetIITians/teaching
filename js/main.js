@@ -184,7 +184,7 @@ var ms={
 	f2:function(){
 		ms.cbautofill("disppopupslots");
 	},
-	cbautofill:function(id){
+	cbautofill:function(id){ 
 		setinputselects($("#"+id).find("input[type=hidden]")[0],$("#"+id).find("input[type=checkbox]"));
 	},
 	calreq:function(obj){
@@ -280,15 +280,37 @@ var ms={
 				$(obj).fadeOut();
 			}
 		}, null, "#loadmoreloadingimg");
+	},/*   BY YOGY */
+	studentrequestslotpopup: function(obj) { 
+		if(selectedtopic == "") {
+			Materialize.toast('Please select the topic first', 4000, 'warning');
+		} 
+		else {
+			$("#"+"timeslotPopup"+"body").html("<img src='photo/icons/loading.gif' />");
+			button.sendreq_v2_t4(obj,null,function(d){
+			$("#"+"timeslotPopup"+"body").html(d);
+			});
+		}
 	},
-	studentbookslot: function(obj) {
+	studentrequestslot:function(obj) {
+		var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
+			if($('#popuptimecheckbox').val().length===0){
+				Materialize.toast('Please select atleast one time slot', 4000, 'warning');
+				return false;
+			}
+			ms.cbautofill("disppopupslots");
+			$(obj).attr("data-cst", selectedtopic);
+			button.sendreq_v2(obj);
+
+	},
+	studentbookslot: function(obj) { 
 		if(selectedtopic != "") {
 			var totalHours = ($('#popuptimecheckbox').val().match(/-/g) || []).length;
 			if($('#popuptimecheckbox').val().length===0){
 				Materialize.toast('Please select atleast one time slot', 4000, 'warning');
 				return false;
-			}
-			if ($(obj).attr("data-demo") === "1") {
+			} 
+			if ($(obj).attr("data-demo") === "1") { 
 				//Demo already Done
 				ms.cbautofill("disppopupslots");
 				$(obj).attr("data-cst", selectedtopic);

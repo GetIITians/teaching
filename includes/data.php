@@ -121,7 +121,7 @@ $_ginfo["error"]=array(
 	"-27"=>"Wiziq Error",
 	"-28"=>"No Such CST exist",
 	"-29"=>"You don't have sufficient money in your account.",
-	"-30"=>"Another class has been booked for one of your selected time slot",
+	"-30"=>"Your another class has been booked for one of your selected time slot",
 
 	"1"=>"Positive"
 );
@@ -152,7 +152,8 @@ $_ginfo["moneyaccount"] = array(
 	"-3" => "You have received by Admin",
 	"-4" => "{studentname} booked your class on {date}",
 	"-5" => "You taught class of {classname}, {subjectname}, {topicname} to {studentname} ",
-	"-6" => "You added in account of {name}({type})"
+	"-6" => "You added in account of {name}({type})",
+	"-7" => "Your class of {classname}, {subjectname}, {topicname} on {date} at {stimes} has been canceled by teacher {teachername}"
 );
 
 $_ginfo['teacherJsoninfo']=array("college","subother","minfees","resume", "calvarification", "degree","degreeother","branch","city","zipcode","state","country","linkprofile","feedback","knowaboutusother","sub","grade","knowaboutus","home");

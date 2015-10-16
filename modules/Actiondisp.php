@@ -58,6 +58,38 @@ class Actiondisp{
 		//load_view("")
 		//load that view that shows the uploaded files
 	}
+	function daytspopupreqst($data) { 
+		$need=array('datets','tid');
+		$ec=1;
+		$odata = 0;
+		if(!Fun::isAllSet($need,$data)){
+			$ec = -9;
+		}
+		echo json_encode(array('ec'=>$ec,'data'=>$odata))."\n";
+		if($ec<0)
+			return;
+		$data["datets"]=daystarttime($data["datets"]);
+		$pageinfo=array("datets"=>$data["datets"]);
+		$dayslots=sql2dict(Sqle::getA(gtable(User::loginId()==$data["tid"]?"meteacherallts":"meteacherallts"),array("starttime"=>$data["datets"],"endtime"=>$data["datets"]+24*3600,"tid"=>$data["tid"], "sid"=>User::loginId())),"starttime");
+		$slotinfo=array();
+		for($i=1;$i<=48;$i++){
+			$slottime=($i-1)*1800+$data["datets"];
+			$slotinfo[$i]=array("cansee"=>true,"blocked"=>false,"checked"=>false );
+			if(isset($dayslots[$slottime])){
+				$slotinfo[$i]=Fun::mergeifunset($slotinfo[$i],$dayslots[$slottime]);
+				$slotinfo[$i]["cansee"]=false;
+			}
+		}
+		$pageinfo["isguest"]=($data["tid"]!=User::loginId() && (!User::isloginas("s")));
+		$pageinfo["isself"]=($data["tid"]==User::loginId());
+		$pageinfo["isstudent"]=( (User::isloginas("s")) );
+		$pageinfo["dayslots"]=$slotinfo;
+		$pageinfo["timeslots"]=Funs::timeslotlist(true);
+		$pageinfo["tid"]=$data["tid"];
+		$pageinfo["requesttimeslot"] = 1;
+		load_view("timeslotpopup.php",$pageinfo);
+	}
+
 	function daytspopup($data){
 		$need=array('datets','tid');
 		$ec=1;

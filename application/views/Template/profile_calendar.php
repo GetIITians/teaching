@@ -10,6 +10,7 @@
 <?php endif; ?>
 
 <!-- Calendar -->
+
 <div id="divforcalender">
 	<?php load_view("dispcal.php",$inp); ?>
 </div>

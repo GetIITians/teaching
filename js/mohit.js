@@ -67,7 +67,7 @@ var mohit={
 			narayan=false;
 		mergeifunset(data,{"title":null,"body":null});
 		//console.log(data);
-		for(i in data){
+		for(i in data){ 
 			if(data[i]!=null)
 				$("#"+id+"Popup"+i).html(data[i]);
 		}

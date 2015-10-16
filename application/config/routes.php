@@ -98,6 +98,8 @@ $route['reset'] 				=	"welcome/reset";
 $route['joinus'] 				=	"welcome/joinus";
 $route['aboutus'] 				=	"welcome/aboutus";
 
+$route['test'] 				=	"welcome/test";
+
 $route['index'] 				=	"welcome/index";
 $route['default_controller'] 	=	"welcome";
 $route['404_override'] 			=	'';
