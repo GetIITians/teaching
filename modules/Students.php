@@ -31,10 +31,12 @@ class Students{
 		global $_ginfo;
 		if(isset($data['bookslotrqst'])) {
 			$bookclassrqst=1;
+			$mc = -8;
 			$mails = array("studentemail"=>"classrqst_student.txt","teacheremail"=>"classrqst.txt","adminmailid"=>"classrqst_admin.txt","studentphone"=>"classrqst_student_msg.txt","teacherphone"=>"classrqst_msg.txt");
 		}
 		else {
 			$bookclassrqst=0;
+			$mc = -1;
 			$mails = array("studentemail"=>"classbook_student.txt","teacheremail"=>"classbook.txt","adminmailid"=>"classbook_admin.txt","studentphone"=>"classbook_student_msg.txt","teacherphone"=>"classbook_msg.txt");
 		}
 		$outp = array("ec" => 1, "data" => 0);
@@ -85,7 +87,7 @@ class Students{
 					$cstinfo["date"] = Fun::timetodate($data["datets"]);
 					if($isdonedemo) {
 						if (!isset($_SESSION['paidViaPayUMoney'])) {
-							Funs::addremmoney(-$cstinfo["priceused"], -1, null, $cstinfo);
+							Funs::addremmoney(-$cstinfo["priceused"], $mc, null, $cstinfo);
 						} else {
 							unset($_SESSION['paidViaPayUMoney']);
 						}
