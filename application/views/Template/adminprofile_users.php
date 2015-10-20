@@ -1,13 +1,17 @@
-<?php
+<?php 
+//$jsonArray=str2json($allusers["teachers"]['jsoninfo']);
+//echo '<pre>'; print_r($allusers["teachers"]); echo '</pre>';
 $trows = add(
-				array(array("Name", "Email", "Joined", "Phone", "Action", "Add money"))
+				array(array("Name", "Email", "Joined", "Phone","City","State","Action", "Add money"))
 				,
 				map(
 					$allusers["teachers"], function ($row) {
-						return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone"), $row));
+						return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone","city","state"), $row));
 					}
 				)
 			);
+/*echo '<pre>'; print_r($trows); echo '</pre>';
+*/
 $srows = add(array(array("Name", "Email", "Joined", "Phone", "Action", "Add money")), map( $allusers["students"], function ($row) { 
 	return Fun::get_key_values(Fun::getflds(array("name", "email", "create_time", "phone"), $row)); 
 }));
@@ -26,7 +30,7 @@ $addmoney = function($uid) {
 };
 
 $tfunc = function($r, $c) use($addmoney, $allusers) {
-	if($c == 4 && $r > 0 ) {
+	if($c == 6 && $r > 0 ) {
 		$row = $allusers["teachers"][$r-1];
 		if($row["isselected"] != "a") {
 		?>
@@ -42,7 +46,7 @@ $tfunc = function($r, $c) use($addmoney, $allusers) {
 			Delete
 		</a><?php		
 		return true;
-	} else if ($c == 5 && $r > 0) {
+	} else if ($c == 7 && $r > 0) {
 		$addmoney( $allusers["teachers"][$r-1]["id"] );
 	} else if ($c == 0 && $r > 0) {
 		?>
@@ -77,8 +81,8 @@ $sfunc = function($r, $c) use ($addmoney, $allusers) {
 	</div>
 </div>
 <div class="row">
-	<div class="col s12">
-<?php
+	<div class="col s12"> 
+<?php 
 load_view("Template/table.php", array("rows" => $trows, "func" => $tfunc));
 ?>
 	</div>

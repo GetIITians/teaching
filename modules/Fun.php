@@ -673,6 +673,20 @@ abstract class Fun{
 		}
 		return $arr;	
 	}
+	public static function resjson2arr($data) {
+		foreach($data as $result) {
+			if(isset($result['jsoninfo'])) {
+				$jsonarray = str2json($result['jsoninfo']);
+				unset($result['jsoninfo']);
+				$arr[] = mergeifunset($result,$jsonarray);
+			} else {
+				$arr[] = $result;
+			}
+
+		}
+		return $arr;
+	}
+
 /*...........*/
 }
 ?>

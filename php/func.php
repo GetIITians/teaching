@@ -129,6 +129,7 @@
 		}
 	}
 
+
 	function str2json($inp) { 
 	/* Takes a JSON encoded string and converts it into Php array variable
 	*/

@@ -239,7 +239,7 @@ class Actiondisp{
 			return;
 		$pageinfo = array(); 
 		$pageinfo["allusers"] = array(
-			"teachers" => Sqle::getA("select teachers.isselected, users.* from users left join teachers on teachers.tid = users.id where users.type='t' order by users.create_time desc"),
+			"teachers" =>  Fun::resjson2arr(Sqle::getA("select teachers.isselected,teachers.jsoninfo, users.* from users left join teachers on teachers.tid = users.id where users.type='t' order by users.create_time desc")),
 			"students" => Sqle::getA("select users.* from users where type='s' order by users.create_time")
 		);
 		load_view("Template/adminprofile_users.php", $pageinfo );
