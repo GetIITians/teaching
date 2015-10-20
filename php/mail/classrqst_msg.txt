@@ -1,0 +1,3 @@
+Dear {teachername},
+Your class has been requested by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please login and confirm the class. Thank you.

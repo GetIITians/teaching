@@ -1,0 +1,4 @@
+Class Request
+Dear Admin ,
+{studentname} just requested a class with {teachername} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please login and verify the transaction.

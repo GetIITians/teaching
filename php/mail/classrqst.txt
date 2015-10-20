@@ -1,0 +1,11 @@
+#this message is to send teacher when somebody book their class.
+#
+# Awailable variables => {studentname}, {date}, {classname}, {subjectname}, {topicname}, {teachername}
+#
+#Every line starting with # is comment line. first uncomment line is subject of mail and rest part is body.
+#
+#
+Class Request
+Dear {teachername},
+Your class has been requested by {studentname} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.Please login and confirm the class.
+Thank you.

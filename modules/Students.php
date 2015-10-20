@@ -29,10 +29,14 @@ class Students{
 	}
 	function studentBookSlots($data) {  
 		global $_ginfo;
-		if(isset($data['bookslotrqst']))
+		if(isset($data['bookslotrqst'])) {
 			$bookclassrqst=1;
-		else
+			$mails = array("studentemail"=>"classrqst_student.txt","teacheremail"=>"classrqst.txt","adminmailid"=>"classrqst_admin.txt","studentphone"=>"classrqst_student_msg.txt","teacherphone"=>"classrqst_msg.txt");
+		}
+		else {
 			$bookclassrqst=0;
+			$mails = array("studentemail"=>"classbook_student.txt","teacheremail"=>"classbook.txt","adminmailid"=>"classbook_admin.txt","studentphone"=>"classbook_student_msg.txt","teacherphone"=>"classbook_msg.txt");
+		}
 		$outp = array("ec" => 1, "data" => 0);
 		$inpslots = intexplode("-", $data["slots"]);
 		$bookedslots = grouplist( $inpslots );
@@ -88,12 +92,14 @@ class Students{
 						
 					} else {
 						Sqle::insertVal("donefreedemo", array("tid" => $data["tid"], "uid" => User::loginId(), "time" => time()));
-					}
-					Fun::mailfromfile($cstinfo["studentemail"], "php/mail/classbook_student.txt", $cstinfo);
-					Fun::mailfromfile($cstinfo["teacheremail"], "php/mail/classbook.txt", $cstinfo);
-					Fun::mailfromfile($_ginfo["adminmailid"], "php/mail/classbook_admin.txt", $cstinfo);
-					Fun::msgfromfile($cstinfo["studentphone"], "php/mail/classbook_student_msg.txt", $cstinfo);
-					Fun::msgfromfile($cstinfo["teacherphone"], "php/mail/classbook_msg.txt", $cstinfo);
+					}			
+
+					Fun::mailfromfile($cstinfo["studentemail"], "php/mail/".$mails['studentemail'], $cstinfo);
+					Fun::mailfromfile($cstinfo["teacheremail"], "php/mail/".$mails['teacheremail'], $cstinfo);
+					Fun::mailfromfile($_ginfo["adminmailid"], "php/mail/".$mails['adminmailid'], $cstinfo);
+					Fun::msgfromfile($cstinfo["studentphone"], "php/mail/".$mails['studentphone'], $cstinfo);
+					Fun::msgfromfile($cstinfo["teacherphone"], "php/mail/".$mails['teacherphone'], $cstinfo);
+					
 					foreach($bookedslots as $i => $row) {
 						$starttime = $data["datets"]+($row[0]-1)*1800;
 						$duration = $row[1]*1800;

@@ -1,0 +1,3 @@
+Dear {studentname},
+You just requested a class with {teachername} on {date} at {stimes} for {classname}, Subject {subjectname} and Topic {topicname}.
+Please wait for confirmation of this class by {teachername}. Thank You.
