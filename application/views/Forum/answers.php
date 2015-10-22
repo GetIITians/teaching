@@ -24,6 +24,7 @@
 				<div class="col-xs-2">
 				<?php echo $data["teachername"]?>
 				</div>
+				<div class="clo-xs-2"><a href="<?php echo site_url('forum/answer/'.$question[0]['id'].'/'.$question[0]['slug'].'/'.$data['id']); ?>">Answers parems</a></div>
 			</div>
 			<?php endforeach; ?>			
 		</div>

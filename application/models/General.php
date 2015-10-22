@@ -13,7 +13,8 @@ class General extends CI_Model
 	function get_records($table_name,$clau=NULL,$orderby=NULL,$limit=NULL,$offset=NULL)
 	{ 
 		
-		$this->db->where($clau);
+		if(!empty($clue)) 
+			$this->db->where($clau);
 		if(!empty($orderby)) 
 			$this->db->order_by($orderby[0],$orderby[1]);
 		return $this->db->get($table_name,$limit,$offset)->result_array();
@@ -30,6 +31,16 @@ class General extends CI_Model
 		$this->db->where('id',$id)->delete($table_name);
 		return true;
 
+	}
+
+		function check_email_exist($tablename,$email)
+	{
+		$query = "SELECT id from $tablename WHERE email = '$email'";
+		$arr = $this->db->query($query)->row();
+		if(!empty($arr))
+			return $arr->id;
+		else
+			return false;
 	}
 
 }

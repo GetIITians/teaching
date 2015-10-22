@@ -12,12 +12,12 @@ class Forum extends CI_Controller
 		$this->load->model("Forum_model","forum");
 		$this->tempname = "Template/CI_template"; 
 		$this->config->set_item('enable_query_strings', FALSE);
+		$this->load->helper('help_helper');
 	}
 
 	function index()
 	{	$data["view_name"] = "forum/index";
 		$data["view_data"]["questions"] = $this->forum->getQueDetails();
-		print_r($data["view_data"]["questions"]);
 		$this->load->view($this->tempname,$data);
 	}
 
@@ -29,10 +29,14 @@ class Forum extends CI_Controller
 	}
 
 	function submitQue()
-	{
-		$this->general->add_record("forum_users",array("email" => $this->input->post("email")));
-		$data["uid"] = $this->db->insert_id();
+	{ 	
+		$data["uid"] = $this->general->check_email_exist("forum_users",$this->input->post("email"));
+		if(!$data["uid"]) {
+			$this->general->add_record("forum_users",array("email" => $this->input->post("email")));
+			$data["uid"] = $this->db->insert_id();
+		}
 		$data["title"] = $this->input->post("title");
+		$data["slug"] = slug_maker($data["title"]);
 		$data["des"] = $this->input->post("des");
 		$data["asktime"] = time();
 		$this->general->add_record("forum_questions",$data);
@@ -40,11 +44,11 @@ class Forum extends CI_Controller
 		
 	}
 
-	function answers($queid)
-	{
+	function answer($queid,$queslug='',$ansid=NULL)
+	{ 
 		$data["view_name"] = "forum/answers";
 		$data["view_data"]["question"] = $this->general->get_records("forum_questions",array('id'=>$queid));
-		$data["view_data"]["answers"] = $this->forum->getAnsDetails($queid);
+		$data["view_data"]["answers"] = $this->forum->getAnsDetails($queid,$ansid);
 		$this->load->view($this->tempname,$data);
 	}
 
@@ -55,7 +59,15 @@ class Forum extends CI_Controller
 		$data["ans"] = $this->input->post("ans");
 		$data["anstime"] = time();
 		$this->general->add_record("forum_answers",$data);
-		redirect(site_url('forum/answers/'.$data["qid"]));
+		redirect(site_url('forum/answer/'.$data["qid"]));
+	}
+	function check_user()
+	{
+		if($this->input->post('ajax')) {
+			$uid = $this->general->check_email_exist("users",$this->input->post("email"));
+			if($uid) 
+				$this->load->view('forum/emailexist');
+		}
 	}
 }
 
