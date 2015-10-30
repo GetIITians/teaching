@@ -17,10 +17,10 @@ load_view("Template/navbarnew.php");
 						<div class="col-xs-6">
 							<h5 class="grey-text text-darken-2">Address <i class="material-icons tiny">navigation</i></h5>
 							<div class="grey-text">
-								B-178<br>
-								Shivalik<br>
-								Malviya Nagar<br>
-								New Delhi - 110017<br>
+								58/1 2nd Floor,<br>
+								Kalu Sarai<br>
+								Near Hauz Khas Metro Station<br>
+								New Delhi - 110016<br>
 								India
 							</div>
 						</div>

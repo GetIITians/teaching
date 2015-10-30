@@ -1,4 +1,4 @@
-var myCenter = new google.maps.LatLng(28.535545, 77.207110);
+var myCenter = new google.maps.LatLng(28.542381, 77.203569);
 function initialize() {
   var mapCanvas = document.getElementById('map-canvas');
   var mapOptions = {

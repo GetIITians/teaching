@@ -413,8 +413,16 @@ abstract class Fun{
 		return Fun::mail( $to, $subj, rquery($body, $data) );
 	}
 
+	public static function mailfromfields($to,$subj,$body,$data = array()) {
+		return Fun::mail($to, $subj, rquery($body, $data));
+	}
+
 	public static function msgfromfile($phone,$mfile,$data){
 		return Fun::msg($phone, "phone messgae", rquery( Fun::readmail($mfile, true), $data));
+	}
+
+	public static function msgfromfields($phone,$body,$data = array()){
+		return Fun::msg($phone,"phone messgae",rquery($body,$data));	
 	}
 
 	public static function timeslotlist(){

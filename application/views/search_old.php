@@ -4,7 +4,7 @@
 load_view("Template/top.php");
 load_view("Template/navbarnew.php");
 //echo "<pre>";var_dump($cst_tree);echo "</pre>";
-?>
+ ?>
 <script>
 	var topics=<?php echo json_encode($cst_tree); ?>;
 	var getData = {};
@@ -223,7 +223,14 @@ load_view("Template/navbarnew.php");
 			<div id="mainContent" class="col-md-9">
 				<div class="row">
 					<div class="col-sm-5 col-xs-7">
-						<h3 class="blue-grey-text text-darken-1">Search Results</h3>
+						<div class="col-sm-7 col-xs-7">
+							<h3 class="blue-grey-text text-darken-1">Search Results</h3>
+						</div>
+						<?php if(User::isloginas('a')): ?>
+						<div class="col-sm-5 col-xs-7 mt20">
+							<button name="Send Mails" class="btn blue waves-effect waves-light" onclick="openmailpopup(this);">Send Message</button>
+						</div>
+						<?php endif; ?>						
 					</div>
 					<div class="col-sm-3 col-xs-1">
 						<img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>

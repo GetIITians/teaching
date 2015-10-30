@@ -862,16 +862,15 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() { 
-		/*$arr=array(
-			"action"=>"studentBookSlots",
-			"bookslotrqst"=>"1",
-		"cst"=>"4-19-224",
-		"datets"=>"1444933800",
-		"demo"=>"1",
-		"slots"=>"4",
-		"tid"=>"3");
-		handle_request($arr);*/
-	/*			$arr=array("action"=>"search",
+	/*	$arr=array(
+			"action"=>"sendteachermails",
+			
+		"emails"=>'["yogesh1@gmail.com","yogesh2@gmail.com"]',
+		"title"=>"my title",
+		"msg"=>"msg msg",
+		);
+		handle_request($arr);
+	*//*			$arr=array("action"=>"search",
 			"blocked"=> "true",
 			"class"=> "",
 			"home"=> "",

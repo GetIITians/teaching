@@ -1,4 +1,7 @@
-<?php
+<?php 
+if(User::isloginas('a'))
+load_view("popup.php",array("name"=>"mailpopup", "title" => "Send Message To Teachers","body" =>"Template/mailspop.php","bodyinfo" => array('qresult'=>$qresult) ));
+
 if($isrelv==1) { echo "Relevent Results"; }
 //fb($qresult,'row',FirePHP::LOG);
 
@@ -286,5 +289,5 @@ $searchPageRows++;
 </div>
 <?php 
 echo ($searchPageRows%4===0) ? '</div>' : FALSE;
-}
+} 
 ?>

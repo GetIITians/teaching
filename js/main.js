@@ -165,6 +165,10 @@ function opencalpopup(obj){
 		$("#"+"timeslotPopup"+"body").html(d);
 	});	
 }
+function openmailpopup(obj){
+	mohit.popup("mailpopup");
+		
+}
 
 var ms={
 	getselected:function(id){//1 indexed listing
@@ -217,7 +221,10 @@ var ms={
 		} else {
 			return form.valid.action1( $("#signupwindow")[0] ) ;
 		}
-	},/* By Yogy currently not called deletable in future*/
+	},
+
+	/* By Yogy currently not called deletable in future*/
+	
 	mobregisterform:function(obj,needotp,emailexist){
 		if(needotp){ 
 			if($("#signupwindow").is(":visible")){
@@ -373,4 +380,3 @@ function searchform(){
 $(document).ready(function(){
 	mylib();
 });
-
