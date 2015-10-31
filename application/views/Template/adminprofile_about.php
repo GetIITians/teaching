@@ -1,4 +1,5 @@
 <br><br>
+<a href="<?php echo HOST.'downloadteachers' ?>" class="btn btn-primary">Download teachers</a>
 <div class="row">
   <div class="col-xs-12">
     <h5 class="teal-text text-darken-1">Profile Details</h5>

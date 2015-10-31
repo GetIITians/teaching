@@ -673,8 +673,31 @@
 		}
 		return null;
 	}
-	function convgrade($gradecode) {
-		$grades=array("6<sup> th</sup> to 8<sup> th</sup>","9<sup> th</sup> to 10<sup> th</sup>","11<sup> th</sup> to 12<sup> th</sup>","IIT JEE");
+	function convsubs($subcodes,$subother=''){
+		$subjects = array("Mathematics","Physics","Chemistry","Biology","Science (6-10)");
+		$subkeys = explode("-",$subcodes);
+		$fltrsubs = array();
+		foreach($subkeys as $key){
+			if(array_key_exists(($key-1),$subjects))
+				$fltrsubs[] = $subjects[$key-1];
+			if(!empty($subother))
+				$fltrsubs[] = $subother;
+		}
+		return implode(',',$fltrsubs);
+	}
+
+	function convgrades($gradecodes,$html=0){
+		$gradesarr = array();
+		$grades = explode("-", $gradecodes);
+		foreach ($grades as $value)
+			$gradesarr[] .= convgrade($value,$html);
+		return implode(',',$gradesarr);
+	}
+	function convgrade($gradecode,$html=0) {
+		if($html==0)
+			$grades=array("6<sup> th</sup> to 8<sup> th</sup>","9<sup> th</sup> to 10<sup> th</sup>","11<sup> th</sup> to 12<sup> th</sup>","IIT JEE");
+		else
+			$grades=array("6th to 8th","9th to 10 th","11 th to 12 th","IIT JEE");		
 		for($i=0;$i<count($grades);$i++) {
 			if($i==($gradecode-1)) {
 				return $grades[$i];

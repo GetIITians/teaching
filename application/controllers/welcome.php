@@ -36,7 +36,20 @@ class Welcome extends CI_Controller {
 		/* --------------- */
 		load_view('index.php',$pageinfo);
 		}
-	
+	public function downloadteachers()
+	{
+		if(User::isloginas('a')){
+			header('Content-Type: text/csv; charset=utf-8');
+			header('Content-Disposition: attachment; filename=teachers.csv');
+			$output = fopen('php://output', 'w');
+			fputcsv($output, array('Name', 'Email', 'Phone','Gender','Subject','Min Fess','College','Degree','Grade','City','Resume Link'));
+			$rows = Fun::resjson2arr(Sqle::getA('SELECT * FROM users INNER JOIN teachers on users.id = teachers.tid'));
+			foreach($rows as $row){
+				$ss = Fun::changesomedata(Fun::getflds(array('name', 'email', 'phone','gender','sub','minfees','college','degree','grade','city','resume','subother'),$row));
+				fputcsv($output,$ss);	
+			}
+		}
+	}	
 	public function joinus(){
 		global $_ginfo;
 		$pageinfo=array("issubmitted"=>false,"msg1"=>"");

@@ -121,7 +121,7 @@ abstract class Fun{
 	}
 
 
-	public static function getflds($arr,$data){
+	public static function getflds($arr,$data){ 
 		$temp=array();
 		for($i=0;$i<count($arr);$i++){
 			$k=$arr[$i];
@@ -131,6 +131,22 @@ abstract class Fun{
 		return $temp;
 	}
 /*   BY YOGY  */
+	public static function changesomedata($data){ 
+		$temp = array();
+		$subother = $data['subother']; 
+		foreach($data as $key=>$value ){
+			$value = $key=='gender'?($value=='m'?'Male':'Female'):$value;
+			$value = $key=='college'?'IIT '.$value:$value;
+			$value = $key=='resume'?'http://www.getiitians.com/teaching/'.$value:$value;
+			$value = $key=='minfees'?digrupee($value):$value;
+			$value = $key=='degree'?convert_degree($value):$value;
+			$value = $key=='grade'?convgrades($value,1):$value;
+			$value = $key=='sub'?convsubs($value,$subother):$value;
+			if($key!='subother')
+				$temp[$key] = $value;
+			}
+		return $temp;
+	}
 	public static function getarrflds($arr,$data,$namestrtpos=0){
 		$temp=array();
 		for($i=0;$i<count($arr);$i++){
