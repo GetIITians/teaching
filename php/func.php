@@ -680,9 +680,9 @@
 		foreach($subkeys as $key){
 			if(array_key_exists(($key-1),$subjects))
 				$fltrsubs[] = $subjects[$key-1];
-			if(!empty($subother))
-				$fltrsubs[] = $subother;
 		}
+		if(!empty($subother))
+			$fltrsubs[] = $subother;
 		return implode(',',$fltrsubs);
 	}
 
