@@ -65,12 +65,12 @@ class Admin{
 
 	function callerinfo($data) {
 		$str = '';
-		$insertarray = Fun::getflds(array("name", "email", "phone", "address", "class", "subject", "grade", "board", "caller_name","caller_rel"),$data);
+		$insertarray = Fun::getflds(array("name", "email", "phone", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
 		$insertarray['tution_type'] = Fun::getutiontype($data);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
 		$odata=Sqle::insertVal("caller_details",$insertarray);
-		$callerarray = Fun::getflds(array("comments","teacher","demo","fees"),$data);
+		$callerarray = Fun::getflds(array("comments","teacher_id","demo","fees"),$data);
 		$callerarray['st_id'] = $odata;
 		$callerarray['created_at'] = time();
 		$odata = Sqle::insertVal("caller_call",$callerarray);
@@ -79,9 +79,18 @@ class Admin{
 	}
 
 	function calldetails($data){
-		$callerarray = Fun::getflds(array("st_id","teacher","demo","fees","comments"),$data);
+		$callerarray = Fun::getflds(array("st_id","teacher_id","demo","fees","comments"),$data);
 		$callerarray['created_at'] = time();
 		$odata = Sqle::insertVal("caller_call",$callerarray);
+		return array("ec"=>1,"data"=>0);		
+	}
+
+	function caller_addteacher($data){
+		$str = '';
+		$insertarray = Fun::getflds(array("name", "email", "phone", "address"),$data);
+		$insertarray['created_at'] = time();
+		$insertarray['updated_at'] = time();
+		$odata=Sqle::insertVal("caller_teacher",$insertarray);
 		return array("ec"=>1,"data"=>0);		
 	}
 /*.......*/	

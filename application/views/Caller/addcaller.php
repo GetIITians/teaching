@@ -1,3 +1,6 @@
+<?php 
+$teacher_info = Sqle::getA("SELECT * from caller_teacher");
+ ?>
 <form role="form" method="post" onsubmit="return form.req(this)" data-action="callerinfo" data-res="success.push('Ohk dear!!');mohit.popup_close('addcollerpopup');div.reload($('#callertlb')[0]);">
 <h5>Personal Details :</h5>
   <div class="row">
@@ -45,14 +48,9 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" name="grade" placeholder="Grade">
-    </div>
-    <div class="col-xs-6">
      <input type="text" name="board" placeholder="Board">
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 mt20">
     <div class="row">
       <div class="col-xs-4">
         <input type="checkbox" class="filled-in" id="online" name="online_tution" />
@@ -69,8 +67,12 @@
   <h5>Teachers  Details :</h5>
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" name="teacher"  placeholder="Teacher">
-
+       <select  class="browser-default" name="teacher_id">
+        <option value="" disabled="disabled" selected="selected">Select A teacher</option>
+        <?php foreach($teacher_info as $row): ?>
+        <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
+        <?php endforeach; ?>
+      </select>  
     </div>
      <div class="col-xs-6">
        <input type="text" name="fees" placeholder="Fees agreed">
@@ -112,7 +114,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 mt20">
       <button type="submit" class="btn">Submit</button>
     </div> 
   </div>

@@ -23,7 +23,7 @@ class caller extends CI_Controller
 	//	$this->load->model("general_model","general");
 	//	$this->load->model("caller_model","caller");
 		$data["view_name"] = "Caller/single_view";
-		$query = "SELECT * FROM `caller_call` where st_id=1 and created_at = (select max(created_at) from caller_call where st_id=1)";
+		$query = "SELECT caller_call.*,caller_teacher.* FROM `caller_call` LEFT JOIN caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id='".$id."' and caller_call.created_at = (select max(created_at) from caller_call where st_id='".$id."') ";
 		$data["view_data"]["teaching_info"] =  $this->db->query($query)->result_array()[0];
 		$this->db->where(array("id"=>$id));
 		$data["view_data"]["caller_info"] =  $this->db->get("caller_details")->result_array()[0];
