@@ -758,7 +758,8 @@
 			else
 				return $i-1;
 	}
-	function getpaginval($data,$spoint,$limit){
+	function getpaginval($data,$spoint,$limit){ 
+		$temp = array();
 		if($spoint==0) $spoint=1;$tl=0;
 		$spoint = $spoint*$limit-$limit;
 		for($i=$spoint;$i<count($data);$i++){
