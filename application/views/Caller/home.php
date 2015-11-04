@@ -1,5 +1,5 @@
 <?php 
-load_view("popup.php",array("name"=>"addcollerpopup", "title" => "New Entry Registeration Form","body" =>"Caller/addcaller.php","bodyinfo" => array() )); 
+load_view("popup.php",array("name"=>"addcollerpopup", "title" => "New Entry Registration Form","body" =>"Caller/addcaller.php","bodyinfo" => array() )); 
 ?>
 <div class="container" id="main_container">
   <div class="row">

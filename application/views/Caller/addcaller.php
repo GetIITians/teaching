@@ -53,13 +53,15 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
+    <div class="row">
       <div class="col-xs-4">
         <input type="checkbox" class="filled-in" id="online" name="online_tution" />
         <label for="online">Online</label>
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-8">
         <input type="checkbox" class="filled-in" id="home" name="home_tution"  />
         <label for="home">Home Tution</label>
+      </div>
       </div>
     </div>
   </div>
