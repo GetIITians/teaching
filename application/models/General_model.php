@@ -1,6 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class General_model extends CI_Model
+class general_model extends CI_Model
 {
 		function add_record($table_name,$data) 
 	{
