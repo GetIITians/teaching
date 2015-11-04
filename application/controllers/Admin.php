@@ -86,6 +86,7 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin/Template/Template.php', $data);
 	}
 
+
 }
 
 ?>

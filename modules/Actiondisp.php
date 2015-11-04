@@ -1,5 +1,5 @@
 <?php
-class Actiondisp{
+class Actiondisp {
 	function dispcal($data){
 		$need=array("month","year","tid");
 		$ec=1;
@@ -276,6 +276,43 @@ class Actiondisp{
 		$myclasses = Funs::get_teacher_classes(User::loginId());
 		load_view("Template/profile_classes.php", $myclasses);
 	}
+
+	function callertbl($data,$printjson = true ){
+		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.created_at as caller_date,lastcalldetail.comments from caller_details LEFT JOIN (select caller_call.* from caller_call INNER join (SELECT max(created_at) as lasttime FROM `caller_call` GROUP by st_id) maxval on caller_call.created_at=maxval.lasttime) lastcalldetail ON caller_details.id = lastcalldetail.st_id ORDER BY caller_details.created_at DESC ");
+		if(!empty($data['paginval']))
+			$pagval = $data['paginval'];
+		else 
+			$pagval = 0;
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("caller/caller_info.php", array("caller_info"=>$arr,"pagval"=>$pagval));
+
+	}
+
+	function calldetail($data,$printjson = true)
+	{
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$arr = Sqle::getA("SELECT * from caller_call where st_id=".$data['id']." ORDER BY created_at DESC");
+		load_view("caller/calldetail.php",array("call_detail"=>$arr));
+	}
+	function caller_basicinfo($data,$printjson = true){
+			$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$teaching_info = Sqle::getA("SELECT * FROM `caller_call` where st_id='".$data['id']."' and created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')")[0];
+		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
+		
+		load_view("caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info));
+	}	
 /*  ........   */	
 }
 ?>

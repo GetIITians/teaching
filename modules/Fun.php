@@ -710,7 +710,14 @@ abstract class Fun{
 		}
 		return $arr;
 	}
-
+	public static function getutiontype($data){
+		$str = array();
+		if($data['home_tution']=='true')
+			$str[] = 'Home Tution';
+		if($data['online_tution']=='true')
+			$str[] = 'Online Tution';
+		return implode(',',$str);	
+		}	
 /*...........*/
 }
 ?>

@@ -748,7 +748,26 @@
 			}
 		}
 		return $array1;
-	}	
+	}
+
+	function getpaginrows($totalrows,$divat){
+		for($i=1;$i<=($totalrows/$divat);$i++);
+
+			if($totalrows%$divat!=0)
+				return $i;
+			else
+				return $i-1;
+	}
+	function getpaginval($data,$spoint,$limit){
+		if($spoint==0) $spoint=1;$tl=0;
+		$spoint = $spoint*$limit-$limit;
+		for($i=$spoint;$i<count($data);$i++){
+			$temp[] = $data[$i];
+			$tl++;if($tl==$limit) break;
+		}
+		return $temp;
+	}
+
 ?>
 <?php
 /*

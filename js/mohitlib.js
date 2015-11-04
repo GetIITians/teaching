@@ -166,7 +166,7 @@ var button={
 							var ec=respo.ec;
 							eval(allattrs["data-error"]);
 						}
-						else
+						else 
 							mohit.alert(ecn[respo.ec]);
 					}
 					else
@@ -276,7 +276,7 @@ var form={
 		params['action']=allattrs["data-action"];
 		(!button.hasattr(allattrsb,"data-enablebutton"))?bobj.disabled=true:((allattrsb["data-enablebutton"]==true)?bobj.disabled=false:bobj.disabled=true);
 		
-		var prvvalue=bobj.innerHTML; 
+		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
@@ -516,6 +516,10 @@ var div={
 	},
 	setunblock:function(obj){
 		$(obj).attr("data-blocked","false");
+	},
+	pagin:function(obj,reloadobj){ 
+		reloadobj.setAttribute("data-paginval",obj.getAttribute("data-paginval"));
+		this.reload(reloadobj);
 	},
 	reload:function(obj,call_back_data,adata){ 
 		button.sendreq_v2_t4(obj,call_back_data,function(d){

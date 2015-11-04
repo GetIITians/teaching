@@ -161,13 +161,13 @@ load_view("Template/navbarnew.php");
 												<div style="padding:6px;">
 													<div class="row">
 														<div class="col-xs-12">
-															<input id="timeslotbooked" type="radio" class="filled-in" name="timeslotbooked" value='0' />
+															<input id="timeslotbooked" type="radio" class="filled-in" name="timeslotbooked" value='0' checked />
 															<label style="padding-left:23px;" for="timeslotbooked" >
 															All 
 															</label>
 														</div>
 														<div class="col-xs-12">	
-															<input id="timeslotbooked1" type="radio" class="filled-in" name="timeslotbooked" value='1' checked />
+															<input id="timeslotbooked1" type="radio" class="filled-in" name="timeslotbooked" value='1'  />
 															<label style="padding-left:23px;" for="timeslotbooked1" >
 															Booked
 															</label>
@@ -188,13 +188,13 @@ load_view("Template/navbarnew.php");
 												<div style="padding:6px;">
 													<div class="row">
 														<div class="col-xs-12">
-															<input id="topicsadded" type="radio" class="filled-in" name="topicsadded" value='0'  />
+															<input id="topicsadded" type="radio" class="filled-in" name="topicsadded" value='0' checked  />
 															<label style="padding-left:23px;" for="topicsadded" >
 															All
 															</label>
 														</div>
 														<div class="col-xs-12">
-															<input id="topicsadded1" type="radio" class="filled-in" name="topicsadded" value='1' checked />
+															<input id="topicsadded1" type="radio" class="filled-in" name="topicsadded" value='1'  />
 															<label style="padding-left:23px;" for="topicsadded1" >
 															Added
 															</label>
@@ -259,7 +259,10 @@ load_view("Template/navbarnew.php");
 				<div class="row">
 					<div id="searchresultdiv" data-action='search' data-max='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>' data-maxl='<?php echo $_ginfo["numsearchr"]["loadadd"]; ?>' data-eparams='searchform()' data-ignoreloadonce='<?php echo $_ginfo["numsearchr"]["loadonce"]; ?>'>
 					<?php
-						handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'4', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>'','timeslotbooked'=>'1','topicsadded'=>'1'), "search");
+						if(User::isloginas('a'))
+							handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'4', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>'','timeslotbooked'=>'0','topicsadded'=>'0'), "search");
+						else
+							handle_disp(array('class'=>$class, 'subject'=>$subject, 'topic'=>$topic, 'price'=>'', 'timer'=>'', 'lang'=>'', 'timeslot'=>'', 'orderby'=>'4', 'search'=>$search, 'max'=>0, 'maxl'=>$_ginfo["numsearchr"]["loadonce"],'home'=>'1-2','pincode'=>'','timeslotbooked'=>'1','topicsadded'=>'1'), "search");
 					?>
 				</div>
 				</div>

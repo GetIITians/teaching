@@ -875,15 +875,15 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() { 
-	/*	$arr=array(
-			"action"=>"sendteachermails",
+		$arr=array(
+			"action"=>"callerinfo",
 			
-		"emails"=>'["yogesh1@gmail.com","yogesh2@gmail.com"]',
-		"title"=>"my title",
-		"msg"=>"msg msg",
+		"name"=>"yogy",
+		"email"=>"aaa@sss",
+		"phone"=>"5454545454",
 		);
 		handle_request($arr);
-	*//*			$arr=array("action"=>"search",
+	/*			$arr=array("action"=>"search",
 			"blocked"=> "true",
 			"class"=> "",
 			"home"=> "",
@@ -904,9 +904,9 @@ class Welcome extends CI_Controller {
 			"topicsadded"=> "1");
 		$a=new Actiondisp();
 		$a->search($arr);
-	*/ 
+	 
 		$arr=array("action"=>"cancel_class","sid"=>2,"tid"=>3,"starttime"=>1445022000);
-		handle_request($arr);
+		handle_request($arr); */
 	}
 
 

@@ -11,12 +11,10 @@ class General extends CI_Model
 	}
 
 	function get_records($table_name,$clau=NULL,$orderby=NULL,$limit=NULL,$offset=NULL)
-	{ 
-		
-		if(!empty($clue)) 
-			$this->db->where($clau);
-		if(!empty($orderby)) 
+	{ 	if(!empty($orderby)) 
 			$this->db->order_by($orderby[0],$orderby[1]);
+		if(!empty($clau)) 
+			$this->db->where($clau);
 		return $this->db->get($table_name,$limit,$offset)->result_array();
 	}
 	
