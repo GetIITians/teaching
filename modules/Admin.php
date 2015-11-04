@@ -93,6 +93,18 @@ class Admin{
 		$odata=Sqle::insertVal("caller_teacher",$insertarray);
 		return array("ec"=>1,"data"=>0);		
 	}
+
+	function caller_prefixmails($data){
+		foreach (json_decode($data['sdetails']) as $key => $value)
+			$sdetails[$key] = $value;
+		foreach (json_decode($data['tdetails']) as $key => $value)
+			$tdetails[$key] = $value;
+		if($data['teacherc']=='true')
+			Fun::mailfromfile($tdetails["email"] ,"caller/mail/st".$data['mailtype'].".txt", $tdetails);
+		if($data['studentc']=='true')
+			Fun::mailfromfile($sdetails["email"] ,"caller/mail/te".$data['mailtype'].".txt", $sdetails);	
+		return array("ec"=>1,"data"=>0);	
+	}
 /*.......*/	
 }
 ?>
