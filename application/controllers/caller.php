@@ -8,7 +8,7 @@ class Caller extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('General_model');
+		$this->load->model('general_model');
 		$this->load->model('Caller_model');
 		$this->tempname = 'Template/CI_template'; 
 		$this->config->set_item('enable_query_strings', FALSE);
