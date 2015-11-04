@@ -876,12 +876,12 @@ class Welcome extends CI_Controller {
 	}
 	public function test() { 
 		$arr=array(
-			"action"=>"callerinfo",
-			
-		"name"=>"yogy",
-		"email"=>"aaa@sss",
-		"phone"=>"5454545454",
-		);
+			"action"=>"caller_prefixmails",
+"mailtype"=>"intro",
+"sdetails"=>'{"name":"student","email":""}',
+"studentc"=>"true",
+"tdetails"=>'"{"name":"Some One","email":"ysaini75@gmail.com"}"',
+"teacherc"=> "true");
 		handle_request($arr);
 	/*			$arr=array("action"=>"search",
 			"blocked"=> "true",
