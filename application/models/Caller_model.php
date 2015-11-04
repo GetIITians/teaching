@@ -1,7 +1,4 @@
 <?php 
-/**
-* 
-*/
 class Caller_model extends CI_model
 {
 	function teachinginfo()
