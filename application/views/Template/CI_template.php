@@ -1,4 +1,3 @@
-
 	<script src="<?php echo site_url('ckeditor/ckeditor.js'); ?>"></script>
 	<script src="<?php echo site_url('ckeditor/js/sample.js'); ?>"></script>
 <?php 

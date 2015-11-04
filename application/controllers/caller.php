@@ -13,7 +13,7 @@ class caller extends CI_Controller
 
 	function index()
 	{
-		$data["view_name"] = "Caller/index";
+		$data["view_name"] = "Caller/home";
 		$data["view_data"] = "";
 		$this->load->view($this->tempname,$data);
 	}
