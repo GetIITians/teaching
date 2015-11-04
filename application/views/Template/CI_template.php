@@ -39,7 +39,7 @@ input[type=text], input[type=password],
 input[type=email], input[type=url], input[type=time], 
 input[type=date], input[type=datetime-local], input[type=tel], 
 input[type=number], input[type=search], textarea.materialize-textarea{
-  margin: -19px 0 15px 0;
+  margin: 0px 0 15px 0;
 }
 
 h4,h5{
