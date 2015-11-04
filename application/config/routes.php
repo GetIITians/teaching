@@ -37,8 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['caller/view']			=	"caller/view";
-$route['caller']				=	"caller";
+$route['caller/view']			=	"Caller/view";
+$route['caller']				=	"Caller";
 $route['downloadteachers']		=	"welcome/downloadteachers";
 $route['forum']					=	"Forum";	
 $route['downloads/:any'] 		=	"Downloads/view";

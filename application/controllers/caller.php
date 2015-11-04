@@ -2,7 +2,7 @@
 /**
 * 
 */
-class caller extends CI_Controller
+class Caller extends CI_Controller
 {
 	
 	function __construct()
