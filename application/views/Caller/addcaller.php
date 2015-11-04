@@ -20,10 +20,27 @@
   <h5>Academic  Details :</h5>
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" name="class"  placeholder="Class">
+      <select  class="browser-default" name="class">
+        <option value="" disabled="disabled" selected="selected">Class</option>
+        <option value="6th">6th</option>
+        <option value="7th">7th</option>
+        <option value="8th">8th</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+        <option value="11th">11th</option>
+        <option value="12th">12th</option>
+        <option value="JEE">JEE</option>
+      </select>
     </div>
     <div class="col-xs-6">
-      <input type="text" name="subject"   placeholder="Subject">
+      <select  class="browser-default" name="subject">
+        <option value="" disabled="disabled" selected="selected">Subjects</option>
+        <option value="6th">Physics</option>
+        <option value="6th">Chemistry</option>
+        <option value="6th">Maths</option>
+        <option value="6th">Science</option>
+        <option value="6th">Other</option>
+      </select>
     </div> 
   </div>
   <div class="row">
@@ -51,6 +68,7 @@
   <div class="row">
     <div class="col-xs-6">
       <input type="text" name="teacher"  placeholder="Teacher">
+
     </div>
      <div class="col-xs-6">
        <input type="text" name="fees" placeholder="Fees agreed">
@@ -80,8 +98,8 @@
         <option value="" disabled="disabled" selected="selected">Caller's Relationship</option>
         <option value="Mother">Mother</option>
         <option value="Father">Father</option>
-        <option value="Girlfriend">Girlfriend</option>
-        <option value="Boyfriend">Boyfriend</option>
+        <option value="Guardian">Guardian</option>
+        <option value="Student">Student</option>
         <option value="Others">Others</option>
       </select>    
     </div> 
