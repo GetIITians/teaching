@@ -15,14 +15,16 @@ load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$call
 			<input type="hidden" name="st_id" value="<?php echo $caller_info['id']; ?>">
 			<div class="row">
 	    		<div class="col-xs-12">
-	      			<textarea name="comments" placeholder="Comments"></textarea>
+	      			<label>Comments:</label>
+	      			<textarea name="comments" ></textarea>
 	    		</div>
 			  </div><div class="row mt10">			
     <div class="col-xs-4">
+    	<label>Demo:</label>
       <select  class="browser-default" name="demo">
         <option value="" disabled="disabled" selected="selected">Demo Fixed</option>
         <?php if(!empty($teaching_info['demo'])): ?>
-        <option></option>	
+        <option value="<?php echo $teaching_info['demo']; ?>" selected="selected"><?php echo $teaching_info['demo']; ?></option>	
         <?php endif; ?>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
@@ -33,10 +35,12 @@ load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$call
       </select>    
     </div> 
     <div class="col-xs-4">
-      <input type="text" name="teacher"  placeholder="Teacher" value="<?php echo $teaching_info['teacher']; ?>">
+      <label>Teacher:</label>
+      <input type="text" name="teacher"  p value="<?php echo $teaching_info['teacher']; ?>">
     </div>
      <div class="col-xs-4">
-       <input type="text" name="fees" placeholder="Fees agreed" value="<?php echo $teaching_info['fees']; ?>">
+     	<label>Fees agreed:</label>
+       <input type="text" name="fees"  value="<?php echo $teaching_info['fees']; ?>">
     </div>
     </div><div class="row mt10">
     <div class="col-xs-12">
