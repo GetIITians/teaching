@@ -20,8 +20,8 @@ class caller extends CI_Controller
 
 	function view($id)
 	{	
-		$this->load->model("General_model","general");
-		$this->load->model("Caller_model","caller");
+		$this->load->model("general_model","general");
+		$this->load->model("caller_model","caller");
 		$data["view_name"] = "Caller/single_view";
 		$data["view_data"]["caller_info"] = $this->general->get_records("caller_details",array("id"=>$id))[0];
 		$data["view_data"]["teaching_info"] = $this->caller->teachinginfo($id)[0]; 
