@@ -2,7 +2,7 @@
 /**
 * 
 */
-class General extends CI_Model
+class General_model extends CI_Model
 {
 		function add_record($table_name,$data) 
 	{

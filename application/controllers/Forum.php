@@ -8,7 +8,7 @@ class Forum extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("General","general");
+		$this->load->model("General_model","general");
 		$this->load->model("Forum_model","forum");
 		$this->tempname = "Template/CI_template"; 
 		$this->config->set_item('enable_query_strings', FALSE);
