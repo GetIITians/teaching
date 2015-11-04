@@ -1,14 +1,12 @@
 <?php
-/**
-* 
-*/
+
 class caller extends CI_Controller
 {
 	
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model("general_model","general");
+		$this->load->model("General_model","general");
 		$this->load->model("Caller_model","caller");
 		$this->tempname = "Template/CI_template"; 
 		$this->config->set_item('enable_query_strings', FALSE);
