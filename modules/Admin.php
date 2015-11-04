@@ -100,9 +100,9 @@ class Admin{
 		foreach (json_decode($data['tdetails']) as $key => $value)
 			$tdetails[$key] = $value;
 		if($data['teacherc']=='true')
-			Fun::mailfromfile($tdetails["email"] ,"caller_dir/mail/st".$data['mailtype'].".html", $tdetails);
+			Fun::mailfromfile($tdetails["email"] ,"caller_dir/mail/te".$data['mailtype'].".html", $tdetails);
 		if($data['studentc']=='true')
-			Fun::mailfromfile($sdetails["email"] ,"caller_dir/mail/te".$data['mailtype'].".html", $sdetails);	
+			Fun::mailfromfile($sdetails["email"] ,"caller_dir/mail/st".$data['mailtype'].".html", $sdetails);	
 		return array("ec"=>1,"data"=>0);	
 	}
 /*.......*/	

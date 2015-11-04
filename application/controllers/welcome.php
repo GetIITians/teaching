@@ -879,8 +879,8 @@ class Welcome extends CI_Controller {
 			"action"=>"caller_prefixmails",
 "mailtype"=>"intro",
 "sdetails"=>'{"name":"student","email":""}',
-"studentc"=>"true",
-"tdetails"=>'"{"name":"Some One","email":"ysaini75@gmail.com"}"',
+"studentc"=>"false",
+"tdetails"=>'{"name":"Some One","email":"ysaini75@gmail.com"}',
 "teacherc"=> "true");
 		handle_request($arr);
 	/*			$arr=array("action"=>"search",
