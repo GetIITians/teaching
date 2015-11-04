@@ -288,7 +288,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		load_view("caller/caller_info.php", array("caller_info"=>$arr,"pagval"=>$pagval));
+		load_view("Caller/caller_info.php", array("caller_info"=>$arr,"pagval"=>$pagval));
 
 	}
 
@@ -300,7 +300,7 @@ class Actiondisp {
 		if($outp["ec"] < 0)
 			return;
 		$arr = Sqle::getA("SELECT * from caller_call where st_id=".$data['id']." ORDER BY created_at DESC");
-		load_view("caller/calldetail.php",array("call_detail"=>$arr));
+		load_view("Caller/calldetail.php",array("call_detail"=>$arr));
 	}
 	function caller_basicinfo($data,$printjson = true){
 			$outp = array("ec" => 1, "data" => 0);
@@ -311,7 +311,7 @@ class Actiondisp {
 		$teaching_info = Sqle::getA("SELECT * FROM `caller_call` where st_id='".$data['id']."' and created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')")[0];
 		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
 		
-		load_view("caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info));
+		load_view("Caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info));
 	}	
 /*  ........   */	
 }
