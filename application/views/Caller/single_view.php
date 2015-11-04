@@ -1,4 +1,4 @@
-<?php print_r($teaching_info);
+<?php 
 load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$caller_info['name']."'s Caller Details","body" =>"Caller/calldetailsform.php","bodyinfo" => array("st_id"=>$caller_info['id']) )); 
 ?>
 <div class="container" >
