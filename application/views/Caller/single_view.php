@@ -1,5 +1,6 @@
 <?php 
 load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$caller_info['name']."'s Caller Details","body" =>"Caller/calldetailsform.php","bodyinfo" => array("st_id"=>$caller_info['id']) )); 
+$teacher_info = Sqle::getA("SELECT * from caller_teacher");
 ?>
 <div class="container" >
 	<div class="well mt10" data-action="caller_basicinfo" id="caller_basic_info" data-id=<?php echo $caller_info['id']; ?>>
@@ -36,7 +37,13 @@ load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$call
     </div> 
     <div class="col-xs-4">
       <label>Teacher:</label>
-      <input type="text" name="teacher"  p value="<?php echo $teaching_info['teacher']; ?>">
+      <select  class="browser-default" name="teacher_id">
+        <option value="" disabled="disabled" selected="selected">Select A teacher</option>
+        <?php foreach($teacher_info as $row): ?>
+        <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
+        <?php endforeach; ?>
+      </select>  
+
     </div>
      <div class="col-xs-4">
      	<label>Fees agreed:</label>

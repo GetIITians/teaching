@@ -299,7 +299,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		$arr = Sqle::getA("SELECT * from caller_call where st_id=".$data['id']." ORDER BY created_at DESC");
+		$arr = Sqle::getA("SELECT caller_call.*,caller_teacher.name as teacher from caller_call LEFT JOIN caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id=".$data['id']." ORDER BY created_at DESC");
 		load_view("Caller/calldetail.php",array("call_detail"=>$arr));
 	}
 	function caller_basicinfo($data,$printjson = true){
@@ -308,7 +308,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		$teaching_info = Sqle::getA("SELECT * FROM `caller_call` where st_id='".$data['id']."' and created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')")[0];
+		$teaching_info = Sqle::getA("SELECT caller_call.*,caller_teacher.* FROM `caller_call` LEFT JOIN caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id='".$data['id']."' and caller_call.created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')")[0];
 		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
 		
 		load_view("Caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info));

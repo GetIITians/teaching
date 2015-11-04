@@ -54,14 +54,6 @@
 					</div>
 					<div class="row">
 					 	<div class="col-sm-5">
-					 		Grade :
-					 	</div>
-					 	<div class="col-sm-7">
-					 		<?php echo $caller_info['grade']; ?>
-					 	</div>
-					</div>
-					<div class="row">
-					 	<div class="col-sm-5">
 					 		Board :
 					 	</div>
 					 	<div class="col-sm-7">
@@ -84,7 +76,7 @@
 					 		Name :
 					 	</div>
 					 	<div class="col-sm-7">
-					 		<?php echo $teaching_info['teacher']; ?>
+					 		<?php echo $teaching_info['name']; ?>
 					 	</div>
 					</div>
 					<div class="row">
