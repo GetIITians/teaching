@@ -21,6 +21,9 @@
 .table>thead>tr>td, 
 .table>thead>tr>th{
 padding: 2px 0 0 8px;
+text-align: center;
+vertical-align: middle;
+font-size: 0.8em;
 }
 .table>thead>tr>th{
 	text-align: center;

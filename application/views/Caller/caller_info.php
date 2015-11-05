@@ -1,6 +1,6 @@
 <?php 
 // pagin var
-$pagin_limit = 5;
+$pagin_limit = 10;
 ?>
   	 <table class="table table-bordered" >
     <thead>
@@ -12,23 +12,23 @@ $pagin_limit = 5;
         <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
         <label for="filled-in-box"></label>       
       </td>
-        <td style="width:5%">ID</td>
+        <td style="width:4%">ID</td>
         <td>Student Name</td>
         <td>Class </td>
         <td>Subject </td>
         <td>Phone No.</td>
-        <td>Caller Name</td>
-        <td>Caller Relation</td>
+        <td>Teacher Name</td>
+        <td>Demo</td>
         <td>Last Comment</td> 
        <td>Comment Date</td>
-        <th rowspan="2">View Full Info</th>
-        <th rowspan="2">Edit Info</th>
+        <th rowspan="2">View </th>
+        <th rowspan="2">Edit </th>
         </tr>
     </thead>
     <tbody>
-<?php 
+<?php  
 $data = getpaginval($caller_info,$pagval,$pagin_limit);
-//print_r($data);
+
 foreach($data as $key=>$row) { ?>      
       <tr>
        <td>
@@ -40,16 +40,16 @@ foreach($data as $key=>$row) { ?>
     <td><?php echo $row['class']; ?></td>
     <td><?php echo $row['subject']; ?></td>
     <td ><?php echo $row['phone']; ?></td>
-    <td><?php echo $row['caller_name']; ?></td>    
-    <td><?php echo $row['caller_rel']; ?></td>
+    <td><?php echo $row['teacher_name']; ?></td>    
+    <td><?php echo $row['demo']; ?></td>
     <td><?php echo $row['comments']; ?></td>
-    <td><?php if(!empty($row['caller_date'])) echo date("d-M-Y",$row['caller_date']); ?></td>
+    <td><?php if(!empty($row['caller_date'])) echo date("d-m-Y",$row['caller_date']); ?></td>
 
-    <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >view Full Info</a></td>
+    <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >view</a></td>
     <?php $popupdata = json_encode($row) ?>
-    <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit Info</a></td>
+    <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit</a></td>
     </tr>
- <?php }; ?>     
+ <?php } ?>     
       <tr><td colspan="15">
 	      	<ul class="pagination">
 <?php

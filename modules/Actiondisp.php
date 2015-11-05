@@ -278,7 +278,7 @@ class Actiondisp {
 	}
 
 	function callertbl($data,$printjson = true ){
-		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.created_at as caller_date,lastcalldetail.comments from caller_details LEFT JOIN (select caller_call.* from caller_call INNER join (SELECT max(created_at) as lasttime FROM `caller_call` GROUP by st_id) maxval on caller_call.created_at=maxval.lasttime) lastcalldetail ON caller_details.id = lastcalldetail.st_id ORDER BY caller_details.created_at DESC ");
+		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN (select caller_call.st_id, caller_call.teacher_id,caller_call.demo,caller_call.comments,caller_call.created_at as caller_date FROM caller_call INNER JOIN (SELECT MAX(created_at) as lasttime FROM `caller_call` GROUP BY st_id) maxval ON caller_call.created_at=maxval.lasttime) lastcalldetail ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id ORDER BY caller_details.created_at DESC");
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 
@@ -299,7 +299,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		$arr = Sqle::getA("SELECT caller_call.*,caller_teacher.name as teacher from caller_call LEFT JOIN caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id=".$data['id']." ORDER BY created_at DESC");
+		$arr = Sqle::getA("SELECT caller_call.*,caller_teacher.name as teacher from caller_call LEFT JOIN (SELECT users.* from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' )caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id=".$data['id']." ORDER BY created_at DESC");
 		load_view("Caller/calldetail.php",array("call_detail"=>$arr));
 	}
 	function caller_basicinfo($data,$printjson = true){
@@ -327,6 +327,18 @@ class Actiondisp {
 			return;
 		$teacher_info = Sqle::getA("SELECT * from caller_teacher");
 		load_view("Caller/addcaller.php", array("teacher_info"=>$teacher_info,"caller_details" =>$caller_details));
+	}
+
+	function caller_regiform($data, $printjson = true){
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' ");
+		load_view("popup.php",array("name"=>"addcollerpopup", "title" => "New Entry Registration Form","body" =>"Caller/addcaller.php","bodyinfo" => array("teacher_info" => $teacher_info,"caller_details" => array("id"=>"","action"=>"callerinfo","popup_close"=>"addcollerpopup","name"=>"","email"=>"","phone"=>"","source"=>"","address"=>"","class"=>"","subject"=>"","board"=>"","tution_type"=>"","caller_name"=>"","caller_rel"=>"","created_at"=>"","updated_at"=>"","caller_date"=>"","comments"=>"")) )); 
+
+		
 	}
 /*  ........   */	
 

@@ -1,5 +1,5 @@
 <h5>Personal Details :</h5>
-<form role="form" method="post" onsubmit="return form.req(this)" data-action="<?php echo $caller_details['action'] ?>" data-res="success.push('Data Updated Successfully!!');mohit.popup_close('<?php echo $caller_details['popup_close']  ?>');div.reload($('#callertlb')[0]);">
+<form role="form" method="post" onsubmit="return form.req(this)" data-action="<?php echo $caller_details['action'] ?>" data-res="success.push('Data Updated Successfully!!');mohit.popup_close('<?php echo $caller_details['popup_close']  ?>');div.reload($('#callertlb')[0]);div.reload($('#caller_regform')[0]);">
   <input type="hidden" name="id" value="<?php echo $caller_details['id'] ?>">
   <div class="row">
     <div class="col-xs-6">
@@ -10,8 +10,11 @@
     </div> 
   </div>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <input type="text" name="phone" placeholder="Mobile No." value="<?php echo $caller_details['phone']; ?>">
+    </div>
+    <div class="col-xs-3">
+      <input type="text" name="source" placeholder="Source" value="<?php echo $caller_details['source']; ?>">
     </div>
     <div class="col-xs-6">
       <textarea name="address" placeholder="Address"><?php echo $caller_details['address']; ?></textarea>
@@ -77,7 +80,7 @@
           <?php if(!empty($caller_details['teacher'])): ?>
             <option value="<?php echo $caller_details['teacher']; ?>"selected><?php echo $caller_details['teacher']; ?></option>  
           <?php else : ?>
-        <option value="" disabled="disabled" selected="selected">Select A teacher</option>
+        <option value=""  selected="selected">Select A teacher</option>
       <?php endif; ?>
         <?php foreach($teacher_info as $row): ?>
         <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
