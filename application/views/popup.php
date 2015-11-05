@@ -8,6 +8,7 @@
 			<div style="padding:10px;" id="<?php echo $name; ?>Popupbody" >
 	<!-- 			t<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u<br>u
 	 -->
+
 	 		<?php 
 				if($body!=""){
 					load_view($body,$bodyinfo);

@@ -314,6 +314,22 @@ class Actiondisp {
 
 		load_view("Caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info,"teacher_info"=>$teacher_info));
 	}	
+	function caller_editpopup($data, $printjson = true) {
+		$caller_details = array();
+		foreach (json_decode($data['caller']) as $key => $value) {
+			$caller_details[$key] = $value;
+		}
+		$caller_details['action'] = 'editcallerinfo';
+		$caller_details['popup_close'] = 'editcollerpopup';
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$teacher_info = Sqle::getA("SELECT * from caller_teacher");
+		load_view("Caller/addcaller.php", array("teacher_info"=>$teacher_info,"caller_details" =>$caller_details));
+	}
 /*  ........   */	
+
 }
 ?>

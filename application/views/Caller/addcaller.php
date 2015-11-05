@@ -1,22 +1,20 @@
-<?php 
-$teacher_info = Sqle::getA("SELECT * from caller_teacher");
- ?>
-<form role="form" method="post" onsubmit="return form.req(this)" data-action="callerinfo" data-res="success.push('Ohk dear!!');mohit.popup_close('addcollerpopup');div.reload($('#callertlb')[0]);">
 <h5>Personal Details :</h5>
+<form role="form" method="post" onsubmit="return form.req(this)" data-action="<?php echo $caller_details['action'] ?>" data-res="success.push('Data Updated Successfully!!');mohit.popup_close('<?php echo $caller_details['popup_close']  ?>');div.reload($('#callertlb')[0]);">
+  <input type="hidden" name="id" value="<?php echo $caller_details['id'] ?>">
   <div class="row">
     <div class="col-xs-6">
-      <input  type="text" name="name"   placeholder="Name">
+      <input  type="text" name="name"   placeholder="Name" value="<?php echo $caller_details['name'] ?>">
     </div>
     <div class="col-xs-6">
-      <input type="email" name="email"  placeholder="Email id">
+      <input type="email" name="email"  placeholder="Email id" value="<?php echo $caller_details['email']; ?>">
     </div> 
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" name="phone" placeholder="Mobile No.">
+      <input type="text" name="phone" placeholder="Mobile No." value="<?php echo $caller_details['phone']; ?>">
     </div>
     <div class="col-xs-6">
-      <textarea name="address" placeholder="Address"></textarea>
+      <textarea name="address" placeholder="Address"><?php echo $caller_details['address']; ?></textarea>
     </div>
   </div>
   <hr>
@@ -24,7 +22,11 @@ $teacher_info = Sqle::getA("SELECT * from caller_teacher");
   <div class="row">
     <div class="col-xs-6">
       <select  class="browser-default" name="class">
+        <?php if(!empty($caller_details['class'])): ?>
+            <option value="<?php echo $caller_details['class']; ?>"selected><?php echo $caller_details['class']; ?></option>  
+          <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Class</option>
+        <?php endif; ?>
         <option value="6th">6th</option>
         <option value="7th">7th</option>
         <option value="8th">8th</option>
@@ -37,18 +39,22 @@ $teacher_info = Sqle::getA("SELECT * from caller_teacher");
     </div>
     <div class="col-xs-6">
       <select  class="browser-default" name="subject">
+        <?php if(!empty($caller_details['subject'])): ?>
+            <option value="<?php echo $caller_details['subject']; ?>"selected><?php echo $caller_details['subject']; ?></option>  
+          <?php else : ?>
         <option value="" disabled="disabled" selected="selected">Subjects</option>
-        <option value="6th">Physics</option>
-        <option value="6th">Chemistry</option>
-        <option value="6th">Maths</option>
-        <option value="6th">Science</option>
-        <option value="6th">Other</option>
+          <?php endif; ?>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Maths">Maths</option>
+        <option value="Science">Science</option>
+        <option value="Other">Other</option>
       </select>
     </div> 
   </div>
   <div class="row">
     <div class="col-xs-6">
-     <input type="text" name="board" placeholder="Board">
+     <input type="text" name="board" placeholder="Board" <?php echo $caller_details['board']; ?>>
     </div>
     <div class="col-xs-6 mt20">
     <div class="row">
@@ -68,7 +74,11 @@ $teacher_info = Sqle::getA("SELECT * from caller_teacher");
   <div class="row">
     <div class="col-xs-6">
        <select  class="browser-default" name="teacher_id">
+          <?php if(!empty($caller_details['teacher'])): ?>
+            <option value="<?php echo $caller_details['teacher']; ?>"selected><?php echo $caller_details['teacher']; ?></option>  
+          <?php else : ?>
         <option value="" disabled="disabled" selected="selected">Select A teacher</option>
+      <?php endif; ?>
         <?php foreach($teacher_info as $row): ?>
         <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
         <?php endforeach; ?>
@@ -99,7 +109,11 @@ $teacher_info = Sqle::getA("SELECT * from caller_teacher");
     </div>
     <div class="col-xs-6">
       <select name="caller_rel" class="browser-default">
+         <?php if(!empty($caller_details['caller_rel'])): ?>
+            <option value="<?php echo $caller_details['caller_rel']; ?>"selected><?php echo $caller_details['caller_rel']; ?></option>  
+          <?php else : ?>
         <option value="" disabled="disabled" selected="selected">Caller's Relationship</option>
+        <?php endif; ?>
         <option value="Mother">Mother</option>
         <option value="Father">Father</option>
         <option value="Guardian">Guardian</option>
@@ -110,7 +124,7 @@ $teacher_info = Sqle::getA("SELECT * from caller_teacher");
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <textarea name="comments" placeholder="Comments"></textarea>
+      <textarea name="comments" placeholder="Comments"><?php echo $caller_details['comments']; ?></textarea>
     </div>
   </div>
   <div class="row">

@@ -22,6 +22,7 @@ $pagin_limit = 5;
         <td>Last Comment</td> 
        <td>Comment Date</td>
         <th rowspan="2">View Full Info</th>
+        <th rowspan="2">Edit Info</th>
         </tr>
     </thead>
     <tbody>
@@ -43,7 +44,10 @@ foreach($data as $key=>$row) { ?>
     <td><?php echo $row['caller_rel']; ?></td>
     <td><?php echo $row['comments']; ?></td>
     <td><?php if(!empty($row['caller_date'])) echo date("d-M-Y",$row['caller_date']); ?></td>
-    <td><a  href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >view Full Info</a></td>
+
+    <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >view Full Info</a></td>
+    <?php $popupdata = json_encode($row) ?>
+    <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit Info</a></td>
     </tr>
  <?php }; ?>     
       <tr><td colspan="15">
