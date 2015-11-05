@@ -65,7 +65,7 @@ class Admin{
 
 	function callerinfo($data) {
 		$str = '';
-		$insertarray = Fun::getflds(array("name", "email", "phone", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
+		$insertarray = Fun::getflds(array("name", "email", "phone", "source", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
 		$insertarray['tution_type'] = Fun::getutiontype($data);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
@@ -84,7 +84,7 @@ class Admin{
 		$odata = Sqle::insertVal("caller_call",$callerarray);
 		return array("ec"=>1,"data"=>0);		
 	}
-
+	///// Work Removed of this function /////
 	function caller_addteacher($data){
 		$str = '';
 		$insertarray = Fun::getflds(array("name", "email", "phone", "address"),$data);
@@ -100,11 +100,31 @@ class Admin{
 		foreach (json_decode($data['tdetails']) as $key => $value)
 			$details['te'.$key] = $value;
 		if($data['teacherc']=='true')
-			Fun::mailfromfile($details["stemail"] ,"caller_dir/mail/te".$data['mailtype'].".html", $details);
+			Fun::mailfromfile($details["teemail"] ,"caller_dir/mail/te".$data['mailtype'].".html", $details);
 		if($data['studentc']=='true')
 			Fun::mailfromfile($details["stemail"] ,"caller_dir/mail/st".$data['mailtype'].".html", $details);	
 		return array("ec"=>1,"data"=>0);	
 	}
+	function caller_sendmsg($data){
+		foreach (json_decode($data['sdetails']) as $key => $value)
+			$details['st'.$key] = $value;
+		foreach (json_decode($data['tdetails']) as $key => $value)
+			$details['te'.$key] = $value;
+		if($data['email']=='true'){
+			if($data['teacherc']=='true')
+				Fun::mailfromfields($details["teemail"],$data['sub'],$data['msg']);
+			if($data['studentc']=='true')
+				Fun::mailfromfields($details["stemail"],$data['sub'],$data['msg']);	
+		}
+		if($data['sms']=='true'){
+			if($data['teacherc']=='true')
+				Fun::msgfromfields($details["tephone"],$data['msg']);
+			if($data['studentc']=='true')
+				Fun::msgfromfields($details["stphone"],$data['msg']);	
+		}
+		return array("ec"=>1,"data"=>0);	
+	}
+
 /*.......*/	
 }
 ?>

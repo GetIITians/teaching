@@ -14,7 +14,19 @@
       <input type="text" name="phone" placeholder="Mobile No." value="<?php echo $caller_details['phone']; ?>">
     </div>
     <div class="col-xs-3">
-      <input type="text" name="source" placeholder="Source" value="<?php echo $caller_details['source']; ?>">
+           <select  class="browser-default" name="source">
+        <?php if(!empty($caller_details['source'])): ?>
+            <option value="<?php echo $caller_details['source']; ?>"selected><?php echo $caller_details['source']; ?></option>  
+          <?php else: ?>
+        <option value="" disabled="disabled" selected="selected">Source</option>
+        <?php endif; ?>
+        <option value="Pamplet">Pamplet</option>
+        <option value="Sunpack">Sunpack</option>
+        <option value="Poster">Poster</option>
+        <option value="Website">Website</option>
+        <option value="Referal">Referal</option>
+        <option value="Other">Other</option>
+        </select>   
     </div>
     <div class="col-xs-6">
       <textarea name="address" placeholder="Address"><?php echo $caller_details['address']; ?></textarea>
@@ -38,6 +50,7 @@
         <option value="11th">11th</option>
         <option value="12th">12th</option>
         <option value="JEE">JEE</option>
+        <option value="JEE">Other</option>
       </select>
     </div>
     <div class="col-xs-6">
@@ -100,6 +113,9 @@
         <option value="Accepted">Accepted</option>
         <option value="Rejected">Rejected</option>
         <option value="Rescheduled">Rescheduled</option>
+        <option value="Open">Open</option>
+        <option value="Close">Close</option>
+        <option value="Student">Student</option>
         <option value="Others">Others</option>
       </select>    
     </div> 
