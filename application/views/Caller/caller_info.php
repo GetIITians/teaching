@@ -19,8 +19,8 @@ $pagin_limit = 10;
         <td>Phone No.</td>
         <td>Teacher Name</td>
         <td>Demo</td>
-        <td>Last Comment</td> 
-       <td>Comment Date</td>
+        <td style="width:25%">Last Comment</td> 
+       <td style="width:5%">Comment Date</td>
         <th rowspan="2">View </th>
         <th rowspan="2">Edit </th>
         </tr>
@@ -43,9 +43,9 @@ foreach($data as $key=>$row) { ?>
     <td><?php echo $row['teacher_name']; ?></td>    
     <td><?php echo $row['demo']; ?></td>
     <td><?php echo $row['comments']; ?></td>
-    <td><?php if(!empty($row['caller_date'])) echo date("d-m-Y",$row['caller_date']); ?></td>
+    <td><?php if(!empty($row['caller_date'])) echo date("d/m/y",$row['caller_date']); ?></td>
 
-    <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >view</a></td>
+    <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >View</a></td>
     <?php $popupdata = json_encode($row) ?>
     <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit</a></td>
     </tr>
