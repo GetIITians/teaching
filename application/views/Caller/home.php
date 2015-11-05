@@ -1,10 +1,10 @@
 <?php 
-$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' ");
-
-load_view("popup.php",array("name"=>"addcollerpopup", "title" => "New Entry Registration Form","body" =>"Caller/addcaller.php","bodyinfo" => array("teacher_info" => $teacher_info,"caller_details" => array("id"=>"","action"=>"callerinfo","popup_close"=>"addcollerpopup","name"=>"","email"=>"","phone"=>"","address"=>"","class"=>"","subject"=>"","board"=>"","tution_type"=>"","caller_name"=>"","caller_rel"=>"","created_at"=>"","updated_at"=>"","caller_date"=>"","comments"=>"")) )); 
 load_view("popup.php",array("name"=>"addteacherpopup", "title" => "Add A Teacher","body" =>"Caller/addteacher.php","bodyinfo" => array() )); 
 load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details" )); 
 ?>
+<div id="caller_regform" data-action="caller_regiform">
+  <?php handle_disp(array(),"caller_regiform"); ?>
+</div>
 <div class="container" id="main_container">
   <div class="row">
   <div class="col-sm-2" style="margin-top:10px">

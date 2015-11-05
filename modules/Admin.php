@@ -96,13 +96,13 @@ class Admin{
 
 	function caller_prefixmails($data){
 		foreach (json_decode($data['sdetails']) as $key => $value)
-			$sdetails[$key] = $value;
+			$details['st'.$key] = $value;
 		foreach (json_decode($data['tdetails']) as $key => $value)
-			$tdetails[$key] = $value;
+			$details['te'.$key] = $value;
 		if($data['teacherc']=='true')
-			Fun::mailfromfile($tdetails["email"] ,"caller_dir/mail/te".$data['mailtype'].".html", $tdetails);
+			Fun::mailfromfile($details["stemail"] ,"caller_dir/mail/te".$data['mailtype'].".html", $details);
 		if($data['studentc']=='true')
-			Fun::mailfromfile($sdetails["email"] ,"caller_dir/mail/st".$data['mailtype'].".html", $sdetails);	
+			Fun::mailfromfile($details["stemail"] ,"caller_dir/mail/st".$data['mailtype'].".html", $details);	
 		return array("ec"=>1,"data"=>0);	
 	}
 /*.......*/	

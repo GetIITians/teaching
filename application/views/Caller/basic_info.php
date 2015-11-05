@@ -101,7 +101,7 @@
 					 		City  :
 					 	</div>
 					 	<div class="col-sm-7">
-					 		<?php echo $teaching_info['city']; ?>
+					 		<?php if(!empty($teaching_info['city'])) echo $teaching_info['city']; ?>
 					 	</div>
 					</div>
 					<div class="row">
@@ -152,7 +152,7 @@
 			<div class="row">
 	    		<div class="col-xs-12">
 	      			<label>Comments:</label>
-	      			<textarea name="comments" ></textarea>
+	      			<textarea name="comments" ><?php echo $teaching_info['comments']; ?></textarea>
 	    		</div>
 			  </div><div class="row mt10">			
     <div class="col-xs-4">
@@ -242,13 +242,12 @@
       <div class="col-xs-12">
       <select class="browser-default" name="mailtype" >
         <option value="intro">Introduction</option>
-        <option value="demoschedule">Demo Class Schedule</option>
-        <option value="demoaccepted">Demo Class Accepted</option>
-        <option value="demorejected">Demo Class Rejected</option>
+        <option value="demoschedule">Demo Schedule</option>
+        <option value="demoscheduleonline">Demo Online Schedule</option>
+        <option value="demoaccept">Demo Accepted</option>
+        <option value="demoreject">Demo Rejected</option>
         <option value="feedbackp">Feedback Positive</option>
-        <option value="feedbackn">Feedback Nagitave</option>
-        <option value="pymntsmry">Payment Summery</option>
-      </select>
+        </select>
     </div>
 </div>
     <div class="row mt20">
