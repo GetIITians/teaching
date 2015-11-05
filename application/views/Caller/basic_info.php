@@ -1,4 +1,7 @@
-<?php //print_r($teaching_info); ?><div class="well mt10">
+<?php $sdetails = array("name"=>$caller_info['name'],"email"=>$caller_info['email'],"phone"=>$caller_info['phone']);
+	  $tdetails = array("name"=>$teaching_info['name'],"email"=>$teaching_info['email'],"phone"=>$teaching_info['phone']);	
+ ?>
+ <div class="well mt10">
 <div class="row">
 			<div class="col-sm-3">
 				<h4>Personal Details:</h4>
@@ -24,6 +27,14 @@
 					 	</div>
 					 	<div class="col-sm-7">
 					 		<?php echo $caller_info['email']; ?>
+					 	</div>
+					</div>
+					<div class="row">
+					 	<div class="col-sm-5">
+					 		Source :
+					 	</div>
+					 	<div class="col-sm-7">
+					 		<?php echo $caller_info['source']; ?>
 					 	</div>
 					</div>
 					<div class="row">
@@ -167,6 +178,9 @@
         <option value="Accepted">Accepted</option>
         <option value="Rejected">Rejected</option>
         <option value="Rescheduled">Rescheduled</option>
+        <option value="Open">Open</option>
+        <option value="Close">Close</option>
+        <option value="Student">Student</option>
         <option value="Others">Others</option>
       </select>    
     </div> 
@@ -186,7 +200,7 @@
     </div>
      <div class="col-xs-4">
      	<label>Fees agreed:</label>
-       <input type="text" name="fees"  value="<?php echo $teaching_info['fees']; ?>">
+       <input type="text" name="fees"  value="<?php echo $teaching_info['fees']; ?>" placeholder="Rs.">
     </div>
     </div><div class="row mt10">
     <div class="col-xs-12">
@@ -199,8 +213,18 @@
 	<div class="col-xs-4">
 		<h4 style="margin-top:-10px">Send A Message:</h4>
     <form role="form" method="post" onsubmit="return form.req(this)" data-action="caller_sendmsg" data-res="success.push('Message Sent Successfully!!');">
-		<div class="row">
     
+    <input type="hidden" name="sdetails" value='<?php echo json_encode($sdetails);?>'>
+    <input type="hidden" name="tdetails" value='<?php echo json_encode($tdetails);?>'>
+    <div class="row">
+    <div class="col-xs-4">
+       <input type="checkbox" class="filled-in" id="teacher" name="teacherc" checked />
+        <label for="teacher">Teacher</label>
+    </div>
+    <div class="col-xs-4">
+       <input type="checkbox" class="filled-in" id="student" name="studentc" checked />
+        <label for="student">Student</label>
+    </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
@@ -232,9 +256,7 @@
 </div>
 <div class="col-xs-3">
 <h4 style="margin-top:-10px">Send Prefix Mails:</h4>
-<?php $sdetails = array("name"=>$caller_info['name'],"email"=>$caller_info['email']);
-	  $tdetails = array("name"=>$teaching_info['name'],"email"=>$teaching_info['email']);	
- ?>
+
 <form role="form" method="post" onsubmit="return form.req(this)" data-action="caller_prefixmails" data-res="success.push('Mail Sent Successfully!!');" >
     <input type="hidden" name="sdetails" value='<?php echo json_encode($sdetails);?>'>
     <input type="hidden" name="tdetails" value='<?php echo json_encode($tdetails);?>'>
