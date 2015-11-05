@@ -157,7 +157,14 @@ var himanshu={
   }
 }
 
-
+var yogy ={
+	edit_callerinfo:function(obj){ 
+	mohit.popup("editcollerpopup",{"body":"<img src='photo/icons/loading.gif' />"});
+	button.sendreq_v2_t4(obj,null,function(d){ console.log(d);
+		$("#"+"editcollerpopupPopupbody").html(d);
+	});	
+	}
+}
 
 function opencalpopup(obj){
 	mohit.popup("timeslot",{"body":"<img src='photo/icons/loading.gif' />"});

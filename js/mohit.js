@@ -58,7 +58,7 @@ var mohit={
 	clickinside:function(obj){
 		mohit.lastclickedinside=time("m");
 	},
-	popup:function(id,data,narayan){
+	popup:function(id,data,narayan){ 
 		if(id==null)
 			id="";
 		if(data==null)

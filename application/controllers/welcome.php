@@ -875,7 +875,10 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() { 
-		$arr=array(
+	$arr = array("action"=>"caller_editpopup");
+	$a=new Actiondisp();
+			$a->$arr['action']($_POST);
+	/*	$arr=array(
 			"action"=>"caller_prefixmails",
 "mailtype"=>"intro",
 "sdetails"=>'{"name":"student","email":""}',
@@ -883,7 +886,7 @@ class Welcome extends CI_Controller {
 "tdetails"=>'{"name":"Some One","email":"ysaini75@gmail.com"}',
 "teacherc"=> "true");
 		handle_request($arr);
-	/*			$arr=array("action"=>"search",
+	*//*			$arr=array("action"=>"search",
 			"blocked"=> "true",
 			"class"=> "",
 			"home"=> "",
