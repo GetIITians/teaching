@@ -308,10 +308,9 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		$teaching_info = Sqle::getA("SELECT caller_call.*,caller_teacher.* FROM `caller_call` LEFT JOIN caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id='".$data['id']."' and caller_call.created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')")[0];
+		$teaching_info = Fun::resjson2arr(Sqle::getA("SELECT caller_call.*,caller_teacher.* FROM `caller_call` LEFT JOIN (SELECT * from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' )caller_teacher ON caller_teacher.id = caller_call.teacher_id where st_id='".$data['id']."' and caller_call.created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')"))[0];
 		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
-		$teacher_info = Sqle::getA("SELECT * from caller_teacher");
-
+		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a'");
 		load_view("Caller/basic_info.php",array("caller_info"=>$caller_info,"teaching_info"=>$teaching_info,"teacher_info"=>$teacher_info));
 	}	
 	function caller_editpopup($data, $printjson = true) {

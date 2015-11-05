@@ -1,4 +1,4 @@
-<div class="well mt10">
+<?php //print_r($teaching_info); ?><div class="well mt10">
 <div class="row">
 			<div class="col-sm-3">
 				<h4>Personal Details:</h4>
@@ -86,6 +86,22 @@
 					 	</div>
 					 	<div class="col-sm-7">
 					 		<?php echo $teaching_info['phone']; ?>
+					 	</div>
+					</div>
+					<div class="row">
+					 	<div class="col-sm-5">
+					 		Email-Id  :
+					 	</div>
+					 	<div class="col-sm-7">
+					 		<?php echo $teaching_info['email']; ?>
+					 	</div>
+					</div>
+					<div class="row">
+					 	<div class="col-sm-5">
+					 		City  :
+					 	</div>
+					 	<div class="col-sm-7">
+					 		<?php echo $teaching_info['city']; ?>
 					 	</div>
 					</div>
 					<div class="row">
