@@ -10,10 +10,10 @@ load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details"
   <div class="col-sm-2" style="margin-top:10px">
   <button class="btn" onclick='mohit.popup("addcollerpopup")'>Add New Entry</button> 
   </div>
-  <div class="col-sm-2" style="margin-top:10px">
+  <!-- <div class="col-sm-2" style="margin-top:10px">
   <a href="#" class="btn">Send Message</a>
   </div>
-  <!-- <div class="col-sm-2" style="margin-top:10px">
+   --><!-- <div class="col-sm-2" style="margin-top:10px">
   <a  class="btn" onclick='mohit.popup("addteacherpopup")'>Add A Teacher</a>
   </div> -->
   </div>

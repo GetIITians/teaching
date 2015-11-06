@@ -66,7 +66,7 @@ class Admin{
 	function callerinfo($data) {
 		$str = '';
 		$insertarray = Fun::getflds(array("name", "email", "phone", "source", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
-		$insertarray['tution_type'] = Fun::getutiontype($data);
+		$insertarray['tution_type'] = Fun::gettutiontype($data);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
 		$odata=Sqle::insertVal("caller_details",$insertarray);
@@ -125,6 +125,19 @@ class Admin{
 		return array("ec"=>1,"data"=>0);	
 	}
 
+	function editcallerinfo($data){
+		$insertarray = Fun::getflds(array("name", "email", "phone", "source", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
+		$insertarray['tution_type'] = Fun::gettutiontype($data);
+		$insertarray['updated_at'] = time();
+		Sqle::updateVal("caller_details",$insertarray,array("id"=>$data['id']));
+		return array("ec"=>1,"data"=>0);
+	}
+
+	function caller_delete_info($data){
+		Sqle::deleteVal("caller_details",array("id"=>$data["id"]));
+		Sqle::deleteVal("caller_call",array("st_id"=>$data["id"]));
+		return array("ec"=>1,"data"=>0);
+	}
 /*.......*/	
 }
 ?>

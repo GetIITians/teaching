@@ -1,6 +1,7 @@
 <?php 
 // pagin var
 $pagin_limit = 10;
+
 ?>
   	 <table class="table table-bordered" >
     <thead>
@@ -8,10 +9,6 @@ $pagin_limit = 10;
 
       </tr>
       <tr class="subhead">
-      <td style="width:4%">
-        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-        <label for="filled-in-box"></label>       
-      </td>
         <td style="width:4%">ID</td>
         <td>Student Name</td>
         <td>Class </td>
@@ -21,8 +18,9 @@ $pagin_limit = 10;
         <td>Demo</td>
         <td style="width:25%">Last Comment</td> 
        <td style="width:5%">Comment Date</td>
-        <th rowspan="2">View </th>
-        <th rowspan="2">Edit </th>
+        <th >View </th>
+        <th >Edit </th>
+        <th >Delete </th>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +29,6 @@ $data = getpaginval($caller_info,$pagval,$pagin_limit);
 
 foreach($data as $key=>$row) { ?>      
       <tr>
-       <td>
-	 	<input type="checkbox" class="filled-in" id="<?php echo $key; ?>" checked="checked" />
-      	<label for="<?php echo $key; ?>"></label>
-      	</td>
  	 	<td><?php echo $row['id']; ?></td>
  	 	<td><?php echo $row['name']; ?></td>
     <td><?php echo $row['class']; ?></td>
@@ -48,6 +42,7 @@ foreach($data as $key=>$row) { ?>
     <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >View</a></td>
     <?php $popupdata = json_encode($row) ?>
     <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit</a></td>
+    <td><a onclick='yogy.confirm(this)' data-id="<?php echo $row['id']; ?>" data-action="caller_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#callertlb')[0]);"> Delete</a></td>
     </tr>
  <?php } ?>     
       <tr><td colspan="15">

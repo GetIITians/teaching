@@ -160,9 +160,14 @@ var himanshu={
 var yogy ={
 	edit_callerinfo:function(obj){ 
 	mohit.popup("editcollerpopup",{"body":"<img src='photo/icons/loading.gif' />"});
-	button.sendreq_v2_t4(obj,null,function(d){ console.log(d);
+	button.sendreq_v2_t4(obj,null,function(d){
 		$("#"+"editcollerpopupPopupbody").html(d);
 	});	
+	},
+	confirm:function(obj){
+		var ch=confirm("Are You Sure to Delete ?");
+		if(ch)
+			button.sendreq_v2(obj);
 	}
 }
 
