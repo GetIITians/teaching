@@ -14,7 +14,7 @@
       <input type="text" name="phone" placeholder="Mobile No." value="<?php echo $caller_details['phone']; ?>">
     </div>
     <div class="col-xs-3">
-           <select  class="browser-default" name="source">
+           <select  class="browser-default" name="source"  onchange="yogy.inserthtml(this,$('#source_other'))"  >
         <?php if(!empty($caller_details['source'])): ?>
             <option value="<?php echo $caller_details['source']; ?>"selected><?php echo $caller_details['source']; ?></option>  
           <?php else: ?>
@@ -25,8 +25,10 @@
         <option value="Poster">Poster</option>
         <option value="Website">Website</option>
         <option value="Referal">Referal</option>
-        <option value="Other">Other</option>
-        </select>   
+        <option value="other">Other</option>
+        </select>
+        <div id="source_other">
+        </div>   
     </div>
     <div class="col-xs-6">
       <textarea name="address" placeholder="Address"><?php echo $caller_details['address']; ?></textarea>
@@ -107,17 +109,11 @@
   </div>
   <div class="row">  
     <div class="col-xs-6">
-      <select  class="browser-default" name="demo">
-        <option value="" disabled="disabled" selected="selected">Demo Fixed</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Accepted">Accepted</option>
-        <option value="Rejected">Rejected</option>
-        <option value="Rescheduled">Rescheduled</option>
-        <option value="Open">Open</option>
-        <option value="Close">Close</option>
-        <option value="Student">Student</option>
-        <option value="Others">Others</option>
+      <select  class="browser-default" name="demo_id">
+        <option value="0" selected="selected" disabled>Demo Fixed</option>
+          <?php foreach($demo_info as $row): ?>
+        <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
+        <?php endforeach; ?>
       </select>    
     </div> 
   </div>

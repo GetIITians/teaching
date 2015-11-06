@@ -875,41 +875,16 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() { 
-	$arr = array("action"=>"caller_editpopup");
-	$a=new Actiondisp();
-			$a->$arr['action']($_POST);
-	/*	$arr=array(
-			"action"=>"caller_prefixmails",
-"mailtype"=>"intro",
-"sdetails"=>'{"name":"student","email":""}',
-"studentc"=>"false",
-"tdetails"=>'{"name":"Some One","email":"ysaini75@gmail.com"}',
-"teacherc"=> "true");
-		handle_request($arr);
-	*//*			$arr=array("action"=>"search",
-			"blocked"=> "true",
-			"class"=> "",
-			"home"=> "",
-			"ignoreloadonce"=> "20",
-			"isloadold"=> "0",
-			"lang"=> "1-2-3-4-5-6-7-8-9-10-11-12-13-14",
-			"max"=> "0",
-			"maxl"=> "20",
-			"orderby"=> "",
-			"pincode"=> "",
-			"price"=> "",
-			"search"=> "",
-			"subject"=> "",
-			"timer"=> "",
-			"timeslot"=> "1-2-3-4-25-26-27-28-5-6-7-8-29-30-31-32-9-10-11-12-33-34-35-36-13-14-15-16-37-38-39-40-17-18-19-20-41-42-43-44-21-22-23-24-45-46-47-48",
-			"timeslotbooked"=> "1",
-			"topic"=> "",
-			"topicsadded"=> "1");
-		$a=new Actiondisp();
-		$a->search($arr);
-	 
-		$arr=array("action"=>"cancel_class","sid"=>2,"tid"=>3,"starttime"=>1445022000);
-		handle_request($arr); */
+	 	$arr = array("action"=>"calldetails",
+		"comments"=> "",
+		"demo_id"=>"3",
+		"demo_old_id"=> "5",
+		"fees"=>"2323",
+		"sdetails"=> '{"name":"asd","email":"as@sdas","phone":"234234"}',
+		"st_id"=>"5",
+		"teacher_id"=> "26");
+
+		handle_request($arr); 
 	}
 
 

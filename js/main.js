@@ -168,6 +168,10 @@ var yogy ={
 		var ch=confirm("Are You Sure to Delete ?");
 		if(ch)
 			button.sendreq_v2(obj);
+	},
+	inserthtml:function(obj,divid){ 
+	var txt1 = "<input type='text' value="+obj.name+" />"; 
+    divid.append(txt1, txt3); 
 	}
 }
 
