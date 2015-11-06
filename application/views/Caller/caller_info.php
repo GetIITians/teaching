@@ -1,6 +1,6 @@
 <?php 
 // pagin var
-$pagin_limit = 10;
+$pagin_limit = 100;
 
 ?>
   	 <table class="table table-bordered" >

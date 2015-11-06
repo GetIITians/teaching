@@ -1,5 +1,6 @@
 <?php $sdetails = array("name"=>$caller_info['name'],"email"=>$caller_info['email'],"phone"=>$caller_info['phone']);
 	  $tdetails = array("name"=>$teaching_info['name'],"email"=>$teaching_info['email'],"phone"=>$teaching_info['phone']);	
+ 		
  ?>
  <div class="well mt10">
 <div class="row">
@@ -159,29 +160,25 @@
 	<div class="col-xs-5">
 		<h4 style="margin-top:-10px">Add New Call Comment:</h4>
 		<form role="form" method="post" onsubmit="return form.req(this)" data-action="calldetails" data-res="success.push('Call Details Added Successfully!!');window.location.href='<?php echo BASE."caller"; ?>'">
-			<input type="hidden" name="st_id" value="<?php echo $caller_info['id']; ?>">
-			<div class="row">
-	    		<div class="col-xs-12">
-	      			<label>Comments:</label>
+			<input type="hidden" name="sdetails" value='<?php echo json_encode($sdetails);?>'>
+	   		<input type="hidden" name="st_id" value="<?php echo $caller_info['id']; ?>">
+				<div class="row">
+	    			<div class="col-xs-12">
+	      				<label>Comments:</label>
 	      			<textarea name="comments" ><?php echo $teaching_info['comments']; ?></textarea>
 	    		</div>
 			  </div><div class="row mt10">			
     <div class="col-xs-4">
     	<label>Demo:</label>
-      <select  class="browser-default" name="demo">
-        <option value="" disabled="disabled" selected="selected">Demo Fixed</option>
+      <input type="hidden" name="demo_old_id" value="<?php echo $teaching_info['demo_id']; ?>">
+      <select  class="browser-default" name="demo_id">
+        <option value="0" disabled="disabled" selected="selected">Demo Fixed</option>
         <?php if(!empty($teaching_info['demo'])): ?>
-        <option value="<?php echo $teaching_info['demo']; ?>" selected="selected"><?php echo $teaching_info['demo']; ?></option>	
+        <option value="<?php echo $teaching_info['demo_id']; ?>" selected="selected"><?php echo $teaching_info['demo']; ?></option>	
         <?php endif; ?>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Accepted">Accepted</option>
-        <option value="Rejected">Rejected</option>
-        <option value="Rescheduled">Rescheduled</option>
-        <option value="Open">Open</option>
-        <option value="Close">Close</option>
-        <option value="Student">Student</option>
-        <option value="Others">Others</option>
+            <?php foreach($demo_info as $row): ?>
+        <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
+        <?php endforeach; ?>
       </select>    
     </div> 
     <div class="col-xs-4">
