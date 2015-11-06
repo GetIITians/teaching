@@ -710,14 +710,28 @@ abstract class Fun{
 		}
 		return $arr;
 	}
-	public static function getutiontype($data){
+	public static function gettutiontype($data){
 		$str = array();
 		if($data['home_tution']=='true')
 			$str[] = 'Home Tution';
 		if($data['online_tution']=='true')
 			$str[] = 'Online Tution';
 		return implode(',',$str);	
-		}	
+		}
+
+	public static function gettutiontypeex($data){ 
+		$temp = array('home_tution'=>'false','online_tution'=>'false');
+		if(!empty($data)){
+			$arr = explode(',',$data);
+			for($i=0;$i<count($arr);$i++){
+				if($arr[$i]=='Home Tution')
+					$temp['home_tution'] = 'true';
+				if($arr[$i]=='Online Tution')
+					$temp['online_tution'] = 'true';
+			}
+		}
+		return $temp;	
+	} 		
 /*...........*/
 }
 ?>

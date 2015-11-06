@@ -158,7 +158,7 @@
 	<div class="row">
 	<div class="col-xs-5">
 		<h4 style="margin-top:-10px">Add New Call Comment:</h4>
-		<form role="form" method="post" onsubmit="return form.req(this)" data-action="calldetails" data-res="success.push('Call Details Added Successfully!!');mohit.popup_close('callerhistorypopup');div.reload($('#calldetail')[0]);div.reload($('#caller_basic_info')[0]);">
+		<form role="form" method="post" onsubmit="return form.req(this)" data-action="calldetails" data-res="success.push('Call Details Added Successfully!!');window.location.href='<?php echo BASE."caller"; ?>'">
 			<input type="hidden" name="st_id" value="<?php echo $caller_info['id']; ?>">
 			<div class="row">
 	    		<div class="col-xs-12">

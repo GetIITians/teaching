@@ -70,22 +70,23 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-     <input type="text" name="board" placeholder="Board" <?php echo $caller_details['board']; ?>>
+     <input type="text" name="board" placeholder="Board" value="<?php echo $caller_details['board']; ?>">
     </div>
     <div class="col-xs-6 mt20">
     <div class="row">
       <div class="col-xs-4">
-        <input type="checkbox" class="filled-in" id="online" name="online_tution" />
+        <input type="checkbox" class="filled-in" id="online" name="online_tution" <?php if(Fun::gettutiontypeex($caller_details['tution_type'])['online_tution']=='true') echo 'checked'; ?> />
         <label for="online">Online</label>
       </div>
       <div class="col-xs-8">
-        <input type="checkbox" class="filled-in" id="home" name="home_tution"  />
+        <input type="checkbox" class="filled-in" id="home" name="home_tution"  <?php if(Fun::gettutiontypeex($caller_details['tution_type'])['home_tution']=='true') echo 'checked'; ?>/>
         <label for="home">Home Tution</label>
       </div>
       </div>
     </div>
   </div>
   <hr>
+  <?php if($caller_details['action']!='editcallerinfo'): ?>
   <h5>Teachers  Details :</h5>
   <div class="row">
     <div class="col-xs-6">
@@ -121,10 +122,11 @@
     </div> 
   </div>
   <hr>
+<?php endif; ?>
   <h5>Caller's  Details :</h5>
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" name="caller_name"  placeholder="Caller Name">
+      <input type="text" name="caller_name"  placeholder="Caller Name" value="<?php echo $caller_details['caller_name']; ?>">
     </div>
     <div class="col-xs-6">
       <select name="caller_rel" class="browser-default">
@@ -141,11 +143,13 @@
       </select>    
     </div> 
   </div>
+  <?php if($caller_details['action']!='editcallerinfo'): ?>
   <div class="row">
     <div class="col-xs-6">
       <textarea name="comments" placeholder="Comments"><?php echo $caller_details['comments']; ?></textarea>
     </div>
   </div>
+<?php endif; ?>
   <div class="row">
     <div class="col-xs-6 mt20">
       <button type="submit" class="btn">Submit</button>
