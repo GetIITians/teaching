@@ -187,8 +187,9 @@
         <?php if(!empty($teaching_info['name'])): ?>
         <option value="<?php echo $teaching_info['teacher_id']; ?>" selected><?php echo $teaching_info['name']; ?> </option>
         <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Select A teacher</option>
+        <option value="0" disabled="disabled" selected="selected">Select A teacher</option>
         <?php endif; ?>	
+        <option value="0"  style="color:#002ACC;">Not Selected</option>
         <?php foreach($teacher_info as $row): ?>
         <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
         <?php endforeach; ?>
