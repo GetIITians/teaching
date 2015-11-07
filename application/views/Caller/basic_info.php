@@ -40,10 +40,10 @@
 					</div>
 					<div class="row">
 					 	<div class="col-sm-5">
-					 		Created :
+					 		Address :
 					 	</div>
 					 	<div class="col-sm-7">
-					 		<?php if(!empty($caller_info['created_at'])) echo date("d-M-Y",$caller_info['created_at']); ?>
+					 		<?php echo $caller_info['address']; ?>
 					 	</div>
 					</div>
 			</div>

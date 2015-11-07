@@ -156,8 +156,8 @@ var button={
 			
 		}});
 	},
-	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){ console.log(params);
-		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){ 
+	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){console.log(params);
+		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){
 			var respo=button.parse(d.split("\n")[0]); 
 			if(respo){
 				if(respo.ec<0){
@@ -192,14 +192,14 @@ var button={
 		else{ 
 			eval("var params="+allattrs["data-params"]);
 		} 
-		if(button.hasattr(allattrs,"data-eparams")){ 
+		if(button.hasattr(allattrs,"data-eparams")){  
 			eval("var eparams="+allattrs["data-eparams"]); 
 			if (typeof narayan !== "undefined") {
 				eparams[narayan] = "";
 			} 
 			params=others.mergeifunset(params,eparams);
 		}
-		params['action']=allattrs["data-action"]; 
+		params['action']=allattrs["data-action"];
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);
 	},
 	sendreq1:function (params,call_back,adata){ 
@@ -276,7 +276,7 @@ var form={
 		params['action']=allattrs["data-action"];
 		(!button.hasattr(allattrsb,"data-enablebutton"))?bobj.disabled=true:((allattrsb["data-enablebutton"]==true)?bobj.disabled=false:bobj.disabled=true);
 		
-		var prvvalue=bobj.innerHTML; console.log(params);
+		var prvvalue=bobj.innerHTML; 
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
@@ -521,7 +521,7 @@ var div={
 		reloadobj.setAttribute("data-paginval",obj.getAttribute("data-paginval"));
 		this.reload(reloadobj);
 	},
-	reload:function(obj,call_back_data,adata){ 
+	reload:function(obj,call_back_data,adata){
 		button.sendreq_v2_t4(obj,call_back_data,function(d){
 			$(obj).html(d);
 		},adata);
@@ -562,6 +562,7 @@ var div={
 		if(data_maxl==null)
 			data_maxl=$(obj).attr("data-ignoreloadonce"); 
 		$(obj).attr({"data-max":0, "data-maxl":data_maxl});
+
 		div.load(obj, 0, -1, call_back_data, call_back_html, selector, narayan);
 	},
 };
