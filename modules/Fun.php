@@ -716,11 +716,13 @@ abstract class Fun{
 			$str[] = 'Home Tution';
 		if($data['online_tution']=='true')
 			$str[] = 'Online Tution';
+		if($data['atcenter_tution']=='true')
+			$str[] = 'Center';
 		return implode(',',$str);	
 		}
 
 	public static function gettutiontypeex($data){ 
-		$temp = array('home_tution'=>'false','online_tution'=>'false');
+		$temp = array('home_tution'=>'false','online_tution'=>'false','atcenter_tution'=>'false');
 		if(!empty($data)){
 			$arr = explode(',',$data);
 			for($i=0;$i<count($arr);$i++){
@@ -728,9 +730,28 @@ abstract class Fun{
 					$temp['home_tution'] = 'true';
 				if($arr[$i]=='Online Tution')
 					$temp['online_tution'] = 'true';
+				if($arr[$i]=='Center')
+					$temp['atcenter_tution'] = 'true';
 			}
 		}
 		return $temp;	
+	}
+	public static function caller_orderby($data){
+		$orderarr = array("lastcalldetail.demo_id ASC","caller_details.id ASC","caller_details.id DESC","caller_details.name ASC","caller_details.name DESC","users.name ASC","users.name DESC","lastcalldetail.demo_id ASC");
+		return $orderarr[$data];
+	}
+
+	public static function getdemocons($data){
+		$temp = array();
+		for($i=0;$i<=8;$i++){
+			$data = Fun::setifunset($data,"demo".$i,"");
+			if($i!=0&&$data['demo'.$i]=='on'){
+				$temp[] = "lastcalldetail.demo_id = ".$i;
+			}
+		}
+		if($data['demo0']=='on'||(empty($temp)))
+			return true;
+		return implode(" OR ",$temp);	
 	} 		
 /*...........*/
 }

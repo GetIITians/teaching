@@ -76,13 +76,17 @@
     </div>
     <div class="col-xs-6 mt20">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <input type="checkbox" class="filled-in" id="online" name="online_tution" <?php if(Fun::gettutiontypeex($caller_details['tution_type'])['online_tution']=='true') echo 'checked'; ?> />
         <label for="online">Online</label>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-3">
         <input type="checkbox" class="filled-in" id="home" name="home_tution"  <?php if(Fun::gettutiontypeex($caller_details['tution_type'])['home_tution']=='true') echo 'checked'; ?>/>
-        <label for="home">Home Tution</label>
+        <label for="home">Home</label>
+      </div>
+      <div class="col-xs-4">
+        <input type="checkbox" class="filled-in" id="atcenter" name="atcenter_tution"  <?php if(Fun::gettutiontypeex($caller_details['tution_type'])['atcenter_tution']=='true') echo 'checked'; ?>/>
+        <label for="atcenter">At Center</label>
       </div>
       </div>
     </div>

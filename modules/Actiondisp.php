@@ -278,7 +278,8 @@ class Actiondisp {
 	}
 
 	function callertbl($data,$printjson = true ){
-		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN (select caller_call.st_id, caller_call.teacher_id,caller_call.comments,caller_call.created_at as caller_date ,caller_demo.name as demo ,caller_demo.id as demo_id FROM caller_call INNER JOIN (SELECT MAX(created_at) as lasttime FROM `caller_call` GROUP BY st_id) maxval ON caller_call.created_at=maxval.lasttime LEFT JOIN caller_demo ON caller_call.demo_id = caller_demo.id) lastcalldetail ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id ORDER BY lastcalldetail.demo_id ASC");
+		$data = Fun::setifunset($data,"orderby",0);
+		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN (select caller_call.st_id, caller_call.teacher_id,caller_call.comments,caller_call.created_at as caller_date ,caller_demo.name as demo ,caller_demo.id as demo_id FROM caller_call INNER JOIN (SELECT MAX(created_at) as lasttime FROM `caller_call` GROUP BY st_id) maxval ON caller_call.created_at=maxval.lasttime LEFT JOIN caller_demo ON caller_call.demo_id = caller_demo.id) lastcalldetail ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id WHERE ".Fun::getdemocons($data)." ORDER BY ".Fun::caller_orderby($data['orderby']));
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 

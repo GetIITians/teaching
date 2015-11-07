@@ -82,6 +82,9 @@ textarea{
 .diff{
 	background-color:rgba(109, 146, 103, 0.07);
 }
+.dropdown>ul>li{
+	padding-left: 12px;
+}
 </style>
 
 

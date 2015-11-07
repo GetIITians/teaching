@@ -164,14 +164,19 @@ var yogy ={
 		$("#"+"editcollerpopupPopupbody").html(d);
 	});	
 	},
-	confirm:function(obj){
-		var ch=confirm("Are You Sure to Delete ?");
+	confirm:function(obj){	
+		if(!obj.hasAttribute('data-delname'))
+			obj.setAttribute('data-delname','');
+		ch=confirm("Are You Sure to Delete "+obj.getAttribute('data-delname')+" ?");
 		if(ch)
 			button.sendreq_v2(obj);
 	},
 	inserthtml:function(obj,divid){ 
 	var txt1 = "<input type='text' value="+obj.name+" />"; 
     divid.append(txt1, txt3); 
+	},
+	caller_search:function(){
+		div.reload($('#callertlb')[0]);
 	}
 }
 
@@ -278,7 +283,7 @@ var ms={
 			$("#dispnoresult").hide();
 		}
 	},
-	refinesearch: function(narayan){ 
+	refinesearch: function(narayan){  
 		search.filterList(narayan);
 		var searchdiv = $('#searchresultdiv');
 		var maxl = parseInt($("#searchresultdiv").attr("data-maxl")); 
@@ -291,7 +296,7 @@ var ms={
 				ms.refinecallafter();
 		}, "#searchloadingimg",narayan);
 	}, /* by yogy */ 
-	orderrefine: function(obj) {
+	orderrefine: function(obj) {  
 		($(obj).attr("data-action")=="refinesearch" ? $("input[name=search][type=hidden]").attr("value","") : false);
 		this.refinesearch();
 	}, /* ...... */
@@ -392,6 +397,10 @@ function searchform(){
 	var leftform=readform($("#searchform"));
 	mergeifunset(leftform, {'orderby':$("select[name=orderby]").val()}); 
 	return leftform;
+}
+function callersearch(){
+	var leftform=readform($("#callersearch"));
+	return leftform;	
 }
 $(document).ready(function(){
 	mylib();

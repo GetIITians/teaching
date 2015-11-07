@@ -42,7 +42,7 @@ foreach($data as $key=>$row) { ?>
     <td><a href="<?php echo HOST.'caller/view/'.$row['id']; ?>" >View</a></td>
     <?php $popupdata = json_encode($row) ?>
     <td><a onclick='yogy.edit_callerinfo(this)' data-action="caller_editpopup" data-caller='<?php echo json_encode($row); ?>' >Edit</a></td>
-    <td><a onclick='yogy.confirm(this)' data-id="<?php echo $row['id']; ?>" data-action="caller_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#callertlb')[0]);"> Delete</a></td>
+    <td><a onclick='yogy.confirm(this)' data-delname="Student : <?php echo $row['name']; ?>"; data-id="<?php echo $row['id']; ?>" data-action="caller_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#callertlb')[0]);"> Delete</a></td>
     </tr>
  <?php } ?>     
       <tr><td colspan="15">
