@@ -64,7 +64,7 @@ class Admin{
 	}
 
 	function callerinfo($data) {
-		$str = '';
+		$str = '';$details = array("tename" => "Not Selected","tephone"=> "","demostatus"=>"");
 		$insertarray = Fun::getflds(array("name", "email", "phone", "source", "address", "class", "subject", "board", "caller_name","caller_rel"),$data);
 		$insertarray['tution_type'] = Fun::gettutiontype($data);
 		$insertarray['created_at'] = time();
@@ -74,13 +74,15 @@ class Admin{
 		$callerarray['st_id'] = $odata;
 		$callerarray['created_at'] = time();
 		$odata = Sqle::insertVal("caller_call",$callerarray);
-		$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
-		$tdetail = Sqle::getA("select name,phone from users where id = '".$data['teacher_id']."'")[0];
+		if($data['teacher_id']!=0){
+			$tdetail = Sqle::getA("select name,phone from users where id = '".$data['teacher_id']."'")[0];
+			$details['tename'] = $tdetail['name'];
+			$details['tephone'] = $tdetail['phone'];
+		}
 		$details['stname'] = $data['name'];
 		$details['stphone'] = $data['phone'];
-		$details['tename'] = $tdetail['name'];
-		$details['tephone'] = $tdetail['phone'];
 			if($data['demo_id']!=0){
+				$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
 				Fun::msgfromfile('9250303639' ,"caller_dir/mail/demo_msg_admin.txt", $details);
 				Fun::msgfromfile('7838451002' ,"caller_dir/mail/demo_msg_admin.txt", $details);
 			}
@@ -89,21 +91,21 @@ class Admin{
 	}
 
 	function calldetails($data){
+		$details = array("tename" => "Not Selected","tephone"=> "","demostatus"=>"");
 		$callerarray = Fun::getflds(array("st_id","teacher_id","demo_id","fees","comments"),$data);
 		$callerarray['created_at'] = time();
 		$odata = Sqle::insertVal("caller_call",$callerarray);
-		$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
-		$tdetail = Sqle::getA("select name,phone from users where id = '".$data['teacher_id']."'")[0];
 		foreach (json_decode($data['sdetails']) as $key => $value)
 			$details['st'.$key] = $value;
-		$details['tename'] = $tdetail['name'];
-		$details['tephone'] = $tdetail['phone'];
-			
-		if($data['demo_id']!=$data['demo_old_id']){
-			if($data['demo_id']!=0){
-				Fun::msgfromfile('9250303639' ,"caller_dir/mail/demo_msg_admin.txt", $details);
-				Fun::msgfromfile('7838451002' ,"caller_dir/mail/demo_msg_admin.txt", $details);
-			}
+		if($data['teacher_id']!=0){
+			$tdetail = Sqle::getA("select name,phone from users where id = '".$data['teacher_id']."'")[0];
+			$details['tename'] = $tdetail['name'];
+			$details['tephone'] = $tdetail['phone'];
+		}
+		if(($data['demo_id']!=$data['demo_old_id'])&&$data['demo_id']!=0){
+			$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
+			Fun::msgfromfile('9250303639' ,"caller_dir/mail/demo_msg_admin.txt", $details);
+			Fun::msgfromfile('7838451002' ,"caller_dir/mail/demo_msg_admin.txt", $details);
 		}
 		return array("ec"=>1,"data"=>0);		
 	}

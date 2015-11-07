@@ -875,14 +875,25 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() { 
-	 	$arr = array("action"=>"calldetails",
-		"comments"=> "",
-		"demo_id"=>"3",
-		"demo_old_id"=> "5",
-		"fees"=>"2323",
-		"sdetails"=> '{"name":"asd","email":"as@sdas","phone":"234234"}',
-		"st_id"=>"5",
-		"teacher_id"=> "26");
+	 	$arr = array("action"=> "callerinfo",
+"address"=> "",
+"board"=> "",
+"caller_name"=> "",
+"caller_rel"=> "",
+"class"=> "",
+"comments"=> "",
+"demo_id"=>"0",
+"email"=> "",
+"fees"=> "",
+"home_tution"=> "false",
+"id"=>"",
+"name"=> "",
+"online_tution"=> "false",
+"phone"=>"",
+"source"=> "",
+"subject"=> "",
+"teacher_id"=> "0",
+);
 
 		handle_request($arr); 
 	}

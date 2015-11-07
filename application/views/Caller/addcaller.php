@@ -96,7 +96,8 @@
           <?php if(!empty($caller_details['teacher'])): ?>
             <option value="<?php echo $caller_details['teacher']; ?>"selected><?php echo $caller_details['teacher']; ?></option>  
           <?php else : ?>
-        <option value=""  selected="selected">Select A teacher</option>
+        <option value="0"  selected="selected" disabled>Select A teacher</option>
+        <option value="0"  style="color:#002ACC;">Not Selected</option>
       <?php endif; ?>
         <?php foreach($teacher_info as $row): ?>
         <option value="<?php echo $row['id'] ?>"><?php echo $row['name']; ?></option>
