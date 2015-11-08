@@ -5,7 +5,7 @@ load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details"
 <div id="caller_regform" data-action="caller_regiform">
   <?php handle_disp(array(),"caller_regiform"); ?>
 </div>
-<div class="container" id="main_container">
+<div class="container-fluid" id="main_container">
   <div class="row">
   <div class="col-sm-2" style="margin-top:10px">
   <button class="btn" onclick='mohit.popup("addcollerpopup")'>Add New Entry</button> 

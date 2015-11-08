@@ -85,6 +85,9 @@ textarea{
 .dropdown>ul>li{
 	padding-left: 12px;
 }
+.titlePopup{
+	font-size: 1.5em;
+}
 </style>
 
 
