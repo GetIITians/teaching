@@ -4,10 +4,9 @@
 	 }
 .myani {
   padding: 40px;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
   color: red;
-  font-family: cursive;
 
     -webkit-animation-name: example; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 100s; /* Chrome, Safari, Opera */
@@ -39,8 +38,7 @@
 </style>
 <div class="container mybody mt20">
 <div class="myani">
-  <p id="error">E<span>rr</span>or</p>
-  <p id="code">You<span> are not a</span><span> valid user</span></p>
+  <p id="code">Please<span> Login </span><span> As Admin</span></p>
 </div>
 
 </div>
