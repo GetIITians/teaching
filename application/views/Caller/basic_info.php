@@ -157,7 +157,7 @@
 </div>
 <div class="well">
 	<div class="row">
-	<div class="col-xs-5">
+	<div class="col-xs-12 col-md-5">
 		<h4 style="margin-top:-10px">Add New Call Comment:</h4>
 		<form role="form" method="post" onsubmit="return form.req(this)" data-action="calldetails" data-res="success.push('Call Details Added Successfully!!');window.location.href='<?php echo BASE."caller"; ?>'">
 			<input type="hidden" name="sdetails" value='<?php echo json_encode($sdetails);?>'>
@@ -208,7 +208,7 @@
 
 </form>
 	</div>
-	<div class="col-xs-4">
+	<div class="col-xs-12 col-md-4">
 		<h4 style="margin-top:-10px">Send A Message:</h4>
     <form role="form" method="post" onsubmit="return form.req(this)" data-action="caller_sendmsg" data-res="success.push('Message Sent Successfully!!');">
     
@@ -252,7 +252,7 @@
 	</div>
 </form>
 </div>
-<div class="col-xs-3">
+<div class="col-xs-12 col-md-3">
 <h4 style="margin-top:-10px">Send Prefix Mails:</h4>
 
 <form role="form" method="post" onsubmit="return form.req(this)" data-action="caller_prefixmails" data-res="success.push('Mail Sent Successfully!!');" >

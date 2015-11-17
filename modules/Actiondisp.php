@@ -343,6 +343,75 @@ class Actiondisp {
 
 		
 	}
+	function thingsa_regiform($data, $printjson = true){
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("popup.php",array("name"=>"addthingsapopup", "title" => "Add Things To Do","body" =>"Things/addthingsa.php","bodyinfo" => array("thingsa_details" => array("id"=>"","action"=>"thingsainfo","popup_close"=>"addthingsapopup","category"=>"","details"=>"","responsibility"=>"","due_date"=>"","status"=>"","comment"=>"")))); 
+	}
+
+	function thingse_regiform($data, $printjson = true){
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("popup.php",array("name"=>"addthingsepopup", "title" => "Add Things Done","body" =>"Things/addthingse.php","bodyinfo" => array("thingse_details" => array("id"=>"","action"=>"thingseinfo","popup_close"=>"addthingsepopup","category"=>"","details"=>"","responsibility"=>"")))); 
+	}
+
+	function thingsatbl($data,$printjson = true ){
+		$data = Fun::setifunset($data,"orderby",0);
+		$arr = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id ORDER BY thingsa_details.created_at desc" );
+		if(!empty($data['paginval']))
+			$pagval = $data['paginval'];
+		else 
+			$pagval = 0;
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("Things/thingsa_info.php", array("thingsa_info"=>$arr,"pagval"=>$pagval));
+
+	}
+	function thingsetbl($data,$printjson = true ){
+		$data = Fun::setifunset($data,"orderby",0);
+		$arr = Sqle::getA("SELECT * FROM thingse_details  ORDER BY created_at desc" );
+		if(!empty($data['paginval']))
+			$pagval = $data['paginval'];
+		else 
+			$pagval = 0;
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("Things/thingse_info.php", array("thingse_info"=>$arr,"pagval"=>$pagval));
+
+	}
+	function thingsa_basicinfo($data,$printjson = true){
+			$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$thingsa_info = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id where thingsa_details.id = '".$data['id']."'")[0];
+		load_view("Things/basic_info.php",array("thingsa_info"=>$thingsa_info));
+	}
+
+	function thingsahisdetail($data,$printjson = true)
+	{
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$arr = Sqle::getA("SELECT thingsa_hisdetails.* from thingsa_hisdetails  where td_id=".$data['id']." ORDER BY created_at DESC");
+		load_view("Things/thingsa_hisdetail.php",array("thingsa_hisdetail"=>$arr));
+	}
+
 /*  ........   */	
 
 }

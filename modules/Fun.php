@@ -752,6 +752,11 @@ abstract class Fun{
 		if($data['demo0']=='on'||(empty($temp)))
 			return true;
 		return implode(" OR ",$temp);	
+	}
+
+	public static function getstatuscolor($status,$col)
+	{
+		return "Yellow";
 	} 		
 /*...........*/
 }
