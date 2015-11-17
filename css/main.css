@@ -978,11 +978,28 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 -------------------*/
 #homeDropdown{
 	width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#homeDropdown:after, #homeDropdown:before{
+	content: " ";
+	display: table;
+}
+
+#homeDropdown:after{
+	clear: both;
 }
 
 #homeDropdown > li{
 	background-color: #00695C;
 	border-right: 1px solid #002C26;
+	position: relative;
+	float: left;
+	min-height: 1px;
+	padding-left: 0;
+	padding-right: 0;
+	width: 11.11%;
 }
 
 #homeDropdown > li > a{
@@ -990,7 +1007,7 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 	background-color: transparent;
 	text-align: center;
 	padding: 0.7rem .9rem;
-	font-size: 1.2rem;
+	font-size: 1rem;
 }
 
 #homeDropdown .open > a,

@@ -58,5 +58,3 @@ echo "</pre>";
 //var_dump($XMLReturn);
 //echo "</pre>";
 ?>
-<input type="number" step="1" min="0" max="24">
-<input type="number" step="30" min="0" max="30">

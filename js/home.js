@@ -75,8 +75,7 @@ $(function() {
 			$('#welcome .modal-footer p.text-danger').html('');
 			$('#welcome a.submit').html('Submitting').attr('disabled','disabled');
 		}
-		console.log(details);
-		/*
+		//console.log(details);
 		$.ajax({
 			url		: HOST+'home/doubt',
 			type	: 'POST',
@@ -84,18 +83,17 @@ $(function() {
 				content		:	JSON.stringify(details)
 			},
 			success: function(msg){
-				console.log(msg);
+				//console.log(msg);
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 				$('#welcome').closeModal();
 			},
 			error: function(msg){
-				console.log(msg);
+				//console.log(msg);
 				console.log(JSON.parse(msg));
 				$('#welcome a.submit').html('Submit').removeAttr('disabled');
 				$('#welcome').closeModal();
 			}
 		})
-		*/
 	});
 });
