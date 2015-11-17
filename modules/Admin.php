@@ -163,6 +163,38 @@ class Admin{
 		Sqle::deleteVal("caller_call",array("st_id"=>$data["id"]));
 		return array("ec"=>1,"data"=>0);
 	}
+	function thingsa_delete_info($data){
+		Sqle::deleteVal("thingsa_details",array("id"=>$data["id"]));
+		Sqle::deleteVal("thingsa_hisdetails",array("td_id"=>$data["id"]));
+		return array("ec"=>1,"data"=>0);
+	}
+
+	function thingsainfo($data) {
+		$insertarray = Fun::getflds(array("category", "details", "responsibility", "due_date"),$data);
+		$insertarray['created_at'] = time();
+		$insertarray['updated_at'] = time();
+		$odata=Sqle::insertVal("thingsa_details",$insertarray);
+		$callerarray = Fun::getflds(array("status","comments"),$data);
+		$callerarray['td_id'] = $odata;
+		$callerarray['created_at'] = time();
+		$odata = Sqle::insertVal("thingsa_hisdetails",$callerarray);
+		return array("ec"=>1,"data"=>0);
+		
+	}
+	function thingseinfo($data) {
+		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
+		$insertarray['created_at'] = time();
+		$odata=Sqle::insertVal("thingse_details",$insertarray);
+		return array("ec"=>1,"data"=>0);
+		
+	}
+	function thingsahisdetails($data){
+		$tahisarray = Fun::getflds(array("td_id","status","comments"),$data);
+		$tahisarray['created_at'] = time();
+		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
+		return array("ec"=>1,"data"=>0);		
+	}
+
 /*.......*/	
 }
 ?>
