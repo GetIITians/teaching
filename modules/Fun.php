@@ -187,7 +187,7 @@ abstract class Fun{
 		$temp=DateTime::createFromFormat('d F, Y',$date);
 		return strtotime($temp->format("M d Y h:i a"));
 	}
-
+	
 	public static function timetotime($time){
 		return date("h:i a",$time);
 	}
@@ -755,8 +755,10 @@ abstract class Fun{
 	}
 
 	public static function getstatuscolor($status,$col)
-	{
-		return "Yellow";
+	{   
+		if($col=='td'){
+			$color = "Yellow";
+		}
 	} 		
 /*...........*/
 }
