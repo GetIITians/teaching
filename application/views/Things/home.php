@@ -7,7 +7,7 @@ load_view("popup.php",array("name"=>"editthingspopup", "title" => "Edit Details"
 <div id="thingse_regform" data-action="thingse_regiform">
   <?php handle_disp(array(),"thingse_regiform"); ?>
 </div>
-<div class="container-fluid" id="main_container">
+<div class="container" id="main_container">
   <div class="row">
   <div class="col-sm-2" style="margin-top:10px">
   <button class="btn" onclick='mohit.popup("addthingsapopup")'>Add Things To do</button> 
