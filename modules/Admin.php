@@ -170,7 +170,8 @@ class Admin{
 	}
 
 	function thingsainfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility", "due_date"),$data);
+		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray['due_date'] = strtotime($data['due_date']);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
 		$odata=Sqle::insertVal("thingsa_details",$insertarray);

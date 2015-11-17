@@ -16,7 +16,7 @@ $pagin_limit = 100;
         <td>Due date</td>
         <td>Last Status</td>
         <td style="width:25%">Last Comment</td> 
-       <td style="width:5%">Comment Date</td>
+       <td style="width:8%">Comment Date</td>
         <th >View </th>
         <th >Edit </th>
         <th >Delete </th>
@@ -32,10 +32,10 @@ foreach($data as $key=>$row) { ?>
  	 	<td><?php echo $row['category']; ?></td>
     <td><?php echo $row['details']; ?></td>
     <td><?php echo $row['responsibility']; ?></td>
-    <td><?php echo $row['due_date']; ?></td>
-    <td ><?php echo $row['status']; ?></td>
+    <td><?php if(!empty($row['due_date'])) echo date("d-M-Y",$row['due_date']); ?></td>
+    <td style="background:<?php echo Fun::getstatuscolor($row['status'],'td') ?>"><?php echo $row['status']; ?></td>
     <td><?php echo $row['comments']; ?></td>
-    <td><?php if(!empty($row['comment_date'])) echo date("d/m/y",$row['comment_date']); ?></td>
+    <td><?php if(!empty($row['comment_date'])) echo date("d-M-Y",$row['comment_date']); ?></td>
 
     <td><a href="<?php echo HOST.'things/view/'.$row['id']; ?>" >View</a></td>
     <?php $popupdata = json_encode($row) ?>

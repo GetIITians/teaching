@@ -34,7 +34,7 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Responsibility</option>
         <?php endif; ?>
-        <option value="Money Transaction">Himanshu Jain</option>
+        <option value="Himanshu Jain">Himanshu Jain</option>
         <option value="Ashish Anand">Ashish Anand</option>
         <option value="Narayan">Narayan</option>
         <option value="Yogesh Saini">Yogesh Saini</option>
@@ -43,7 +43,7 @@
         </select>
     </div>
     <div class=" col-xs-12 col-md-6">
-           <input type="text" class="browser-default" name="due_date" placeholder="Due Date" >
+           <input type="date" class="browser-default" name="due_date" placeholder="Due Date" >
       </div>
   </div>
   <div class="row">
