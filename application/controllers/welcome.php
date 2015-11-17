@@ -874,28 +874,24 @@ class Welcome extends CI_Controller {
 		$t_id++;
 	}
 	}
-	public function test() { 
-	 	$arr = array("action"=> "callerinfo",
-"address"=> "",
-"board"=> "",
-"caller_name"=> "",
-"caller_rel"=> "",
-"class"=> "",
-"comments"=> "",
-"demo_id"=>"0",
-"email"=> "",
-"fees"=> "",
-"home_tution"=> "false",
-"id"=>"",
-"name"=> "",
-"online_tution"=> "false",
-"phone"=>"",
-"source"=> "",
-"subject"=> "",
-"teacher_id"=> "0",
-);
-
-		handle_request($arr); 
+	public function test() {
+		$dp = $this->db
+			->select('profilepic,id')
+			->from('users')
+			->where('type', 't')
+			->where('gender', 'm')
+			->where('profilepic !=', 'images/male.png')
+			->where('profilepic !=', 'images/female.png')
+			->get()
+			->result_array();
+		foreach ($dp as $dparray) {
+			if(!file_exists($dparray['profilepic']))
+			{
+				$this->db->set('profilepic', 'images/male.png');
+				$this->db->where('id', $dparray['id']);
+				$this->db->update('users');
+			}
+		}
 	}
 
 

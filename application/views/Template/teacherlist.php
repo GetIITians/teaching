@@ -76,7 +76,7 @@ foreach ($qresult as $row) {
             $degree = convert_degree($joinus_data->{'degree'});
             ?>
             <div class="card-image waves-effect waves-block waves-light">
-                <!-- <img class="activator" src="<?php // echo $row["profilepic"]; ?>"> -->
+                <img class="activator" src="<?php echo $row["profilepic"]; ?>">
                 <p class="grey-text text-darken-1"><?php echo $row["teachermoto"]; ?></p>
             </div>
             <div class="card-content">
