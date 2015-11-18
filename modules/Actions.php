@@ -162,6 +162,14 @@ class Actions {
 			$outp["ec"]=-16;
 		return $outp;
 	}
+	function thingseinfo($data) {
+		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
+		$insertarray['created_at'] = time();
+		$odata=Sqle::insertVal("thingse_details",$insertarray);
+		return array("ec"=>1,"data"=>0);
+		
+	}
+
 /* .......*/
 }
 ?>

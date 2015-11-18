@@ -84,7 +84,8 @@ class Admin{
 			if($data['demo_id']!=0){
 				$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
 				Fun::msgfromfile('9250303639' ,"caller_dir/mail/demo_msg_admin.txt", $details);
-				Fun::msgfromfile('7838451002' ,"caller_dir/mail/demo_msg_admin.txt", $details);
+				Fun::msgfromfile('9650938273' ,"caller_dir/mail/demo_msg_admin.txt", $details);
+				Fun::msgfromfile('8447731863' ,"caller_dir/mail/demo_msg_admin.txt", $details);
 			}
 		return array("ec"=>1,"data"=>0);
 
@@ -170,7 +171,7 @@ class Admin{
 	}
 
 	function thingsainfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
 		$insertarray['due_date'] = strtotime($data['due_date']);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
@@ -182,18 +183,19 @@ class Admin{
 		return array("ec"=>1,"data"=>0);
 		
 	}
-	function thingseinfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
-		$insertarray['created_at'] = time();
-		$odata=Sqle::insertVal("thingse_details",$insertarray);
-		return array("ec"=>1,"data"=>0);
-		
-	}
 	function thingsahisdetails($data){
 		$tahisarray = Fun::getflds(array("td_id","status","comments"),$data);
 		$tahisarray['created_at'] = time();
 		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
 		return array("ec"=>1,"data"=>0);		
+	}
+	
+	function editthingsainfo($data){
+		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray['due_date'] = strtotime($data['due_date']);
+		$insertarray['updated_at'] = time();
+		Sqle::updateVal("thingsa_details",$insertarray,array("id"=>$data['id']));
+		return array("ec"=>1,"data"=>0);
 	}
 
 /*.......*/	

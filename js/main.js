@@ -164,6 +164,13 @@ var yogy ={
 		$("#"+"editcollerpopupPopupbody").html(d);
 	});	
 	},
+	edit_thingsainfo:function(obj){ 
+	mohit.popup("editthingsapopup",{"body":"<img src='photo/icons/loading.gif' />"});
+	button.sendreq_v2_t4(obj,null,function(d){
+		$("#"+"editthingsapopupPopupbody").html(d);
+	});	
+	},
+
 	confirm:function(obj){	
 		if(!obj.hasAttribute('data-delname'))
 			obj.setAttribute('data-delname','');
@@ -400,6 +407,14 @@ function searchform(){
 }
 function callersearch(){
 	var leftform=readform($("#callersearch"));
+	return leftform;	
+}
+function thingsasearch(){ 
+	var leftform=readform($("#thingsasearch"));
+	return leftform;	
+}
+function thingsesearch(){ 
+	var leftform=readform($("#thingsesearch"));
 	return leftform;	
 }
 $(document).ready(function(){

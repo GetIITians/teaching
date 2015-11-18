@@ -350,7 +350,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		load_view("popup.php",array("name"=>"addthingsapopup", "title" => "Add Things To Do","body" =>"Things/addthingsa.php","bodyinfo" => array("thingsa_details" => array("id"=>"","action"=>"thingsainfo","popup_close"=>"addthingsapopup","category"=>"","details"=>"","responsibility"=>"","due_date"=>"","status"=>"","comment"=>"")))); 
+		load_view("popup.php",array("name"=>"addthingsapopup", "title" => "Add Things To Do","body" =>"Things/addthingsa.php","bodyinfo" => array("thingsa_details" => array("id"=>"","action"=>"thingsainfo","popup_close"=>"addthingsapopup","category"=>"","details"=>"","responsibility"=>"","due_date"=>date('Y-m-d'),"status"=>"","comment"=>"")))); 
 	}
 
 	function thingse_regiform($data, $printjson = true){
@@ -364,7 +364,7 @@ class Actiondisp {
 
 	function thingsatbl($data,$printjson = true ){
 		$data = Fun::setifunset($data,"orderby",0);
-		$arr = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id ORDER BY thingsa_details.created_at desc" );
+		$arr = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id  ORDER BY ".Fun::thingsa_orderby($data['orderby']));
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 
@@ -379,7 +379,7 @@ class Actiondisp {
 	}
 	function thingsetbl($data,$printjson = true ){
 		$data = Fun::setifunset($data,"orderby",0);
-		$arr = Sqle::getA("SELECT * FROM thingse_details  ORDER BY created_at desc" );
+		$arr = Sqle::getA("SELECT * FROM thingse_details  ORDER BY " .Fun::thingse_orderby($data['orderby']));
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 
@@ -413,6 +413,21 @@ class Actiondisp {
 		load_view("Things/thingsa_hisdetail.php",array("thingsa_hisdetail"=>$arr));
 	}
 
+	function thingsa_editpopup($data, $printjson = true) {
+		$thingsa_details = array();
+		foreach (json_decode($data['thingsa']) as $key => $value) {
+			$thingsa_details[$key] = $value;
+		}
+		$thingsa_details['due_date'] = date('Y-m-d',$thingsa_details['due_date']);
+		$thingsa_details['action'] = 'editthingsainfo';
+		$thingsa_details['popup_close'] = 'editthingsapopup';
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("THings/addthingsa.php", array("thingsa_details" =>$thingsa_details));
+	}
 /*  ........   */	
 
 }

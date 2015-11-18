@@ -2,11 +2,12 @@
   <input type="hidden" name="id" value="<?php echo $thingsa_details['id'] ?>">
   <div class="row">
     <div class="col-xs-12 col-md-6">
+           <label>Category</label>
            <select  class="browser-default" name="category" >
         <?php if(!empty($thingsa_details['category'])): ?>
             <option value="<?php echo $thingsa_details['category']; ?>"selected><?php echo $thingsa_details['category']; ?></option>  
           <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Category</option>
+        <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
         <option value="Money Transaction">Money Transaction</option>
         <option value="Student">Student</option>
@@ -23,16 +24,18 @@
         </select>
     </div>
     <div class="col-xs-12 col-md-6">
-      <input type="text" name="details"  placeholder="Details" value="<?php echo $thingsa_details['details']; ?>">
+       <label>Details</label>
+      <input type="text" name="details" value="<?php echo $thingsa_details['details']; ?>">
     </div> 
   </div>
   <div class="row">
     <div class=" col-xs-12 col-md-6">
+           <label>Responsibility</label>
            <select  class="browser-default" name="responsibility" >
         <?php if(!empty($thingsa_details['responsibility'])): ?>
             <option value="<?php echo $thingsa_details['responsibility']; ?>"selected><?php echo $thingsa_details['responsibility']; ?></option>  
           <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Responsibility</option>
+        <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
         <option value="Himanshu Jain">Himanshu Jain</option>
         <option value="Ashish Anand">Ashish Anand</option>
@@ -43,27 +46,32 @@
         </select>
     </div>
     <div class=" col-xs-12 col-md-6">
-           <input type="date" class="browser-default" name="due_date" placeholder="Due Date" >
+           <label>Due Date</label>
+           <input type="date" class="browser-default" name="due_date" value="<?php if(!empty($thingsa_details['due_date'])) echo $thingsa_details['due_date']; ?>" >
       </div>
   </div>
+  <?php if($thingsa_details['action']!='editthingsainfo'): ?>
   <div class="row">
     <div class="col-xs-12 col-md-6">
+           <label>Status</label>
            <select  class="browser-default" name="status" >
         <?php if(!empty($thingsa_details['status'])): ?>
             <option value="<?php echo $thingsa_details['status']; ?>"selected><?php echo $thingsa_details['status']; ?></option>  
           <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Status</option>
+        <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
-        <option value="Started">Started </option>
+        <option value="Started">Started</option>
         <option value="WIP">WIP</option>
-        <option value="Completed">Completed </option>
+        <option value="Completed">Completed</option>
         </select>
     </div>
         <div class="col-xs-12 col-md-6">
-      <textarea name="comments" placeholder="Comment"><?php echo $thingsa_details['comment']; ?></textarea>
+      <label>Comments</label>
+      <textarea name="comments"><?php echo $thingsa_details['comment']; ?></textarea>
     </div>
 
   </div>
+<?php endif; ?>
   <hr>
   <div class="row">
     <div class="col-xs-12 col-md-6 mt20">
