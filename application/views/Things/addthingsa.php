@@ -60,7 +60,7 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
-        <option value="Started">Started</option>
+        <option value="Allotted">Allotted</option>
         <option value="WIP">WIP</option>
         <option value="Completed">Completed</option>
         </select>
