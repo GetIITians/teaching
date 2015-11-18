@@ -84,7 +84,8 @@ class Admin{
 			if($data['demo_id']!=0){
 				$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
 				Fun::msgfromfile('9250303639' ,"caller_dir/mail/demo_msg_admin.txt", $details);
-				Fun::msgfromfile('7838451002' ,"caller_dir/mail/demo_msg_admin.txt", $details);
+				Fun::msgfromfile('9650938273' ,"caller_dir/mail/demo_msg_admin.txt", $details);
+				Fun::msgfromfile('8447731863' ,"caller_dir/mail/demo_msg_admin.txt", $details);
 			}
 		return array("ec"=>1,"data"=>0);
 
