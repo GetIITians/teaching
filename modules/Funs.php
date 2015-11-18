@@ -343,11 +343,11 @@ abstract class Funs{
 		return $outp;
 	}
 
-	public static function tejpal_output($data){ 
+	public static function tejpal_output($data){
 
 //	$data have keys => {class, subject, topic, price, timer, lang, timeslot, orderby, search}
 //	$hisoutput=array("select tid from teachers",array());
-		$hisoutput = Funs::mssearch($data);
+		$hisoutput = Funs::mssearch($data); 
 		$hisoutput[1]["uid"] = (0+User::loginId());
 		$setorderby=Funs::setorderby($data['orderby']);
 		$hisoutput[0]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name,users.email,users.phone, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;		
@@ -479,17 +479,17 @@ abstract class Funs{
 		
 		$relv_query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where ( s_id in (select id from all_subjects where subjectname=(select subjectname from all_subjects where id='".$params['subject']."'))) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
 		
-		if($params["topicsadded"]==0 && User::isloginas('a')) {
+		if($params["topicsadded"]==0 ) {
 			$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")"; // this query gives results with teachers has  class ,subject ,topic booked or not (all) : Yogy 			
-		} else if($params["topicsadded"]==2 && User::isloginas('a')) {
+		} else if($params["topicsadded"]==2 ) {
 			$query1 = "select distinct tid from teachers where tid NOT IN (select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"]."))"; // this query gives results with teachers has no class ,subject ,topic booked : Yogy	
 		} else {
 			$query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")"; // this query gives results with teachers has class ,subject ,topic booked : Mohit
 		}
 
-		if($params["timeslotbooked"]==0 && User::isloginas('a')) {		
+		if($params["timeslotbooked"]==0 ) {		
 			$query2 = "select distinct tid from teachers where true";  // gives result without time slot booked  
-		} else if($params["timeslotbooked"]==2 && User::isloginas('a')){
+		} else if($params["timeslotbooked"]==2 ){
 			$query2 = "select tid from teachers where tid NOT IN(select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain."))";
 		} else {
 			$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")"; // gives result with time slot booked
