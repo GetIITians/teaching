@@ -740,6 +740,14 @@ abstract class Fun{
 		$orderarr = array("lastcalldetail.demo_id ASC","caller_details.id ASC","caller_details.id DESC","caller_details.name ASC","caller_details.name DESC","users.name ASC","users.name DESC","lastcalldetail.demo_id ASC");
 		return $orderarr[$data];
 	}
+	public static function thingsa_orderby($data){
+		$orderarr = array("thingsa_details.id ASC","thingsa_details.id ASC","thingsa_details.id DESC","thingsa_details.category ASC","thingsa_details.category DESC","thingsa_details.responsibility ASC","thingsa_details.responsibility DESC","thingsa_details.due_date ASC","thingsa_details.due_date DESC");
+		return $orderarr[$data];
+	}
+	public static function thingse_orderby($data){
+		$orderarr = array("thingse_details.id ASC","thingse_details.id ASC","thingse_details.id DESC","thingse_details.category ASC","thingse_details.category DESC","thingse_details.responsibility ASC","thingse_details.responsibility DESC","thingse_details.created_at ASC","thingse_details.created_at DESC");
+		return $orderarr[$data];
+	}
 
 	public static function getdemocons($data){
 		$temp = array();

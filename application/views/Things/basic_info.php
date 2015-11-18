@@ -34,6 +34,7 @@
 			
 		</div>
 </div>
+<?php if(User::isloginas('a')): ?>
 <div class="well">
 	<div class="row">
 	<div class="col-xs-12 col-md-5">
@@ -70,3 +71,4 @@
 	
 </div>
 </div>
+<?php endif;?>

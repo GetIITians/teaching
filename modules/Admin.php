@@ -171,7 +171,7 @@ class Admin{
 	}
 
 	function thingsainfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
 		$insertarray['due_date'] = strtotime($data['due_date']);
 		$insertarray['created_at'] = time();
 		$insertarray['updated_at'] = time();
@@ -183,18 +183,19 @@ class Admin{
 		return array("ec"=>1,"data"=>0);
 		
 	}
-	function thingseinfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
-		$insertarray['created_at'] = time();
-		$odata=Sqle::insertVal("thingse_details",$insertarray);
-		return array("ec"=>1,"data"=>0);
-		
-	}
 	function thingsahisdetails($data){
 		$tahisarray = Fun::getflds(array("td_id","status","comments"),$data);
 		$tahisarray['created_at'] = time();
 		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
 		return array("ec"=>1,"data"=>0);		
+	}
+	
+	function editthingsainfo($data){
+		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray['due_date'] = strtotime($data['due_date']);
+		$insertarray['updated_at'] = time();
+		Sqle::updateVal("thingsa_details",$insertarray,array("id"=>$data['id']));
+		return array("ec"=>1,"data"=>0);
 	}
 
 /*.......*/	

@@ -13,7 +13,7 @@ $pagin_limit = 100;
         <td style="width:15%">Responsibility</td>
         <td style="width:15%">Category</td>
         <td style="width:40%">Details</td>
-       <td style="width:8%">Date</td>
+       <td style="width:12%">Date</td>
         </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@ foreach($data as $key=>$row) { ?>
     <td><?php echo $row['responsibility']; ?></td>
     <td><?php echo $row['category']; ?></td>
     <td><?php echo $row['details']; ?></td>
-    <td><?php if(!empty($row['created_at'])) echo date("d/m/y h:i:s",$row['created_at']); ?></td>
+    <td><?php if(!empty($row['created_at'])) echo date("d-M-y h:i:s",$row['created_at']); ?></td>
 </tr>
  <?php } ?>     
       <tr><td colspan="15">
