@@ -521,6 +521,7 @@
 					$outp["ec"]=1;
 					if($actionarg==null)
 						echo json_encode($outp)."\n";
+					
 					load_view($as_handle["load_view"], array("qresult"=>$as_handle["qresult"]));
 					return;
 				}

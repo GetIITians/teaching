@@ -163,7 +163,7 @@ class Actiondisp {
 
 		load_view('timeslotpopup.php',$pageinfo);
 	}
-	function search($data,$printjson=true){
+	function search($data,$printjson=true){ 
 		global $_ginfo;
 //		$need=array('class', 'subject', 'topic', 'price', 'timer', 'lang', 'timeslot', 'orderby', 'search', 'max', 'maxl');
 		$need=array('class', 'subject', 'topic', 'orderby', 'search', 'max', 'maxl');
@@ -193,7 +193,7 @@ class Actiondisp {
 			/* Narayan Waraich */
 			$ratingBigBox = Funs::ratingBigBox($qoutput['qresult']);
 			$relv_ratingBigBox = Funs::ratingBigBox($relv_qoutput['qresult']);
-
+			
 			$rating_result = array();		
 			if (User::islogin())
 			{
@@ -207,6 +207,7 @@ class Actiondisp {
 		}
 		if($ec<0)
 			return;
+
 		if(!empty($qoutput['qresult'])){  //print_r(count($qoutput['qresult']));
 			load_view("Template/teacherlist.php",array("qresult"=>$qoutput['qresult'],"rating"=>$rating_result,"ratingBigBox"=>$ratingBigBox,"isrelv"=>"0"));
 		} else if(!empty($relv_qoutput['qresult'])) {	
