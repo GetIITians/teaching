@@ -10,11 +10,11 @@ $pagin_limit = 100;
         <td>Category</td>
         <td>Details</td>
         <td>Responsibility</td>
-        <td>Due date</td>
-        <td>Last Status</td>
+        <td style="width:8%">Due date</td>
+        <td style="width:8%">Last Status</td>
         <td style="width:25%">Last Comment</td> 
        <td style="width:8%">Comment Date</td>
-        <th>View </th>
+        <th>View</th>
 <?php if(User::isloginas('a')): ?>
         <th>Edit </th>
         <th>Delete </th>
@@ -24,9 +24,10 @@ $pagin_limit = 100;
     <tbody>
 <?php  
 $data = getpaginval($thingsa_info,$pagval,$pagin_limit);
-
-foreach($data as $key=>$row) { ?>      
-    <tr>
+foreach($data as $key=>$row) { 
+ $row['status']=Fun::getcomfortstatus($row['status'],$row['due_date']);
+  ?>      
+    <tr >
  	 	<td><?php echo $row['id']; ?></td>
  	 	<td><?php echo $row['category']; ?></td>
     <td><?php echo $row['details']; ?></td>

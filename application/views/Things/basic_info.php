@@ -1,40 +1,36 @@
- <div class="well mt10">
-<div class="row">
-			<div class="col-sm-12">
-				<h4>Things Details:</h4>
-				 	<div class="row">
-					 	<div class="col-sm-2">
-					 		Category :
-					 	</div>
-					 	<div class="col-sm-1">
-					 		<?php echo $thingsa_info['category']; ?>
-					 	</div>
-					 	<div class="col-sm-2">
-					 		Responsibility :
-					 	</div>
-					 	<div class="col-sm-1">
-					 		<?php echo $thingsa_info['responsibility']; ?>
-					 	</div>
-					 	<div class="col-sm-2">
-					 		Due date :
-					 	</div>
-					 	<div class="col-sm-1">
-					 		<?php echo $thingsa_info['due_date']; ?>
-					 	</div>
-					</div>
-					<div class="row">
-					 	<div class="col-sm-2">
-					 		Details :
-					 	</div>
-					 	<div class="col-sm-1">
-					 		<?php echo $thingsa_info['details']; ?>
-					 	</div>
-					</div>
+<?php $thingsa_info['status'] = Fun::getcomfortstatus($thingsa_info['status'],$thingsa_info['due_date']); ?>
+<div class="well mt10">
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Details:</h4>
+			<div class="row">
+			 	<div class="col-sm-3">
+			 		Category :
+			 		<?php echo $thingsa_info['category']; ?>
+				</div>
+			 	<div class="col-sm-3">
+			 		Responsibility :
+			 		<?php echo $thingsa_info['responsibility']; ?>
+				</div>
+			 	<div class="col-sm-3">
+			 		Due date :
+			 		<?php if(!empty($thingsa_info['due_date'])) echo date("d-M-Y",$thingsa_info['due_date']);  ?>
+				</div>
+				<div class="col-sm-3" style="background:<?php echo Fun::getstatuscolor($thingsa_info['status']) ?>">
+					Status : <?php 	echo $thingsa_info['status']; ?>
+				</div>
 			</div>
-			
+			<div class="row">
+			 	<div class="col-sm-12">
+			 		Details :
+			 		<?php echo $thingsa_info['details']; ?>
+			 	</div>
+			</div>
 		</div>
+	</div>
+	
 </div>
-<?php if(User::isloginas('a')): ?>
+<?php if(User::isloginas('a') && $thingsa_info['due_date']>time()-(24*3600)): ?>
 <div class="well">
 	<div class="row">
 	<div class="col-xs-12 col-md-5">
@@ -55,7 +51,7 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Status</option>
         <?php endif; ?>
-        <option value="Started">Started </option>
+        <option value="Allotted">Allotted</option>
         <option value="WIP">WIP</option>
         <option value="Completed">Completed </option>
         </select>
