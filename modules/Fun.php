@@ -762,11 +762,24 @@ abstract class Fun{
 		return implode(" OR ",$temp);	
 	}
 
-	public static function getstatuscolor($status,$col)
-	{   
-		if($col=='td'){
-			$color = "Yellow";
+	public static function getstatuscolor($status,$col='')
+	{   $colorarr = array(""=>"none","Allotted"=>"Yellow","WIP"=>"#00CCFF","Completed"=>"Green","Delayed"=>"Red");
+		 if($col =='tr'){
+		 	if($status == "Delayed")	
+				return $colorarr[$status];
 		}
+		else 
+			return $colorarr[$status];
+	}
+
+	public static function getcomfortstatus($status,$due_date){
+		if($status=="Completed")
+			return $status;
+		else if($due_date<time()-(24*3600))
+			return "Delayed";
+		else 
+			return $status;	 
+
 	} 		
 /*...........*/
 }
