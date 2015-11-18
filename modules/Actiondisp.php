@@ -426,7 +426,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		load_view("THings/addthingsa.php", array("thingsa_details" =>$thingsa_details));
+		load_view("Things/addthingsa.php", array("thingsa_details" =>$thingsa_details));
 	}
 /*  ........   */	
 
