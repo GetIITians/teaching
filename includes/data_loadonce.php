@@ -51,5 +51,6 @@ $_ginfo["query"]["takendemo"] = "select teachers.tid, (donefreedemo.uid is not n
 $_ginfo["query"]["teachersubjectlist"]="select teachers.tid,subjectlist.* from teachers left join (select subjects.id,subjects.tid as otid,subjects.c_id,subjects.s_id,subjects.t_id,subjects.timer,subjects.price, all_classes.classname, all_subjects.subjectname, all_topics.topicname from subjects left join all_classes on all_classes.id = subjects.c_id left join all_subjects on all_subjects.id = subjects.s_id left join all_topics on all_topics.id = subjects.t_id) subjectlist on teachers.tid=subjectlist.otid";
 $_ginfo["query"]["avlsolts"]="select tid,count(starttime) as ttl_avlsolts from timeslot where starttime>".time()." and sid is null group by tid";
 $_ginfo["query"]["tteachtime"]="select tid,sum(duration) as teachduration from booked where starttime<".time()." group by tid";
-
+$_ginfo["query"]["lastcalldetail"] = "select caller_call.st_id, caller_call.teacher_id,caller_call.comments,caller_call.created_at as caller_date ,caller_demo.name as demo ,caller_demo.id as demo_id FROM caller_call INNER JOIN (SELECT MAX(created_at) as lasttime FROM `caller_call` GROUP BY st_id) maxval ON caller_call.created_at=maxval.lasttime LEFT JOIN caller_demo ON caller_call.demo_id = caller_demo.id";
+$_ginfo["query"]["caller_st_number"] = "select count(st_id) as caller_st_num,teacher_id from ".qtable('lastcalldetail')." group by teacher_id";
 ?>

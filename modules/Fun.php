@@ -762,6 +762,13 @@ abstract class Fun{
 		return implode(" OR ",$temp);	
 	}
 
+	public static function getteachercons($t_id){
+		if(!empty($t_id) && is_numeric($t_id) && $t_id!=0)
+			return "lastcalldetail.teacher_id = ".$t_id;
+		else
+			return true;
+	}
+
 	public static function getstatuscolor($status,$col='')
 	{   $colorarr = array(""=>"none","Allotted"=>"Yellow","WIP"=>"#00CCFF","Completed"=>"#66CD00","Delayed"=>"#FF0000");
 		 if($col =='tr'){
