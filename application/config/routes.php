@@ -40,7 +40,7 @@
 $route['things/view']			=	"things/view";
 $route['things/:num']				=	"things";
 $route['caller/view']			=	"caller/view";
-$route['caller/:num']				=	"caller";
+$route['caller/:num']			=   "caller";
 $route['downloadteachers']		=	"welcome/downloadteachers";
 $route['forum']					=	"Forum";	
 $route['downloads/:any'] 		=	"Downloads/view";

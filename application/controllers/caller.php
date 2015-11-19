@@ -12,17 +12,15 @@ class caller extends CI_Controller
 		$this->unauthenticatepage = "Template/unauthenticatepage";
 	}
 
-	function index()
-	{
-		$data["view_data"] = "";
+	function index($t_id=Null)
+	{   $data["view_data"] = "";
 		if(User::isloginas('a')){
 		$data["view_name"] = "Caller/home";
-		$this->load->view($this->tempname,$data);
+		$data["view_data"]['t_id'] = $t_id;
 		}	
-		else{
+		else
 			$data["view_name"] = $this->unauthenticatepage; 
-			$this->load->view($this->tempname,$data);
-		}
+		$this->load->view($this->tempname,$data);
 	}
 
 	function view($id)
@@ -31,11 +29,9 @@ class caller extends CI_Controller
 		$data["view_name"] = "Caller/single_view";
 		$this->db->where(array("id"=>$id));
 		$data["view_data"]["caller_info"] =  $this->db->get("caller_details")->result_array()[0];
-		$this->load->view($this->tempname,$data);	
 		}	
-		else{
+		else
 			$data["view_name"] = $this->unauthenticatepage; 
-			$this->load->view($this->tempname,$data);
-		}
+		$this->load->view($this->tempname,$data);
 	}
 }

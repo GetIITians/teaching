@@ -80,7 +80,10 @@ foreach ($qresult as $row) {
                 <p class="grey-text text-darken-1"><?php echo $row["teachermoto"]; ?></p>
             </div>
             <div class="card-content">
-                <p class="card-title activator"><?php echo $name; ?></p>
+                <p class="card-title activator"><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): echo $name;?> 
+                <a href="#"><?php echo ' ('.$row['caller_st_num'].')'; ?></a>
+            <?php else : echo $name; endif; ?></p>
+                
                 <?php /*
 			<p class="grey-text text-darken-2">
 				Subjects
@@ -125,7 +128,9 @@ foreach ($qresult as $row) {
                     ?>
                     <a href="<?php echo $profilelink; ?>">
                         <?php echo $name; ?>
-                    </a>
+                    </a><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): ?> 
+                <a href="<?php echo HOST.'caller/index/'.$row['tid'] ?>"><?php echo ' ('.$row['caller_st_num'].')'; ?></a>
+            <?php endif; ?>
                 </p>
 
                 <p class="grey-text text-darken-2">

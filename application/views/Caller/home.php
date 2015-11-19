@@ -5,12 +5,13 @@ load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details"
 <div id="caller_regform" data-action="caller_regiform">
   <?php handle_disp(array(),"caller_regiform"); ?>
 </div>
-<div class="container-fluid" id="main_container">
+<div class="container" id="main_container">
   <div class="row">
   <div class="col-sm-2" style="margin-top:10px">
   <button class="btn" onclick='mohit.popup("addcollerpopup")'>Add New Entry</button> 
   </div>
   <form method="post" id="callersearch" >
+  <input type="hidden" name="t_id" value="<?php echo $t_id ?>">
   <div class="col-sm-2.5" style="margin-top:10px;float:right" >
     <select  class="browser-default" name="orderby" onchange="yogy.caller_search()" >
     <option value="0" selected disabled>Filter By</option>
@@ -81,7 +82,7 @@ load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details"
   </div>
   <div class="row" style="margin-top:10px" id="callertlb" data-action="callertbl" data-eparams='callersearch()'>
   	<?php
-   		handle_disp(array(), "callertbl");
+   		handle_disp(array("t_id"=>$t_id), "callertbl");
    	?>
   </div>
 </div>
