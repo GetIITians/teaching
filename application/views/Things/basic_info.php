@@ -30,7 +30,7 @@
 	</div>
 	
 </div>
-<?php if(User::isloginas('a') && $thingsa_info['due_date']>time()-(24*3600)): ?>
+<?php if(User::isloginas('a')): ?>
 <div class="well">
 	<div class="row">
 	<div class="col-xs-12 col-md-5">
