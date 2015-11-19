@@ -50,7 +50,9 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Status</option>
         <?php endif; ?>
+<?php if(User::isloginas('a')): ?>
         <option value="Allotted">Allotted</option>
+<?php endif;?>
         <option value="WIP">WIP</option>
         <option value="Completed">Completed </option>
         </select>
