@@ -1,0 +1,13 @@
+{
+    "name": "getiitians/teaching",
+    "description": "getiitians code",
+    "authors": [
+        {
+            "name": "Yogy",
+            "email": "ysaini75@gmail.com"
+        }
+    ],
+    "require": {
+        "whatsapp/chat-api": "v2.5.5.4"
+    }
+}
