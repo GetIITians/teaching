@@ -763,7 +763,7 @@ abstract class Fun{
 	}
 
 	public static function getstatuscolor($status,$col='')
-	{   $colorarr = array(""=>"none","Allotted"=>"Yellow","WIP"=>"#00CCFF","Completed"=>"Green","Delayed"=>"Red");
+	{   $colorarr = array(""=>"none","Allotted"=>"Yellow","WIP"=>"#00CCFF","Completed"=>"#66CD00","Delayed"=>"#FF0000");
 		 if($col =='tr'){
 		 	if($status == "Delayed")	
 				return $colorarr[$status];

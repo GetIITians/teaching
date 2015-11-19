@@ -9,7 +9,7 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
-        <option value="Money Transaction">Money Transaction</option>
+        <option value="Money transaction">Money transaction</option>
         <option value="Student">Student</option>
         <option value="Teacher">Teacher</option>
         <option value="Planning">Planning</option>
