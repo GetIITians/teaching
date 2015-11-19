@@ -875,23 +875,13 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() {
-		$dp = $this->db
-			->select('profilepic,id')
-			->from('users')
-			->where('type', 't')
-			->where('gender', 'm')
-			->where('profilepic !=', 'images/male.png')
-			->where('profilepic !=', 'images/female.png')
-			->get()
-			->result_array();
-		foreach ($dp as $dparray) {
-			if(!file_exists($dparray['profilepic']))
-			{
-				$this->db->set('profilepic', 'images/male.png');
-				$this->db->where('id', $dparray['id']);
-				$this->db->update('users');
-			}
-		}
+		
+		$arr = array("action"=> "thingsahisdetails",
+		"category"=> "Student",
+		"td_id"=>"12",
+		"status"=> "Allotted");
+		handle_request($arr);
+
 	}
 
 
