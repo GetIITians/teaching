@@ -180,13 +180,22 @@ class Admin{
 		$callerarray['td_id'] = $odata;
 		$callerarray['created_at'] = time();
 		$odata = Sqle::insertVal("thingsa_hisdetails",$callerarray);
-		return array("ec"=>1,"data"=>0);
 		
+		if(Fun::getuserno($insertarray["responsibility"]) && $data['status'] == "Allotted"){
+			$insertarray['due_date'] = date('d-M-Y',$insertarray['due_date']);
+			Fun::msgfromfile(Fun::getuserno($insertarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $insertarray);
+		}
+		return array("ec"=>1,"data"=>0);
 	}
 	function thingsahisdetails($data){
 		$tahisarray = Fun::getflds(array("td_id","status","comments"),$data);
 		$tahisarray['created_at'] = time();
 		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
+		$getarray = Sqle::getA("Select * from thingsa_details where id =".$data['td_id'])[0];
+		if(Fun::getuserno($getarray["responsibility"]) && $data['status'] == "Allotted"){
+			$getarray['due_date'] = date('d-M-Y',$getarray['due_date']);
+			Fun::msgfromfile(Fun::getuserno($getarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $getarray);
+		}
 		return array("ec"=>1,"data"=>0);		
 	}
 	

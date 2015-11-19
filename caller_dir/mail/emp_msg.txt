@@ -1,0 +1,6 @@
+Hey {responsibility} new work allotted to you.
+Category: {category}.
+Details: {details}.
+Due date: {due_date}.
+
+ 
