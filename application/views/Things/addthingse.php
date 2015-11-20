@@ -2,11 +2,12 @@
   <input type="hidden" name="id" value="<?php echo $thingse_details['id'] ?>">
   <div class="row">
     <div class="col-xs-12 col-md-6">
+           <label>Category</label>
            <select  class="browser-default" name="category" >
         <?php if(!empty($thingse_details['category'])): ?>
             <option value="<?php echo $thingse_details['category']; ?>"selected><?php echo $thingse_details['category']; ?></option>  
           <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Category</option>
+        <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
         <option value="Money transaction">Money transaction</option>
         <option value="Student">Student</option>
@@ -23,16 +24,18 @@
         </select>
     </div>
     <div class="col-xs-12 col-md-6">
-      <textarea name="details"  placeholder="Details"><?php echo $thingse_details['details']; ?></textarea>
+       <label>Details</label>
+      <textarea name="details"  placeholder="Write Ex. work1,,work2,,work3 etc."><?php echo $thingse_details['details']; ?></textarea>
     </div> 
   </div>
   <div class="row">
     <div class=" col-xs-12 col-md-6">
+            <label>Responsibility</label>
            <select  class="browser-default" name="responsibility" >
         <?php if(!empty($thingse_details['responsibility'])): ?>
             <option value="<?php echo $thingse_details['responsibility']; ?>"selected><?php echo $thingse_details['responsibility']; ?></option>  
           <?php else: ?>
-        <option value="" disabled="disabled" selected="selected">Responsibility</option>
+        <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
         <option value="Himanshu Jain">Himanshu Jain</option>
         <option value="Ashish Anand">Ashish Anand</option>

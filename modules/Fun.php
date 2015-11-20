@@ -804,7 +804,21 @@ abstract class Fun{
 	 	return "things".$tabc."_details.responsibility = '".$responsibility."'";
 	 else
 	 	return true;
-	}		
+	}	
+
+	public static function getthingfrmt($works){
+		$temp =array();
+		$arr = explode(",,",$works);
+		for($i=0;$i<count($arr);$i++){
+			if($i==0)
+				$temp[$i] = "<ol><li>".$arr[$i]."</li>";
+			else 
+				$temp[$i] = "<li>".$arr[$i]."</li>";
+			if($i==count($arr)-1)
+				$temp[$i] = $temp[$i]."</ol>";
+		}
+		return implode("", $temp);
+	}	
 /*...........*/
 }
 ?>

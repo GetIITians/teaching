@@ -163,7 +163,8 @@ class Actions {
 		return $outp;
 	}
 	function thingseinfo($data) {
-		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
+		$insertarray = Fun::getflds(array("category", "responsibility",),$data);
+		$insertarray["details"] = Fun::getthingfrmt($data['details']);
 		$insertarray['created_at'] = time();
 		$odata=Sqle::insertVal("thingse_details",$insertarray);
 		$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
