@@ -164,10 +164,11 @@ class Actions {
 	}
 	function thingseinfo($data) {
 		$insertarray = Fun::getflds(array("category", "responsibility",),$data);
-		$insertarray["details"] = Fun::getthingfrmt($data['details']);
+		$insertarray["details"] = Fun::getthingfrmt($data['details'],'w');
 		$insertarray['created_at'] = time();
 		$odata=Sqle::insertVal("thingse_details",$insertarray);
 		$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
+		$insertarray["details"] = Fun::getthingfrmt($data['details'],'m');
 		Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/thingsdone_admin.txt", $insertarray);
 		return array("ec"=>1,"data"=>0);
 		
