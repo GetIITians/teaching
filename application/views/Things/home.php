@@ -63,10 +63,11 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
     <button class="btn" onclick='mohit.popup("addthingsepopup")'>Add Things Done</button> 
   </div>
   
-  <div class="col-sm-2.5" style="float:right;" >
      <form method="post" id="thingsesearch" class="mb0">
+  <div class="col-sm-2.5" style="float:right;" >
+   <label>Filter by</label>
     <select  class="browser-default" name="orderby" onchange="div.reload($('#thingsetbl')[0]);" >
-    <option value="0" selected disabled>Filter By</option>
+    <option value="0" selected disabled>Select</option>
       <option value="1">ID (Low to High)</option>
       <option value="2">ID (High to Low)</option>
       <option value="3">Category (A to Z)</option>
@@ -76,12 +77,25 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
       <option value="7">Date (Low to High)</option>
       <option value="8">Date (High to Low)</option>
     </select>
-  </form>
   </div>
+  <div class="col-sm-2.5" style="float:right;" >
+    <label>Responsibility</label>
+    <select  class="browser-default" name="viewbyres" onchange="div.reload($('#thingsetbl')[0]);" >
+    <option value="" selected disabled>Select</option>
+      <option value="">All</option>
+      <option value="Himanshu Jain">Himanshu Jain</option>
+      <option value="Ashish Anand">Ashish Anand</option>
+      <option value="Narayan">Narayan</option>
+      <option value="Yogesh Saini">Yogesh Saini</option>
+      <option value="Yogendra">Yogendra</option>
+      <option value="Anupriya Jain">Anupriya Jain</option>
+    </select>
+  </div>
+  </form>
   </div>
     <div class="row" id="thingsetbl" data-action="thingsetbl" data-eparams='thingsesearch()'>  
     <?php
-      handle_disp(array(), "thingsetbl");
+      handle_disp(array("orderby"=>0,"viewbyres"=>""), "thingsetbl");
     ?>
     </div>
     </div>
