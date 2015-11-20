@@ -33,65 +33,24 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
       <option value="8">Due Date (High to Low)</option>
     </select>
   </div>
-  <div class="col-sm-4 mt2" style="float:right;">
-    <div class="row">
-      <div class="col-sm-5" style="float:right"> 
-      <label>View by</label>
-      <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#demo" >Responsibility</button>
-      </div>
-    </div>
-  <div class="row mt10"  style="position: absolute;background:white">
-    <div id="demo" class="col-sm-12 collapse">
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_all" name="demo0" onchange="yogy.caller_search()" />
-              <label for="demo_all">All</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_open" name="demo1" onchange="yogy.caller_search()" />
-              <label for="demo_open">Open</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_assigned" name="demo2" onchange="yogy.caller_search()" />
-              <label for="demo_assigned">Assigned</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_scheduled" name="demo3" onchange="yogy.caller_search()" />
-              <label for="demo_scheduled">Scheduled</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_done" name="demo4" onchange="yogy.caller_search()" />
-              <label for="demo_done">Done</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_accepted" name="demo5" onchange="yogy.caller_search()" />
-              <label for="demo_accepted">Accepted</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_rejected" name="demo6" onchange="yogy.caller_search()" />
-              <label for="demo_rejected">Rejected</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_closed" name="demo7" onchange="yogy.caller_search()" />
-              <label for="demo_closed">Close</label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="filled-in" id="demo_student" name="demo8" onchange="yogy.caller_search()" />
-              <label for="demo_student">Student</label>
-            </div>
-          </div>
-      </div>
-  </div>
+  <div class="col-sm-2.5" style="float:right;" >
+    <label>Responsibility</label>
+    <select  class="browser-default" name="viewbyres" onchange="div.reload($('#thingsatbl')[0]);" >
+    <option value="" selected disabled>Select</option>
+      <option value="">All</option>
+      <option value="Himanshu Jain">Himanshu Jain</option>
+      <option value="Ashish Anand">Ashish Anand</option>
+      <option value="Narayan">Narayan</option>
+      <option value="Yogesh Saini">Yogesh Saini</option>
+      <option value="Yogendra">Yogendra</option>
+      <option value="Anupriya Jain">Anupriya Jain</option>
+    </select>
   </div>
   </form>
   </div>
      <div class="row" id="thingsatbl" data-action="thingsatbl" data-eparams='thingsasearch()'>
      <?php
-      handle_disp(array(), "thingsatbl");
+      handle_disp(array("orderby"=>0,"viewbyres"=>""), "thingsatbl");
     ?>
     </div>
     </div>

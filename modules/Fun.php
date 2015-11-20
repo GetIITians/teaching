@@ -798,7 +798,13 @@ abstract class Fun{
 	}
 	public static function getfname($name){
 		return explode(" ", $name)[0];
-	} 		
+	} 
+	public static function getthingsarescons($responsibility){
+	 if(!empty($responsibility))
+	 	return "thingsa_details.responsibility = '".$responsibility."'";
+	 else
+	 	return true;
+	}		
 /*...........*/
 }
 ?>
