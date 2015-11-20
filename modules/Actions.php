@@ -166,6 +166,8 @@ class Actions {
 		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
 		$insertarray['created_at'] = time();
 		$odata=Sqle::insertVal("thingse_details",$insertarray);
+		$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
+		Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/thingsdone_admin.txt", $insertarray);
 		return array("ec"=>1,"data"=>0);
 		
 	}
@@ -175,6 +177,7 @@ class Actions {
 		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
 		$getarray = Sqle::getA("Select * from thingsa_details where id =".$data['td_id'])[0];
 		if(Fun::getuserno($getarray["responsibility"]) && $data['status'] == "Allotted"){
+			$getarray["responsibility"] = Fun::getfname($getarray["responsibility"]);
 			$getarray['due_date'] = date('d-M-Y',$getarray['due_date']);
 			Fun::msgfromfile(Fun::getuserno($getarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $getarray);
 		}
