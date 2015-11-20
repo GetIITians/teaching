@@ -362,9 +362,9 @@ class Actiondisp {
 		load_view("popup.php",array("name"=>"addthingsepopup", "title" => "Add Things Done","body" =>"Things/addthingse.php","bodyinfo" => array("thingse_details" => array("id"=>"","action"=>"thingseinfo","popup_close"=>"addthingsepopup","category"=>"","details"=>"","responsibility"=>"")))); 
 	}
 
-	function thingsatbl($data,$printjson = true ){
+	function thingsatbl($data,$printjson = true ){ 
 		$data = Fun::setifunset($data,"orderby",0);
-		$arr = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id  ORDER BY ".Fun::thingsa_orderby($data['orderby']));
+		$arr = Sqle::getA("SELECT thingsa_details.*,lastcommentdetail.* FROM thingsa_details LEFT JOIN (select thingsa_hisdetails.td_id,thingsa_hisdetails.comments,thingsa_hisdetails.status,thingsa_hisdetails.created_at as comment_date FROM thingsa_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsa_hisdetails` GROUP BY td_id) maxval ON thingsa_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsa_details.id = lastcommentdetail.td_id WHERE ".Fun::getthingsarescons($data['viewbyres'])."  ORDER BY ".Fun::thingsa_orderby($data['orderby']));
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 
