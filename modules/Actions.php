@@ -177,7 +177,6 @@ class Actions {
 		$odata = Sqle::insertVal("thingsa_hisdetails",$tahisarray);
 		$getarray = Sqle::getA("Select * from thingsa_details where id =".$data['td_id'])[0];
 		if(Fun::getuserno($getarray["responsibility"]) && $data['status'] == "Allotted"){
-			$getarray["responsibility"] = Fun::getfname($getarray["responsibility"]);
 			$getarray['due_date'] = date('d-M-Y',$getarray['due_date']);
 			Fun::msgfromfile(Fun::getuserno($getarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $getarray);
 		}

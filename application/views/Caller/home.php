@@ -76,7 +76,6 @@ load_view("popup.php",array("name"=>"editcollerpopup", "title" => "Edit Details"
           </div>
       </div>
   </div>
-  
   </div>
   </form>
   </div>
