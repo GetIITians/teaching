@@ -799,9 +799,9 @@ abstract class Fun{
 	public static function getfname($name){
 		return explode(" ", $name)[0];
 	} 
-	public static function getthingsarescons($responsibility){
+	public static function getthingsrescons($responsibility,$tabc){
 	 if(!empty($responsibility))
-	 	return "thingsa_details.responsibility = '".$responsibility."'";
+	 	return "things".$tabc."_details.responsibility = '".$responsibility."'";
 	 else
 	 	return true;
 	}		
