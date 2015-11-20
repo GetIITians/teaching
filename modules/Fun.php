@@ -806,16 +806,21 @@ abstract class Fun{
 	 	return true;
 	}	
 
-	public static function getthingfrmt($works){
+	public static function getthingfrmt($works,$lc){
 		$temp =array();
 		$arr = explode(",,",$works);
 		for($i=0;$i<count($arr);$i++){
-			if($i==0)
-				$temp[$i] = "<ol><li>".$arr[$i]."</li>";
-			else 
-				$temp[$i] = "<li>".$arr[$i]."</li>";
-			if($i==count($arr)-1)
-				$temp[$i] = $temp[$i]."</ol>";
+			if($lc=='w'){
+				if($i==0)
+					$temp[$i] = "<ol><li>".$arr[$i]."</li>";
+				else 
+					$temp[$i] = "<li>".$arr[$i]."</li>";
+				if($i==count($arr)-1)
+					$temp[$i] = $temp[$i]."</ol>";
+			} else if($lc=='m'){
+				$temp[$i] = ($i+1).". ".$arr[$i].". ";
+			}
+
 		}
 		return implode("", $temp);
 	}	
