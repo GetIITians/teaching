@@ -1,0 +1,3 @@
+{responsibility} completed a thing
+Category : {category}
+Details : {details}

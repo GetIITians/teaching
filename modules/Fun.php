@@ -795,6 +795,9 @@ abstract class Fun{
 			return $userno[$username];
 		else 
 			return false;
+	}
+	public static function getfname($name){
+		return explode(" ", $name)[0];
 	} 		
 /*...........*/
 }

@@ -183,6 +183,7 @@ class Admin{
 		$odata = Sqle::insertVal("thingsa_hisdetails",$callerarray);
 		
 		if(Fun::getuserno($insertarray["responsibility"]) && $data['status'] == "Allotted"){
+			$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
 			$insertarray['due_date'] = date('d-M-Y',$insertarray['due_date']);
 			Fun::msgfromfile(Fun::getuserno($insertarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $insertarray);
 		}
