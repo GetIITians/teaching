@@ -18,7 +18,7 @@ class thingshimanshu extends CI_Controller
 	{ 
 		if(User::loginId()==$this->himanshu_id){
 			$data["view_data"] = "";
-			$data["view_name"] = "thingshimanshu/home";
+			$data["view_name"] = "Thingshimanshu/home";
 		} else {
 			$data["view_data"]["errormsg"] = $this->errormsg;
 			$data["view_name"] = $this->unauthenticatepage;
@@ -30,7 +30,7 @@ class thingshimanshu extends CI_Controller
 	{	
 		if(User::loginId()==$this->himanshu_id){
 			$data["view_data"]="";
-			$data["view_name"] = "thingshimanshu/single_view";
+			$data["view_name"] = "Thingshimanshu/single_view";
 			$this->db->where(array("id"=>$id));
 			$data["view_data"]["thingsahimanshu_info"] =  $this->db->get("thingsahimanshu_details")->result_array()[0];
 		} else {
