@@ -15,7 +15,7 @@ $pagin_limit = 100;
         <td style="width:25%">Last Comment</td> 
        <td style="width:8%">Comment Date</td>
         <th>View</th>
-<?php if(User::isloginas('a')): ?>
+<?php if(User::isloginas('a') || (User::loginId()==76)): ?>
         <th>Edit </th>
         <th>Delete </th>
 <?php endif; ?>        
@@ -37,7 +37,7 @@ foreach($data as $key=>$row) {
     <td><?php echo $row['comments']; ?></td>
     <td><?php if(!empty($row['comment_date'])) echo date("d-M-Y",$row['comment_date']); ?></td>
     <td><a href="<?php echo HOST.'things/view/'.$row['id']; ?>" >View</a></td>
-<?php if(User::isloginas('a')): ?>
+<?php if(User::isloginas('a') || (User::loginId()==76)): ?>
     <td><a onclick='yogy.edit_thingsainfo(this)' data-action="thingsa_editpopup" data-thingsa='<?php echo json_encode($row); ?>'>Edit</a></td>
     <td><a onclick='yogy.confirm(this)' data-delname="This Thing"; data-id="<?php echo $row['id']; ?>" data-action="thingsa_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#thingsatbl')[0]);"> Delete</a></td>
     </tr>

@@ -9,7 +9,7 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
   <div class="row tab-content" style="">
   	<div class="tab-pane fade in active" id="thingsa" >
   <div class="row mt5">
-  <?php if(User::isloginas('a')): ?>
+  <?php if(User::isloginas('a') || (User::loginId()==76)): ?>
   <div class="col-sm-2">
     <div id="thingsa_regform" data-action="thingsa_regiform">
       <?php handle_disp(array(),"thingsa_regiform"); ?>
