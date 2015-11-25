@@ -164,13 +164,22 @@ var yogy ={
 		$("#"+"editcollerpopupPopupbody").html(d);
 	});	
 	},
+	/*	Things for all 	*/
 	edit_thingsainfo:function(obj){ 
 	mohit.popup("editthingsapopup",{"body":"<img src='photo/icons/loading.gif' />"});
 	button.sendreq_v2_t4(obj,null,function(d){
 		$("#"+"editthingsapopupPopupbody").html(d);
 	});	
 	},
-
+	/*	Things for all 	*/
+	/*	Things for Himanshu(copy)	*/
+	edit_thingsahimanshuinfo:function(obj){ 
+	mohit.popup("editthingsahimanshupopup",{"body":"<img src='photo/icons/loading.gif' />"});
+	button.sendreq_v2_t4(obj,null,function(d){
+		$("#"+"editthingsahimanshupopupPopupbody").html(d);
+	});	
+	},
+	/*	Things for Himanshu(copy) 	*/
 	confirm:function(obj){	
 		if(!obj.hasAttribute('data-delname'))
 			obj.setAttribute('data-delname','');
@@ -409,6 +418,7 @@ function callersearch(){
 	var leftform=readform($("#callersearch"));
 	return leftform;	
 }
+/*	things for all*/
 function thingsasearch(){ 
 	var leftform=readform($("#thingsasearch"));
 	return leftform;	
@@ -417,6 +427,18 @@ function thingsesearch(){
 	var leftform=readform($("#thingsesearch"));
 	return leftform;	
 }
+/*	things for all*/
+/*	things for Himanshu(copy)	*/
+function thingsahimanshusearch(){ 
+	var leftform=readform($("#thingsahimanshusearch"));
+	return leftform;	
+}
+function thingsehimanshusearch(){ 
+	var leftform=readform($("#thingsehimanshusearch"));
+	return leftform;	
+}
+/*	things for Himanshu(copy)	*/
+
 $(document).ready(function(){
 	mylib();
 });

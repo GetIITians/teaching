@@ -344,6 +344,7 @@ class Actiondisp {
 
 		
 	}
+	/*	THings for all		*/
 	function thingsa_regiform($data, $printjson = true){
 		$outp = array("ec" => 1, "data" => 0);
 		if($printjson)
@@ -428,6 +429,94 @@ class Actiondisp {
 			return;
 		load_view("Things/addthingsa.php", array("thingsa_details" =>$thingsa_details));
 	}
+	/*  Things for all  */
+	
+		/*	THings for himanshu(copy)		*/
+	function thingsahimanshu_regiform($data, $printjson = true){
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("popup.php",array("name"=>"addthingsahimanshupopup", "title" => "Add Things To Do","body" =>"Thingshimanshu/addthingsahimanshu.php","bodyinfo" => array("thingsahimanshu_details" => array("id"=>"","action"=>"thingsahimanshuinfo","popup_close"=>"addthingsahimanshupopup","category"=>"","details"=>"","responsibility"=>"","due_date"=>date('Y-m-d'),"status"=>"","comment"=>"")))); 
+	}
+
+	function thingsehimanshu_regiform($data, $printjson = true){
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("popup.php",array("name"=>"addthingsehimanshupopup", "title" => "Add Things Done","body" =>"Thingshimanshu/addthingsehimanshu.php","bodyinfo" => array("thingsehimanshu_details" => array("id"=>"","action"=>"thingsehimanshuinfo","popup_close"=>"addthingsehimanshupopup","category"=>"","details"=>"","responsibility"=>"")))); 
+	}
+
+	function thingsahimanshutbl($data,$printjson = true ){ 
+		$data = Fun::setifunset($data,"orderby",0);
+		$arr = Sqle::getA("SELECT thingsahimanshu_details.*,lastcommentdetail.* FROM thingsahimanshu_details LEFT JOIN (select thingsahimanshu_hisdetails.td_id,thingsahimanshu_hisdetails.comments,thingsahimanshu_hisdetails.status,thingsahimanshu_hisdetails.created_at as comment_date FROM thingsahimanshu_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsahimanshu_hisdetails` GROUP BY td_id) maxval ON thingsahimanshu_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsahimanshu_details.id = lastcommentdetail.td_id WHERE ".Fun::getthingshimanshurescons($data['viewbyres'],'a')."  ORDER BY ".Fun::thingsahimanshu_orderby($data['orderby']));
+		if(!empty($data['paginval']))
+			$pagval = $data['paginval'];
+		else 
+			$pagval = 0;
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("Thingshimanshu/thingsahimanshu_info.php", array("thingsahimanshu_info"=>$arr,"pagval"=>$pagval));
+
+	}
+	function thingsehimanshutbl($data,$printjson = true ){
+		$data = Fun::setifunset($data,"orderby",0);
+		$arr = Sqle::getA("SELECT * FROM thingsehimanshu_details WHERE ".Fun::getthingshimanshurescons($data['viewbyres'],'e')." ORDER BY " .Fun::thingsehimanshu_orderby($data['orderby']));
+		if(!empty($data['paginval']))
+			$pagval = $data['paginval'];
+		else 
+			$pagval = 0;
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("Thingshimanshu/thingsehimanshu_info.php", array("thingsehimanshu_info"=>$arr,"pagval"=>$pagval));
+
+	}
+	function thingsahimanshu_basicinfo($data,$printjson = true){
+			$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$thingsahimanshu_info = Sqle::getA("SELECT thingsahimanshu_details.*,lastcommentdetail.* FROM thingsahimanshu_details LEFT JOIN (select thingsahimanshu_hisdetails.td_id,thingsahimanshu_hisdetails.comments,thingsahimanshu_hisdetails.status,thingsahimanshu_hisdetails.created_at as comment_date FROM thingsahimanshu_hisdetails INNER JOIN (SELECT MAX(created_at) as lasttime FROM `thingsahimanshu_hisdetails` GROUP BY td_id) maxval ON thingsahimanshu_hisdetails.created_at=maxval.lasttime) lastcommentdetail ON thingsahimanshu_details.id = lastcommentdetail.td_id where thingsahimanshu_details.id = '".$data['id']."'")[0];
+		load_view("Thingshimanshu/basic_info.php",array("thingsahimanshu_info"=>$thingsahimanshu_info));
+	}
+
+	function thingsahimanshuhisdetail($data,$printjson = true)
+	{
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		$arr = Sqle::getA("SELECT thingsahimanshu_hisdetails.* from thingsahimanshu_hisdetails  where td_id=".$data['id']." ORDER BY created_at DESC");
+		load_view("Thingshimanshu/thingsahimanshu_hisdetail.php",array("thingsahimanshu_hisdetail"=>$arr));
+	}
+
+	function thingsahimanshu_editpopup($data, $printjson = true) {
+		$thingsahimanshu_details = array();
+		foreach (json_decode($data['thingsahimanshu']) as $key => $value) {
+			$thingsahimanshu_details[$key] = $value;
+		}
+		$thingsahimanshu_details['due_date'] = date('Y-m-d',$thingsahimanshu_details['due_date']);
+		$thingsahimanshu_details['action'] = 'editthingsahimanshuinfo';
+		$thingsahimanshu_details['popup_close'] = 'editthingsahimanshupopup';
+		$outp = array("ec" => 1, "data" => 0);
+		if($printjson)
+			echo json_encode($outp)."\n";
+		if($outp["ec"] < 0)
+			return;
+		load_view("Thingshimanshu/addthingsahimanshu.php", array("thingsahimanshu_details" =>$thingsahimanshu_details));
+	}
+	/*  Things for Himanshu(copy)  */
 /*  ........   */	
 
 }
