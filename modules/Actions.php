@@ -185,6 +185,36 @@ class Actions {
 		}
 		return array("ec"=>1,"data"=>0);		
 	}
+
+		function thingsa_delete_info($data){
+		Sqle::deleteVal("thingsa_details",array("id"=>$data["id"]));
+		Sqle::deleteVal("thingsa_hisdetails",array("td_id"=>$data["id"]));
+		return array("ec"=>1,"data"=>0);
+	}
+	function thingsainfo($data) {
+		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
+		$insertarray['due_date'] = strtotime($data['due_date']);
+		$insertarray['created_at'] = time();
+		$insertarray['updated_at'] = time();
+		$odata=Sqle::insertVal("thingsa_details",$insertarray);
+		$callerarray = Fun::getflds(array("status","comments"),$data);
+		$callerarray['td_id'] = $odata;
+		$callerarray['created_at'] = time();
+		$odata = Sqle::insertVal("thingsa_hisdetails",$callerarray);
+		
+		if(Fun::getuserno($insertarray["responsibility"]) && $data['status'] == "Allotted"){
+			$insertarray['due_date'] = date('d-M-Y',$insertarray['due_date']);
+			Fun::msgfromfile(Fun::getuserno($insertarray["responsibility"]),"caller_dir/mail/emp_msg.txt", $insertarray);
+		}
+		return array("ec"=>1,"data"=>0);
+	}
+	function editthingsainfo($data){
+		$insertarray = Fun::getflds(array("category", "details", "responsibility","due_date"),$data);
+		$insertarray['due_date'] = strtotime($data['due_date']);
+		$insertarray['updated_at'] = time();
+		Sqle::updateVal("thingsa_details",$insertarray,array("id"=>$data['id']));
+		return array("ec"=>1,"data"=>0);
+	}
 	/*	Things for all*/
 
 	/*	Things for Himanshu(copy)*/
