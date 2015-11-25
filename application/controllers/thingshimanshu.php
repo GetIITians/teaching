@@ -9,7 +9,7 @@ class thingshimanshu extends CI_Controller
 		$this->tempname = "Template/CI_template"; 
 		$this->config->set_item('enable_query_strings', FALSE);
 		$this->load->helper('help_helper');
-		$this->errormsg = "its only for Himanshu only.";
+		$this->errormsg = "its only for Himanshu.";
 		$this->himanshu_id = 76;
 		$this->unauthenticatepage = "Template/unauthenticatepage";
 	}
