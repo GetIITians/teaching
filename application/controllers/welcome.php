@@ -876,12 +876,15 @@ class Welcome extends CI_Controller {
 	}
 	public function test() {
 		
-		$arr = array("action"=> "thingseinfo",
+		$arr = array("action"=> "thingsahimanshuinfo",
 		"category"=> "Student",
 		"details"=>"sdsd",
-		"responsibility"=> "Ashish Anand");
+		"responsibility"=> "Ashish Anand",
+		"status"=> "WIP",
+		"comments"=>"sdfsd",
+		"id"=> "",
+		"due_date"=>"2015-11-25");
 		handle_request($arr);
-
 	}
 
 

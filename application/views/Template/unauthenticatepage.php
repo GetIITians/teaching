@@ -38,7 +38,14 @@
 </style>
 <div class="container mybody mt20">
 <div class="myani">
-  <p id="code">Please<span> Login </span><span> As Admin</span></p>
+  <p id="code">
+  <?php 
+  if(!empty($errormsg))
+    echo $errormsg;
+  else
+    echo "Please Login As Admin";
+  ?>
+  </p>
 </div>
 
 </div>

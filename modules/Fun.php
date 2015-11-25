@@ -748,6 +748,30 @@ abstract class Fun{
 		$orderarr = array("thingse_details.id ASC","thingse_details.id ASC","thingse_details.id DESC","thingse_details.category ASC","thingse_details.category DESC","thingse_details.responsibility ASC","thingse_details.responsibility DESC","thingse_details.created_at ASC","thingse_details.created_at DESC");
 		return $orderarr[$data];
 	}
+	public static function getthingsrescons($responsibility,$tabc){
+	 if(!empty($responsibility))
+	 	return "things".$tabc."_details.responsibility = '".$responsibility."'";
+	 else
+	 	return true;
+	}	
+
+	/*	For Himanshu(copy)	*/
+	public static function thingsahimanshu_orderby($data){
+		$orderarr = array("thingsahimanshu_details.id ASC","thingsahimanshu_details.id ASC","thingsahimanshu_details.id DESC","thingsahimanshu_details.category ASC","thingsahimanshu_details.category DESC","thingsahimanshu_details.responsibility ASC","thingsahimanshu_details.responsibility DESC","thingsahimanshu_details.due_date ASC","thingsahimanshu_details.due_date DESC");
+		return $orderarr[$data];
+	}
+	public static function thingsehimanshu_orderby($data){
+		$orderarr = array("thingsehimanshu_details.id ASC","thingsehimanshu_details.id ASC","thingsehimanshu_details.id DESC","thingsehimanshu_details.category ASC","thingsehimanshu_details.category DESC","thingsehimanshu_details.responsibility ASC","thingsehimanshu_details.responsibility DESC","thingsehimanshu_details.created_at ASC","thingsehimanshu_details.created_at DESC");
+		return $orderarr[$data];
+	}
+	public static function getthingshimanshurescons($responsibility,$tabc){
+	 if(!empty($responsibility))
+	 	return "things".$tabc."himanshu_details.responsibility = '".$responsibility."'";
+	 else
+	 	return true;
+	}	
+
+	/*	for Himanshu(copy)	*/
 
 	public static function getdemocons($data){
 		$temp = array();
@@ -799,13 +823,7 @@ abstract class Fun{
 	public static function getfname($name){
 		return explode(" ", $name)[0];
 	} 
-	public static function getthingsrescons($responsibility,$tabc){
-	 if(!empty($responsibility))
-	 	return "things".$tabc."_details.responsibility = '".$responsibility."'";
-	 else
-	 	return true;
-	}	
-
+	
 	public static function getthingfrmt($works,$lc){
 		$temp =array();
 		$arr = explode(",,",$works);
@@ -818,7 +836,7 @@ abstract class Fun{
 				if($i==count($arr)-1)
 					$temp[$i] = $temp[$i]."</ol>";
 			} else if($lc=='m'){
-				$temp[$i] = ($i+1).". ".$arr[$i].". ";
+				$temp[$i] = ($i+1).". ".$arr[$i]." ";
 			}
 
 		}

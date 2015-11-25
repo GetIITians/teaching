@@ -165,12 +165,12 @@ class Admin{
 		Sqle::deleteVal("caller_call",array("st_id"=>$data["id"]));
 		return array("ec"=>1,"data"=>0);
 	}
+	/*	Things for all*/
 	function thingsa_delete_info($data){
 		Sqle::deleteVal("thingsa_details",array("id"=>$data["id"]));
 		Sqle::deleteVal("thingsa_hisdetails",array("td_id"=>$data["id"]));
 		return array("ec"=>1,"data"=>0);
 	}
-
 	function thingsainfo($data) {
 		$insertarray = Fun::getflds(array("category", "details", "responsibility"),$data);
 		$insertarray['due_date'] = strtotime($data['due_date']);
@@ -195,7 +195,7 @@ class Admin{
 		Sqle::updateVal("thingsa_details",$insertarray,array("id"=>$data['id']));
 		return array("ec"=>1,"data"=>0);
 	}
-
+	/*	Things for all*/
 /*.......*/	
 }
 ?>
