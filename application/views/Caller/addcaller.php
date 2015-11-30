@@ -1,3 +1,4 @@
+<?php var_dump($teacher_info); ?>
 <h5>Personal Details :</h5>
 <form role="form" method="post" onsubmit="return form.req(this)" data-action="<?php echo $caller_details['action'] ?>" data-res="success.push('Data Updated Successfully!!');mohit.popup_close('<?php echo $caller_details['popup_close']  ?>');div.reload($('#callertlb')[0]);div.reload($('#caller_regform')[0]);">
   <input type="hidden" name="id" value="<?php echo $caller_details['id'] ?>">
@@ -20,11 +21,11 @@
           <?php else: ?>
         <option value="" disabled="disabled" selected="selected">Source</option>
         <?php endif; ?>
-        <option value="Pamplet">Pamplet</option>
+        <option value="Pamplet">Pamphlet</option>
         <option value="Sunpack">Sunpack</option>
         <option value="Poster">Poster</option>
         <option value="Website">Website</option>
-        <option value="Referal">Referal</option>
+        <option value="Referal">Referral</option>
         <option value="other">Other</option>
         </select>
         <div id="source_other">

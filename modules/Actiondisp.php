@@ -338,7 +338,7 @@ class Actiondisp {
 			echo json_encode($outp)."\n";
 		if($outp["ec"] < 0)
 			return;
-		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' ");
+		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id");
 		$demo_info = Sqle::getA("select * from caller_demo");
 		load_view("popup.php",array("name"=>"addcollerpopup", "title" => "Add New Entry","body" =>"Caller/addcaller.php","bodyinfo" => array("demo_info" => $demo_info,"teacher_info" => $teacher_info,"caller_details" => array("id"=>"","action"=>"callerinfo","popup_close"=>"addcollerpopup","name"=>"","email"=>"","phone"=>"","source"=>"","address"=>"","class"=>"","subject"=>"","board"=>"","tution_type"=>"","caller_name"=>"","caller_rel"=>"","created_at"=>"","updated_at"=>"","caller_date"=>"","comments"=>"")) )); 
 
