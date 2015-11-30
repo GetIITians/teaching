@@ -1,4 +1,3 @@
-<?php var_dump($teacher_info); ?>
 <h5>Personal Details :</h5>
 <form role="form" method="post" onsubmit="return form.req(this)" data-action="<?php echo $caller_details['action'] ?>" data-res="success.push('Data Updated Successfully!!');mohit.popup_close('<?php echo $caller_details['popup_close']  ?>');div.reload($('#callertlb')[0]);div.reload($('#caller_regform')[0]);">
   <input type="hidden" name="id" value="<?php echo $caller_details['id'] ?>">
@@ -53,7 +52,7 @@
         <option value="11th">11th</option>
         <option value="12th">12th</option>
         <option value="JEE">JEE</option>
-        <option value="JEE">Other</option>
+        <option value="other">Other</option>
       </select>
     </div>
     <div class="col-xs-12 col-md-6">
