@@ -250,6 +250,9 @@ html{
 	color: black;
 	line-height: 2rem;
 }
+.teacherlistelm .card-reveal .card-title a.red{
+	color: red;
+}
 
 .teacherlistelm p a.tooltipped{
 	color: #777;

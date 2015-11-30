@@ -313,6 +313,7 @@ var ms={
 		}, "#searchloadingimg",narayan);
 	}, /* by yogy */ 
 	orderrefine: function(obj) {  
+		console.log('orderrefine called');
 		($(obj).attr("data-action")=="refinesearch" ? $("input[name=search][type=hidden]").attr("value","") : false);
 		this.refinesearch();
 	}, /* ...... */

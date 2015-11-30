@@ -1,6 +1,4 @@
 <?php
-//require_once('FirePHPCore/fb.php');
-//ob_start();
 load_view("Template/top.php");
 load_view("Template/navbarnew.php");
 //echo "<pre>";var_dump($cst_tree);echo "</pre>";

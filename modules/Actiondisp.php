@@ -163,7 +163,7 @@ class Actiondisp {
 
 		load_view('timeslotpopup.php',$pageinfo);
 	}
-	function search($data,$printjson=true){ 
+	function search($data,$printjson=true){
 		global $_ginfo;
 //		$need=array('class', 'subject', 'topic', 'price', 'timer', 'lang', 'timeslot', 'orderby', 'search', 'max', 'maxl');
 		$need=array('class', 'subject', 'topic', 'orderby', 'search', 'max', 'maxl');
@@ -185,6 +185,7 @@ class Actiondisp {
 		if($ec>0){ 
 			list($query,$param,$relv_query)=Funs::tejpal_output($data);
 			mergeifunset($param, array('max'=>$data['max'], 'maxl'=>$data["maxl"], 'minl'=>0, 'min'=>0));
+			//var_dump($param);
 			$qoutput=Sqle::autoscroll($query, $param, null, '', true, null, $_ginfo["numsearchr"]["loadadd"]);
 			$relv_qoutput=Sqle::autoscroll($relv_query, $param, null, '', true, null, $_ginfo["numsearchr"]["loadadd"]);
 			//fb($qoutput,'row',FirePHP::LOG);
@@ -201,7 +202,7 @@ class Actiondisp {
 				$rating_result = sql::getArray($rating_query);
 			}
 		}
-			/* #################*/		
+		/*#################*/
 		if($printjson){
 			echo json_encode(array('ec'=>$ec,'data'=>$odata))."\n";
 		}
