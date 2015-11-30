@@ -223,8 +223,8 @@ class Sqle extends Sql{
 		if($key!=null)
 			$querysort="select * from (".$querylimit.") sortquery ".$sort;
 		else
-		$querysort=$querylimit;
-		$qresult=Sqle::getA($querysort,$param); 
+			$querysort=$querylimit;
+		$qresult=Sqle::getA($querysort,$param);
 		$outp["qresult"]=$qresult;
 		$outp["maxl"]=$maxl;
 		$outp["minl"]=$minl;
@@ -242,7 +242,8 @@ class Sqle extends Sql{
 				$outp["min"] = $s->min($e1, $e2, $param["min"]);
 				$outp["max"] = $s->max($e1, $e2, $param["max"]);
 			}
-		} 
+		}
+
 		return $outp;
 	}
 

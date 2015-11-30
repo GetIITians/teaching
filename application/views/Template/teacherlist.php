@@ -1,11 +1,12 @@
 <?php
+//echo "<pre>";var_dump($qresult);echo "</pre><br>";
 if (User::isloginas('a'))
     load_view("popup.php", array("name" => "mailpopup", "title" => "Send Message To Teachers", "body" => "Template/mailspop.php", "bodyinfo" => array('qresult' => $qresult)));
 
 if ($isrelv == 1) {
     echo "Relevent Results";
 }
-//fb($qresult,'row',FirePHP::LOG);
+fb($qresult,'row',FirePHP::LOG);
 
 $searchPageRows = 0;
 foreach ($qresult as $row) {
@@ -80,9 +81,10 @@ foreach ($qresult as $row) {
                 <p class="grey-text text-darken-1"><?php echo $row["teachermoto"]; ?></p>
             </div>
             <div class="card-content">
-                <p class="card-title activator"><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): echo $name;?> 
+                 <?php $rejectClass = (User::isloginas('a')&&$row['isselected']=="r") ? "red" : ""; ?>
+                <p class="card-title activator <?php echo $rejectClass; ?>" ><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): echo $name;?> 
                 <a href="#"><?php echo ' ('.$row['caller_st_num'].')'; ?></a>
-            <?php else : echo $name; endif; ?></p>
+                <?php else : echo $name; endif; ?></p>
                 
                 <?php /*
 			<p class="grey-text text-darken-2">
@@ -126,7 +128,7 @@ foreach ($qresult as $row) {
                         $profilelink = BASE . "profile/" . $row["tid"];
                     }
                     ?>
-                    <a href="<?php echo $profilelink; ?>">
+                    <a href="<?php echo $profilelink; ?>" class="<?php echo $rejectClass; ?>">
                         <?php echo $name; ?>
                     </a><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): ?> 
                 <a href="<?php echo HOST.'caller/index/'.$row['tid'] ?>"><?php echo ' ('.$row['caller_st_num'].')'; ?></a>

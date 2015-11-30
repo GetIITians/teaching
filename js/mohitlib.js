@@ -156,7 +156,8 @@ var button={
 			
 		}});
 	},
-	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){ 
+	sendreq_v2_t3:function(params,call_back_data,call_back_html,adata){
+		console.log('arguments');
 		$.post(HOST+"actiondisp.php",params,function(d,s){if(s=='success'){
 			var respo=button.parse(d.split("\n")[0]); 
 			if(respo){
@@ -199,7 +200,8 @@ var button={
 			} 
 			params=others.mergeifunset(params,eparams);
 		}
-		params['action']=allattrs["data-action"];console.log(params);
+		params['action']=allattrs["data-action"];
+		console.log(params);
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);
 	},
 	sendreq1:function (params,call_back,adata){ 
