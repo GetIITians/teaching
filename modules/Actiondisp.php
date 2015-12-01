@@ -313,7 +313,7 @@ class Actiondisp {
 			return;
 		$teaching_info = Fun::resjson2arr(Sqle::getA("SELECT caller_demo.name as demo,caller_demo.id as demo_id, caller_call.*,caller_teacher.* FROM `caller_call` LEFT JOIN (SELECT * from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a' )caller_teacher ON caller_teacher.id = caller_call.teacher_id LEFT JOIN caller_demo ON caller_call.demo_id=caller_demo.id where st_id='".$data['id']."' and caller_call.created_at = (select max(created_at) from caller_call where st_id='".$data['id']."')"))[0];
 		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
-		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id where teachers.isselected = 'a'");
+		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id");
 		$demo_info = Sqle::getA("select * from caller_demo");
 		load_view("Caller/basic_info.php",array("demo_info"=>$demo_info,"caller_info"=>$caller_info,"teaching_info"=>$teaching_info,"teacher_info"=>$teacher_info));
 	}	
