@@ -66,6 +66,10 @@
         <option value="Chemistry">Chemistry</option>
         <option value="Maths">Maths</option>
         <option value="Science">Science</option>
+        <option value="Physics-Chemistry">Physics-Chemistry</option>
+        <option value="Physics-Maths">Physics-Maths</option>
+        <option value="Chemistry-Maths">Chemistry-Maths</option>
+        <option value="Physics-Chemistry-Maths">Physics-Chemistry-Maths</option>
         <option value="Other">Other</option>
       </select>
     </div> 

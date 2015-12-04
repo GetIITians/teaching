@@ -81,7 +81,7 @@ foreach ($qresult as $row) {
                 <p class="grey-text text-darken-1"><?php echo $row["teachermoto"]; ?></p>
             </div>
             <div class="card-content">
-                 <?php $rejectClass = (User::isloginas('a')&&$row['isselected']=="r") ? "red" : ""; ?>
+                 <?php $rejectClass = (User::isloginas('a')&&$row['isselected']=="r") ? "rejected" : ""; ?>
                 <p class="card-title activator <?php echo $rejectClass; ?>" ><?php if(User::isloginas('a') && !empty($row['caller_st_num'])): echo $name;?> 
                 <a href="#"><?php echo ' ('.$row['caller_st_num'].')'; ?></a>
                 <?php else : echo $name; endif; ?></p>

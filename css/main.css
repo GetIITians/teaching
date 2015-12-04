@@ -52,6 +52,10 @@ html{
 	font-size:23px;
 }
 
+#selectTeachers div.eandp{
+	text-align: left;
+}
+
 .table-block-hover  > tbody > tr > td{
 	cursor:pointer;
 }
@@ -199,6 +203,10 @@ html{
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 	color: black;
 	line-height: 2rem;
+}
+
+.teacherlistelm  .card-content .card-title.rejected{
+	color: red;
 }
 
 .teacherlistelm i.right{

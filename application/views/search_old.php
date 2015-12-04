@@ -228,7 +228,7 @@ load_view("Template/navbarnew.php");
 						<div class="col-sm-5 col-xs-7 mt20">
 							<button name="Send Mails" class="btn blue waves-effect waves-light" onclick="openmailpopup(this);">Send Message</button>
 						</div>
-						<?php endif; ?>						
+						<?php endif; ?>
 					</div>
 					<div class="col-sm-3 col-xs-1">
 						<img src="photo/icons/loading2.gif" id="searchloadingimg" style="visibility:hidden;" class="right"/>

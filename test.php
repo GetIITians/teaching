@@ -57,4 +57,6 @@ echo "</pre>";
 //$XMLReturn = $obj->recording('A9m0hoLiBLlixWgBgpUVuw==','f0fWFgPNdys=','http://class.api.wiziq.com/');
 //var_dump($XMLReturn);
 //echo "</pre>";
+
+var_dump($_SESSION);
 ?>

@@ -50,14 +50,12 @@ class Admin{
 	}
 
 	function sendteachermails($data){
-		$emails = json_decode($data['emails']);
-		$phones = json_decode($data['phones']);
 		if($data['cemail'] == 'true'){
-			foreach($emails as $email)
+			foreach(json_decode($data['emails']) as $email)
 				FUN::mailfromfields($email,$data['title'],$data['msg']);
 		}
 		if($data['csms'] == 'true'){
-			foreach($phones as $phone)
+			foreach(json_decode($data['phones']) as $phone)
 				FUN::msgfromfields($phone,$data['msg']);
 		}
 		return array("ec"=>1,"data"=>0);	
