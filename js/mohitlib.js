@@ -204,7 +204,7 @@ var button={
 		console.log(params);
 		button.sendreq_v2_t3(params,call_back_data,call_back_html);
 	},
-	sendreq1:function (params,call_back,adata){ 
+	sendreq1:function (params,call_back,adata){
 		$.post("actionv2.php",params,function(d,s){if(s=='success'){ 
 			var respo=button.parse(d);
 			if(respo){ 
@@ -263,7 +263,7 @@ var form={
 		}});
 	},
 
-	sendreq1:function(obj,bobj){ 
+	sendreq1:function(obj,bobj){
 		if(bobj.disabled)
 			return;
 		var allattrs=button.attrs(obj); 
@@ -278,7 +278,7 @@ var form={
 		params['action']=allattrs["data-action"];
 		(!button.hasattr(allattrsb,"data-enablebutton"))?bobj.disabled=true:((allattrsb["data-enablebutton"]==true)?bobj.disabled=false:bobj.disabled=true);
 		
-		var prvvalue=bobj.innerHTML; console.log(params);
+		var prvvalue=bobj.innerHTML;
 		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
 		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){ 
 			bobj.disabled=false; 
@@ -304,7 +304,7 @@ var form={
 			
 		}});
 	},
-	req:function(obj){ 
+	req:function(obj){
 		form.sendreq1(obj, $(obj).find("button[type=submit]")[0]);
 		return false;
 	},

@@ -7,7 +7,7 @@
 	<div class="well">
 	<div class="row" >
 	<div class="col-xs-12">
-	<h4 style="margin-top:-10px">Comments & Status:</h4>
+	<h4 style="margin-top:-10px">Comments &amp; Status:</h4>
 	</div>
 	</div>
 

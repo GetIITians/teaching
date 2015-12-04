@@ -180,7 +180,7 @@ var yogy ={
 	});	
 	},
 	/*	Things for Himanshu(copy) 	*/
-	confirm:function(obj){	
+	confirm:function(obj){
 		if(!obj.hasAttribute('data-delname'))
 			obj.setAttribute('data-delname','');
 		ch=confirm("Are You Sure to Delete "+obj.getAttribute('data-delname')+" ?");

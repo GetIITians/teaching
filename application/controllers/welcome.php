@@ -111,6 +111,7 @@ class Welcome extends CI_Controller {
 					//echo "<pre>";print_r($adddata);echo "</pre>";
 					$odata=Sqle::insertVal("teachers",$datatoinsert);
 					$post_data = $_POST;
+					Fun::mailfromfile( gi("anumailid"), "php/mail/joinus_admin.txt", array("teachername" => $post_data["name"] ));
 					Fun::mailfromfile( gi("adminmailid"), "php/mail/joinus_admin.txt", array("teachername" => $post_data["name"] ));
 					Fun::mailfromfile( $post_data["email"], "php/mail/joinus_teacher.txt", array("teachername" => $post_data["name"] ));
 				  	//Fun::redirect(BASE."account");

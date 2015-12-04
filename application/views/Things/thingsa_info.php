@@ -39,7 +39,7 @@ foreach($data as $key=>$row) {
     <td><a href="<?php echo HOST.'things/view/'.$row['id']; ?>" >View</a></td>
 <?php if(User::isloginas('a') || (User::loginId()==76)): ?>
     <td><a onclick='yogy.edit_thingsainfo(this)' data-action="thingsa_editpopup" data-thingsa='<?php echo json_encode($row); ?>'>Edit</a></td>
-    <td><a onclick='yogy.confirm(this)' data-delname="This Thing"; data-id="<?php echo $row['id']; ?>" data-action="thingsa_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#thingsatbl')[0]);"> Delete</a></td>
+    <td><a class="complete" onclick="adminThings.complete(this)" data-delname="This Thing"; data-id="<?php echo $row['id']; ?>" data-action="thingsahisdetails" data-res="success.push('Task status changed to Completed.');div.reload($('#thingsatbl')[0]);">Complete</a></td>
     </tr>
  <?php endif; } ?>     
       <tr><td colspan="15">

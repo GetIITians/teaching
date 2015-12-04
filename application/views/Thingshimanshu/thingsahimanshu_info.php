@@ -36,7 +36,7 @@ foreach($data as $key=>$row) {
     <td><?php if(!empty($row['comment_date'])) echo date("d-M-Y",$row['comment_date']); ?></td>
     <td><a href="<?php echo HOST.'thingshimanshu/view/'.$row['id']; ?>" >View</a></td>
     <td><a onclick='yogy.edit_thingsahimanshuinfo(this)' data-action="thingsahimanshu_editpopup" data-thingsahimanshu='<?php echo json_encode($row); ?>'>Edit</a></td>
-    <td><a onclick='yogy.confirm(this)' data-delname="This Thing"; data-id="<?php echo $row['id']; ?>" data-action="thingsahimanshu_delete_info" data-res="success.push('Data Deleted Successfully!!');div.reload($('#thingsahimanshutbl')[0]);"> Delete</a></td>
+    <td><a onclick='adminThings.complete(this)' data-delname="This Thing"; data-id="<?php echo $row['id']; ?>" data-action="thingsahimanshuhisdetails" data-res="success.push('Task status changed to Completed.');div.reload($('#thingsahimanshutbl')[0]);">Complete</a></td>
     </tr>
  <?php } ?>     
       <tr><td colspan="15">

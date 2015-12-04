@@ -96,6 +96,80 @@ var adminPage = {
 	}
 }
 
+var adminThings = {
+	complete : function(obj){
+		var params = {};
+		params["td_id"] = ""+$(obj).data('id')+"";
+		params["comments"] = "";
+		params["status"] = "Completed";
+		params["action"] = ""+$(obj).data('action')+"";
+		console.log(params);
+
+		$.post(HOST+"actionv2.php",params,function(d,s){if(s=='success'){
+			var respo=button.parse(d);
+			console.log(respo);
+			if(respo){ 
+				if(respo.ec<0){
+					mohit.alert(ecn[respo.ec]);
+				}
+				else{
+					eval($(obj).data('res'));
+				}
+			}				
+		}});
+	},
+	sendMessage : function(obj){
+		var bobj = $(obj).find("button[type=submit]")[0];
+		if(bobj.disabled)
+			return;
+		var allattrs=button.attrs(obj); 
+		var allattrsb=button.attrs(bobj); 
+
+		var params=getFormInputs(obj,'action'); 
+		if(button.hasattr(allattrs,'data-param')){ 
+			eval("var addparam="+allattrs['data-param']); 
+			others.mergeifunset(params,addparam);  
+		}
+
+		params['action']=allattrs["data-action"];
+		(!button.hasattr(allattrsb,"data-enablebutton"))?bobj.disabled=true:((allattrsb["data-enablebutton"]==true)?bobj.disabled=false:bobj.disabled=true);
+		
+		var prvvalue=bobj.innerHTML;
+		bobj.innerHTML=(!button.hasattr(allattrsb,"data-waittext"))?' ... ':(allattrsb["data-waittext"]==''?prvvalue:allattrsb["data-waittext"]);
+		params['emails'] = JSON.stringify(helpers.inputsValueArray('#selectTeachers','input:checkbox:checked.email'));
+		params['phones'] = JSON.stringify(helpers.inputsValueArray('#selectTeachers','input:checkbox:checked.phone'));
+		console.log(params);
+		$.post(HOST+"actionv2.php",params,function(d,s){
+			console.log(params);
+			console.log(d);
+			console.log(s);
+			if(s=='success'){ 
+			bobj.disabled=false; 
+			var respo=button.parse(d);
+			bobj.innerHTML=prvvalue; 
+			if(respo){ 
+				if(respo.ec<0){
+					if(button.hasattr(allattrs,"data-error")){
+						var ec=respo.ec;
+						eval(allattrs["data-error"]);
+					}
+					else
+						mohit.alert(ecn[respo.ec]);
+				}
+				else{
+					bobj.innerHTML=(typeof(allattrsb["data-restext"])=='undefined')?prvvalue:allattrsb["data-restext"];
+					if(button.hasattr(allattrs,"data-res")){
+						var data=respo.data;
+						eval(allattrs["data-res"]);
+					}
+				}
+			}
+		}
+		});
+	}
+}
+
+
 $(function() {
 
 	$(document).on({

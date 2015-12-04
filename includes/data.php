@@ -165,6 +165,7 @@ $_ginfo['teacherJsoninfolist']=array('sub','grade','lang');
 
 
 $_ginfo["adminmailid"] = "himanshu@getiitians.com";
+$_ginfo["anumailid"] = "anupriyajain4@gmail.com";
 
 
 $_ginfo["isrealmail"] = (server == "server");
