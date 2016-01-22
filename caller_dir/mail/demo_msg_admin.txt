@@ -6,3 +6,4 @@ Teacher: {tename}
 Teacher No.:{tephone}
 
 Demo Status: {demostatus}
+Comment: {comment}

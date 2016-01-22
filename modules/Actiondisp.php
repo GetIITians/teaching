@@ -315,7 +315,7 @@ class Actiondisp {
 		$caller_info = Sqle::getA("SELECT * from caller_details where id = '".$data['id']."'")[0];
 		$teacher_info = Sqle::getA("SELECT users.id,users.name from users INNER JOIN teachers ON teachers.tid = users.id");
 		$demo_info = Sqle::getA("select * from caller_demo");
-		var_dump($teaching_info);
+		//var_dump($teaching_info);
 		load_view("Caller/basic_info.php",array("demo_info"=>$demo_info,"caller_info"=>$caller_info,"teaching_info"=>$teaching_info,"teacher_info"=>$teacher_info));
 	}	
 	function caller_editpopup($data, $printjson = true) {

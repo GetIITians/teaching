@@ -50,12 +50,19 @@ class Admin{
 	}
 
 	function sendteachermails($data){
+		$_SESSION['#sendteacheremails'] = true;
+		$_SESSION['sendteacheremails'] = [];
+		$_SESSION['sendteacheremails'] = $data;
+		$_SESSION['sendteacheremails']['decoded'] = json_decode($data);
+		$_SESSION['sendteacheremails']['decoded']['emails'] = json_decode($data['emails']);
+		$emails = json_decode($data['emails']);
+		$phones = json_decode($data['phones']);
 		if($data['cemail'] == 'true'){
-			foreach(json_decode($data['emails']) as $email)
+			foreach($emails as $email)
 				FUN::mailfromfields($email,$data['title'],$data['msg']);
 		}
 		if($data['csms'] == 'true'){
-			foreach(json_decode($data['phones']) as $phone)
+			foreach($phones as $phone)
 				FUN::msgfromfields($phone,$data['msg']);
 		}
 		return array("ec"=>1,"data"=>0);	
@@ -79,12 +86,13 @@ class Admin{
 		}
 		$details['stname'] = $data['name'];
 		$details['stphone'] = $data['phone'];
-			if($data['demo_id']!=0){
-				$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
-				Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
-				Fun::msgfromfile(Fun::getuserno("Ashish Anand"),"caller_dir/mail/demo_msg_admin.txt", $details);
-				Fun::msgfromfile(Fun::getuserno("Anupriya Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
-			}
+		$details['comment'] = ($data['comments']) ? $data['comments'] : "" ;
+		if($data['demo_id']!=0){
+			$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
+		}
+		Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
+		Fun::msgfromfile(Fun::getuserno("Shakti Bansal"),"caller_dir/mail/demo_msg_admin.txt", $details);
+		Fun::msgfromfile(Fun::getuserno("Anupriya Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
 		return array("ec"=>1,"data"=>0);
 
 	}
@@ -101,10 +109,11 @@ class Admin{
 			$details['tename'] = $tdetail['name'];
 			$details['tephone'] = $tdetail['phone'];
 		}
+		$details['comment'] = ($data['comments']) ? $data['comments'] : "" ;
 		if(($data['demo_id']!=$data['demo_old_id'])&&$data['demo_id']!=0){
 			$details['demostatus'] = Sqle::getA("select name from caller_demo where id = '".$data['demo_id']."'")[0]['name'];
 			Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
-			Fun::msgfromfile(Fun::getuserno("Ashish Anand"),"caller_dir/mail/demo_msg_admin.txt", $details);
+			Fun::msgfromfile(Fun::getuserno("Shakti Bansal"),"caller_dir/mail/demo_msg_admin.txt", $details);
 			Fun::msgfromfile(Fun::getuserno("Anupriya Jain"),"caller_dir/mail/demo_msg_admin.txt", $details);
 		}
 		return array("ec"=>1,"data"=>0);		

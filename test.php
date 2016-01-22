@@ -58,5 +58,8 @@ echo "</pre>";
 //var_dump($XMLReturn);
 //echo "</pre>";
 
+echo "<pre>";
 var_dump($_SESSION);
+echo "</pre>";
+
 ?>

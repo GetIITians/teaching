@@ -814,7 +814,7 @@ abstract class Fun{
 	}
 
 	public static function getuserno($username){
-		$userno = array("Himanshu Jain"=>"9250303639","Ashish Anand"=>"9650938273","Narayan"=>"9015410410","Yogesh Saini"=>"8955065736","Anupriya Jain"=>"8447731863");
+		$userno = array("Himanshu Jain"=>"9250303639","Shakti Bansal"=>"9953165009","Narayan Waraich"=>"9015410410","Yogesh Saini"=>"8955065736","Anupriya Jain"=>"8447731863");
 		if(array_key_exists($username,$userno))
 			return $userno[$username];
 		else 
