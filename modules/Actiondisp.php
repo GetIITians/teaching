@@ -281,8 +281,8 @@ class Actiondisp {
 
 	function callertbl($data,$printjson = true ){
 		$data = Fun::setifunset($data,"orderby",0);
-		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN ".qtable('lastcalldetail')." ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id WHERE (".Fun::getdemocons($data).") AND (".Fun::getteachercons($data['t_id']).") AND lastcalldetail.demo_id != 7 ORDER BY ".Fun::caller_orderby($data['orderby']));
-		//echo ("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN ".qtable('lastcalldetail')." ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id WHERE (".Fun::getdemocons($data).") AND (".Fun::getteachercons($data['t_id']).") ORDER BY ".Fun::caller_orderby($data['orderby']));
+		$arr = Sqle::getA("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details INNER JOIN ".qtable('lastcalldetail')." ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id WHERE (".Fun::getdemocons($data).") AND (".Fun::getteachercons($data['t_id']).") ORDER BY ".Fun::caller_orderby($data['orderby']));
+		//echo ("SELECT caller_details.*,lastcalldetail.*,users.name AS teacher_name FROM caller_details LEFT JOIN ".qtable('lastcalldetail')." ON caller_details.id = lastcalldetail.st_id LEFT JOIN users ON lastcalldetail.teacher_id = users.id WHERE (".Fun::getdemocons($data).") AND (".Fun::getteachercons($data['t_id']).") AND lastcalldetail.demo_id != 7 ORDER BY ".Fun::caller_orderby($data['orderby']));
 		if(!empty($data['paginval']))
 			$pagval = $data['paginval'];
 		else 
