@@ -876,19 +876,40 @@ class Welcome extends CI_Controller {
 	}
 	}
 	public function test() {
-		
-		$arr = array("action"=> "thingsahimanshuinfo",
-		"category"=> "Student",
-		"details"=>"sdsd",
-		"responsibility"=> "Ashish Anand",
-		"status"=> "WIP",
-		"comments"=>"sdfsd",
-		"id"=> "",
-		"due_date"=>"2015-11-25");
-		handle_request($arr);
+		$teachers = $this->db
+				->select('users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.id,users.profilepicbig as image')
+				->from('teachers')
+				->join('users', 'teachers.tid = users.id')
+				->where('teachers.isselected =', 'a')
+				->get()
+				->result();
+		//var_dump($teachers);
+		$subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
+		foreach ($teachers as $id => $teacher) {
+			$jsoninfo = json_decode($teacher->jsoninfo);
+
+			$subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
+			$priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
+			$minprice = min($priceArray);
+			$maxprice = max($priceArray);
+			if ($minprice === $maxprice) {
+				$teacher->fees = strval($minprice);
+			} else if($minprice !== 0) {
+				$teacher->fees = $minprice." - ".$maxprice;
+			} else {
+				$teacher->fees = strval($maxprice);
+			}
+			$teacher->degree = convert_degree($jsoninfo->degree);
+			$teacher->college = "IIT ".$jsoninfo->college;
+
+			$subjects = explode("-", $jsoninfo->sub);
+			foreach ($subjects as $key => $subject) {
+				if (is_numeric($subject))
+					$teacher->subject[] = $subjectNames[intval($subject-1)];
+			}
+		}
+		echo json_encode($teachers);
 	}
-
-
 }
 
 ?>
