@@ -863,17 +863,40 @@ class Welcome extends CI_Controller {
 	}
 
 	public function narayan(){
+		$teachers = $this->db
+                                ->select('users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.id,users.profilepicbig as image')
+                                ->from('teachers')
+                                ->join('users', 'teachers.tid = users.id')
+                                ->where('teachers.isselected =', 'a')
+                                ->get()
+                                ->result();
+                //var_dump($teachers);
+                $subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
+                foreach ($teachers as $id => $teacher) {
+                        $jsoninfo = json_decode($teacher->jsoninfo);
 
-	$t_id 	= 832;
-	for ($s_id=119; $s_id < 119; $s_id++) {
-		$data = array(
-			'c_id' => '11',
-			's_id' => $s_id,
-			't_id' => $t_id
-		);
-		$this->db->insert('all_cst', $data);
-		$t_id++;
-	}
+                        $subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
+                        $priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
+                        $minprice = min($priceArray);
+                        $maxprice = max($priceArray);
+                        if ($minprice === $maxprice) {
+                                $teacher->fees = strval($minprice);
+                        } else if($minprice !== 0) {
+                                $teacher->fees = $minprice." - ".$maxprice;
+                        } else {
+                                $teacher->fees = strval($maxprice);
+                        }
+                        $teacher->degree = convert_degree($jsoninfo->degree);
+                        $teacher->college = "IIT ".$jsoninfo->college;
+
+                        $subjects = explode("-", $jsoninfo->sub);
+                        foreach ($subjects as $key => $subject) {
+                                if (is_numeric($subject))
+                                        $teacher->subject[] = $subjectNames[intval($subject-1)];
+                        }
+                }
+                echo json_encode($teachers);
+
 	}
 	public function test() {
 		$teachers = $this->db

@@ -37,79 +37,78 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['thingshimanshu/view']			=	"thingshimanshu/view";
-$route['thingshimanshu/:num']				=	"thingshimanshu";
+$route['test']				=	"welcome/test";
+
+$route['thingshimanshu/view']		=	"thingshimanshu/view";
+$route['thingshimanshu/:num']		=	"thingshimanshu";
 $route['things/view']			=	"things/view";
-$route['things/:num']				=	"things";
+$route['things/:num']			=	"things";
 $route['caller/view']			=	"caller/view";
-$route['caller/:num']			=   "caller";
+$route['caller/:num']			=	"caller";
 $route['downloadteachers']		=	"welcome/downloadteachers";
-$route['forum']					=	"Forum";	
+$route['forum']				=	"Forum";	
 $route['downloads/:any'] 		=	"Downloads/view";
 $route['downloads'] 			=	"Downloads";
-$route['blog/([a-z]+)'] = 'Blog/view';
+$route['blog/([a-z]+)'] 		=	"Blog/view";
 $route['blog/:num'] 			=	"Blog";
 $route['blog/:any'] 			=	"Blog/view";
-$route['blog'] 					=	"Blog";
-
+$route['blog'] 				=	"Blog";
 
 $route['home/doubt'] 			=	"Home/doubt";
-$route['home'] 					=	"Home";
+$route['home'] 				=	"Home";
 $route['profile/edit'] 			=	"Profile/edit";
 
 $route['admin/table/:any'] 		=	"Admin/table";
-$route['admin'] 				=	"Admin";
+$route['admin'] 			=	"Admin";
 
 $route['approve_review'] 		=	"welcome/approve_review";
 $route['wiziq_status'] 			=	"welcome/wiziq_status";
-$route['narayan'] 				=	"welcome/narayan";
+$route['narayan'] 			=	"welcome/narayan";
 $route['rating/:any'] 			=	"welcome/rating";
-$route['rating'] 				=	"welcome/rating";
-$route['reviews'] 				=	"welcome/reviews";
+$route['rating'] 			=	"welcome/rating";
+$route['reviews'] 			=	"welcome/reviews";
 $route['termsofuse'] 			=	"welcome/termsofuse";
 $route['privacypolicy'] 		=	"welcome/privacypolicy";
-$route['hiring'] 				=	"welcome/hiring";
+$route['hiring'] 			=	"welcome/hiring";
 $route['studentprofile'] 		=	"welcome/studentprofile";
 
 $route['deleteFile'] 			=	"welcome/deleteFile";
-$route['myslots'] 				=	"welcome/myslots";
-$route['review'] 				=	"welcome/review";
-$route['account']				=	"welcome/account";
+$route['myslots'] 			=	"welcome/myslots";
+$route['review'] 			=	"welcome/review";
+$route['account']			=	"welcome/account";
 $route['changepassword'] 		=	"welcome/changepassword";
 
 $route['forgotPassword'] 		=	"welcome/forgotPassword";
 $route['confirmSlots'] 			=	"welcome/confirmSlots";
-$route['testCSV'] 				=	"welcome/testCSV";
+$route['testCSV'] 			=	"welcome/testCSV";
 $route['compareMany'] 			=	"welcome/compareMany";
-$route['view'] 					=	"welcome/view";
+$route['view'] 				=	"welcome/view";
 
-$route['reject'] 				=	"welcome/reject";
-$route['accept'] 				=	"welcome/accept";
+$route['reject'] 			=	"welcome/reject";
+$route['accept'] 			=	"welcome/accept";
 $route['acceptOrReject'] 		=	"welcome/acceptOrReject";
 $route['search/:any'] 			=	"welcome/search";
-$route['search'] 				=	"welcome/search";
-$route['edit'] 					=	"welcome/edit";
-$route['edit1'] 					=	"welcome/edit1";
+$route['search'] 			=	"welcome/search";
+$route['edit'] 				=	"welcome/edit";
+$route['edit1'] 			=	"welcome/edit1";
 
-$route['profile'] 				=	"welcome/profile";
+$route['profile'] 			=	"welcome/profile";
 $route['profile/:num'] 			=	"welcome/profile";
 $route['profile/:num/:num']		=	"welcome/profile";
-$route['topics'] 				=	"welcome/topics";
-$route['cal'] 					=	"welcome/cal";
-$route['signup']				=	"welcome/signup";
-$route['login'] 				=	"welcome/login";
+$route['topics'] 			=	"welcome/topics";
+$route['cal'] 				=	"welcome/cal";
+$route['signup']			=	"welcome/signup";
+$route['login'] 			=	"welcome/login";
 
 $route['joinusreal'] 			=	"welcome/joinusreal";
 $route['contactus'] 			=	"welcome/contactus";
-$route['reset'] 				=	"welcome/reset";
-$route['joinus'] 				=	"welcome/joinus";
-$route['aboutus'] 				=	"welcome/aboutus";
+$route['reset'] 			=	"welcome/reset";
+$route['joinus'] 			=	"welcome/joinus";
+$route['aboutus'] 			=	"welcome/aboutus";
 
-$route['test'] 				=	"welcome/test";
-
-$route['index'] 				=	"welcome/index";
-$route['default_controller'] 	=	"welcome";
-$route['404_override'] 			=	'';
+$route['index'] 			=	"welcome/index";
+$route['default_controller'] 		=	"welcome";
+$route['404_override'] 			=	"";
 
 
 /* End of file routes.php */
