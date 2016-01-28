@@ -7,7 +7,7 @@ msv
 serverkey.pem
 system/
 system/core/Common.php
-application/config/*
+application/config/database.php
 FirePHPCore/*
 index.php
 test.php
