@@ -25,6 +25,7 @@
         <option value="Poster">Poster</option>
         <option value="Website">Website</option>
         <option value="Referal">Referral</option>
+        <option value="Canopy">Canopy</option>
         <option value="other">Other</option>
         </select>
         <div id="source_other">
