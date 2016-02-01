@@ -873,30 +873,33 @@ class Welcome extends CI_Controller {
                 //var_dump($teachers);
                 $subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
                 foreach ($teachers as $id => $teacher) {
-                        $jsoninfo = json_decode($teacher->jsoninfo);
+					$jsoninfo = json_decode($teacher->jsoninfo);
 
-                        $subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
-                        $priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
-                        $minprice = min($priceArray);
-                        $maxprice = max($priceArray);
-                        if ($minprice === $maxprice) {
-                                $teacher->fees = strval($minprice);
-                        } else if($minprice !== 0) {
-                                $teacher->fees = $minprice." - ".$maxprice;
-                        } else {
-                                $teacher->fees = strval($maxprice);
-                        }
-                        $teacher->degree = convert_degree($jsoninfo->degree);
-                        $teacher->college = "IIT ".$jsoninfo->college;
+					$subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
+					$priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
+					$minprice = min($priceArray);
+					$maxprice = max($priceArray);
+					if ($minprice === $maxprice) {
+						$teacher->fees = strval($minprice);
+					} else if($minprice !== 0) {
+						$teacher->fees = $minprice." - ".$maxprice;
+					} else {
+						$teacher->fees = strval($maxprice);
+					}
+					$teacher->degree = convert_degree($jsoninfo->degree);
+					$teacher->college = "IIT ".$jsoninfo->college;
 
-                        $subjects = explode("-", $jsoninfo->sub);
-                        foreach ($subjects as $key => $subject) {
-                                if (is_numeric($subject))
-                                        $teacher->subject[] = $subjectNames[intval($subject-1)];
-                        }
-                }
-                echo json_encode($teachers);
-
+					$subjects = explode("-", $jsoninfo->sub);
+					foreach ($subjects as $key => $subject) {
+						if (is_numeric($subject))
+							$teacher->subject[] = $subjectNames[intval($subject-1)];
+					}
+					if (!file_exists($teacher->image)) {
+						$teacher->image = "images/male.png";
+					}
+				}
+				echo json_encode($teachers);
+				//var_dump($teachers);
 	}
 	public function test() {
 		$teachers = $this->db
