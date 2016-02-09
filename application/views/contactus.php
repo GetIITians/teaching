@@ -39,7 +39,6 @@ load_view("Template/navbarnew.php");
 					<div class="col-xs-12">
 						<div class="card">
 							<div id="map-canvas" style="height: 220px;"></div>
-							</div>
 						</div>
 					</div>
 				</div>

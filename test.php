@@ -59,7 +59,7 @@ echo "</pre>";
 //echo "</pre>";
 
 echo "<pre>";
-var_dump($_SESSION);
+var_dump(intval(null));
 echo "</pre>";
 
 ?>
