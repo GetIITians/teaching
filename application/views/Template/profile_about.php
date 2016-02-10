@@ -153,13 +153,13 @@
 		<div>
 			Resume :
 			<span class="grey-text text-darken-1">
-				<a target="_new" href="<?php echo $ejsoninfo["resume"] ; ?>">Click to see</a>
+				<a href="<?php echo "http://www.getiitians.com/teaching/".$ejsoninfo["resume"] ; ?>">Click to see</a>
 			</span>
 		</div>
 		<div>
 			College Verification :
 			<span class="grey-text text-darken-1">
-				<a target="_new" href="<?php echo $ejsoninfo["calvarification"] ; ?>">Click to see</a>
+				<a href="<?php echo "http://www.getiitians.com/teaching/".$ejsoninfo["calvarification"] ; ?>">Click to see</a>
 			</span>
 		</div>
 		<?php endif;  ?>
