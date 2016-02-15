@@ -867,7 +867,7 @@ class Welcome extends CI_Controller {
 		$teachers = $this->db->query('
 				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
 				FROM teachers
-				JOIN users ON teachers.tid = users.id AND teachers.isselected = "a"
+				JOIN users ON teachers.tid = users.id
 				JOIN subjects ON subjects.tid = users.id
 				JOIN all_classes ON all_classes.id = subjects.c_id
 				JOIN all_subjects ON all_subjects.id = subjects.s_id
@@ -915,7 +915,7 @@ class Welcome extends CI_Controller {
 //			var_dump($jsoninfo);
 		}
 		shuffle($teachersFirst);
-		shuffle($teachersLast);
+		//shuffle($teachersLast);
 		//var_dump(array_merge($teachersFirst,$teachersLast));
 		echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
@@ -926,7 +926,7 @@ class Welcome extends CI_Controller {
 		$query = $this->db->query('
 				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
 				FROM teachers
-				JOIN users ON teachers.tid = users.id AND teachers.isselected = "a"
+				JOIN users ON teachers.tid = users.id
 				JOIN subjects ON subjects.tid = users.id
 				JOIN all_classes ON all_classes.id = subjects.c_id
 				JOIN all_subjects ON all_subjects.id = subjects.s_id
