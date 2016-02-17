@@ -923,7 +923,7 @@ class Welcome extends CI_Controller {
 //			var_dump($jsoninfo);
 		}
 		shuffle($teachersFirst);
-		//shuffle($teachersLast);
+		shuffle($teachersLast);
 		//var_dump(array_merge($teachersFirst,$teachersLast));
 		echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
@@ -988,7 +988,7 @@ class Welcome extends CI_Controller {
 //			var_dump($jsoninfo);
 		}
 		shuffle($teachersFirst);
-		//shuffle($teachersLast);
+		shuffle($teachersLast);
 		var_dump(array_merge($teachersFirst,$teachersLast));
 		//echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}

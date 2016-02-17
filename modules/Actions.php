@@ -173,6 +173,7 @@ class Actions {
 		$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
 		$insertarray["details"] = Fun::getthingfrmt($data['details'],'m');
 		Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/thingsdone_admin.txt", $insertarray);
+		Fun::msgfromfile(Fun::getuserno("Anupriya Jain"),"caller_dir/mail/thingsdone_admin.txt", $insertarray);
 		return array("ec"=>1,"data"=>0);
 	}
 	function thingsahisdetails($data){
