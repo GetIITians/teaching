@@ -38,11 +38,12 @@
         <option value="" disabled="disabled" selected="selected">Select</option>
         <?php endif; ?>
         <option value="Himanshu Jain">Himanshu Jain</option>
-        <option value="Ashish Anand">Ashish Anand</option>
         <option value="Narayan">Narayan</option>
-        <option value="Yogesh Saini">Yogesh Saini</option>
         <option value="Yogendra">Yogendra</option>
         <option value="Anupriya Jain">Anupriya Jain</option>
+        <option value="Sabita Jaiswal">Sabita Jaiswal</option>
+        <option value="Krittika Saxena">Krittika Saxena</option>
+        <option value="Gaurav Maan">Gaurav Maan</option>
         </select>
     </div>
     <div class=" col-xs-12 col-md-6">

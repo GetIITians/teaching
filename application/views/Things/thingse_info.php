@@ -12,9 +12,10 @@ $pagin_limit = 100;
         <td style="width:5%">ID</td>
         <td style="width:15%">Responsibility</td>
         <td style="width:15%">Category</td>
-        <td style="width:40%">Details</td>
-       <td style="width:12%">Date</td>
-        </tr>
+        <td style="width:30%">Details</td>
+        <td style="width:20%">Duration</td>
+        <td style="width:12%">Date</td>
+      </tr>
     </thead>
     <tbody>
 <?php  
@@ -26,6 +27,11 @@ foreach($data as $key=>$row) { ?>
     <td><?php echo $row['responsibility']; ?></td>
     <td><?php echo $row['category']; ?></td>
     <td><?php echo $row['details']; ?></td>
+    <?php if($row['start'] != '') { ?>
+    <td><?php echo gmdate("H:i", $row['end']-$row['start']); ?></td>
+    <?php } else { ?>
+    <td></td>
+    <?php } ?>
     <td><?php if(!empty($row['created_at'])) echo date("d-M-y h:i:s",$row['created_at']); ?></td>
 </tr>
  <?php } ?>     

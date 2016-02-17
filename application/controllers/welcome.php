@@ -864,7 +864,14 @@ class Welcome extends CI_Controller {
 
 	public function narayan(){
 		$search = urldecode($this->uri->segment(2));
-		$teachers = $this->db->query('
+		if ($search === '') {
+			$teachers = $this->db->query('
+				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
+				FROM teachers
+				JOIN users ON teachers.tid = users.id
+			')->result();
+		} else {
+			$teachers = $this->db->query('
 				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
 				FROM teachers
 				JOIN users ON teachers.tid = users.id
@@ -872,12 +879,13 @@ class Welcome extends CI_Controller {
 				JOIN all_classes ON all_classes.id = subjects.c_id
 				JOIN all_subjects ON all_subjects.id = subjects.s_id
 				JOIN all_topics ON all_topics.id = subjects.t_id
-				WHERE 
+				WHERE  
 					users.name LIKE "%'.$search.'%" OR
 					all_classes.classname LIKE "%'.$search.'%" OR
 					all_subjects.subjectname LIKE "%'.$search.'%" OR
 					all_topics.topicname LIKE "%'.$search.'%"
 			')->result();
+		}
 		//var_dump($teachers);
 		$subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
 		$topIds = ['76','272','230','128','52','38','181','43'];
@@ -920,10 +928,15 @@ class Welcome extends CI_Controller {
 		echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
 	public function test() {
-		var_dump(urldecode($this->uri->segment(2)));
-		$search = 'quadratic';
-		//var_dump($search);
-		$query = $this->db->query('
+		$search = urldecode($this->uri->segment(2));
+		if ($search === '') {
+			$teachers = $this->db->query('
+				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
+				FROM teachers
+				JOIN users ON teachers.tid = users.id
+			')->result();
+		} else {
+			$teachers = $this->db->query('
 				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
 				FROM teachers
 				JOIN users ON teachers.tid = users.id
@@ -931,15 +944,53 @@ class Welcome extends CI_Controller {
 				JOIN all_classes ON all_classes.id = subjects.c_id
 				JOIN all_subjects ON all_subjects.id = subjects.s_id
 				JOIN all_topics ON all_topics.id = subjects.t_id
-				WHERE 
+				WHERE  
 					users.name LIKE "%'.$search.'%" OR
 					all_classes.classname LIKE "%'.$search.'%" OR
 					all_subjects.subjectname LIKE "%'.$search.'%" OR
 					all_topics.topicname LIKE "%'.$search.'%"
 			')->result();
-		/*
-		*/
-		var_dump($query);
+		}
+		//var_dump($teachers);
+		$subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
+		$topIds = ['76','272','230','128','52','38','181','43'];
+		$teachersFirst = $teachersLast = [];
+		foreach ($teachers as $id => $teacher) {
+			$jsoninfo = json_decode($teacher->jsoninfo);
+			$subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
+			$priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
+			$minprice = min($priceArray);
+			$maxprice = max($priceArray);
+			if ($minprice === $maxprice) {
+				$teacher->fees = strval($minprice);
+			} else if($minprice !== 0) {
+				$teacher->fees = $minprice." - ".$maxprice;
+			} else {
+				$teacher->fees = strval($maxprice);
+			}
+			$teacher->degree = convert_degree($jsoninfo->degree);
+			$teacher->college = "IIT ".$jsoninfo->college;
+
+			$subjects = explode("-", $jsoninfo->sub);
+			foreach ($subjects as $key => $subject) {
+				if (is_numeric($subject))
+					$teacher->subject[] = $subjectNames[intval($subject-1)];
+			}
+			if (!file_exists($teacher->image)) {
+				$teacher->image = "images/male.png";
+			}
+			if (in_array($teacher->id, $topIds)) {
+				$teachersFirst[] = $teacher;
+			} else {
+				$teachersLast[] = $teacher;
+			}
+//			var_dump($teacher);
+//			var_dump($jsoninfo);
+		}
+		shuffle($teachersFirst);
+		//shuffle($teachersLast);
+		var_dump(array_merge($teachersFirst,$teachersLast));
+		//echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
 }
 

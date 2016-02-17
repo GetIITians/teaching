@@ -39,11 +39,12 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
     <option value="" selected disabled>Select</option>
       <option value="">All</option>
       <option value="Himanshu Jain">Himanshu Jain</option>
-      <option value="Ashish Anand">Ashish Anand</option>
       <option value="Narayan">Narayan</option>
-      <option value="Yogesh Saini">Yogesh Saini</option>
       <option value="Yogendra">Yogendra</option>
       <option value="Anupriya Jain">Anupriya Jain</option>
+      <option value="Sabita Jaiswal">Sabita Jaiswal</option>
+      <option value="Krittika Saxena">Krittika Saxena</option>
+      <option value="Gaurav Maan">Gaurav Maan</option>
     </select>
   </div>
   </form>
@@ -84,11 +85,12 @@ load_view("popup.php",array("name"=>"editthingsapopup", "title" => "Edit Details
     <option value="" selected disabled>Select</option>
       <option value="">All</option>
       <option value="Himanshu Jain">Himanshu Jain</option>
-      <option value="Ashish Anand">Ashish Anand</option>
       <option value="Narayan">Narayan</option>
-      <option value="Yogesh Saini">Yogesh Saini</option>
       <option value="Yogendra">Yogendra</option>
       <option value="Anupriya Jain">Anupriya Jain</option>
+      <option value="Sabita Jaiswal">Sabita Jaiswal</option>
+      <option value="Krittika Saxena">Krittika Saxena</option>
+      <option value="Gaurav Maan">Gaurav Maan</option>
     </select>
   </div>
   </form>

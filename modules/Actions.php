@@ -164,15 +164,16 @@ class Actions {
 	}
 	/*	Things for all*/
 	function thingseinfo($data) {
-		$insertarray = Fun::getflds(array("category", "responsibility",),$data);
+		$insertarray = Fun::getflds(array("category", "responsibility", "start", "end"),$data);
 		$insertarray["details"] = Fun::getthingfrmt($data['details'],'w');
 		$insertarray['created_at'] = time();
+		$insertarray['start'] = strtotime($insertarray['start']);
+		$insertarray['end'] = strtotime($insertarray['end']);
 		$odata=Sqle::insertVal("thingse_details",$insertarray);
 		$insertarray["responsibility"] = Fun::getfname($insertarray["responsibility"]);
 		$insertarray["details"] = Fun::getthingfrmt($data['details'],'m');
 		Fun::msgfromfile(Fun::getuserno("Himanshu Jain"),"caller_dir/mail/thingsdone_admin.txt", $insertarray);
 		return array("ec"=>1,"data"=>0);
-		
 	}
 	function thingsahisdetails($data){
 		$tahisarray = Fun::getflds(array("td_id","status","comments"),$data);
