@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo BASE; ?>">
+			<a class="navbar-brand" href="http://getiitians.com">
 				<img src="images/logo_horizontal.png" class="img-responsive">
 			</a>
 		</div>
