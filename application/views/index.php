@@ -47,7 +47,7 @@ load_view("Template/top.php", $inp);
                            autocomplete="off" name="q" id="main_search_bar">
                 </div>
                 <div class="col-xs-12 col-sm-2">
-                    <button type="submit" class="btn waves-effect waves-light teal darken-3" id="main_search_button">
+                    <button type="submit" class="btn waves-effect waves-light" id="main_search_button">
                         Search
                     </button>
                 </div>
@@ -446,7 +446,7 @@ load_view("Template/top.php", $inp);
                 <a href="<?php echo BASE . 'search'; ?>" class="hoverable course-link">Gases</a>
                 <a href="<?php echo BASE . 'search'; ?>" class="hoverable course-link">Liquid State</a>
                 <a href="<?php echo BASE . 'search'; ?>" class="hoverable course-link"
-                   style="background-color:#00796b;color:#ffffff;border-color:#00796b;">
+                   style="background-color:#E74C3C;color:#ffffff;border-color:#E74C3C;">
                     And Many More +
                 </a>
             </div>

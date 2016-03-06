@@ -42,10 +42,10 @@ class Welcome extends CI_Controller {
 			header('Content-Type: text/csv; charset=utf-8');
 			header('Content-Disposition: attachment; filename=teachers.csv');
 			$output = fopen('php://output', 'w');
-			fputcsv($output, array('Name', 'Email', 'Phone','Gender','Subject','Min Fess','College','Degree','Grade','City','Resume Link'));
+			fputcsv($output, array('Name', 'Email', 'Phone','Gender','Subject','Min Fess','College','Degree','Branch','Grade','City','Resume Link'));
 			$rows = Fun::resjson2arr(Sqle::getA('SELECT * FROM users INNER JOIN teachers on users.id = teachers.tid'));
 			foreach($rows as $row){
-				$ss = Fun::changesomedata(Fun::getflds(array('name', 'email', 'phone','gender','sub','minfees','college','degree','grade','city','resume','subother'),$row));
+				$ss = Fun::changesomedata(Fun::getflds(array('name', 'email', 'phone','gender','sub','minfees','college','degree','branch','grade','city','resume','subother'),$row));
 				fputcsv($output,$ss);	
 			}
 		}
@@ -927,70 +927,94 @@ class Welcome extends CI_Controller {
 		//var_dump(array_merge($teachersFirst,$teachersLast));
 		echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
+
 	public function test() {
-		$search = urldecode($this->uri->segment(2));
-		if ($search === '') {
-			$teachers = $this->db->query('
-				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
-				FROM teachers
-				JOIN users ON teachers.tid = users.id
-			')->result();
-		} else {
-			$teachers = $this->db->query('
-				SELECT DISTINCT users.id, users.name,teachers.teachermoto as introduction,jsoninfo,teachers.rating,teachers.rating_total,users.profilepicbig as image
-				FROM teachers
-				JOIN users ON teachers.tid = users.id
-				JOIN subjects ON subjects.tid = users.id
-				JOIN all_classes ON all_classes.id = subjects.c_id
-				JOIN all_subjects ON all_subjects.id = subjects.s_id
-				JOIN all_topics ON all_topics.id = subjects.t_id
-				WHERE  
-					users.name LIKE "%'.$search.'%" OR
-					all_classes.classname LIKE "%'.$search.'%" OR
-					all_subjects.subjectname LIKE "%'.$search.'%" OR
-					all_topics.topicname LIKE "%'.$search.'%"
-			')->result();
+		/*
+		$cst = Funs::cst_tree();
+		$DB2 = $this->load->database('otherdb', TRUE);
+		foreach ($cst as $class_id => $class) {
+			$DB2->query("INSERT INTO `grades`(`id`, `name`, `created_at`, `updated_at`) VALUES ( '".$class_id."', '".$class['name']."', now(),now())");
+			foreach ($class['children'] as $subject_id => $subject) {
+				$DB2->query("INSERT INTO `subjects`(`id`, `grade_id`, `name`, `created_at`, `updated_at`) VALUES ( '".$subject_id."','".$class_id."' ,'".$subject['name']."', now(),now())");
+				foreach ($subject['children'] as $topic_id => $topic) {
+					$DB2->query("INSERT INTO `topics`(`id`, `subject_id`, `name`, `created_at`, `updated_at`) VALUES ( '".$topic_id."','".$subject_id."' ,'".mysql_real_escape_string($topic['name'])."', now(),now())");
+				}
+			}
 		}
+
+		$DB2->query("
+			INSERT INTO `languages`(`id`, `language`, `created_at`, `updated_at`) 
+			VALUES 
+				( 1, 'English', now(), now()),
+				( 2, 'Hindi', now(), now()),
+				( 3, 'Assamese', now(), now()),
+				( 4, 'Sanskrit', now(), now()),
+				( 5, 'Bengali', now(), now()),
+				( 6, 'Mayalayam', now(), now()),
+				( 7, 'Tamil', now(), now()),
+				( 8, 'Gujarati', now(), now()),
+				( 9, 'Marathi', now(), now()),
+				( 10, 'Telugu', now(), now()),
+				( 11, 'Oriya', now(), now()),
+				( 12, 'Urdu', now(), now()),
+				( 13, 'Kannada', now(), now()),
+				( 14, 'Punjabi', now(), now())
+			");
+		*/
+		/*
+		$teachers = $this->db->query('
+			SELECT DISTINCT users.id, users.name, users.email, users.password,users.profilepicbig as picture, users.gender, users.dob as date_of_birth, users.phone, teachers.teachermoto as introduction,teachers.jsoninfo,teachers.rating,teachers.rating_total,teachers.lang,teachers.teachingexp as experience
+			FROM teachers
+			JOIN users ON teachers.tid = users.id
+		')->result();
 		//var_dump($teachers);
-		$subjectNames = ["Mathematics","Physics","Chemistry","Biology","Science(6-10)","Others"];
-		$topIds = ['76','272','230','128','52','38','181','43'];
-		$teachersFirst = $teachersLast = [];
+
 		foreach ($teachers as $id => $teacher) {
 			$jsoninfo = json_decode($teacher->jsoninfo);
-			$subjectprice = $this->db->select('MIN(price) as price')->from('subjects')->where('tid',$teacher->id)->get()->row();
-			$priceArray = [intval($subjectprice->price),intval($jsoninfo->minfees)];
-			$minprice = min($priceArray);
-			$maxprice = max($priceArray);
-			if ($minprice === $maxprice) {
-				$teacher->fees = strval($minprice);
-			} else if($minprice !== 0) {
-				$teacher->fees = $minprice." - ".$maxprice;
-			} else {
-				$teacher->fees = strval($maxprice);
-			}
-			$teacher->degree = convert_degree($jsoninfo->degree);
-			$teacher->college = "IIT ".$jsoninfo->college;
+			$DB2 = $this->load->database('otherdb', TRUE);
 
-			$subjects = explode("-", $jsoninfo->sub);
-			foreach ($subjects as $key => $subject) {
-				if (is_numeric($subject))
-					$teacher->subject[] = $subjectNames[intval($subject-1)];
+			$DB2->query("
+				INSERT INTO `users`
+						(`id`, `name`, `email`, `password`, `picture`, `gender`, `date_of_birth`, `country`, `city`, `state`, `pin`, `introduction`, `phone`, `created_at`, `updated_at`, `email_confirmed`, `phone_confirmed`, `deriveable_type`, `deriveable_id`)
+				VALUES 	( '".$teacher->id."', '".$teacher->name."', '".$teacher->email."', '".$teacher->password."', '".$teacher->picture."', '".$teacher->gender."', '".$teacher->date_of_birth."', '".$jsoninfo->country."', '".$jsoninfo->city."', '".$jsoninfo->state."', '".$jsoninfo->zipcode."', '".mysql_real_escape_string($teacher->introduction)."', '".$teacher->phone."', now(),now(), 1, 1, '".mysql_real_escape_string('App\Teacher')."', '".$teacher->id."')");
+			
+			$DB2->query("
+				INSERT INTO `teachers`
+						(`id`, `home_tuition`, `experience`, `minfees`, `resume`, `rating`, `rating_count`, `created_at`, `updated_at`)
+				VALUES 	( '".$teacher->id."', '".$jsoninfo->home."', '".$teacher->experience."', '".$jsoninfo->minfees."', '".$jsoninfo->resume."', '".$teacher->rating."', '".$teacher->rating_total."', now(),now())");
+
+			$languages = explode("-", $teacher->lang);
+
+			foreach($languages as $key => $value){
+				$DB2->query("
+					INSERT INTO `language_teacher`
+							(`teacher_id`, `language_id`, `created_at`, `updated_at`)
+					VALUES 	( '".$teacher->id."', '".$value."', now(),now())");
 			}
-			if (!file_exists($teacher->image)) {
-				$teacher->image = "images/male.png";
-			}
-			if (in_array($teacher->id, $topIds)) {
-				$teachersFirst[] = $teacher;
-			} else {
-				$teachersLast[] = $teacher;
-			}
-//			var_dump($teacher);
-//			var_dump($jsoninfo);
 		}
-		shuffle($teachersFirst);
-		shuffle($teachersLast);
-		var_dump(array_merge($teachersFirst,$teachersLast));
-		//echo json_encode(array_merge($teachersFirst,$teachersLast));
+		*/
+		/*
+		$subjects = $this->db->query(' SELECT tid as teacher_id, t_id as topic_id, price as fees FROM subjects')->result();
+		var_dump($subjects);
+		foreach ($subjects as $key => $subject) {
+			$DB2 = $this->load->database('otherdb', TRUE);
+			$DB2->query("
+				INSERT INTO `teacher_topic`
+						( `teacher_id`, `topic_id`, `fees`, `created_at`, `updated_at`)
+				VALUES 	( '".$subject->teacher_id."', '".$subject->topic_id."', '".$subject->fees."', now(),now())");
+		}
+		*/
+
+		/*
+		$timeslots = $this->db->query(' SELECT tid as teacher_id, starttime as slot FROM timeslot WHERE `starttime` > "1456909786" ')->result();
+		//var_dump($timeslots);
+		$DB2 = $this->load->database('otherdb', TRUE);
+		$DB2->query("TRUNCATE TABLE `timeslots`"); 
+		foreach ($timeslots as $key => $timeslot) {
+			//var_dump(date("Y-m-d H:i:s", $timeslot->slot));
+			$DB2->query(" INSERT INTO `timeslots` ( `teacher_id`, `slot`, `created_at`, `updated_at`) VALUES ( '".$timeslot->teacher_id."', '".date("Y-m-d H:i:s", $timeslot->slot)."', now(),now())");
+		}
+		*/
 	}
 }
 

@@ -648,7 +648,7 @@ margin: 0.82rem 0px 0.656rem;
 #numbers ul li{
 	display: inline-block;
     font-weight: 500;
-    color: #009688;
+    color: #E74C3C;
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -659,7 +659,7 @@ margin: 0.82rem 0px 0.656rem;
 }
 
 #review_slider .review{
-	border-left: 5px solid #00695C;
+	border-left: 5px solid #E74C3C;
 	padding-left: 1rem;
 }
 
@@ -682,7 +682,7 @@ margin: 0.82rem 0px 0.656rem;
 }
 
 #review_slider .teacher span{
-	color: #00695C !important;
+	color: #E74C3C !important;
 }
 
 .icon-panel div.grey-text{
@@ -739,7 +739,7 @@ margin: 0.82rem 0px 0.656rem;
 }
 
 a.attention-joinus {
-	background-color: #00695c;
+	background-color: #E74C3C;
 }
 
 a.attention-joinus:hover {
@@ -888,7 +888,7 @@ a.attention-joinus:hover {
 -------------------*/
 
 nav.navbar-fixed-top{
-	background-color: #00695c;
+	background-color: #E74C3C;
 	border: 0;
 	height: auto;
 	min-height: auto;
@@ -1003,7 +1003,7 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 }
 
 #homeDropdown > li{
-	background-color: #00695C;
+	background-color: #E74C3C;
 	border-right: 1px solid #002C26;
 	position: relative;
 	float: left;
@@ -1029,14 +1029,14 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 }
 
 #homeDropdown .dropdown-menu {
-	background-color: #00695C;
+	background-color: #E74C3C;
 	border: 0;
 	border-radius: 0;
 	margin-top: 1px;
 }
 
 #homeDropdown .dropdown-menu > li > a{
-	background-color: #00695C;
+	background-color: #E74C3C;
 	color: white;
 }
 
@@ -1046,21 +1046,21 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 }
 
 #homeDropdown .dropdown-menu > li > a.highlighted{
-	background-color: #004d40;
+	background-color: #CE3323;
 }
 
 #homeDropdown .dropdown-menu .dropdown-menu{
-	background-color: #004d40;
+	background-color: #CE3323;
 }
 
 #homeDropdown .dropdown-menu .dropdown-menu li a{
-	background-color: #004d40;
+	background-color: #CE3323;
 }
 
 #homeDropdown .dropdown-menu .dropdown-menu li a:hover,
 #homeDropdown .dropdown-menu .dropdown-menu li a.highlighted
 {
-	background-color: #003C32;
+	background-color: #B41909;
 }
 
 /*-------------------
@@ -1093,6 +1093,7 @@ nav.navbar-fixed-top .dropdown-menu > li > a > span{
 
 footer{
 	color: white;
+	background-color: #E74C3C;
 }
 
 footer li > a{
