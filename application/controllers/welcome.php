@@ -1006,13 +1006,29 @@ class Welcome extends CI_Controller {
 		*/
 
 		/*
-		$timeslots = $this->db->query(' SELECT tid as teacher_id, starttime as slot FROM timeslot WHERE `starttime` > "1456909786" ')->result();
+		$timeslots = $this->db->query('SELECT tid as teacher_id, starttime as slot FROM timeslot WHERE `starttime` > "1456909786" ')->result();
 		//var_dump($timeslots);
 		$DB2 = $this->load->database('otherdb', TRUE);
 		$DB2->query("TRUNCATE TABLE `timeslots`"); 
 		foreach ($timeslots as $key => $timeslot) {
 			//var_dump(date("Y-m-d H:i:s", $timeslot->slot));
 			$DB2->query(" INSERT INTO `timeslots` ( `teacher_id`, `slot`, `created_at`, `updated_at`) VALUES ( '".$timeslot->teacher_id."', '".date("Y-m-d H:i:s", $timeslot->slot)."', now(),now())");
+		}
+		*/
+
+		/*
+		$qualifications = $this->db->query('SELECT tid,jsoninfo FROM teachers')->result();
+		foreach ($qualifications as $id => $qualification) {
+			var_dump(json_decode($qualification->jsoninfo));
+		}
+		$DB2 = $this->load->database('otherdb', TRUE);
+		$DB2->query("TRUNCATE TABLE `qualifications`");
+		foreach ($qualifications as $id => $qualification) {
+			$jsoninfo = json_decode($qualification->jsoninfo);
+			$DB2->query(" 
+				INSERT INTO `qualifications` 
+				( `teacher_id`, `college`, `degree`, `branch`, `verification`, `created_at`, `updated_at`) 
+				VALUES ( '".$qualification->tid."', 'IIT ".$jsoninfo->college."', '".convert_degree($jsoninfo->degree)."', '".$jsoninfo->branch."','".$jsoninfo->calvarification."', now(),now())");
 		}
 		*/
 	}

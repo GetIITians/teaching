@@ -13,7 +13,9 @@ $pagin_limit = 100;
         <td style="width:15%">Responsibility</td>
         <td style="width:15%">Category</td>
         <td style="width:30%">Details</td>
-        <td style="width:20%">Duration</td>
+        <td style="width:5%">Duration</td>
+        <td style="width:5%">Start</td>
+        <td style="width:5%">End</td>
         <td style="width:12%">Date</td>
       </tr>
     </thead>
@@ -32,6 +34,8 @@ foreach($data as $key=>$row) { ?>
     <?php } else { ?>
     <td></td>
     <?php } ?>
+    <td><?php  if($row['start']) echo date('H:i', $row['start']); ?></td>
+    <td><?php  if($row['end']) echo date('H:i', $row['end']); ?></td>
     <td><?php if(!empty($row['created_at'])) echo date("d-M-y h:i:s",$row['created_at']); ?></td>
 </tr>
  <?php } ?>     
