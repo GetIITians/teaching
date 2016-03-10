@@ -928,7 +928,7 @@ class Welcome extends CI_Controller {
 		echo json_encode(array_merge($teachersFirst,$teachersLast));
 	}
 
-	public function test() {
+	public function transfer() {
 		/*
 		$cst = Funs::cst_tree();
 		$DB2 = $this->load->database('otherdb', TRUE);
@@ -972,7 +972,13 @@ class Welcome extends CI_Controller {
 		foreach ($teachers as $id => $teacher) {
 			$jsoninfo = json_decode($teacher->jsoninfo);
 			$DB2 = $this->load->database('otherdb', TRUE);
-
+			if ($teacher->gender == 'm') {
+				$teacher->gender = "male";
+			} elseif ($teacher->gender == 'M') {
+				$teacher->gender = "male";
+			} elseif ($teacher->gender == 'f') {
+				$teacher->gender = "female";
+			}
 			$DB2->query("
 				INSERT INTO `users`
 						(`id`, `name`, `email`, `password`, `picture`, `gender`, `date_of_birth`, `country`, `city`, `state`, `pin`, `introduction`, `phone`, `created_at`, `updated_at`, `email_confirmed`, `phone_confirmed`, `deriveable_type`, `deriveable_id`)
@@ -995,7 +1001,7 @@ class Welcome extends CI_Controller {
 		*/
 		/*
 		$subjects = $this->db->query(' SELECT tid as teacher_id, t_id as topic_id, price as fees FROM subjects')->result();
-		var_dump($subjects);
+		//var_dump($subjects);
 		foreach ($subjects as $key => $subject) {
 			$DB2 = $this->load->database('otherdb', TRUE);
 			$DB2->query("
@@ -1006,7 +1012,7 @@ class Welcome extends CI_Controller {
 		*/
 
 		/*
-		$timeslots = $this->db->query('SELECT tid as teacher_id, starttime as slot FROM timeslot WHERE `starttime` > "1456909786" ')->result();
+		$timeslots = $this->db->query('SELECT tid as teacher_id, starttime as slot FROM timeslot WHERE `starttime` > "'.time().'" ')->result();
 		//var_dump($timeslots);
 		$DB2 = $this->load->database('otherdb', TRUE);
 		$DB2->query("TRUNCATE TABLE `timeslots`"); 
@@ -1018,9 +1024,6 @@ class Welcome extends CI_Controller {
 
 		/*
 		$qualifications = $this->db->query('SELECT tid,jsoninfo FROM teachers')->result();
-		foreach ($qualifications as $id => $qualification) {
-			var_dump(json_decode($qualification->jsoninfo));
-		}
 		$DB2 = $this->load->database('otherdb', TRUE);
 		$DB2->query("TRUNCATE TABLE `qualifications`");
 		foreach ($qualifications as $id => $qualification) {
