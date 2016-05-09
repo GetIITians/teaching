@@ -1,17 +1,17 @@
-<?php 
-load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$caller_info['name']."'s Caller Details","body" =>"Caller/calldetailsform.php","bodyinfo" => array("st_id"=>$caller_info['id']) )); 
+<?php
+load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$caller_info['name']."'s Caller Details","body" =>"Caller/calldetailsform.php","bodyinfo" => array("st_id"=>$caller_info['id']) ));
 ?>
 <div class="container" >
 <div class="row mt5">
 	<div class="col-sm-1" >
-		<a class="btn btn-primary" href="<?php echo HOST.'caller/view/'.($caller_info['id']-1); ?>" >Pervious</a>
+		<a class="btn btn-primary" href="<?php echo $previous; ?>" >Pervious</a>
 	</div>
-	<div class="col-sm-1" style="float:right">	
-		<a class="btn btn-primary" href="<?php echo HOST.'caller/view/'.($caller_info['id']+1); ?>" >Next</a>
+	<div class="col-sm-1" style="float:right">
+		<a class="btn btn-primary" href="<?php echo $next; ?>" >Next</a>
 	</div>
 </div>
 	<div data-action="caller_basicinfo" id="caller_basic_info" data-id=<?php echo $caller_info['id']; ?>>
-		<?php 
+		<?php
 	  		handle_disp(array("id"=>$caller_info['id']), "caller_basicinfo");
 		?>
 	</div>
@@ -30,4 +30,4 @@ load_view("popup.php",array("name"=>"callerhistorypopup", "title" =>"Add ".$call
 	</div>
 	</div>
 	</div>
-</div>	
+</div>

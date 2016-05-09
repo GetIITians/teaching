@@ -1,6 +1,6 @@
 <?php
 /*
-Define 
+Define
 #fname : Name of function, in which we are currently.
 
 */
@@ -63,7 +63,7 @@ abstract class Funs{
 		return $times;
 	}
 
-	//Made by ::Himanshu Rohilla::  
+	//Made by ::Himanshu Rohilla::
 	//This function extracts the field from jsoninfo of teachers table from the database
 	//$jsonArray is that jsoninfo field value in techers table
 	//$subN is the array of field
@@ -85,7 +85,7 @@ abstract class Funs{
 		}
 		$comma="";
 		$subOther="";
-		if(trim($jsonArray[$type.'other'])!=""){  
+		if(trim($jsonArray[$type.'other'])!=""){
 			$comma=" , ";
 			$subOther=trim($jsonArray[$type.'other']);
 		}
@@ -93,7 +93,7 @@ abstract class Funs{
 		$outSubject=substr_replace($finalString, "", -2);
 		return $outSubject;
 	}
-	
+
 	public static function calenderInfo($tid,$month,$year){
 		global $_ginfo;
 		$timestamp = strtotime($year.'-'.$month.'-1');//starting time of month
@@ -251,11 +251,11 @@ abstract class Funs{
 		$otp=rand(100000,999999);
 		sets("phone",$otp);
 		Fun::msgfromfile($phone,"php/mail/otp.txt",array("otp"=>$otp, "name" => $st));
-		if($email!='') { 
+		if($email!='') {
 			$otp=rand(100000,999999);
 			sets("email",$otp);
 			Fun::mailfromfile($email,"php/mail/otp_mail.txt",array("otp"=>$otp, "name" => $st));
-		} 
+		}
 		return 1;
 //    Fun::msgfromfile($data["phone"],"php/mail/otp.txt",array("otp"=>$otp));
 	}
@@ -328,7 +328,7 @@ abstract class Funs{
 		$newslots = Funs::classeslist_filter(Sqle::getA(qtable("stdbookedclasses_new", false), array("sid" => $sid)));
 		$pageinfo=array("fname"=>$flname[0],"lname"=>$flname[1],"sinfo"=>$sinfo,"dob"=>$dob, "sid" => $sid, "newslots" => $newslots, "oldslots" => $oldslots);
 		$pageinfo["rlist"] = Sqle::getA("select * from ".qtable("allreviews")." where sid={sid} ", array("sid" => User::loginId()));
-		mergeifunset($pageinfo, Funs::moneyaccount($sid)); 
+		mergeifunset($pageinfo, Funs::moneyaccount($sid));
 		//fb($pageinfo,'pageinfo',FirePHP::LOG);
 		return $pageinfo;
 	}
@@ -347,7 +347,7 @@ abstract class Funs{
 
 //	$data have keys => {class, subject, topic, price, timer, lang, timeslot, orderby, search}
 //	$hisoutput=array("select tid from teachers",array());
-		$hisoutput = Funs::mssearch($data); 
+		$hisoutput = Funs::mssearch($data);
 		$hisoutput[1]["uid"] = (0+User::loginId());
 		$setorderby=Funs::setorderby($data['orderby']);
 		/**
@@ -358,7 +358,7 @@ abstract class Funs{
 		} else {
 			$isselected = "where teachers.isselected='a'";
 		}
-		$hisoutput[0]="select teachers.isselected, caller_st_number.caller_st_num, dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name,users.email,users.phone, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid left join ".qtable('caller_st_number')." on caller_st_number.teacher_id = teachers.tid ".$isselected." order by ".$setorderby;		
+		$hisoutput[0]="select teachers.isselected, caller_st_number.caller_st_num, dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name,users.email,users.phone, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[0].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid left join ".qtable('caller_st_number')." on caller_st_number.teacher_id = teachers.tid ".$isselected." order by ".$setorderby;
 		$hisoutput[2]="select dispteachers.tid, teacherratings.avgrating, takendemo.isdonedemo, teacherratings.numpeople as numrater, subjectnamelist.subjectname, users.name, users.dob, users.profilepic, teachers.teachermoto, teachers.jsoninfo,teachers.teachingexp, pricelist.minprice, pricelist.maxprice,teachers.rating,teachers.rating_total, teachers.lang,avlsolts.ttl_avlsolts,tteachtime.teachduration from (".$hisoutput[2].") dispteachers left join users on users.id=dispteachers.tid left join teachers on teachers.tid=dispteachers.tid left join (".gtable("pricelist").") pricelist on pricelist.tid = teachers.tid left join ".qtable("subjectnamelist")." on subjectnamelist.tid = teachers.tid left join ".qtable("teacherratings")." on teacherratings.tid=teachers.tid left join ".qtable("takendemo")." on takendemo.tid = teachers.tid left join ".qtable("avlsolts")." on avlsolts.tid=teachers.tid left join ".qtable("tteachtime")." on tteachtime.tid=teachers.tid where teachers.isselected='a' order by ".$setorderby;
 		return $hisoutput;
 	}
@@ -434,7 +434,7 @@ abstract class Funs{
 			return $odata;
 		}
 	}
-	
+
 	public static function wiziqurl($row) {
 		$outpurl = null;
 		if($row["starttime"] + $row["duration"] < time() ){
@@ -460,8 +460,8 @@ abstract class Funs{
 		}
 
 	}
-/* ..... */		
-	public static function mssearch($data) { 
+/* ..... */
+	public static function mssearch($data) {
 		$keys = replacekeys(searchkeysplit($data["search"]),array('6'=>'vi','7'=>'vii','8'=>'viii','9'=>'ix','10'=>'x','11'=>'xi','12'=>'xii',"maths"=>"math"));
 		$params=array();
 		foreach($keys as $i => $val) {
@@ -482,37 +482,37 @@ abstract class Funs{
 			return "concat('-',jsoninfo,'-') like concat('%', "."'".'"home":"'.(1+$inp).'"'."'".", '%')";
 		}));
 		$pincode_constrain = ($data['pincode']==''?'true':"concat('-',jsoninfo,'-') like concat('%', "."'".'"zipcode":"'.($data["pincode"]).'"'."'".", '%')");
-		
+
 		mergeifunset($params, Fun::getflds(array("class", "subject", "topic","home","pincode","timeslotbooked","topicsadded"), $data));
-		
+
 		$relv_query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where ( s_id in (select id from all_subjects where subjectname=(select subjectname from all_subjects where id='".$params['subject']."'))) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")";
-		
+
 		if($params["topicsadded"]==0 ) {
-			$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")"; // this query gives results with teachers has  class ,subject ,topic booked or not (all) : Yogy 			
+			$query1 = "select distinct tid from ".qtable("teachersubjectlist")." left join users on users.id = teachersubjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")"; // this query gives results with teachers has  class ,subject ,topic booked or not (all) : Yogy
 		} else if($params["topicsadded"]==2 ) {
-			$query1 = "select distinct tid from teachers where tid NOT IN (select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"]."))"; // this query gives results with teachers has no class ,subject ,topic booked : Yogy	
+			$query1 = "select distinct tid from teachers where tid NOT IN (select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"]."))"; // this query gives results with teachers has no class ,subject ,topic booked : Yogy
 		} else {
 			$query1 = "select distinct tid from ".qtable("subjectlist")." left join users on users.id = subjectlist.tid where (c_id={class} or ".tf($data["class"] == "")." ) AND ( s_id={subject} or ".tf($data["subject"] == "")."  ) AND ( (".Fun::multichoose($data["topic"], "t_id", true). ") or ".tf( $data["topic"] == "" )."  ) AND ((".Fun::key_search($keys, "classname").") OR (".Fun::key_search($keys, "subjectname").") OR (".Fun::key_search($keys, "topicname").") OR (".Fun::key_search($keys, "users.name").")  ) AND (".$pt_constrain["price"].") AND (".$pt_constrain["timer"].")"; // this query gives results with teachers has class ,subject ,topic booked : Mohit
 		}
 
-		if($params["timeslotbooked"]==0 ) {		
-			$query2 = "select distinct tid from teachers where true";  // gives result without time slot booked  
+		if($params["timeslotbooked"]==0 ) {
+			$query2 = "select distinct tid from teachers where true";  // gives result without time slot booked
 		} else if($params["timeslotbooked"]==2 ){
 			$query2 = "select tid from teachers where tid NOT IN(select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain."))";
 		} else {
 			$query2 = "select distinct tid from timeslot where starttime>".time()." AND (".$timeslot_constrain.")"; // gives result with time slot booked
-		} 
+		}
 		$query4 = "select tid from teachers where (".$home_constrain.")";
 		$query3 = "select tid from teachers where (".$lang_constrain.")";
 		$query5 = "select tid from teachers where (".$pincode_constrain.")";
-					
+
 //		$finalquery = $query1;
 		$relv_finalquery = Fun::intersectionquery(array($relv_query1, $query2, $query3, $query4, $query5), "tid");
 		$finalquery = Fun::intersectionquery(array($query1, $query2, $query3, $query4, $query5), "tid");
 //		echo $finalquery;
 //		$finalquery = "(".$query1.") union (".$query2.") ";
 //		$finalquery = Fun::intersectionquery(array($query1, $query2), "tid");
-//		
+//
 		//print_r($finalquery);
 		return array($finalquery,$params,$relv_finalquery);
 	}
@@ -551,7 +551,7 @@ abstract class Funs{
 		$mail->Port       = 465;                   // set the SMTP port
 
 		$mail->Username   = "getiitians@gmail.com";  // GMAIL username
-		$mail->Password   = "iitdelhi1984";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
+		$mail->Password   = "5812himanshu";            // GMAIL password, Some times if two step varification enabled in this mail id, Mail will not be sent.
 
 		$mail->From       = "getiitians@gmail.com";
 		$mail->FromName   = "getIITians";
@@ -581,9 +581,9 @@ abstract class Funs{
 
 		foreach ($_ginfo['teacherJsoninfolist'] as $key1 => $value1) {
 			if(isset($jsonArray[$value1]) || isset($row[$value1])) {
-				if(isset($jsonArray[$value1])) 
+				if(isset($jsonArray[$value1]))
 					$field=$jsonArray;
-				else 
+				else
 					$field=$row;
 				$subArray=array();
 				$count=count($_ginfo['encodeddataofteacherstable'][$value1]);
@@ -594,7 +594,7 @@ abstract class Funs{
 						if($field[$str]!='')
 							$subArray[]=htmlspecialchars($field[$str]);
 					}
-					else 
+					else
 						$subArray[]=$_ginfo['encodeddataofteacherstable'][$value1][$value-1];
 				}
 				$name=$value1.'_name';
